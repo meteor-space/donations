@@ -16,7 +16,8 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    'source/namespace.js'
+    'source/namespace.js',
+    'source/domain_events.js'
   ], ['client', 'server']);
 
 });

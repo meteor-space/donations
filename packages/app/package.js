@@ -28,7 +28,8 @@ Package.onUse(function(api) {
     'space:messaging@2.1.0',
     'space:event-sourcing@2.1.0',
     'space:flux@0.6.0',
-    'donations:base'
+    'donations:base',
+    'donations:domain'
   ]);
 
   // SERVER Configuration

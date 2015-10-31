@@ -1,1 +1,1 @@
-Donations = {};
+this.Donations = {};

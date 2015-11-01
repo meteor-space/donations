@@ -1,7 +1,7 @@
-Donations.App = Space.Application.create('Donations.App', {
+Donations.App = Space.Application.define('Donations.App', {
 
-  Configuration: {},
+  Configuration: { appId: 'Donations.App'},
 
-  RequiredModules: []
+  RequiredModules: ['Donations.domain']
 
 });

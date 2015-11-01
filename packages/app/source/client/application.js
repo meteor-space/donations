@@ -1,4 +1,4 @@
-Donations.App = Space.flux.Application.create('Donations.App', {
+Donations.App = Space.flux.Application.define('Donations.App', {
 
   Configuration: {},
 

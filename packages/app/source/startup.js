@@ -1,3 +1,4 @@
 Meteor.startup(function(){
-  Donations.App.start();
+  App = new Donations.App();
+  App.start();
 });

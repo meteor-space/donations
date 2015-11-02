@@ -17,17 +17,9 @@ Package.onUse(function(api) {
     'donations:base'
   ]);
 
-  // MODULES
-  api.addFiles(['source/server/module.js'], 'server');
-
-  // SHARED
   api.addFiles([
-    'source/shared/commands.js',
-  ]);
-
-  // SERVER only
-  api.addFiles([
-
+    'source/server/module.js',
+    'source/server/commands.js'
   ], 'server');
 
 });

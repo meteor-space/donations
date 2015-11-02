@@ -3,6 +3,6 @@ sudo: required
 node_js:
 - "0.10"
 env:
-- WORKING_DIR='./packages' PACKAGES=''
+- WORKING_DIR='./packages' PACKAGES='app;base;domain'
 before_install:
 - "curl -L http://git.io/vlgSX | /bin/sh"

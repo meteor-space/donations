@@ -13,6 +13,8 @@ Package.onUse(function(api) {
   api.use([
     'check',
     'space:messaging@2.1.0',
+    'space:vo-user@0.1.0',
+    'space:vo-i18n@0.1.0',
   ]);
 
   // SHARED
@@ -22,7 +24,8 @@ Package.onUse(function(api) {
 
   // SERVER ONLY
   api.addFiles([
-    'source/server/events.js'
+    'source/server/value-objects/contact.js',
+    'source/server/events.js',
     'source/server/commands.js'
   ], 'server');
 

@@ -13,12 +13,17 @@ Package.onUse(function(api) {
   api.use([
     'mongo',
     'check',
+    'space:vo-user@0.1.0',
+    'space:vo-i18n@0.1.0',
     'space:event-sourcing@2.1.0',
     'donations:base'
   ]);
 
   api.addFiles([
     'source/server/module.js',
+    // ORGANIZATIONS
+    'source/server/organizations/organization.js',
+    'source/server/organizations/organization-router.js',
   ], 'server');
 
 });
@@ -28,9 +33,17 @@ Package.onTest(function(api) {
 
   api.use([
     'mongo',
+    'underscore',
+    'space:testing@2.0.0',
+    'space:vo-user',
+    'space:vo-i18n',
+    'donations:base',
     'donations:domain',
     'practicalmeteor:munit@2.1.5',
-    'space:testing@2.0.0',
   ]);
+
+  api.addFiles([
+    'tests/organizations/organization.tests.js'
+  ], 'server');
 
 });

@@ -23,6 +23,7 @@ Package.onUse(function(api) {
   // SERVER ONLY
   api.addFiles([
     'source/server/events.js'
+    'source/server/commands.js'
   ], 'server');
 
   api.export('Donations');

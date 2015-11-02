@@ -1,1 +1,1 @@
-this.Donations = {};
+Donations = Space.namespace('Donations');

@@ -20,4 +20,6 @@ Package.onUse(function(api) {
     'source/domain_events.js'
   ], ['client', 'server']);
 
+  api.export('Donations');
+
 });

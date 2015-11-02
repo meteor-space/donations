@@ -13,12 +13,17 @@ Package.onUse(function(api) {
   api.use([
     'check',
     'space:messaging@2.1.0',
-  ], ['client', 'server']);
+  ]);
 
+  // SHARED
   api.addFiles([
     'source/namespace.js',
-    'source/domain_events.js'
-  ], ['client', 'server']);
+  ]);
+
+  // SERVER ONLY
+  api.addFiles([
+    'source/server/events.js'
+  ], 'server');
 
   api.export('Donations');
 

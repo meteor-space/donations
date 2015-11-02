@@ -18,7 +18,6 @@ Package.onUse(function(api) {
   ]);
 
   // MODULES
-  api.addFiles(['source/client/module.js'], 'client');
   api.addFiles(['source/server/module.js'], 'server');
 
   // SHARED

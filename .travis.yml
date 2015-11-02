@@ -3,7 +3,6 @@ sudo: required
 node_js:
 - "0.10"
 env:
-- WORKING_DIR='./packages'
-- PACKAGES=''
+- WORKING_DIR='./packages' PACKAGES=''
 before_install:
 - "curl -L http://git.io/ejPSng | /bin/sh"

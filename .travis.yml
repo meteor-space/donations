@@ -5,4 +5,7 @@ node_js:
 env:
 - WORKING_DIR='./packages' PACKAGES='./app;./base;./domain'
 before_install:
-- "curl -L http://git.io/vlgSX | /bin/sh"
+- /bin/sh .ci-setup.sh
+test:
+- /bin/sh .ci-run.sh
+.PHONY: test

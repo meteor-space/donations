@@ -5,7 +5,7 @@ node_js:
 env:
 - WORKING_DIR='./packages' PACKAGES='./app;./base;./domain'
 before_install:
-- /bin/sh .ci-setup.sh
+- /bin/sh ./ci-setup.sh
 test:
-- /bin/sh .ci-run.sh
+- /bin/sh ./ci-run.sh
 .PHONY: test

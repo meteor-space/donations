@@ -11,6 +11,6 @@ dependencies:
     - mgp
 test:
   pre:
-    - source ./environment.sh
+    - ./environment.sh
   override:
     - spacejam test-packages donations:domain

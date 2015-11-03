@@ -1,6 +1,0 @@
-language: node_js
-sudo: required
-node_js: "0.10"
-env: WORKING_DIR='./packages' PACKAGES='./app;./base;./domain'
-install: /bin/sh ./ci-install.sh
-script: /bin/sh ./ci-run.sh

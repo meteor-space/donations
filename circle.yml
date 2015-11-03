@@ -1,0 +1,16 @@
+machine:
+  node:
+    version: 0.10.33
+  pre:
+    - curl https://install.meteor.com | /bin/sh
+dependencies:
+  pre:
+    - npm install -g mgp
+    - npm install -g spacejam
+  override:
+    - mgp
+test:
+  pre:
+    - source ./environment.sh
+  override:
+    - spacejam test-packages donations:domain

@@ -24,6 +24,9 @@ Package.onUse(function(api) {
     // ORGANIZATIONS
     'source/server/organizations/organization.js',
     'source/server/organizations/organization-router.js',
+    // LOCATIONS
+    'source/server/locations/location.js',
+    'source/server/locations/location-router.js',
   ], 'server');
 
 });
@@ -43,7 +46,8 @@ Package.onTest(function(api) {
   ]);
 
   api.addFiles([
-    'tests/organizations/organization.tests.js'
+    'tests/organizations/organization.tests.js',
+    'tests/locations/location.tests.js'
   ], 'server');
 
 });

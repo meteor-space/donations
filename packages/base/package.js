@@ -25,6 +25,7 @@ Package.onUse(function(api) {
   // SERVER ONLY
   api.addFiles([
     'source/server/value-objects/contact.js',
+    'source/server/value-objects/address.js',
     'source/server/events.js',
     'source/server/commands.js'
   ], 'server');

@@ -26,5 +26,9 @@
   "space:vo-user": {
     "git":"https://github.com/meteor-space/vo-user.git",
     "version": "93d0e574a13c76a6522035ad7e0e9a9be7db5b15"
+  },
+  "space:vo-numeral": {
+    "git":"https://github.com/meteor-space/vo-numeral.git",
+    "version": "8ee4bf26b631ba84ff81a6c23817b5858f83d81a"
   }
 }

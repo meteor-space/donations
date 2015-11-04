@@ -11,6 +11,14 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     organizationId: Guid,
     address: Donations.Address,
     contact: Donations.Contact
+  },
+
+  AppealMade: {
+    title: String,
+    quantity: Quantity,
+    organizationId: Guid,
+    locationId: Guid,
+    description: Match.Optional(String)
   }
 
 });

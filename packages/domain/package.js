@@ -15,6 +15,7 @@ Package.onUse(function(api) {
     'check',
     'space:vo-user@0.1.0',
     'space:vo-i18n@0.1.0',
+    'space:vo-numeral@0.1.0',
     'space:event-sourcing@2.1.0',
     'donations:base'
   ]);
@@ -27,6 +28,9 @@ Package.onUse(function(api) {
     // LOCATIONS
     'source/server/locations/location.js',
     'source/server/locations/location-router.js',
+    // APPEALS
+    'source/server/appeals/appeal.js',
+    'source/server/appeals/appeal-router.js',
   ], 'server');
 
 });
@@ -40,6 +44,7 @@ Package.onTest(function(api) {
     'space:testing@2.0.0',
     'space:vo-user',
     'space:vo-i18n',
+    'space:vo-numeral',
     'donations:base',
     'donations:domain',
     'practicalmeteor:munit@2.1.5',
@@ -47,7 +52,8 @@ Package.onTest(function(api) {
 
   api.addFiles([
     'tests/organizations/organization.tests.js',
-    'tests/locations/location.tests.js'
+    'tests/locations/location.tests.js',
+    'tests/appeals/appeal.tests.js'
   ], 'server');
 
 });

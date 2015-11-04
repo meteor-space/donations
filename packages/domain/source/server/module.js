@@ -4,7 +4,8 @@ Donations.domain = Space.Module.define('Donations.domain', {
 
   Singletons: [
     'Donations.OrganizationRouter',
-    'Donations.LocationRouter'
+    'Donations.LocationRouter',
+    'Donations.AppealRouter'
   ]
 
 });

@@ -24,9 +24,9 @@ Package.onUse(function(api) {
 
   // SERVER ONLY
   api.addFiles([
-    'source/server/value-objects/contact.js',
-    'source/server/events.js',
-    'source/server/commands.js'
+    'source/server/lib/value-objects/contact.js',
+    'source/server/lib/events.js',
+    'source/server/lib/commands.js'
   ], 'server');
 
   api.export('Donations');

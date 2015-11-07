@@ -1,6 +1,9 @@
 describe("Donations.Appeal", function () {
 
   beforeEach(function () {
+
+    // ========== TEST DATA ============
+
     this.appealId = new Guid();
     this.pledgeId = new Guid();
     this.appealData = {
@@ -18,10 +21,25 @@ describe("Donations.Appeal", function () {
         phone: '+43 4493 454'
       })
     };
+
+    // ======== PREPARED DOMAIN EVENTS =========
+
     this.appealMade = new Donations.AppealMade(_.extend({}, this.appealData, {
       sourceId: this.appealId,
       version: 1
     }));
+    this.fulfillingPledgeMade = new Donations.PledgeMade(_.extend({}, this.pledgeData, {
+      sourceId: this.appealId,
+      timestamp: new Date(),
+      version: 2,
+      quantity: this.appealData.requiredQuantity,
+    }));
+    this.appealFulfilled = new Donations.AppealFulfilled({
+      sourceId: this.appealId,
+      timestamp: new Date(),
+      version: 2
+    });
+
   });
 
   describe("adding an appeal to a org location", function () {
@@ -34,13 +52,7 @@ describe("Donations.Appeal", function () {
           targetId: this.appealId
         }))
       )
-      .expect([
-        new Donations.AppealMade(_.extend({}, this.appealData, {
-          sourceId: this.appealId,
-          timestamp: new Date(),
-          version: 1
-        }))
-      ]);
+      .expect([this.appealMade]);
     });
 
   });
@@ -81,20 +93,23 @@ describe("Donations.Appeal", function () {
             quantity: this.appealData.requiredQuantity
           }))
         )
-        .expect([
-          new Donations.PledgeMade(_.extend({}, this.pledgeData, {
-            sourceId: this.appealId,
-            timestamp: new Date(),
-            version: 2,
-            quantity: this.appealData.requiredQuantity,
-          })),
-          new Donations.AppealFulfilled({
-            sourceId: this.appealId,
-            timestamp: new Date(),
-            version: 2
-          })
-        ]);
+        .expect([this.fulfillingPledgeMade, this.appealFulfilled]);
       });
+
+      it("does not allow additional pledges after fulfillment", function () {
+        Donations.domain.test(Donations.Appeal)
+        .given([
+          this.appealMade, this.fulfillingPledgeMade, this.appealFulfilled
+        ])
+        .when(
+          new Donations.MakePledge(_.extend({}, this.pledgeData, {
+            targetId: this.appealId,
+            quantity: new Quantity(1)
+          }))
+        )
+        .expectToFailWith(new Donations.AppealIsAlreadyFulfilledError());
+      });
+
     });
   });
 

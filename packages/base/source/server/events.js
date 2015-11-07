@@ -26,6 +26,6 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     donor: Donations.Contact
   },
 
-  AppealSuccessful: {}
+  AppealFulfilled: {}
 
 });

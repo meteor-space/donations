@@ -34,7 +34,7 @@ Space.eventSourcing.Aggregate.extend(Donations, 'Appeal', {
     newPledgedQuantity = this.pledgedQuantity.add(command.quantity);
     this.record(new Donations.PledgeMade(this._eventPropsFromCommand(command)));
     if(newPledgedQuantity.equals(this.requiredQuantity)) {
-      this.record(new Donations.AppealSuccessful({ sourceId: this.getId() }));
+      this.record(new Donations.AppealFulfilled({ sourceId: this.getId() }));
     }
   },
 

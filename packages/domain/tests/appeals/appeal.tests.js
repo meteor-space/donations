@@ -41,7 +41,7 @@ describe("Donations.Appeal", function () {
 
   describe("making pledges for an appeal", function () {
 
-    describe("Scenario: appeal is successful", function () {
+    describe("Scenario: fulfilling an appeal", function () {
 
       it("publishes events about the pledge and successful appeal", function () {
         Donations.domain.test(Donations.Appeal)
@@ -65,7 +65,7 @@ describe("Donations.Appeal", function () {
             version: 2,
             quantity: this.appealData.requiredQuantity
           })),
-          new Donations.AppealSuccessful({
+          new Donations.AppealFulfilled({
             sourceId: this.appealId,
             timestamp: new Date(),
             version: 2

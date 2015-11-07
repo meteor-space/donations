@@ -41,9 +41,9 @@ describe("Donations.Appeal", function () {
 
   describe("making pledges for an appeal", function () {
 
-    describe("Scenario: fulfilling an appeal", function () {
+    describe("Scenario: appeal is successful", function () {
 
-      it("publishes events about the pledge and fulfilled appeal", function () {
+      it("publishes events about the pledge and successful appeal", function () {
         Donations.domain.test(Donations.Appeal)
         .given([
           new Donations.AppealMade(_.extend({}, this.appealData, {
@@ -64,7 +64,12 @@ describe("Donations.Appeal", function () {
             timestamp: new Date(),
             version: 2,
             quantity: this.appealData.requiredQuantity
-          }))
+          })),
+          new Donations.AppealSuccessful({
+            sourceId: this.appealId,
+            timestamp: new Date(),
+            version: 2
+          })
         ]);
       });
     });

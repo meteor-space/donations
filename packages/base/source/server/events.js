@@ -24,6 +24,8 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
   PledgeMade: {
     quantity: Quantity,
     donor: Donations.Contact
-  }
+  },
+
+  AppealSuccessful: {}
 
 });

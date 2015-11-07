@@ -15,14 +15,8 @@ Space.eventSourcing.Aggregate.extend(Donations, 'Appeal', {
   },
 
   _makeAppeal: function(command) {
-    this.record(new Donations.AppealMade({
-      sourceId: this.getId(),
-      title: command.title,
-      requiredQuantity: command.requiredQuantity,
-      organizationId: command.organizationId,
-      locationId: command.locationId,
-      description: command.description
-    }));
+    this.record(new Donations.AppealMade(this._eventPropsFromCommand(command)));
+  },
   }
 
 });

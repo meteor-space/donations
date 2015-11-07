@@ -14,13 +14,7 @@ Space.eventSourcing.Aggregate.extend(Donations, 'Location', {
   },
 
   _create: function(command) {
-    this.record(new Donations.LocationAdded({
-      sourceId: this.getId(),
-      name: command.name,
-      organizationId: command.organizationId,
-      address: command.address,
-      contact: command.contact,
-    }));
+    this.record(new Donations.LocationAdded(this._eventPropsFromCommand(command)));
   }
 
 });

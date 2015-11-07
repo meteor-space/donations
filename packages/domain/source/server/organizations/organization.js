@@ -13,12 +13,7 @@ Space.eventSourcing.Aggregate.extend(Donations, 'Organization', {
   },
 
   _createOrganization: function(command) {
-    this.record(new Donations.OrganizationCreated({
-      sourceId: this.getId(),
-      name: command.name,
-      country: command.country,
-      contact: command.contact,
-    }));
+    this.record(new Donations.OrganizationCreated(this._eventPropsFromCommand(command)));
   }
 
 });

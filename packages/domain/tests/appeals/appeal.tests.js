@@ -2,6 +2,7 @@ describe("Donations.Appeal", function () {
 
   beforeEach(function () {
     this.appealId = new Guid();
+    this.pledgeId = new Guid();
     this.appealData = {
       title: 'My Appeal for item X',
       requiredQuantity: new Quantity(10),
@@ -10,12 +11,17 @@ describe("Donations.Appeal", function () {
       description: 'My description for this appeal'
     };
     this.pledgeData = {
+      pledgeId: this.pledgeId,
       donor: new Donations.Contact({
         name: 'Dominik Guzei',
         email: new EmailAddress('dominik@example.com'),
         phone: '+43 4493 454'
       })
     };
+    this.appealMade = new Donations.AppealMade(_.extend({}, this.appealData, {
+      sourceId: this.appealId,
+      version: 1
+    }));
   });
 
   describe("adding an appeal to a org location", function () {
@@ -41,17 +47,34 @@ describe("Donations.Appeal", function () {
 
   describe("making pledges for an appeal", function () {
 
-    describe("Scenario: fulfilling an appeal", function () {
+    describe("Scenario: partially fulfilling an appeal", function () {
 
-      it("publishes events about the pledge and successful appeal", function () {
+      it("publishes events about the pledge made", function () {
         Donations.domain.test(Donations.Appeal)
-        .given([
-          new Donations.AppealMade(_.extend({}, this.appealData, {
+        .given([this.appealMade])
+        .when(
+          new Donations.MakePledge(_.extend({}, this.pledgeData, {
+            targetId: this.appealId,
+            quantity: new Quantity(1)
+          }))
+        )
+        .expect([
+          new Donations.PledgeMade(_.extend({}, this.pledgeData, {
             sourceId: this.appealId,
             timestamp: new Date(),
-            version: 1
-          }))
-        ])
+            version: 2,
+            quantity: new Quantity(1),
+          })),
+        ]);
+      });
+
+    });
+
+    describe("Scenario: fulfilling an appeal", function () {
+
+      it("publishes events about the pledge and fulfilled appeal", function () {
+        Donations.domain.test(Donations.Appeal)
+        .given([this.appealMade])
         .when(
           new Donations.MakePledge(_.extend({}, this.pledgeData, {
             targetId: this.appealId,
@@ -63,7 +86,7 @@ describe("Donations.Appeal", function () {
             sourceId: this.appealId,
             timestamp: new Date(),
             version: 2,
-            quantity: this.appealData.requiredQuantity
+            quantity: this.appealData.requiredQuantity,
           })),
           new Donations.AppealFulfilled({
             sourceId: this.appealId,
@@ -73,7 +96,6 @@ describe("Donations.Appeal", function () {
         ]);
       });
     });
-
   });
 
 });

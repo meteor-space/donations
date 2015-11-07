@@ -15,7 +15,7 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
 
   AppealMade: {
     title: String,
-    quantity: Quantity,
+    requiredQuantity: Quantity,
     organizationId: Guid,
     locationId: Guid,
     description: Match.Optional(String)

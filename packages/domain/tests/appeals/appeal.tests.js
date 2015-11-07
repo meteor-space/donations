@@ -4,7 +4,7 @@ describe("Donations.Appeal", function () {
     this.appealId = new Guid();
     this.data = {
       title: 'My Appeal for item X',
-      quantity: new Quantity(10),
+      requiredQuantity: new Quantity(10),
       organizationId: new Guid(),
       locationId: new Guid(),
       description: 'My description for this appeal'

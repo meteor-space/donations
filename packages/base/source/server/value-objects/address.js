@@ -1,4 +1,4 @@
-Space.messaging.Serializable.extend(Donations, 'Address', {
+Space.domain.ValueObject.extend(Donations, 'Address', {
   // EJSON serializable fields
   fields: function() {
     return {

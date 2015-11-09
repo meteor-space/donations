@@ -1,38 +1,38 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "version": "1f5131cba96fa0bbef6008a151047926b976a3cc"
+    "branch": "feature/add-space-error-class"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
-    "version": "0b10fca45edf6e1d630ba32defa502e28cb9f53b"
+    "branch": "develop"
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
-    "version": "b553743448c67d1ef4426a467ff10e4dfce12806"
+    "branch": "develop"
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",
-    "version": "a564d3195878d1ace1799a45a40d35c77ab26d86"
+    "branch": "feature/align-value-objects-api-with-existing-classes"
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
-    "version": "9bb9c1708fab129e2b65aec4424538c468c46420"
+    "branch": "develop"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
-    "version": "0fa24e0db6fdf26443ec7919d379d0d04166c49c"
+    "branch": "feature/throw-better-error-for-undefined-bdd-sut"
   },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",
-    "version": "2e053a8b23dac3ca7759b4024f1876d338ffaeea"
+    "branch": "develop"
   },
   "space:vo-user": {
     "git":"https://github.com/meteor-space/vo-user.git",
-    "version": "93d0e574a13c76a6522035ad7e0e9a9be7db5b15"
+    "branch": "develop"
   },
   "space:vo-numeral": {
     "git":"https://github.com/meteor-space/vo-numeral.git",
-    "version": "96c7914b92d5ff57cc16ae8b30a9ab18bf435f1f"
+    "branch": "feature/improve-quantity-vo"
   }
 }

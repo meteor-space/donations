@@ -127,6 +127,33 @@ describe("Donations.Appeal", function () {
         .expectToFailWith(new Donations.AppealIsAlreadyFulfilledError());
       });
 
+      it("caps the pledges quantity at the appeal's required quantity", function () {
+        Donations.domain.test(Donations.Appeal)
+        .given([
+          new Donations.AppealMade(_.extend({}, this.appealData, {
+            sourceId: this.appealId,
+            version: 1
+          }))
+        ])
+        .when(
+          new Donations.MakePledge(_.extend({}, this.pledgeData, {
+            targetId: this.appealId,
+            quantity: this.appealData.requiredQuantity.add(1)
+          }))
+        )
+        .expect([
+          new Donations.PledgeMade(_.extend({}, this.pledgeData, {
+            sourceId: this.appealId,
+            version: 2,
+            quantity: this.appealData.requiredQuantity,
+          })),
+          new Donations.AppealFulfilled({
+            sourceId: this.appealId,
+            version: 2
+          })
+        ]);
+      });
+
     });
   });
 

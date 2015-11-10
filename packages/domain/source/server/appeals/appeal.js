@@ -38,12 +38,21 @@ Space.eventSourcing.Aggregate.extend(Donations, 'Appeal', {
   },
 
   _makePledge: function(command) {
+    // Pledges can only be made for open appeals.
     if(this.hasState(this.STATES.fulfilled)) {
       throw new Donations.AppealIsAlreadyFulfilledError();
     }
-    newPledgedQuantity = this.pledgedQuantity.add(command.quantity);
+    // Pledges are capped at the appeal’s required quantity
+    quantity = command.quantity;
+    newPledgedQuantity = this.pledgedQuantity.add(quantity);
+    if(newPledgedQuantity.isMore(this.requiredQuantity)) {
+      quantity = quantity.substract(newPledgedQuantity.delta(this.requiredQuantity));
+      command.quantity = quantity; // Assign capped quantity
+    }
+    pledgedQuantity = this.pledgedQuantity.add(quantity);
     this.record(new Donations.PledgeMade(this._eventPropsFromCommand(command)));
-    if(newPledgedQuantity.equals(this.requiredQuantity)) {
+    // An appeal is fulfilled when the sum of pledged items equals the required quantity.
+    if(pledgedQuantity.equals(this.requiredQuantity)) {
       this.record(new Donations.AppealFulfilled({ sourceId: this.getId() }));
     }
   },

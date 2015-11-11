@@ -4,7 +4,8 @@ Space.eventSourcing.Router.extend(Donations, `AppealRouter`, {
   InitializingCommand: Donations.MakeAppeal,
 
   RouteCommands: [
-    Donations.MakePledge
+    Donations.MakePledge,
+    Donations.MarkPledgeAsFulfilled
   ]
 
 });

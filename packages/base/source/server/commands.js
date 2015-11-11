@@ -25,6 +25,10 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     pledgeId: Guid,
     quantity: Quantity,
     donor: Donations.Contact
+  },
+
+  MarkPledgeAsFulfilled: {
+    pledgeId: Guid
   }
 
 });

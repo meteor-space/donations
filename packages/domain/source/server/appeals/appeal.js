@@ -19,7 +19,8 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
   commandMap() {
     return {
       'Donations.MakeAppeal': this._makeAppeal,
-      'Donations.MakePledge': this._makePledge
+      'Donations.MakePledge': this._makePledge,
+      'Donations.MarkPledgeAsFulfilled': this._markPledgeAsFulfilled
     };
   },
 
@@ -55,6 +56,10 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     if (pledgedQuantity.equals(this.requiredQuantity)) {
       this.record(new Donations.AppealFulfilled({ sourceId: this.getId() }));
     }
+  },
+
+  _markPledgeAsFulfilled(command) {
+    this.record(new Donations.PledgeFulfilled(this._eventPropsFromCommand(command)));
   },
 
   // ============= EVENT HANDLERS =============

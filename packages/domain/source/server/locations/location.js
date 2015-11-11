@@ -1,4 +1,4 @@
-Space.eventSourcing.Aggregate.extend(Donations, 'Location', {
+Space.eventSourcing.Aggregate.extend(Donations, `Location`, {
 
   FIELDS: {
     name: null,

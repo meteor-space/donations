@@ -13,6 +13,7 @@ Package.onUse(function(api) {
   api.use([
     'mongo',
     'check',
+    'ecmascript',
     'space:vo-user@0.1.0',
     'space:vo-i18n@0.1.0',
     'space:vo-numeral@0.1.0',
@@ -31,7 +32,7 @@ Package.onUse(function(api) {
     'source/server/locations/location-router.js',
     // APPEALS
     'source/server/appeals/appeal.js',
-    'source/server/appeals/appeal-router.js',
+    'source/server/appeals/appeal-router.js'
   ], 'server');
 
 });
@@ -42,13 +43,14 @@ Package.onTest(function(api) {
   api.use([
     'mongo',
     'underscore',
+    'ecmascript',
     'space:testing@2.0.0',
     'space:vo-user',
     'space:vo-i18n',
     'space:vo-numeral',
     'donations:base',
     'donations:domain',
-    'practicalmeteor:munit@2.1.5',
+    'practicalmeteor:munit@2.1.5'
   ]);
 
   api.addFiles([

@@ -1,11 +1,11 @@
-Donations.domain = Space.Module.define('Donations.domain', {
+Donations.domain = Space.Module.define(`Donations.domain`, {
 
-  RequiredModules: ['Space.eventSourcing'],
+  RequiredModules: [`Space.eventSourcing`],
 
   Singletons: [
-    'Donations.OrganizationRouter',
-    'Donations.LocationRouter',
-    'Donations.AppealRouter'
+    `Donations.OrganizationRouter`,
+    `Donations.LocationRouter`,
+    `Donations.AppealRouter`
   ]
 
 });

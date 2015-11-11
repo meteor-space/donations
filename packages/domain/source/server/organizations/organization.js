@@ -1,9 +1,9 @@
-Space.eventSourcing.Aggregate.extend(Donations, 'Organization', {
+Space.eventSourcing.Aggregate.extend(Donations, `Organization`, {
 
   FIELDS: {
     name: null,
     country: null,
-    contact: null,
+    contact: null
   },
 
   commandMap: function() {

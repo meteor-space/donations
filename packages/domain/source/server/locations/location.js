@@ -7,13 +7,13 @@ Space.eventSourcing.Aggregate.extend(Donations, `Location`, {
     contact: null
   },
 
-  commandMap: function() {
+  commandMap() {
     return {
       'Donations.AddLocation': this._create
     };
   },
 
-  _create: function(command) {
+  _create(command) {
     this.record(new Donations.LocationAdded(this._eventPropsFromCommand(command)));
   }
 

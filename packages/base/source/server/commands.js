@@ -1,4 +1,4 @@
-Space.messaging.define(Space.messaging.Command, 'Donations', {
+Space.messaging.define(Space.messaging.Command, `Donations`, {
 
   CreateOrganization: {
     name: String,

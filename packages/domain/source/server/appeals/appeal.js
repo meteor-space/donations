@@ -16,14 +16,14 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     closed: `closed`
   },
 
-  commandMap: function() {
+  commandMap() {
     return {
       'Donations.MakeAppeal': this._makeAppeal,
       'Donations.MakePledge': this._makePledge
     };
   },
 
-  eventMap: function() {
+  eventMap() {
     return {
       'Donations.AppealMade': this._handleNewAppeal,
       'Donations.PledgeMade': this._handleNewPledge,
@@ -33,11 +33,11 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   // ============= COMMAND HANDLERS =============
 
-  _makeAppeal: function(command) {
+  _makeAppeal(command) {
     this.record(new Donations.AppealMade(this._eventPropsFromCommand(command)));
   },
 
-  _makePledge: function(command) {
+  _makePledge(command) {
     // Pledges can only be made for open appeals.
     if (this.hasState(this.STATES.fulfilled)) {
       throw new Donations.AppealIsAlreadyFulfilledError();
@@ -59,18 +59,18 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   // ============= EVENT HANDLERS =============
 
-  _handleNewAppeal: function(event) {
+  _handleNewAppeal(event) {
     this._state = this.STATES.open;
     this.requiredQuantity = event.requiredQuantity;
     this.pledgedQuantity = new Quantity(0);
     this.pledges = [];
   },
 
-  _handleNewPledge: function(event) {
+  _handleNewPledge(event) {
     this.pledgedQuantity = this.pledgedQuantity.add(event.quantity);
   },
 
-  _handleAppealFulfilled: function() {
+  _handleAppealFulfilled() {
     this._state = this.STATES.fulfilled;
   }
 

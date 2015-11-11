@@ -1,1 +1,1 @@
-Donations = Space.namespace('Donations');
+Donations = Space.namespace(`Donations`);

@@ -6,13 +6,13 @@ Space.eventSourcing.Aggregate.extend(Donations, `Organization`, {
     contact: null
   },
 
-  commandMap: function() {
+  commandMap() {
     return {
       'Donations.CreateOrganization': this._createOrganization
     };
   },
 
-  _createOrganization: function(command) {
+  _createOrganization(command) {
     this.record(new Donations.OrganizationCreated(this._eventPropsFromCommand(command)));
   }
 

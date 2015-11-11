@@ -1,1 +1,1 @@
-Space.Error.extend(Donations, 'AppealIsAlreadyFulfilledError');
+Space.Error.extend(Donations, `AppealIsAlreadyFulfilledError`);

@@ -1,4 +1,4 @@
-Space.domain.ValueObject.extend(Donations, 'Address', {
+Space.domain.ValueObject.extend(Donations, `Address`, {
   // EJSON serializable fields
   fields() {
     return {

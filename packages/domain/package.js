@@ -14,6 +14,7 @@ Package.onUse(function(api) {
     'mongo',
     'check',
     'ecmascript',
+    'underscore',
     'space:vo-user@0.1.0',
     'space:vo-i18n@0.1.0',
     'space:vo-numeral@0.1.0',
@@ -31,6 +32,7 @@ Package.onUse(function(api) {
     'source/server/locations/location.js',
     'source/server/locations/location-router.js',
     // APPEALS
+    'source/server/appeals/pledge.js',
     'source/server/appeals/appeal.js',
     'source/server/appeals/appeal-router.js'
   ], 'server');

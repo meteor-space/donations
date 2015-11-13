@@ -29,11 +29,11 @@ describe(`Donations.Appeal`, function() {
 
       Donations.domain.test(Donations.Appeal)
       .given()
-      .when(
+      .when([
         new Donations.MakeAppeal(_.extend({}, this.appealData, {
           targetId: this.appealId
         }))
-      )
+      ])
       .expect([
         new Donations.AppealMade(_.extend({}, this.appealData, {
           sourceId: this.appealId,
@@ -130,7 +130,7 @@ describe(`Donations.Appeal`, function() {
             quantity: new Quantity(1)
           }))
         )
-        .expectToFailWith(new Donations.AppealIsAlreadyFulfilledError());
+        .expectToFailWith(new Donations.PledgeCannotBeMadeToFulfilledAppeal());
 
       });
 
@@ -161,7 +161,7 @@ describe(`Donations.Appeal`, function() {
     });
   });
 
-  describe("managing pledges of an appeal", function() {
+  describe(`managing pledges of an appeal`, function() {
 
     let appealWithPledge = function() {
       return [
@@ -177,25 +177,47 @@ describe(`Donations.Appeal`, function() {
       ];
     };
 
-    describe("fulfilling a pledge", function() {
+    describe(`fulfilling a pledge`, function() {
 
       it("publishes the correct event", function() {
         Donations.domain.test(Donations.Appeal)
         .given(appealWithPledge.call(this))
         .when([
-          new Donations.MarkPledgeAsFulfilled({
+          new Donations.AcceptPledge({
+            targetId: this.appealId,
+            pledgeId: this.pledgeId
+          }),
+          new Donations.FulfillPledge({
             targetId: this.appealId,
             pledgeId: this.pledgeId
           })
         ])
         .expect([
-          new Donations.PledgeFulfilled({
+          new Donations.PledgeAccepted({
             sourceId: this.appealId,
             pledgeId: this.pledgeId,
             version: 2
+          }),
+          new Donations.PledgeFulfilled({
+            sourceId: this.appealId,
+            pledgeId: this.pledgeId,
+            version: 3
           })
         ]);
       });
+
+      it(`has to be accepted before it can be fulfilled`, function() {
+        Donations.domain.test(Donations.Appeal)
+        .given(appealWithPledge.call(this))
+        .when([
+          new Donations.FulfillPledge({
+            targetId: this.appealId,
+            pledgeId: this.pledgeId
+          })
+        ])
+        .expectToFailWith(new Donations.PledgeHasToBeAcceptedBeforeFulfilled());
+      });
+
     });
   });
 });

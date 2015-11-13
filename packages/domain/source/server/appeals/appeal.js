@@ -1,34 +1,37 @@
 Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
-  FIELDS: {
-    title: null,
-    requiredQuantity: null,
-    pledgedQuantity: null,
-    organizationId: null,
-    locationId: null,
-    pledges: null,
-    description: `` // optional
-  },
-
   STATES: {
     open: `open`,
     fulfilled: `fulfilled`,
     closed: `closed`
   },
 
+  Fields: {
+    title: String,
+    requiredQuantity: Quantity,
+    pledgedQuantity: Quantity,
+    organizationId: Guid,
+    locationId: Guid,
+    pledges: [Donations.Pledge],
+    description: String // optional
+  },
+
   commandMap() {
     return {
       'Donations.MakeAppeal': this._makeAppeal,
       'Donations.MakePledge': this._makePledge,
-      'Donations.MarkPledgeAsFulfilled': this._markPledgeAsFulfilled
+      'Donations.AcceptPledge': this._acceptPledge,
+      'Donations.FulfillPledge': this._fulfillPledge
     };
   },
 
   eventMap() {
     return {
-      'Donations.AppealMade': this._handleNewAppeal,
-      'Donations.PledgeMade': this._handleNewPledge,
-      'Donations.AppealFulfilled': this._handleAppealFulfilled
+      'Donations.AppealMade': this._onAppealMade,
+      'Donations.PledgeMade': this._onPledgeMade,
+      'Donations.AppealFulfilled': this._onAppealFulfilled,
+      'Donations.PledgeAccepted': this._onPledgeAccepted,
+      'Donations.PledgeFulfilled': this._onPledgeFulfilled
     };
   },
 
@@ -41,7 +44,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
   _makePledge(command) {
     // Pledges can only be made for open appeals.
     if (this.hasState(this.STATES.fulfilled)) {
-      throw new Donations.AppealIsAlreadyFulfilledError();
+      throw new Donations.PledgeCannotBeMadeToFulfilledAppeal();
     }
     // Pledges are capped at the appeal’s required quantity
     quantity = command.quantity;
@@ -58,25 +61,55 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     }
   },
 
-  _markPledgeAsFulfilled(command) {
+  _acceptPledge(command) {
+    this.record(new Donations.PledgeAccepted(this._eventPropsFromCommand(command)));
+  },
+
+  _fulfillPledge(command) {
     this.record(new Donations.PledgeFulfilled(this._eventPropsFromCommand(command)));
   },
 
   // ============= EVENT HANDLERS =============
 
-  _handleNewAppeal(event) {
-    this._state = this.STATES.open;
-    this.requiredQuantity = event.requiredQuantity;
+  _onAppealMade(event) {
+    this._assignFields(event);
     this.pledgedQuantity = new Quantity(0);
     this.pledges = [];
+    this._state = this.STATES.open;
   },
 
-  _handleNewPledge(event) {
+  _onPledgeMade(event) {
     this.pledgedQuantity = this.pledgedQuantity.add(event.quantity);
+    this.pledges.push(new Donations.Pledge(event.pledgeId));
   },
 
-  _handleAppealFulfilled() {
+  _onAppealFulfilled() {
     this._state = this.STATES.fulfilled;
+  },
+
+  _onPledgeAccepted(event) {
+    this._getPledgeById(event.pledgeId).accept();
+  },
+
+  _onPledgeFulfilled(event) {
+    this._getPledgeById(event.pledgeId).fulfill();
+  },
+
+  // =========== PRIVATE HELPERS ===========
+
+  _getPledgeById(id) {
+    let foundPledge = null;
+    for (let pledge of this.pledges) {
+      if (pledge.getId().equals(id)) {
+        foundPledge = pledge;
+      }
+    }
+    if (foundPledge === null) {
+      throw new Donations.PledgeNotFoundError(id);
+    }
+    return foundPledge;
   }
 
 });
+
+Donations.Appeal.registerSnapshotType('Donations.AppealSnapshot');

@@ -1,9 +1,9 @@
 Space.eventSourcing.Aggregate.extend(Donations, `Organization`, {
 
-  FIELDS: {
-    name: null,
-    country: null,
-    contact: null
+  Fields: {
+    name: String,
+    country: Country,
+    contact: Donations.Contact
   },
 
   commandMap() {
@@ -12,8 +12,20 @@ Space.eventSourcing.Aggregate.extend(Donations, `Organization`, {
     };
   },
 
+  eventMap() {
+    return {
+      'Donations.OrganizationCreated': this._onOrganizationCreated
+    };
+  },
+
   _createOrganization(command) {
     this.record(new Donations.OrganizationCreated(this._eventPropsFromCommand(command)));
+  },
+
+  _onOrganizationCreated(event) {
+    this._assignFields(event);
   }
 
 });
+
+Donations.Organization.registerSnapshotType('Donations.OrganizationSnapshot');

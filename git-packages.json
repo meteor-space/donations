@@ -9,7 +9,7 @@
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
-    "branch": "develop"
+    "branch": "43caf952f1530c55e0e6e52575bf5d68054d314b"
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",
@@ -33,6 +33,6 @@
   },
   "space:vo-numeral": {
     "git":"https://github.com/meteor-space/vo-numeral.git",
-    "branch": "feature/improve-quantity-vo"
+    "branch": "develop"
   }
 }

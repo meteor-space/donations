@@ -1,8 +1,8 @@
 Donations.domain = Space.Module.define(`Donations.domain`, {
 
-  RequiredModules: [`Space.eventSourcing`],
+  requiredModules: [`Space.eventSourcing`],
 
-  Singletons: [
+  singletons: [
     `Donations.OrganizationRouter`,
     `Donations.LocationRouter`,
     `Donations.AppealRouter`

@@ -6,7 +6,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     closed: `closed`
   },
 
-  Fields: {
+  fields: {
     title: String,
     requiredQuantity: Quantity,
     pledgedQuantity: Quantity,

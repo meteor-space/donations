@@ -1,4 +1,4 @@
-Space.messaging.define(Space.messaging.Command, 'Donations', {
+Space.messaging.define(Space.messaging.Command, `Donations`, {
 
   CreateOrganization: {
     name: String,
@@ -15,10 +15,24 @@ Space.messaging.define(Space.messaging.Command, 'Donations', {
 
   MakeAppeal: {
     title: String,
-    quantity: Quantity,
+    requiredQuantity: Quantity,
     organizationId: Guid,
     locationId: Guid,
     description: Match.Optional(String)
+  },
+
+  MakePledge: {
+    pledgeId: Guid,
+    quantity: Quantity,
+    donor: Donations.Contact
+  },
+
+  AcceptPledge: {
+    pledgeId: Guid
+  },
+
+  FulfillPledge: {
+    pledgeId: Guid
   }
 
 });

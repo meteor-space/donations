@@ -1,38 +1,38 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "version": "9ffa935061ed85e9958a1810f77f57932a0cb60a"
+    "branch": "fix/remaining-camel-case-api-changes"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
-    "version": "0b10fca45edf6e1d630ba32defa502e28cb9f53b"
+    "branch": "chore/update-to-camel-case-api"
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
-    "version": "0e11f5deb22629b698a34abbfc3583fac4465a5c"
+    "version": "develop"
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",
-    "version": "cbe0702b3017204be78e2bcfb28e6d38a16b0c47"
+    "version": "develop"
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
-    "version": "9bb9c1708fab129e2b65aec4424538c468c46420"
+    "version": "develop"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
-    "version": "0fa24e0db6fdf26443ec7919d379d0d04166c49c"
+    "version": "develop"
   },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",
-    "version": "2e053a8b23dac3ca7759b4024f1876d338ffaeea"
+    "version": "develop"
   },
   "space:vo-user": {
     "git":"https://github.com/meteor-space/vo-user.git",
-    "version": "93d0e574a13c76a6522035ad7e0e9a9be7db5b15"
+    "version": "develop"
   },
   "space:vo-numeral": {
     "git":"https://github.com/meteor-space/vo-numeral.git",
-    "version": "8ee4bf26b631ba84ff81a6c23817b5858f83d81a"
+    "version": "develop"
   }
 }

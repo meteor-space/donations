@@ -1,0 +1,12 @@
+@mixin font($weight) {
+  font-family: 'Open Sans', sans-serif;
+  @if $weight == regular {
+    font-weight: 400;
+  }
+  @if $weight == semibold {
+    font-weight: 600;
+  }
+  @if $weight == bold {
+    font-weight: 700;
+  }
+}

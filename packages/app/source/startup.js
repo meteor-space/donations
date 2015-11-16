@@ -1,4 +1,5 @@
-Meteor.startup(function(){
-  App = new Donations.App();
-  App.start();
+Meteor.startup(function() {
+  Donations.app = new Donations.App();
+  Donations.app.start();
+  FlowRouter.initialize();
 });

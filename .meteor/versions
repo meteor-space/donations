@@ -28,6 +28,7 @@ ejson@1.0.7
 es5-shim@4.1.14
 fastclick@1.0.7
 fongandrew:find-and-modify@0.2.1
+fourseven:scss@3.4.1
 geojson-utils@1.0.4
 hot-code-push@1.0.0
 html-tools@1.0.5
@@ -35,6 +36,7 @@ htmljs@1.0.5
 http@1.1.1
 id-map@1.0.4
 jquery@1.11.4
+juliancwirko:zf5@2.0.2
 kadira:blaze-layout@2.1.0
 launch-screen@1.0.4
 livedata@1.0.15
@@ -66,10 +68,14 @@ reload@1.1.4
 retry@1.0.4
 routepolicy@1.0.6
 session@1.1.1
-space:base@3.1.1
+space:base@3.2.1
+space:domain@0.1.0
 space:event-sourcing@2.1.0
 space:flux@0.6.1
-space:messaging@2.1.1
+space:messaging@2.1.0
+space:vo-i18n@0.1.0
+space:vo-numeral@0.1.0
+space:vo-user@0.2.1
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 standard-minifiers@1.0.2

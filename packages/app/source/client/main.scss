@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@import "{juliancwirko:zf5}/scss/normalize";
+// Settings
+@import "styles/settings/all";
+// Foundation imports
+@import "{juliancwirko:zf5}/scss/foundation/components/grid";
+@import "{juliancwirko:zf5}/scss/foundation/components/buttons.scss";
+// Layouts
+@import "layouts/standard-layout";
+// Pages
+@import "pages/landing-page/landing-page";

@@ -4,4 +4,5 @@ Donations.App = Space.Application.define('Donations.App', {
 
   RequiredModules: ['Donations.domain']
 
+
 });

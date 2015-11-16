@@ -20,10 +20,12 @@ Package.onUse(function(api) {
     'session',
     'check',
     'reactive-dict',
+    'ecmascript',
     'peerlibrary:blaze-components@0.15.0',
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
     'meteorhacks:subs-manager@1.6.2',
+    'juliancwirko:zf5@2.0.2',
     'space:base@3.1.0',
     'space:messaging@2.1.0',
     'space:event-sourcing@2.1.0',
@@ -32,13 +34,41 @@ Package.onUse(function(api) {
     'donations:domain'
   ]);
 
-  // SERVER Configuration
+  // SERVER
   api.addFiles([
     'source/server/application.js'
   ], 'server');
 
-  // CLIENT Configuration
+  // ASSETS
+  api.addAssets([
+    'source/client/pages/landing-page/images/donations-icon.svg',
+    'source/client/pages/landing-page/images/find-org-icon.svg',
+    'source/client/pages/landing-page/images/deliver-icon.svg',
+    'source/client/pages/landing-page/images/receive-icon.svg',
+    'source/client/pages/landing-page/images/request-icon.svg'
+  ], 'client');
+
+  // CLIENT
   api.addFiles([
+    // STYLES
+    'source/client/styles/settings/_fonts.scss',
+    'source/client/styles/settings/_colors.scss',
+    'source/client/styles/settings/_foundation.scss',
+    'source/client/styles/settings/_all.scss',
+    'source/client/main.scss',
+    // LAYOUTS
+    'source/client/layouts/head.html',
+    'source/client/layouts/standard-layout.html',
+    'source/client/layouts/_standard-layout.scss',
+    // PAGES
+    'source/client/pages/landing-page/landing-page.html',
+    'source/client/pages/landing-page/_landing-page.scss',
+    // CONTROLLERS
+    'source/client/controllers/route-controller.js',
+    'source/client/controllers/layout-controller.js',
+    // APP
+    'source/client/events.js',
+    'source/client/router.js',
     'source/client/application.js'
   ], 'client');
 

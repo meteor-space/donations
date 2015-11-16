@@ -1,13 +1,21 @@
-Donations.App = Space.flux.Application.define('Donations.App', {
+Space.flux.Application.extend(Donations, 'App', {
 
-  Configuration: {},
+  configuration: {},
 
-  RequiredModules: [],
+  requiredModules: [],
 
-  Stores: [],
+  stores: [],
 
-  Controllers: [],
+  controllers: [
+    'Donations.RouteController',
+    'Donations.LayoutController'
+  ],
 
-  Components: []
+  components: [],
+
+  onInitialize() {
+    this.injector.map('Layout').to(BlazeLayout);
+    this.injector.map('Router').to(FlowRouter);
+  }
 
 });

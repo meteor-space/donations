@@ -1,11 +1,20 @@
 @charset "UTF-8";
 @import "{juliancwirko:zf5}/scss/normalize";
+
 // Settings
-@import "styles/settings/all";
+@import "styles/settings/colors";
+@import "styles/settings/foundation";
+@import "styles/mixins/font";
+@import "styles/mixins/headline";
+
 // Foundation imports
 @import "{juliancwirko:zf5}/scss/foundation/components/grid";
 @import "{juliancwirko:zf5}/scss/foundation/components/buttons.scss";
+@import "{juliancwirko:zf5}/scss/foundation/components/forms.scss";
+
 // Layouts
 @import "layouts/standard-layout";
+
 // Pages
-@import "pages/landing-page/landing-page";
+@import "pages/index/landing-page";
+@import "pages/register/registration-form";

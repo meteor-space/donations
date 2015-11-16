@@ -1,0 +1,33 @@
+#registration-form {
+
+  @include grid-row();
+
+  header {
+    text-align: center;
+  }
+
+  h1 {
+    @include headline();
+    margin-bottom: 2em;
+  }
+
+  form {
+    @include grid-column(
+      $columns: $total-columns / 2,
+      $center: true
+    )
+  }
+
+  .org-name {
+    @include grid-column($columns:8);
+  }
+
+  .org-country {
+    @include grid-column($columns:4);
+  }
+
+  .submit {
+    float: right;
+  }
+
+}

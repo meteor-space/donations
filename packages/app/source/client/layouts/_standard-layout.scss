@@ -1,9 +1,15 @@
 body, html {
   @include font(normal);
+  height: 100%;
+}
+
+#__blaze-root {
+  height: 100%;
 }
 
 .page {
   background-color: $color-main;
+  height: 100%;
 
   > header {
     background-color: $color-contrast;

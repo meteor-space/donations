@@ -41,28 +41,36 @@ Package.onUse(function(api) {
 
   // ASSETS
   api.addAssets([
-    'source/client/pages/landing-page/images/donations-icon.svg',
-    'source/client/pages/landing-page/images/find-org-icon.svg',
-    'source/client/pages/landing-page/images/deliver-icon.svg',
-    'source/client/pages/landing-page/images/receive-icon.svg',
-    'source/client/pages/landing-page/images/request-icon.svg'
+    'source/client/pages/index/images/donations-icon.svg',
+    'source/client/pages/index/images/find-org-icon.svg',
+    'source/client/pages/index/images/deliver-icon.svg',
+    'source/client/pages/index/images/receive-icon.svg',
+    'source/client/pages/index/images/request-icon.svg'
   ], 'client');
 
   // CLIENT
   api.addFiles([
     // STYLES
-    'source/client/styles/settings/_fonts.scss',
+    // --> settings
     'source/client/styles/settings/_colors.scss',
     'source/client/styles/settings/_foundation.scss',
-    'source/client/styles/settings/_all.scss',
+    // --> mixins
+    'source/client/styles/mixins/_font.scss',
+    'source/client/styles/mixins/_headline.scss',
     'source/client/main.scss',
     // LAYOUTS
     'source/client/layouts/head.html',
     'source/client/layouts/standard-layout.html',
     'source/client/layouts/_standard-layout.scss',
     // PAGES
-    'source/client/pages/landing-page/landing-page.html',
-    'source/client/pages/landing-page/_landing-page.scss',
+    // --> landing page
+    'source/client/pages/index/landing-page.html',
+    'source/client/pages/index/landing-page.js',
+    'source/client/pages/index/_landing-page.scss',
+    // --> registration form
+    'source/client/pages/register/registration-form.html',
+    'source/client/pages/register/registration-form.js',
+    'source/client/pages/register/_registration-form.scss',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',
@@ -74,7 +82,7 @@ Package.onUse(function(api) {
 
   // Startup
   api.addFiles([
-    'source/startup.js',
+    'source/startup.js'
   ]);
 
 });

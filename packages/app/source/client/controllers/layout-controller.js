@@ -14,23 +14,29 @@ Space.Object.extend(Donations, 'LayoutController', {
     return [{
       'Donations.RouteTriggered': function(event) {
         switch (event.routeName) {
-        case 'landingPage':
-          this.render("standard_layout", { main: "landing_page" });
-          break;
-        default:
+        case 'register': this._renderRegistrationForm(); break;
+        default: this._renderLandingPage();
         }
       }
     }];
   },
 
-  render(layout, sections) {
+  _renderLandingPage() {
+    this._render("standard_layout", { main: "landing_page" });
+  },
+
+  _renderRegistrationForm() {
+    this._render("standard_layout", { main: "registration_form" });
+  },
+
+  _render(layout, sections) {
     this._currentLayout = layout;
     this._.extend(this._currentSections, sections);
     this.layout.render(this._currentLayout, this._currentSections);
   },
 
-  updateSections(sections) {
-    this.render(this._currentLayout, sections);
+  _updateSections(sections) {
+    this._render(this._currentLayout, sections);
   }
 
 });

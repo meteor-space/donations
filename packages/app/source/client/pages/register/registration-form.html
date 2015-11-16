@@ -1,0 +1,36 @@
+<template name="registration_form">
+<div id="registration-form">
+
+  <header>
+    <h1>Registriere deine Organisation / Initiative</h1>
+  </header>
+
+  <form>
+
+    <div class="org">
+      <label>Name der Organisation / Initiative</label>
+      <input class="org-name" type="text" />
+      <select class="org-country">
+        <option value="AT">Österreich</option>
+        <option value="DE">Deutschland</option>
+      </select>
+    </div>
+
+    <label>Kontakt Email Addresse (für Benachrichtigungen)</label>
+    <input class="contact-email" type="text" />
+
+    <label>AnsprechpartnerIn</label>
+    <input class="contact-name" type="text" />
+
+    <label>Telefonnummer der AnsprechpartnerIn</label>
+    <input class="contact-phone" type="text" />
+
+    <label>Passwort für Login</label>
+    <input class="password" type="password" />
+
+    <button class="submit">Registrieren</button>
+
+  </form>
+
+</div>
+</template>

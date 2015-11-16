@@ -1,4 +1,4 @@
-Space.flux.Application.extend(Donations, 'App', {
+Space.Application.extend(Donations, 'App', {
 
   configuration: {},
 
@@ -11,7 +11,10 @@ Space.flux.Application.extend(Donations, 'App', {
     'Donations.LayoutController'
   ],
 
-  components: [],
+  components: [
+    'Donations.LandingPage',
+    'Donations.RegistrationForm'
+  ],
 
   onInitialize() {
     this.injector.map('Layout').to(BlazeLayout);

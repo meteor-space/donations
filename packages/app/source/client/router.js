@@ -2,7 +2,7 @@
 FlowRouter.wait();
 
 // Generates flow-router routes + generalized action that publishes events
-let generate = function(routeName) {
+let generateRoute = function(routeName) {
   return {
     name: routeName,
     action(params) {
@@ -18,5 +18,5 @@ let generate = function(routeName) {
   };
 };
 
-// INDEX
-FlowRouter.route('/', generate('landingPage'));
+FlowRouter.route('/', generateRoute('landingPage'));
+FlowRouter.route('/register', generateRoute('register'));

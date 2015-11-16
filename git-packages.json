@@ -9,30 +9,30 @@
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
-    "version": "develop"
+    "branch": "develop"
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",
-    "version": "develop"
+    "branch": "develop"
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
-    "version": "develop"
+    "branch": "develop"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
-    "version": "develop"
+    "branch": "develop"
   },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",
-    "version": "develop"
+    "branch": "develop"
   },
   "space:vo-user": {
     "git":"https://github.com/meteor-space/vo-user.git",
-    "version": "develop"
+    "branch": "develop"
   },
   "space:vo-numeral": {
     "git":"https://github.com/meteor-space/vo-numeral.git",
-    "version": "develop"
+    "branch": "develop"
   }
 }

@@ -1,6 +1,6 @@
-Space.domain.ValueObject.extend(Donations, 'Contact', {
+Space.domain.ValueObject.extend(Donations, `Contact`, {
   // EJSON serializable fields
-  fields: function() {
+  fields() {
     return {
       name: String,
       email: EmailAddress,
@@ -10,4 +10,4 @@ Space.domain.ValueObject.extend(Donations, 'Contact', {
 });
 
 // Register as EJSON type
-Donations.Contact.type('Donations.Contact');
+Donations.Contact.type(`Donations.Contact`);

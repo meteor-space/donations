@@ -22,7 +22,7 @@ Package.onUse(function(api) {
 
   // SHARED
   api.addFiles([
-    'source/namespace.js'
+    'source/namespace.js',
   ]);
 
   // SERVER ONLY
@@ -30,9 +30,12 @@ Package.onUse(function(api) {
     'source/server/value-objects/contact.js',
     'source/server/value-objects/address.js',
     'source/server/events.js',
-    'source/server/commands.js',
     'source/server/errors.js'
   ], 'server');
+
+  api.addFiles([
+    'source/shared/commands.js'
+  ]);
 
   api.export('Donations');
 

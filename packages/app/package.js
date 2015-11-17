@@ -31,12 +31,15 @@ Package.onUse(function(api) {
     'space:event-sourcing@2.1.0',
     'space:flux@0.6.0',
     'donations:base',
-    'donations:domain'
+    'donations:domain',
+    'space:vo-user@0.1.0',
+    'space:vo-i18n@0.1.0'
   ]);
 
   // SERVER
   api.addFiles([
-    'source/server/application.js'
+    'source/server/application.js',
+    'source/server/organization-api.js'
   ], 'server');
 
   // ASSETS
@@ -91,9 +94,18 @@ Package.onTest(function(api) {
 
   api.use([
     'mongo',
-    'donations:app',
-    'practicalmeteor:munit@2.1.5',
+    'ecmascript',
     'space:testing@2.0.0',
+    'donations:base',
+    'donations:domain',
+    'donations:app',
+    'space:vo-user@0.1.0',
+    'space:vo-i18n@0.1.0',
+    'practicalmeteor:munit@2.1.5',
   ]);
+
+  api.addFiles([
+    'tests/server/organization-api.tests.js'
+  ], 'server');
 
 });

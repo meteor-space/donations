@@ -25,17 +25,17 @@ Package.onUse(function(api) {
     'source/namespace.js',
   ]);
 
+  api.addFiles([
+    'source/shared/value-objects/contact.js',
+    'source/shared/value-objects/address.js',
+    'source/shared/commands.js'
+  ]);
+
   // SERVER ONLY
   api.addFiles([
-    'source/server/value-objects/contact.js',
-    'source/server/value-objects/address.js',
     'source/server/events.js',
     'source/server/errors.js'
   ], 'server');
-
-  api.addFiles([
-    'source/shared/commands.js'
-  ]);
 
   api.export('Donations');
 

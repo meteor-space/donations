@@ -1,8 +1,9 @@
 Donations.App = Space.Application.define('Donations.App', {
 
-  Configuration: { appId: 'Donations.App'},
+  configuration: { appId: 'Donations.App'},
 
-  RequiredModules: ['Donations.domain']
+  requiredModules: ['Donations.domain'],
 
+  singletons: ['Donations.OrganizationApi']
 
 });

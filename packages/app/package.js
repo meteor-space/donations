@@ -21,6 +21,7 @@ Package.onUse(function(api) {
     'check',
     'reactive-dict',
     'ecmascript',
+    'sha',
     'peerlibrary:blaze-components@0.15.0',
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
@@ -30,13 +31,18 @@ Package.onUse(function(api) {
     'space:messaging@2.1.0',
     'space:event-sourcing@2.1.0',
     'space:flux@0.6.0',
+    'space:accounts@0.1.3',
+    'space:accounts-ui@0.2.0',
+    'space:vo-user@0.2.1',
+    'space:vo-i18n@0.1.0',
     'donations:base',
     'donations:domain'
   ]);
 
   // SERVER
   api.addFiles([
-    'source/server/application.js'
+    'source/server/application.js',
+    'source/server/dev-data-setup.js'
   ], 'server');
 
   // ASSETS
@@ -93,7 +99,7 @@ Package.onTest(function(api) {
     'mongo',
     'donations:app',
     'practicalmeteor:munit@2.1.5',
-    'space:testing@2.0.0',
+    'space:testing@2.0.0'
   ]);
 
 });

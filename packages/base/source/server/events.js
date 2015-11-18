@@ -1,5 +1,16 @@
 Space.messaging.define(Space.messaging.Event, `Donations`, {
 
+  RegistrationInitiated: {
+    sourceId: Guid,
+    accountRegistrationId: Guid,
+    accountId: Guid,
+    userId: Guid,
+    name: String,
+    country: Country,
+    contact: Donations.Contact,
+    password: Password
+  },
+
   OrganizationCreated: {
     name: String,
     country: Country,

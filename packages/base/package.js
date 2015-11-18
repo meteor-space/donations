@@ -22,13 +22,14 @@ Package.onUse(function(api) {
 
   // SHARED
   api.addFiles([
-    'source/namespace.js'
+    'source/shared/namespace.js',
+    'source/shared/value-objects/contact.js',
+    'source/shared/value-objects/address.js',
+    'source/shared/api-commands.js'
   ]);
 
   // SERVER ONLY
   api.addFiles([
-    'source/server/value-objects/contact.js',
-    'source/server/value-objects/address.js',
     'source/server/events.js',
     'source/server/commands.js',
     'source/server/errors.js'

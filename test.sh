@@ -3,7 +3,7 @@
 export PACKAGE_DIRS='packages'
 
 if [ "$PORT" ]; then
-  meteor test-packages packages/domain packages/app --port $PORT
+  meteor test-packages packages/domain --port $PORT
 else
-   meteor test-packages packages/domain packages/app
+   meteor test-packages packages/domain
 fi

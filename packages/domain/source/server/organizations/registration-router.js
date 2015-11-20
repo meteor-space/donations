@@ -1,6 +1,6 @@
-Space.eventSourcing.Router.extend(Donations, `OrgRegistrationRouter`, {
+Space.eventSourcing.ProcessRouter.extend(Donations, `OrgRegistrationRouter`, {
 
-  aggregate: Donations.OrgRegistration,
-  initializingCommand: Donations.RegisterOrganization
+  process: Donations.OrgRegistration,
+  initializingMessage: Donations.RegisterOrganization
 
 });

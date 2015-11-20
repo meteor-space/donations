@@ -1,13 +1,11 @@
 
 let createExampleOrg = function() {
 
-  let orgName = 'MyExampleOrg';
-
-  if (Meteor.users.find({ username: orgName }).count() === 0) {
+  if (Meteor.users.find({ username: process.env.EXAMPLE_ORG_EMAIL }).count() === 0) {
 
     Donations.app.send(new Donations.RegisterOrganization({
       targetId: new Guid(),
-      name: orgName,
+      name: 'My Example Organization',
       country: new Country('AT'),
       contact: new Donations.Contact({
         email: new EmailAddress(process.env.EXAMPLE_ORG_EMAIL),

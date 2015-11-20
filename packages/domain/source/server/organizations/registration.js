@@ -1,5 +1,7 @@
 Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
 
+  eventCorrelationProperty: 'orgRegistrationId',
+
   onExtending() {
     this.type('Donations.OrgRegistration');
   },

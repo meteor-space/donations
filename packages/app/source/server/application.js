@@ -6,7 +6,8 @@ Donations.App = Space.Application.define('Donations.App', {
     'Space.accounts',
     'Space.accountsUi',
     'Donations.domain'
-  ]
+  ],
 
+  singletons: ['Donations.OrganizationApi']
 
 });

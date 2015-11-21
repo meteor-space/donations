@@ -31,7 +31,6 @@ Package.onUse(function(api) {
   // SERVER ONLY
   api.addFiles([
     'source/server/events.js',
-    'source/server/commands.js',
     'source/server/errors.js'
   ], 'server');
 

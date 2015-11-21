@@ -8,11 +8,15 @@ let createExampleOrg = function() {
       name: 'My Example Organization',
       country: new Country('AT'),
       contact: new Donations.Contact({
-        email: new EmailAddress(process.env.EXAMPLE_ORG_EMAIL),
+        email: new EmailAddress(
+          Space.getenv('EXAMPLE_ORG_EMAIL', 'test@email.com')
+        ),
         name: 'Dominik Guzei',
         phone: '+43 676 9222862'
       }),
-      password: new Password(SHA256(process.env.EXAMPLE_ORG_PASSWORD))
+      password: new Password(
+        SHA256(Space.getenv('EXAMPLE_ORG_PASSWORD', '1234'))
+      )
     }));
   }
 };

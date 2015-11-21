@@ -9,7 +9,7 @@
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
-    "branch": "feature/event-routing"
+    "branch": "develop"
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",
@@ -25,7 +25,7 @@
   },
   "space:accounts-ui": {
     "git":"https://github.com/meteor-space/accounts-ui.git",
-    "branch": "feature/improve-for-donations-app"
+    "branch": "develop"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",

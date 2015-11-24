@@ -1,11 +1,11 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "branch": "fix/remaining-camel-case-api-changes"
+    "branch": "develop"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
-    "branch": "chore/update-to-camel-case-api"
+    "branch": "develop"
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
@@ -17,6 +17,14 @@
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
+    "branch": "develop"
+  },
+  "space:accounts": {
+    "git":"https://github.com/meteor-space/accounts.git",
+    "branch": "develop"
+  },
+  "space:accounts-ui": {
+    "git":"https://github.com/meteor-space/accounts-ui.git",
     "branch": "develop"
   },
   "space:testing": {

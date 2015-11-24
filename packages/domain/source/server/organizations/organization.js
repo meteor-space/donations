@@ -1,6 +1,6 @@
 Space.eventSourcing.Aggregate.extend(Donations, `Organization`, {
 
-  Fields: {
+  fields: {
     name: String,
     country: Country,
     contact: Donations.Contact

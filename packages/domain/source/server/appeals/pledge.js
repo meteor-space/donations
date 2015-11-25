@@ -3,6 +3,7 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
   STATES: {
     made: `made`,
     accepted: `accepted`,
+    declined: `declined`,
     fulfilled: `fulfilled`
   },
 
@@ -13,6 +14,13 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
 
   accept() {
     this._state = this.STATES.accepted;
+  },
+
+  decline() {
+    if (this._state === this.STATES.fulfilled) {
+      throw new Donations.PledgeCannotBeDeclinedIfFulfilled();
+    }
+    this._state = this.STATES.declined;
   },
 
   fulfill() {

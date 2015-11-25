@@ -219,5 +219,59 @@ describe(`Donations.Appeal`, function() {
       });
 
     });
+
+    describe(`declining a pledge`, function() {
+
+      it("publishes the correct event", function() {
+        Donations.domain.test(Donations.Appeal)
+          .given(appealWithPledge.call(this))
+          .when([
+            new Donations.DeclinePledge({
+              targetId: this.appealId,
+              pledgeId: this.pledgeId
+            })
+          ])
+          .expect([
+            new Donations.PledgeDeclined({
+              sourceId: this.appealId,
+              pledgeId: this.pledgeId,
+              version: 2
+            })
+          ]);
+      });
+
+      it(`cannot decline if already fulfilled`, function() {
+        Donations.domain.test(Donations.Appeal)
+          .given([
+            new Donations.AppealMade(_.extend({}, this.appealData, {
+              sourceId: this.appealId,
+              version: 1
+            })),
+            new Donations.PledgeMade(_.extend({}, this.pledgeData, {
+              sourceId: this.appealId,
+              version: 2,
+              quantity: new Quantity(1)
+            })),
+            new Donations.PledgeAccepted({
+              sourceId: this.appealId,
+              pledgeId: this.pledgeId,
+              version: 3
+            }),
+            new Donations.PledgeFulfilled({
+              sourceId: this.appealId,
+              pledgeId: this.pledgeId,
+              version: 4
+            }),
+          ])
+          .when([
+            new Donations.DeclinePledge({
+              targetId: this.appealId,
+              pledgeId: this.pledgeId
+            })
+          ])
+          .expectToFailWith(new Donations.PledgeCannotBeDeclinedIfFulfilled());
+      });
+
+    });
   });
 });

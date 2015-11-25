@@ -21,6 +21,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.MakeAppeal': this._makeAppeal,
       'Donations.MakePledge': this._makePledge,
       'Donations.AcceptPledge': this._acceptPledge,
+      'Donations.DeclinePledge': this._declinePledge,
       'Donations.FulfillPledge': this._fulfillPledge
     };
   },
@@ -29,9 +30,10 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     return {
       'Donations.AppealMade': this._onAppealMade,
       'Donations.PledgeMade': this._onPledgeMade,
-      'Donations.AppealFulfilled': this._onAppealFulfilled,
       'Donations.PledgeAccepted': this._onPledgeAccepted,
-      'Donations.PledgeFulfilled': this._onPledgeFulfilled
+      'Donations.PledgeDeclined': this._onPledgeDeclined,
+      'Donations.PledgeFulfilled': this._onPledgeFulfilled,
+      'Donations.AppealFulfilled': this._onAppealFulfilled
     };
   },
 
@@ -65,6 +67,10 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     this.record(new Donations.PledgeAccepted(this._eventPropsFromCommand(command)));
   },
 
+  _declinePledge(command) {
+    this.record(new Donations.PledgeDeclined(this._eventPropsFromCommand(command)));
+  },
+
   _fulfillPledge(command) {
     this.record(new Donations.PledgeFulfilled(this._eventPropsFromCommand(command)));
   },
@@ -89,6 +95,10 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _onPledgeAccepted(event) {
     this._getPledgeById(event.pledgeId).accept();
+  },
+
+  _onPledgeDeclined(event) {
+    this._getPledgeById(event.pledgeId).decline();
   },
 
   _onPledgeFulfilled(event) {

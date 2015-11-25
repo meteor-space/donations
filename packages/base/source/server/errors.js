@@ -13,3 +13,9 @@ Space.Error.extend(Donations, `PledgeNotFoundError`, {
     this.message = `No pledge with id ${pledgeId} found.`;
   }
 });
+
+Space.Error.extend(Donations, `PledgeCannotBeDeclinedIfFulfilled`, {
+  message: `A pledge cannot be declined if already fulfilled.`
+});
+
+

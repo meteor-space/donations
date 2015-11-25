@@ -33,6 +33,10 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
     pledgeId: Guid
   },
 
+  PledgeDeclined: {
+    pledgeId: Guid
+  },
+
   PledgeFulfilled: {
     pledgeId: Guid
   }

@@ -1,26 +1,70 @@
 Space.domain.Entity.extend(Donations, 'Pledge', {
 
   STATES: {
-    made: `made`,
+    new: `new`,
     accepted: `accepted`,
-    fulfilled: `fulfilled`
+    declined: `declined`,
+    fulfilled: `fulfilled`,
+    writtenOff: 'writtenOff'
+  },
+
+  fields() {
+    return {
+      id: Guid,
+      donor: Donations.Contact,
+      quantity: Quantity
+    };
   },
 
   Constructor(data) {
     Space.domain.Entity.call(this, data);
-    this._state = this.STATES.made;
+    this._state = this.STATES.new;
+  },
+
+  throwIfCannotBeAccepted() {
+    if (this._state === 'fulfilled') {
+      throw new Donations.FulfilledPledgeCannotBeAccepted();
+    }
+  },
+
+  throwIfCannotBeDeclined() {
+    if (this._state === 'fulfilled') {
+      throw new Donations.FulfilledPledgeCannotBeDeclined();
+    }
+  },
+
+  throwIfCannotBeFulfilled() {
+    if (this._state !== 'accepted') {
+      throw new Donations.PledgeHasToBeAcceptedBeforeFulfilled();
+    }
+  },
+
+  throwIfCannotBeWrittenOff() {
+    if (this._state === 'fulfilled') {
+      throw new Donations.FulfilledPledgeCannotBeWrittenOff();
+    }
   },
 
   accept() {
+    this.throwIfCannotBeAccepted();
     this._state = this.STATES.accepted;
   },
 
+  decline() {
+    this.throwIfCannotBeDeclined();
+    this._state = this.STATES.declined;
+  },
+
   fulfill() {
-    if (this._state !== this.STATES.accepted) {
-      throw new Donations.PledgeHasToBeAcceptedBeforeFulfilled();
-    }
+    this.throwIfCannotBeFulfilled();
     this._state = this.STATES.fulfilled;
+  },
+
+  writeOff() {
+    this.throwIfCannotBeWrittenOff();
+    this._state = this.STATES.writtenOff;
   }
+
 });
 
 Donations.Pledge.type('Donations.Pledge');

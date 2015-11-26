@@ -21,7 +21,10 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.MakeAppeal': this._makeAppeal,
       'Donations.MakePledge': this._makePledge,
       'Donations.AcceptPledge': this._acceptPledge,
-      'Donations.FulfillPledge': this._fulfillPledge
+      'Donations.DeclinePledge': this._declinePledge,
+      'Donations.FulfillPledge': this._fulfillPledge,
+      'Donations.WriteOffPledge': this._writeOffPledge,
+      'Donations.CloseAppeal': this._closeAppeal
     };
   },
 
@@ -29,9 +32,12 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     return {
       'Donations.AppealMade': this._onAppealMade,
       'Donations.PledgeMade': this._onPledgeMade,
-      'Donations.AppealFulfilled': this._onAppealFulfilled,
       'Donations.PledgeAccepted': this._onPledgeAccepted,
-      'Donations.PledgeFulfilled': this._onPledgeFulfilled
+      'Donations.PledgeDeclined': this._onPledgeDeclined,
+      'Donations.PledgeFulfilled': this._onPledgeFulfilled,
+      'Donations.PledgeWrittenOff': this._onPledgeWrittenOff,
+      'Donations.AppealFulfilled': this._onAppealFulfilled,
+      'Donations.AppealClosed': this._onAppealClosed
     };
   },
 
@@ -42,31 +48,87 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
   },
 
   _makePledge(command) {
-    // Pledges can only be made for open appeals.
-    if (this.hasState(this.STATES.fulfilled)) {
-      throw new Donations.PledgeCannotBeMadeToFulfilledAppeal();
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.AppealNotOpenForNewPledges();
     }
-    // Pledges are capped at the appeal’s required quantity
-    quantity = command.quantity;
-    newPledgedQuantity = this.pledgedQuantity.add(quantity);
+    // Pledged quantity is capped at the appeal’s required quantity
+    let quantity = command.quantity;
+    let newPledgedQuantity = this.pledgedQuantity.add(quantity);
     if (newPledgedQuantity.isMore(this.requiredQuantity)) {
       quantity = quantity.substract(newPledgedQuantity.delta(this.requiredQuantity));
       command.quantity = quantity; // Assign capped quantity
     }
-    pledgedQuantity = this.pledgedQuantity.add(quantity);
+    let pledgedQuantity = this.pledgedQuantity.add(quantity);
     this.record(new Donations.PledgeMade(this._eventPropsFromCommand(command)));
-    // An appeal is fulfilled when the sum of pledged items equals the required quantity.
+    // Fulfilled when the sum of pledged items equals the required quantity.
     if (pledgedQuantity.equals(this.requiredQuantity)) {
-      this.record(new Donations.AppealFulfilled({ sourceId: this.getId() }));
+      this.record(new Donations.AppealFulfilled({
+        sourceId: this.getId(),
+        title: this.title,
+        requiredQuantity: this.requiredQuantity,
+        organizationId: this.organizationId,
+        locationId: this.locationId,
+        description: this.description
+      }));
     }
   },
 
   _acceptPledge(command) {
-    this.record(new Donations.PledgeAccepted(this._eventPropsFromCommand(command)));
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.AppealNotOpenToAcceptPledge();
+    }
+    let pledge = this._getPledgeById(command.id);
+    pledge.throwIfCannotBeAccepted();
+    this.record(new Donations.PledgeAccepted(_.extend({ sourceId: this.getId() },
+      pledge.toPlainObject()
+    )));
+  },
+
+  _declinePledge(command) {
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.AppealNotOpenToDeclinePledge();
+    }
+    let pledge = this._getPledgeById(command.id);
+    pledge.throwIfCannotBeDeclined();
+    this.record(new Donations.PledgeDeclined(_.extend({ sourceId: this.getId() },
+      pledge.toPlainObject()
+    )));
   },
 
   _fulfillPledge(command) {
-    this.record(new Donations.PledgeFulfilled(this._eventPropsFromCommand(command)));
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.AppealNotOpenToFulfillPledge();
+    }
+    let pledge = this._getPledgeById(command.id);
+    pledge.throwIfCannotBeFulfilled();
+    this.record(new Donations.PledgeFulfilled(_.extend({ sourceId: this.getId() },
+      this._getPledgeById(command.id).toPlainObject()
+    )));
+  },
+
+  _writeOffPledge(command) {
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.AppealNotOpenToWriteOffPledge();
+    }
+    let pledge = this._getPledgeById(command.id);
+    pledge.throwIfCannotBeWrittenOff();
+    this.record(new Donations.PledgeWrittenOff(_.extend({ sourceId: this.getId() },
+      this._getPledgeById(command.id).toPlainObject()
+    )));
+  },
+
+  _closeAppeal(command) {
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.FulfilledAppealCannotBeClosed();
+    }
+    this.record(new Donations.AppealClosed({
+      sourceId: this.getId(),
+      title: this.title,
+      requiredQuantity: this.requiredQuantity,
+      organizationId: this.organizationId,
+      locationId: this.locationId,
+      description: this.description
+    }));
   },
 
   // ============= EVENT HANDLERS =============
@@ -80,7 +142,11 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _onPledgeMade(event) {
     this.pledgedQuantity = this.pledgedQuantity.add(event.quantity);
-    this.pledges.push(new Donations.Pledge(event.pledgeId));
+    this.pledges.push(new Donations.Pledge({
+      id: event.id,
+      donor: event.donor,
+      quantity: event.quantity
+    }));
   },
 
   _onAppealFulfilled() {
@@ -88,11 +154,23 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
   },
 
   _onPledgeAccepted(event) {
-    this._getPledgeById(event.pledgeId).accept();
+    this._getPledgeById(event.id).accept();
+  },
+
+  _onPledgeDeclined(event) {
+    this._getPledgeById(event.id).decline();
   },
 
   _onPledgeFulfilled(event) {
-    this._getPledgeById(event.pledgeId).fulfill();
+    this._getPledgeById(event.id).fulfill();
+  },
+
+  _onPledgeWrittenOff(event) {
+    this._getPledgeById(event.id).writeOff();
+  },
+
+  _onAppealClosed(event) {
+    this._state = this.STATES.closed;
   },
 
   // =========== PRIVATE HELPERS ===========

@@ -58,19 +58,49 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
   },
 
   PledgeMade: {
-    pledgeId: Guid,
-    quantity: Quantity,
-    donor: Donations.Contact
+    id: Guid,
+    donor: Donations.Contact,
+    quantity: Quantity
   },
 
-  AppealFulfilled: {},
+  AppealFulfilled: {
+    title: String,
+    requiredQuantity: Quantity,
+    organizationId: Guid,
+    locationId: Guid,
+    description: Match.Optional(String)
+  },
 
   PledgeAccepted: {
-    pledgeId: Guid
+    id: Guid,
+    donor: Donations.Contact,
+    quantity: Quantity
+  },
+
+  PledgeDeclined: {
+    id: Guid,
+    donor: Donations.Contact,
+    quantity: Quantity
   },
 
   PledgeFulfilled: {
-    pledgeId: Guid
+    id: Guid,
+    donor: Donations.Contact,
+    quantity: Quantity
+  },
+
+  PledgeWrittenOff: {
+    id: Guid,
+    donor: Donations.Contact,
+    quantity: Quantity
+  },
+
+  AppealClosed: {
+    title: String,
+    requiredQuantity: Quantity,
+    organizationId: Guid,
+    locationId: Guid,
+    description: Match.Optional(String)
   }
 
 });

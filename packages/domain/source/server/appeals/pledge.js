@@ -5,7 +5,7 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
     accepted: `accepted`,
     declined: `declined`,
     fulfilled: `fulfilled`,
-    reneged: 'reneged'
+    writtenOff: 'writtenOff'
   },
 
   fields() {
@@ -39,9 +39,9 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
     }
   },
 
-  throwIfCannotBeReneged() {
+  throwIfCannotBeWrittenOff() {
     if (this._state === 'fulfilled') {
-      throw new Donations.FulfilledPledgeCannotBeReneged();
+      throw new Donations.FulfilledPledgeCannotBeWrittenOff();
     }
   },
 
@@ -60,9 +60,9 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
     this._state = this.STATES.fulfilled;
   },
 
-  reneg() {
-    this.throwIfCannotBeReneged();
-    this._state = this.STATES.reneged;
+  writeOff() {
+    this.throwIfCannotBeWrittenOff();
+    this._state = this.STATES.writtenOff;
   }
 
 });

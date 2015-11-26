@@ -39,7 +39,7 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     id: Guid
   },
 
-  RenegOnPledge: {
+  WriteOffPledge: {
     id: Guid
   },
 

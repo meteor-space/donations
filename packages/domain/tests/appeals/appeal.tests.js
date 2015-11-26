@@ -339,20 +339,20 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    describe(`regeged pledges`, function() {
+    describe(`writing off pledges`, function() {
 
-      it("publishes pledge reneged event", function() {
+      it("publishes pledge written off event", function() {
 
         Donations.domain.test(Donations.Appeal)
           .given(appealWithPledgeMade.call(this))
           .when([
-            new Donations.RenegOnPledge({
+            new Donations.WriteOffPledge({
               targetId: this.appealId,
               id: this.pledgeData.id
             })
           ])
           .expect([
-            new Donations.PledgeReneged(_.extend({}, this.pledgeData, {
+            new Donations.PledgeWrittenOff(_.extend({}, this.pledgeData, {
               sourceId: this.appealId,
               version: 2
             }))
@@ -360,17 +360,17 @@ describe(`Donations.Appeal`, function() {
 
       });
 
-      it(`cannot reneg on if already fulfilled`, function() {
+      it(`cannot write off if already fulfilled`, function() {
 
         Donations.domain.test(Donations.Appeal)
           .given(appealWithFulfilledPledge.call(this))
           .when([
-            new Donations.RenegOnPledge({
+            new Donations.WriteOffPledge({
               targetId: this.appealId,
               id: this.pledgeData.id
             })
           ])
-          .expectToFailWith(new Donations.FulfilledPledgeCannotBeReneged());
+          .expectToFailWith(new Donations.FulfilledPledgeCannotBeWrittenOff());
 
       });
 

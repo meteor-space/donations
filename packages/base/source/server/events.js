@@ -53,7 +53,7 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
     quantity: Quantity
   },
 
-  PledgeReneged: {
+  PledgeWrittenOff: {
     id: Guid,
     donor: Donations.Contact,
     quantity: Quantity

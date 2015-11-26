@@ -23,7 +23,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.AcceptPledge': this._acceptPledge,
       'Donations.DeclinePledge': this._declinePledge,
       'Donations.FulfillPledge': this._fulfillPledge,
-      'Donations.RenegOnPledge': this._renegOnPledge,
+      'Donations.WriteOffPledge': this._writeOffPledge,
       'Donations.CloseAppeal': this._closeAppeal
     };
   },
@@ -35,7 +35,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.PledgeAccepted': this._onPledgeAccepted,
       'Donations.PledgeDeclined': this._onPledgeDeclined,
       'Donations.PledgeFulfilled': this._onPledgeFulfilled,
-      'Donations.PledgeReneged': this._onPledgeReneged,
+      'Donations.PledgeWrittenOff': this._onPledgeWrittenOff,
       'Donations.AppealFulfilled': this._onAppealFulfilled,
       'Donations.AppealClosed': this._onAppealClosed
     };
@@ -106,13 +106,13 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     )));
   },
 
-  _renegOnPledge(command) {
+  _writeOffPledge(command) {
     if (!this.hasState(this.STATES.open)) {
-      throw new Donations.AppealNotOpenToRenegOnPledge();
+      throw new Donations.AppealNotOpenToWriteOffPledge();
     }
     let pledge = this._getPledgeById(command.id);
-    pledge.throwIfCannotBeReneged();
-    this.record(new Donations.PledgeReneged(_.extend({ sourceId: this.getId() },
+    pledge.throwIfCannotBeWrittenOff();
+    this.record(new Donations.PledgeWrittenOff(_.extend({ sourceId: this.getId() },
       this._getPledgeById(command.id).toPlainObject()
     )));
   },
@@ -165,8 +165,8 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     this._getPledgeById(event.id).fulfill();
   },
 
-  _onPledgeReneged(event) {
-    this._getPledgeById(event.id).reneg();
+  _onPledgeWrittenOff(event) {
+    this._getPledgeById(event.id).writeOff();
   },
 
   _onAppealClosed(event) {

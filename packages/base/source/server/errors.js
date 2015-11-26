@@ -11,8 +11,8 @@ Space.Error.extend(Donations, `AppealNotOpenToDeclinePledge`, {
   message: `Appeal not open to decline pledge.`
 });
 
-Space.Error.extend(Donations, `AppealNotOpenToRenegOnPledge`, {
-  message: `Appeal not open to reneg on pledge.`
+Space.Error.extend(Donations, `AppealNotOpenToWriteOffPledge`, {
+  message: `Appeal not open to write off pledge.`
 });
 
 Space.Error.extend(Donations, `PledgeHasToBeAcceptedBeforeFulfilled`, {
@@ -34,8 +34,8 @@ Space.Error.extend(Donations, `FulfilledPledgeCannotBeDeclined`, {
   message: `Fulfilled pledge cannot be declined`
 });
 
-Space.Error.extend(Donations, `FulfilledPledgeCannotBeReneged`, {
-  message: `Fulfilled pledge cannot be reneged`
+Space.Error.extend(Donations, `FulfilledPledgeCannotBeWrittenOff`, {
+  message: `Fulfilled pledge cannot be written off`
 });
 
 Space.Error.extend(Donations, `FulfilledAppealCannotBeClosed`, {

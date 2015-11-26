@@ -22,7 +22,8 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.MakePledge': this._makePledge,
       'Donations.AcceptPledge': this._acceptPledge,
       'Donations.DeclinePledge': this._declinePledge,
-      'Donations.FulfillPledge': this._fulfillPledge
+      'Donations.FulfillPledge': this._fulfillPledge,
+      'Donations.CloseAppeal': this._closeAppeal
     };
   },
 
@@ -33,7 +34,8 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.PledgeAccepted': this._onPledgeAccepted,
       'Donations.PledgeDeclined': this._onPledgeDeclined,
       'Donations.PledgeFulfilled': this._onPledgeFulfilled,
-      'Donations.AppealFulfilled': this._onAppealFulfilled
+      'Donations.AppealFulfilled': this._onAppealFulfilled,
+      'Donations.AppealClosed': this._onAppealClosed
     };
   },
 
@@ -91,6 +93,20 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     )));
   },
 
+  _closeAppeal(command) {
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.FulfilledAppealCannotBeClosed();
+    }
+    this.record(new Donations.AppealClosed({
+      sourceId: this.getId(),
+      title: this.title,
+      requiredQuantity: this.requiredQuantity,
+      organizationId: this.organizationId,
+      locationId: this.locationId,
+      description: this.description
+    }));
+  },
+
   // ============= EVENT HANDLERS =============
 
   _onAppealMade(event) {
@@ -123,6 +139,10 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _onPledgeFulfilled(event) {
     this._getPledgeById(event.id).fulfill();
+  },
+
+  _onAppealClosed(event) {
+    this._state = this.STATES.closed;
   },
 
   // =========== PRIVATE HELPERS ===========

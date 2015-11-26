@@ -22,4 +22,6 @@ Space.Error.extend(Donations, `PledgeCannotBeDeclinedIfFulfilled`, {
   message: `Pledge cannot be declined if fulfilled`
 });
 
-
+Space.Error.extend(Donations, `FulfilledAppealCannotBeClosed`, {
+  message: `Fulfilled appeal cannot be closed`
+});

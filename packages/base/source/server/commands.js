@@ -37,6 +37,8 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
 
   FulfillPledge: {
     id: Guid
-  }
+  },
+
+  CloseAppeal: {}
 
 });

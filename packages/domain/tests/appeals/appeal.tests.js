@@ -45,18 +45,18 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  //let closedAppeal = function () {
-  //  return [
-  //    new Donations.AppealMade(_.extend({}, this.appealData, {
-  //      sourceId: this.appealId,
-  //      version: 1
-  //    })),
-  //    new Donations.AppealClosed(_.extend({}, this.appealData, {
-  //      sourceId: this.appealId,
-  //      version: 2
-  //    }))
-  //  ];
-  //};
+  let closedAppeal = function () {
+    return [
+      new Donations.AppealMade(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 1
+      })),
+      new Donations.AppealClosed(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 2
+      }))
+    ];
+  };
 
   let appealWithPledgeMade = function () {
     return [
@@ -214,14 +214,14 @@ describe(`Donations.Appeal`, function() {
         )
         .expectToFailWith(new Donations.AppealNotOpenForNewPledges());
 
-      //Donations.domain.test(Donations.Appeal)
-      //  .given(closedAppeal.call(this))
-      //  .when(
-      //    new Donations.MakePledge(_.extend({}, this.pledgeData, {
-      //      targetId: this.appealId,
-      //    }))
-      //  )
-      //  .expectToFailWith(new Donations.AppealNotOpenForNewPledges());
+      Donations.domain.test(Donations.Appeal)
+        .given(closedAppeal.call(this))
+        .when(
+          new Donations.MakePledge(_.extend({}, this.pledgeData, {
+            targetId: this.appealId,
+          }))
+        )
+        .expectToFailWith(new Donations.AppealNotOpenForNewPledges());
 
     });
 
@@ -339,4 +339,49 @@ describe(`Donations.Appeal`, function() {
 
     });
   });
+
+  describe(`closing an appeal`, function () {
+
+    it(`closes an open appeal when commanded`, function () {
+
+      Donations.domain.test(Donations.Appeal)
+        .given(openAppeal.call(this))
+        .when(
+          new Donations.CloseAppeal({
+            targetId: this.appealId
+          })
+        )
+        .expect([
+          new Donations.AppealClosed(_.extend({}, this.appealData, {
+            sourceId: this.appealId,
+            version: 2,
+          }))
+        ]);
+
+    });
+
+    it(`throws an error if commanded to close a fulfilled or presently closed appeal`, function () {
+
+      Donations.domain.test(Donations.Appeal)
+        .given(fulfilledAppeal.call(this))
+        .when(
+          new Donations.CloseAppeal({
+            targetId: this.appealId
+          })
+        )
+        .expectToFailWith(new Donations.FulfilledAppealCannotBeClosed());
+
+      Donations.domain.test(Donations.Appeal)
+        .given(closedAppeal.call(this))
+        .when(
+          new Donations.CloseAppeal({
+            targetId: this.appealId
+          })
+        )
+        .expectToFailWith(new Donations.FulfilledAppealCannotBeClosed());
+
+    });
+
+  });
+
 });

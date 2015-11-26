@@ -27,8 +27,7 @@ describe(`Donations.Organization`, function() {
         new Donations.OrganizationCreated(_.extend({}, this.data, {
           sourceId: guid,
           timestamp: new Date(),
-          version: 1,
-          meta: {}
+          version: 1
         }))
       ]);
 

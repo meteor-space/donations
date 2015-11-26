@@ -333,7 +333,7 @@ describe(`Donations.Appeal`, function() {
               id: this.pledgeData.id
             })
           ])
-          .expectToFailWith(new Donations.PledgeCannotBeDeclinedIfFulfilled());
+          .expectToFailWith(new Donations.FulfilledPledgeCannotBeDeclined());
 
       });
 

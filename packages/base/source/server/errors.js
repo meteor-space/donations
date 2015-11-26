@@ -18,8 +18,12 @@ Space.Error.extend(Donations, `PledgeNotFoundError`, {
   }
 });
 
-Space.Error.extend(Donations, `PledgeCannotBeDeclinedIfFulfilled`, {
-  message: `Pledge cannot be declined if fulfilled`
+Space.Error.extend(Donations, `FulfilledPledgeCannotBeAccepted`, {
+  message: `Fulfilled pledge cannot be accepted`
+});
+
+Space.Error.extend(Donations, `FulfilledPledgeCannotBeDeclined`, {
+  message: `Fulfilled pledge cannot be declined`
 });
 
 Space.Error.extend(Donations, `FulfilledAppealCannotBeClosed`, {

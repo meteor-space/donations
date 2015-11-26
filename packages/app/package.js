@@ -22,6 +22,7 @@ Package.onUse(function(api) {
     'reactive-dict',
     'ecmascript',
     'sha',
+    'accounts-password',
     'peerlibrary:blaze-components@0.15.0',
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
@@ -42,7 +43,11 @@ Package.onUse(function(api) {
   // SERVER
   api.addFiles([
     'source/server/application.js',
-    'source/server/dev-data-setup.js'
+    'source/server/dev-data-setup.js',
+    'source/server/apis/org-registration-api.js',
+    'source/server/projections/org-registrations-projection.js',
+    'source/server/projections/org-projection.js',
+    'source/server/publications/org-publication.js'
   ], 'server');
 
   // ASSETS
@@ -69,27 +74,42 @@ Package.onUse(function(api) {
     'source/client/layouts/standard-layout.html',
     'source/client/layouts/_standard-layout.scss',
     // PAGES
+    'source/client/pages/_page.scss',
     // --> landing page
     'source/client/pages/index/landing-page.html',
     'source/client/pages/index/landing-page.js',
     'source/client/pages/index/_landing-page.scss',
+    // --> Org admin page
+    'source/client/pages/org/org-admin-page.html',
+    'source/client/pages/org/org-admin-page.js',
+    // VIEWS
     // --> registration form
-    'source/client/pages/register/registration-form.html',
-    'source/client/pages/register/registration-form.js',
-    'source/client/pages/register/_registration-form.scss',
+    'source/client/views/registration/registration-form.html',
+    'source/client/views/registration/registration-form.js',
+    'source/client/views/registration/_registration-form.scss',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',
+    'source/client/controllers/org-registrations-controller.js',
+    'source/client/controllers/login-controller.js',
+    // STORES
+    'source/client/stores/org-registrations-store.js',
+    'source/client/stores/orgs-store.js',
+    // TRACKERS
+    'source/client/trackers/orgs-tracker.js',
     // APP
     'source/client/events.js',
     'source/client/router.js',
     'source/client/application.js'
   ], 'client');
 
-  // Startup
+  // SHARED
   api.addFiles([
-    'source/startup.js'
+    'source/shared/startup.js',
+    'source/shared/collections/organizations.js'
   ]);
+
+  api.export('Donations');
 
 });
 

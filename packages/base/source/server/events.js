@@ -1,21 +1,44 @@
 Space.messaging.define(Space.messaging.Event, `Donations`, {
 
-  RegistrationInitiated: {
-    sourceId: Guid,
-    accountRegistrationId: Guid,
-    accountId: Guid,
-    userId: Guid,
+  // REGISTRATION
+
+  OrgRegistrationInitiated: {
+    adminId: Guid,
+    organizationId: Guid,
     name: String,
     country: Country,
     contact: Donations.Contact,
     password: Password
   },
 
+  OrgRegistrationRetried: {
+    name: String,
+    country: Country,
+    contact: Donations.Contact,
+    password: Password
+  },
+
+  OrgAdminSignedUp: {
+    adminId: Guid
+  },
+
+  OrgRegistrationFailed: {
+    stage: Match.OneOf('adminSignupFailed', 'orgCreationFailed'),
+    error: Object
+  },
+
+  OrgRegistrationCompleted: {},
+
+  // ORGANIZATIONS
+
   OrganizationCreated: {
+    adminId: Guid,
     name: String,
     country: Country,
     contact: Donations.Contact
   },
+
+  // LOCATIONS
 
   LocationAdded: {
     name: String,
@@ -23,6 +46,8 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
     address: Donations.Address,
     contact: Donations.Contact
   },
+
+  // APPEALS
 
   AppealMade: {
     title: String,

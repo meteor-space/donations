@@ -5,6 +5,13 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     country: Country,
     contact: Donations.Contact,
     password: Password
+  },
+
+  RetryOrgRegistration: {
+    name: String,
+    country: Country,
+    contact: Donations.Contact,
+    password: Password
   }
 
 });

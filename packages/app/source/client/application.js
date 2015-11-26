@@ -1,24 +1,41 @@
 Space.Application.extend(Donations, 'App', {
 
-  configuration: {},
+  configuration: {
+    accountsUi: {
+      requestSignupEvent: 'Donations.OrgRegistrationRequested',
+      initiateSignupCommand: 'Donations.RegisterOrganization',
+      retrySignupCommand: 'Donations.RetryOrgRegistration'
+    }
+  },
 
-  requiredModules: [],
+  requiredModules: ['Space.accountsUi'],
 
-  stores: [],
+  stores: [
+    'Donations.OrgRegistrationsStore',
+    'Donations.OrgsStore'
+  ],
 
   controllers: [
     'Donations.RouteController',
-    'Donations.LayoutController'
+    'Donations.LayoutController',
+    'Donations.OrgRegistrationsController',
+    'Donations.LoginController'
   ],
 
   components: [
     'Donations.LandingPage',
-    'Donations.RegistrationForm'
+    'Donations.OrgRegistrationForm',
+    'Donations.OrgAdminPage'
+  ],
+
+  singletons: [
+    'Donations.OrgsTracker'
   ],
 
   onInitialize() {
     this.injector.map('Layout').to(BlazeLayout);
     this.injector.map('Router').to(FlowRouter);
+    this.injector.map('Donations.Organizations').asStaticValue();
   }
 
 });

@@ -16,5 +16,8 @@
 @import "layouts/standard-layout";
 
 // Pages
+@import "pages/page";
 @import "pages/index/landing-page";
-@import "pages/register/registration-form";
+
+// Views
+@import "views/registration/registration-form";

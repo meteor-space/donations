@@ -1,0 +1,12 @@
+.page {
+  @include grid-row();
+
+  header {
+    text-align: center;
+  }
+
+  h1 {
+    @include headline();
+    margin-bottom: 2em;
+  }
+}

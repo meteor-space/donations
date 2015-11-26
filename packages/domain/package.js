@@ -28,8 +28,8 @@ Package.onUse(function(api) {
     // ORGANIZATIONS
     'source/server/organizations/organization.js',
     'source/server/organizations/organization-router.js',
-    'source/server/organizations/registration.js',
-    'source/server/organizations/registration-router.js',
+    'source/server/organizations/org-registration.js',
+    'source/server/organizations/org-registration-router.js',
     // LOCATIONS
     'source/server/locations/location.js',
     'source/server/locations/location-router.js',

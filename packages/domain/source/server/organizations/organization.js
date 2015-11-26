@@ -4,7 +4,8 @@ Space.eventSourcing.Aggregate.extend(Donations, `Organization`, {
     this.type('Donations.Organization');
   },
 
-  Fields: {
+  fields: {
+    adminId: Guid,
     name: String,
     country: Country,
     contact: Donations.Contact

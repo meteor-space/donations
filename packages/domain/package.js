@@ -20,6 +20,7 @@ Package.onUse(function(api) {
     'space:vo-numeral@0.1.0',
     'space:domain@0.1.0',
     'space:event-sourcing@2.1.0',
+    'space:accounts@0.1.3',
     'donations:base'
   ]);
 

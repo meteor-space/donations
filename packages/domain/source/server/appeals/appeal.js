@@ -23,6 +23,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.AcceptPledge': this._acceptPledge,
       'Donations.DeclinePledge': this._declinePledge,
       'Donations.FulfillPledge': this._fulfillPledge,
+      'Donations.RenegOnPledge': this._renegOnPledge,
       'Donations.CloseAppeal': this._closeAppeal
     };
   },
@@ -34,6 +35,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.PledgeAccepted': this._onPledgeAccepted,
       'Donations.PledgeDeclined': this._onPledgeDeclined,
       'Donations.PledgeFulfilled': this._onPledgeFulfilled,
+      'Donations.PledgeReneged': this._onPledgeReneged,
       'Donations.AppealFulfilled': this._onAppealFulfilled,
       'Donations.AppealClosed': this._onAppealClosed
     };
@@ -104,6 +106,17 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     )));
   },
 
+  _renegOnPledge(command) {
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.AppealNotOpenToRenegOnPledge();
+    }
+    let pledge = this._getPledgeById(command.id);
+    pledge.throwIfCannotBeReneged();
+    this.record(new Donations.PledgeReneged(_.extend({ sourceId: this.getId() },
+      this._getPledgeById(command.id).toPlainObject()
+    )));
+  },
+
   _closeAppeal(command) {
     if (!this.hasState(this.STATES.open)) {
       throw new Donations.FulfilledAppealCannotBeClosed();
@@ -150,6 +163,10 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _onPledgeFulfilled(event) {
     this._getPledgeById(event.id).fulfill();
+  },
+
+  _onPledgeReneged(event) {
+    this._getPledgeById(event.id).reneg();
   },
 
   _onAppealClosed(event) {

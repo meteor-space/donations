@@ -53,6 +53,12 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
     quantity: Quantity
   },
 
+  PledgeReneged: {
+    id: Guid,
+    donor: Donations.Contact,
+    quantity: Quantity
+  },
+
   AppealClosed: {
     title: String,
     requiredQuantity: Quantity,

@@ -8,6 +8,7 @@ Space.eventSourcing.AggregateRouter.extend(Donations, `AppealRouter`, {
     Donations.AcceptPledge,
     Donations.DeclinePledge,
     Donations.FulfillPledge,
+    Donations.RenegOnPledge,
     Donations.CloseAppeal
   ]
 

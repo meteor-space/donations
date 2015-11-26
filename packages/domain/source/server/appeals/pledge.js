@@ -7,6 +7,14 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
     fulfilled: `fulfilled`
   },
 
+  fields() {
+    return {
+      id: Guid,
+      donor: Donations.Contact,
+      quantity: Quantity
+    };
+  },
+
   Constructor(data) {
     Space.domain.Entity.call(this, data);
     this._state = this.STATES.made;
@@ -29,6 +37,7 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
     }
     this._state = this.STATES.fulfilled;
   }
+
 });
 
 Donations.Pledge.type('Donations.Pledge');

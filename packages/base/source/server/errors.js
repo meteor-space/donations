@@ -1,10 +1,14 @@
 
-Space.Error.extend(Donations, `PledgeCannotBeMadeToFulfilledAppeal`, {
-  message: `A pledge cannot be made for a fulfilled appeal.`
+Space.Error.extend(Donations, `AppealNotOpenForNewPledges`, {
+  message: `Appeal not open for new pledges.`
+});
+
+Space.Error.extend(Donations, `AppealNotOpenToAcceptPledge`, {
+  message: `Appeal not open to accept pledge.`
 });
 
 Space.Error.extend(Donations, `PledgeHasToBeAcceptedBeforeFulfilled`, {
-  message: `A pledge has to be accepted before it can be fulfilled.`
+  message: `Pledge has to be accepted before it can be fulfilled.`
 });
 
 Space.Error.extend(Donations, `PledgeNotFoundError`, {
@@ -15,7 +19,7 @@ Space.Error.extend(Donations, `PledgeNotFoundError`, {
 });
 
 Space.Error.extend(Donations, `PledgeCannotBeDeclinedIfFulfilled`, {
-  message: `A pledge cannot be declined if already fulfilled.`
+  message: `Pledge cannot be declined if fulfilled`
 });
 
 

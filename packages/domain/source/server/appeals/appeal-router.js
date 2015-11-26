@@ -1,4 +1,4 @@
-Space.eventSourcing.Router.extend(Donations, `AppealRouter`, {
+Space.eventSourcing.AggregateRouter.extend(Donations, `AppealRouter`, {
 
   aggregate: Donations.Appeal,
   initializingCommand: Donations.MakeAppeal,
@@ -6,7 +6,10 @@ Space.eventSourcing.Router.extend(Donations, `AppealRouter`, {
   routeCommands: [
     Donations.MakePledge,
     Donations.AcceptPledge,
-    Donations.FulfillPledge
+    Donations.DeclinePledge,
+    Donations.FulfillPledge,
+    Donations.WriteOffPledge,
+    Donations.CloseAppeal
   ]
 
 });

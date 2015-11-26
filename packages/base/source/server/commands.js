@@ -22,17 +22,27 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
   },
 
   MakePledge: {
-    pledgeId: Guid,
+    id: Guid,
+    donor: Donations.Contact,
     quantity: Quantity,
-    donor: Donations.Contact
   },
 
   AcceptPledge: {
-    pledgeId: Guid
+    id: Guid
+  },
+
+  DeclinePledge: {
+    id: Guid
   },
 
   FulfillPledge: {
-    pledgeId: Guid
-  }
+    id: Guid
+  },
+
+  WriteOffPledge: {
+    id: Guid
+  },
+
+  CloseAppeal: {}
 
 });

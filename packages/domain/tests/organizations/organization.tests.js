@@ -2,6 +2,7 @@ describe(`Donations.Organization`, function() {
 
   beforeEach(function() {
     this.data = {
+      adminId: new Guid(),
       name: `MyOrg`,
       country: new Country(`AT`),
       contact: new Donations.Contact({
@@ -26,7 +27,8 @@ describe(`Donations.Organization`, function() {
         new Donations.OrganizationCreated(_.extend({}, this.data, {
           sourceId: guid,
           timestamp: new Date(),
-          version: 1
+          version: 1,
+          meta: {}
         }))
       ]);
 

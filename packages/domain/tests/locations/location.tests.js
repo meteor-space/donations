@@ -33,7 +33,8 @@ describe(`Donations.Location`, function() {
         new Donations.LocationAdded(_.extend({}, this.data, {
           sourceId: this.locationId,
           timestamp: new Date(),
-          version: 1
+          version: 1,
+          meta: {}
         }))
       ]);
     });

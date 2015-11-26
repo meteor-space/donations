@@ -9,7 +9,7 @@
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
-    "branch": "feature/event-routing"
+    "branch": "develop"
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",

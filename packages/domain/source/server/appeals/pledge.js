@@ -20,24 +20,36 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
     this._state = this.STATES.new;
   },
 
-  accept() {
-    if (this._state === this.STATES.fulfilled) {
+  throwIfCannotBeAccepted() {
+    if (this._state === 'fulfilled') {
       throw new Donations.FulfilledPledgeCannotBeAccepted();
     }
+  },
+
+  throwIfCannotBeDeclined() {
+    if (this._state === 'fulfilled') {
+      throw new Donations.FulfilledPledgeCannotBeDeclined();
+    }
+  },
+
+  throwIfCannotBeFulfilled() {
+    if (this._state !== 'accepted') {
+      throw new Donations.PledgeHasToBeAcceptedBeforeFulfilled();
+    }
+  },
+
+  accept() {
+    this.throwIfCannotBeAccepted();
     this._state = this.STATES.accepted;
   },
 
   decline() {
-    if (this._state === this.STATES.fulfilled) {
-      throw new Donations.FulfilledPledgeCannotBeDeclined();
-    }
+    this.throwIfCannotBeDeclined();
     this._state = this.STATES.declined;
   },
 
   fulfill() {
-    if (this._state !== this.STATES.accepted) {
-      throw new Donations.PledgeHasToBeAcceptedBeforeFulfilled();
-    }
+    this.throwIfCannotBeFulfilled();
     this._state = this.STATES.fulfilled;
   }
 

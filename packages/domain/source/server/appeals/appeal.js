@@ -75,19 +75,30 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     if (!this.hasState(this.STATES.open)) {
       throw new Donations.AppealNotOpenToAcceptPledge();
     }
+    let pledge = this._getPledgeById(command.id);
+    pledge.throwIfCannotBeAccepted();
     this.record(new Donations.PledgeAccepted(_.extend({ sourceId: this.getId() },
-      this._getPledgeById(command.id).toPlainObject()
+      pledge.toPlainObject()
     )));
-
   },
 
   _declinePledge(command) {
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.AppealNotOpenToDeclinePledge();
+    }
+    let pledge = this._getPledgeById(command.id);
+    pledge.throwIfCannotBeDeclined();
     this.record(new Donations.PledgeDeclined(_.extend({ sourceId: this.getId() },
-      this._getPledgeById(command.id).toPlainObject()
+      pledge.toPlainObject()
     )));
   },
 
   _fulfillPledge(command) {
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.AppealNotOpenToFulfillPledge();
+    }
+    let pledge = this._getPledgeById(command.id);
+    pledge.throwIfCannotBeFulfilled();
     this.record(new Donations.PledgeFulfilled(_.extend({ sourceId: this.getId() },
       this._getPledgeById(command.id).toPlainObject()
     )));

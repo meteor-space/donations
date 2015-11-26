@@ -7,6 +7,10 @@ Space.Error.extend(Donations, `AppealNotOpenToAcceptPledge`, {
   message: `Appeal not open to accept pledge.`
 });
 
+Space.Error.extend(Donations, `AppealNotOpenToDeclinePledge`, {
+  message: `Appeal not open to decline pledge.`
+});
+
 Space.Error.extend(Donations, `PledgeHasToBeAcceptedBeforeFulfilled`, {
   message: `Pledge has to be accepted before it can be fulfilled.`
 });

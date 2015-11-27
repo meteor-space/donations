@@ -1,6 +1,6 @@
-Space.eventSourcing.AggregateRouter.extend(Donations, `OrganizationRouter`, {
+Space.eventSourcing.Router.extend(Donations, `OrganizationRouter`, {
 
-  aggregate: Donations.Organization,
-  initializingCommand: Donations.CreateOrganization
+  eventSourceable: Donations.Organization,
+  initializingMessage: Donations.CreateOrganization
 
 });

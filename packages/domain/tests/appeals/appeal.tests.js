@@ -212,7 +212,12 @@ describe(`Donations.Appeal`, function() {
             targetId: this.appealId,
           }))
         )
-        .expectToFailWith(new Donations.AppealNotOpenForNewPledges());
+        .expect([
+          new Space.domain.Exception({
+            thrower: 'Donations.Appeal',
+            error: new Donations.AppealNotOpenForNewPledges()
+          })
+        ]);
 
       Donations.domain.test(Donations.Appeal)
         .given(closedAppeal.call(this))
@@ -221,7 +226,12 @@ describe(`Donations.Appeal`, function() {
             targetId: this.appealId,
           }))
         )
-        .expectToFailWith(new Donations.AppealNotOpenForNewPledges());
+        .expect([
+          new Space.domain.Exception({
+            thrower: 'Donations.Appeal',
+            error: new Donations.AppealNotOpenForNewPledges()
+          })
+        ]);
 
     });
 
@@ -260,7 +270,12 @@ describe(`Donations.Appeal`, function() {
               id: this.pledgeData.id
             })
           ])
-          .expectToFailWith(new Donations.AppealNotOpenToAcceptPledge());
+          .expect([
+            new Space.domain.Exception({
+              thrower: 'Donations.Appeal',
+              error: new Donations.AppealNotOpenToAcceptPledge()
+            })
+          ]);
 
       });
 
@@ -290,15 +305,20 @@ describe(`Donations.Appeal`, function() {
       it(`cannot be fulfilled if not accepted`, function() {
 
         Donations.domain.test(Donations.Appeal)
-        .given(appealWithPledgeMade.call(this))
-        .when([
-          new Donations.FulfillPledge({
-            targetId: this.appealId,
-            id: this.pledgeData.id
-          })
-        ])
-        .expectToFailWith(new Donations.PledgeHasToBeAcceptedBeforeFulfilled());
-      });
+          .given(appealWithPledgeMade.call(this))
+          .when([
+            new Donations.FulfillPledge({
+              targetId: this.appealId,
+              id: this.pledgeData.id
+            })
+          ])
+          .expect([
+            new Space.domain.Exception({
+              thrower: 'Donations.Appeal',
+              error: new Donations.PledgeHasToBeAcceptedBeforeFulfilled()
+            })
+          ]);
+        });
 
     });
 
@@ -333,7 +353,12 @@ describe(`Donations.Appeal`, function() {
               id: this.pledgeData.id
             })
           ])
-          .expectToFailWith(new Donations.FulfilledPledgeCannotBeDeclined());
+          .expect([
+            new Space.domain.Exception({
+              thrower: 'Donations.Appeal',
+              error: new Donations.FulfilledPledgeCannotBeDeclined()
+            })
+          ]);
 
       });
 
@@ -370,7 +395,12 @@ describe(`Donations.Appeal`, function() {
               id: this.pledgeData.id
             })
           ])
-          .expectToFailWith(new Donations.FulfilledPledgeCannotBeWrittenOff());
+          .expect([
+            new Space.domain.Exception({
+              thrower: 'Donations.Appeal',
+              error: new Donations.FulfilledPledgeCannotBeWrittenOff()
+            })
+          ]);
 
       });
 
@@ -407,7 +437,12 @@ describe(`Donations.Appeal`, function() {
             targetId: this.appealId
           })
         )
-        .expectToFailWith(new Donations.FulfilledAppealCannotBeClosed());
+        .expect([
+          new Space.domain.Exception({
+            thrower: 'Donations.Appeal',
+            error: new Donations.FulfilledAppealCannotBeClosed()
+          })
+        ]);
 
       Donations.domain.test(Donations.Appeal)
         .given(closedAppeal.call(this))
@@ -416,7 +451,12 @@ describe(`Donations.Appeal`, function() {
             targetId: this.appealId
           })
         )
-        .expectToFailWith(new Donations.FulfilledAppealCannotBeClosed());
+        .expect([
+          new Space.domain.Exception({
+            thrower: 'Donations.Appeal',
+            error: new Donations.FulfilledAppealCannotBeClosed()
+          })
+        ]);
 
     });
 

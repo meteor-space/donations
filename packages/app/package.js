@@ -84,6 +84,7 @@ Package.onUse(function(api) {
     'source/client/pages/org/org-admin-page.js',
     // --> Register org page
     'source/client/pages/register/_register-page.scss',
+    'source/client/pages/register/register-page.html',
     'source/client/pages/register/registration-form.html',
     'source/client/pages/register/registration-form.js',
     // CONTROLLERS

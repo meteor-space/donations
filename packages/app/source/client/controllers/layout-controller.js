@@ -27,7 +27,7 @@ Space.Object.extend(Donations, 'LayoutController', {
   },
 
   _renderOrgRegistrationForm() {
-    this._render("standard_layout", { main: "registration_form" });
+    this._render("standard_layout", { main: "register_page" });
   },
 
   _renderOrgAdminPage() {

@@ -82,11 +82,10 @@ Package.onUse(function(api) {
     // --> Org admin page
     'source/client/pages/org/org-admin-page.html',
     'source/client/pages/org/org-admin-page.js',
-    // VIEWS
-    // --> registration form
-    'source/client/views/registration/registration-form.html',
-    'source/client/views/registration/registration-form.js',
-    'source/client/views/registration/_registration-form.scss',
+    // --> Register org page
+    'source/client/pages/register/_register-page.scss',
+    'source/client/pages/register/registration-form.html',
+    'source/client/pages/register/registration-form.js',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',

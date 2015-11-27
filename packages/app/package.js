@@ -21,6 +21,8 @@ Package.onUse(function(api) {
     'check',
     'reactive-dict',
     'ecmascript',
+    'sha',
+    'accounts-password',
     'peerlibrary:blaze-components@0.15.0',
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
@@ -30,52 +32,84 @@ Package.onUse(function(api) {
     'space:messaging@2.1.0',
     'space:event-sourcing@2.1.0',
     'space:flux@0.6.0',
+    'space:accounts@0.1.3',
+    'space:accounts-ui@0.2.0',
+    'space:vo-user@0.2.1',
+    'space:vo-i18n@0.1.0',
     'donations:base',
     'donations:domain'
   ]);
 
   // SERVER
   api.addFiles([
-    'source/server/application.js'
+    'source/server/application.js',
+    'source/server/dev-data-setup.js',
+    'source/server/apis/org-registration-api.js',
+    'source/server/projections/org-registrations-projection.js',
+    'source/server/projections/org-projection.js',
+    'source/server/publications/org-publication.js'
   ], 'server');
 
   // ASSETS
   api.addAssets([
-    'source/client/pages/landing-page/images/donations-icon.svg',
-    'source/client/pages/landing-page/images/find-org-icon.svg',
-    'source/client/pages/landing-page/images/deliver-icon.svg',
-    'source/client/pages/landing-page/images/receive-icon.svg',
-    'source/client/pages/landing-page/images/request-icon.svg'
+    'source/client/pages/index/images/donations-icon.svg',
+    'source/client/pages/index/images/find-org-icon.svg',
+    'source/client/pages/index/images/deliver-icon.svg',
+    'source/client/pages/index/images/receive-icon.svg',
+    'source/client/pages/index/images/request-icon.svg'
   ], 'client');
 
   // CLIENT
   api.addFiles([
     // STYLES
-    'source/client/styles/settings/_fonts.scss',
+    // --> settings
     'source/client/styles/settings/_colors.scss',
     'source/client/styles/settings/_foundation.scss',
-    'source/client/styles/settings/_all.scss',
+    // --> mixins
+    'source/client/styles/mixins/_font.scss',
+    'source/client/styles/mixins/_headline.scss',
     'source/client/main.scss',
     // LAYOUTS
     'source/client/layouts/head.html',
     'source/client/layouts/standard-layout.html',
     'source/client/layouts/_standard-layout.scss',
     // PAGES
-    'source/client/pages/landing-page/landing-page.html',
-    'source/client/pages/landing-page/_landing-page.scss',
+    'source/client/pages/_page.scss',
+    // --> landing page
+    'source/client/pages/index/landing-page.html',
+    'source/client/pages/index/landing-page.js',
+    'source/client/pages/index/_landing-page.scss',
+    // --> Org admin page
+    'source/client/pages/org/org-admin-page.html',
+    'source/client/pages/org/org-admin-page.js',
+    // VIEWS
+    // --> registration form
+    'source/client/views/registration/registration-form.html',
+    'source/client/views/registration/registration-form.js',
+    'source/client/views/registration/_registration-form.scss',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',
+    'source/client/controllers/org-registrations-controller.js',
+    'source/client/controllers/login-controller.js',
+    // STORES
+    'source/client/stores/org-registrations-store.js',
+    'source/client/stores/orgs-store.js',
+    // TRACKERS
+    'source/client/trackers/orgs-tracker.js',
     // APP
     'source/client/events.js',
     'source/client/router.js',
     'source/client/application.js'
   ], 'client');
 
-  // Startup
+  // SHARED
   api.addFiles([
-    'source/startup.js',
+    'source/shared/startup.js',
+    'source/shared/collections/organizations.js'
   ]);
+
+  api.export('Donations');
 
 });
 
@@ -85,7 +119,7 @@ Package.onTest(function(api) {
     'mongo',
     'donations:app',
     'practicalmeteor:munit@2.1.5',
-    'space:testing@2.0.0',
+    'space:testing@2.0.0'
   ]);
 
 });

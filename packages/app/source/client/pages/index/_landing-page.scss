@@ -1,4 +1,4 @@
-$landing-page-images: '/packages/donations_app/source/client/pages/landing-page/images/';
+$landing-page-images: '/packages/donations_app/source/client/pages/index/images/';
 
 #landing-page {
 
@@ -11,14 +11,7 @@ $landing-page-images: '/packages/donations_app/source/client/pages/landing-page/
   }
 
   h1 {
-    text-transform: uppercase;
-    @include font(semibold);
-    font-size: 20px;
-    border-bottom: 1px solid $color-contrast;
-    display: inline-block;
-    padding: 0.4em 1em;
-    margin-bottom: 0.5em;
-    margin-top: 2em;
+    @include headline();
   }
 
   h2 {

@@ -14,23 +14,34 @@ Space.Object.extend(Donations, 'LayoutController', {
     return [{
       'Donations.RouteTriggered': function(event) {
         switch (event.routeName) {
-        case 'landingPage':
-          this.render("standard_layout", { main: "landing_page" });
-          break;
-        default:
+        case 'register': this._renderOrgRegistrationForm(); break;
+        case 'orgAdmin': this._renderOrgAdminPage(); break;
+        default: this._renderLandingPage();
         }
       }
     }];
   },
 
-  render(layout, sections) {
+  _renderLandingPage() {
+    this._render("standard_layout", { main: "landing_page" });
+  },
+
+  _renderOrgRegistrationForm() {
+    this._render("standard_layout", { main: "registration_form" });
+  },
+
+  _renderOrgAdminPage() {
+    this._render("standard_layout", { main: "org_admin_page" });
+  },
+
+  _render(layout, sections) {
     this._currentLayout = layout;
     this._.extend(this._currentSections, sections);
     this.layout.render(this._currentLayout, this._currentSections);
   },
 
-  updateSections(sections) {
-    this.render(this._currentLayout, sections);
+  _updateSections(sections) {
+    this._render(this._currentLayout, sections);
   }
 
 });

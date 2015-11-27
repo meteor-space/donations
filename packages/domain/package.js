@@ -20,6 +20,7 @@ Package.onUse(function(api) {
     'space:vo-numeral@0.1.0',
     'space:domain@0.1.0',
     'space:event-sourcing@2.1.0',
+    'space:accounts@0.1.3',
     'donations:base'
   ]);
 
@@ -28,6 +29,8 @@ Package.onUse(function(api) {
     // ORGANIZATIONS
     'source/server/organizations/organization.js',
     'source/server/organizations/organization-router.js',
+    'source/server/organizations/org-registration.js',
+    'source/server/organizations/org-registration-router.js',
     // LOCATIONS
     'source/server/locations/location.js',
     'source/server/locations/location-router.js',

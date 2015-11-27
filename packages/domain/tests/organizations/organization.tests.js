@@ -2,6 +2,7 @@ describe(`Donations.Organization`, function() {
 
   beforeEach(function() {
     this.data = {
+      adminId: new Guid(),
       name: `MyOrg`,
       country: new Country(`AT`),
       contact: new Donations.Contact({

@@ -1,21 +1,41 @@
-Space.flux.Application.extend(Donations, 'App', {
+Space.Application.extend(Donations, 'App', {
 
-  configuration: {},
+  configuration: {
+    accountsUi: {
+      requestSignupEvent: 'Donations.OrgRegistrationRequested',
+      initiateSignupCommand: 'Donations.RegisterOrganization',
+      retrySignupCommand: 'Donations.RetryOrgRegistration'
+    }
+  },
 
-  requiredModules: [],
+  requiredModules: ['Space.accountsUi'],
 
-  stores: [],
+  stores: [
+    'Donations.OrgRegistrationsStore',
+    'Donations.OrgsStore'
+  ],
 
   controllers: [
     'Donations.RouteController',
-    'Donations.LayoutController'
+    'Donations.LayoutController',
+    'Donations.OrgRegistrationsController',
+    'Donations.LoginController'
   ],
 
-  components: [],
+  components: [
+    'Donations.LandingPage',
+    'Donations.OrgRegistrationForm',
+    'Donations.OrgAdminPage'
+  ],
+
+  singletons: [
+    'Donations.OrgsTracker'
+  ],
 
   onInitialize() {
     this.injector.map('Layout').to(BlazeLayout);
     this.injector.map('Router').to(FlowRouter);
+    this.injector.map('Donations.Organizations').asStaticValue();
   }
 
 });

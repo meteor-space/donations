@@ -1,9 +1,9 @@
 body, html {
   @include font(normal);
+  background-color: $color-main;
 }
 
-.page {
-  background-color: $color-main;
+.standard-layout {
 
   > header {
     background-color: $color-contrast;

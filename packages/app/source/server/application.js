@@ -1,8 +1,24 @@
 Donations.App = Space.Application.define('Donations.App', {
 
-  Configuration: { appId: 'Donations.App'},
+  configuration: {
+    appId: 'Donations.App'
+  },
 
-  RequiredModules: ['Donations.domain']
+  requiredModules: [
+    'Space.accounts',
+    'Space.accountsUi',
+    'Donations.domain'
+  ],
 
+  singletons: [
+    'Donations.OrgRegistrationApi',
+    'Donations.OrgRegistrationsProjection',
+    'Donations.OrgProjection',
+    'Donations.OrgPublication'
+  ],
+
+  onInitialize() {
+    this.injector.map('Donations.Organizations').asStaticValue();
+  }
 
 });

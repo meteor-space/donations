@@ -87,6 +87,8 @@ Package.onUse(function(api) {
     'source/client/pages/register/register-page.html',
     'source/client/pages/register/registration-form.html',
     'source/client/pages/register/registration-form.js',
+    'source/client/pages/register/login-form.html',
+    'source/client/pages/register/login-form.js',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',

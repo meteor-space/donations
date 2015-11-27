@@ -25,7 +25,8 @@ Space.Application.extend(Donations, 'App', {
   components: [
     'Donations.LandingPage',
     'Donations.OrgRegistrationForm',
-    'Donations.OrgAdminPage'
+    'Donations.OrgAdminPage',
+    'Donations.OrgLoginForm'
   ],
 
   singletons: [

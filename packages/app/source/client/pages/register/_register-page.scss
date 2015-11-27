@@ -1,18 +1,10 @@
-.registration-form {
 
+#register-page {
   form {
     @include grid-column(
       $columns: $total-columns / 2,
       $center: true
     )
-  }
-
-  .org-name {
-    @include grid-column($columns:8);
-  }
-
-  .org-country {
-    @include grid-column($columns:4);
   }
 
   .error {
@@ -22,6 +14,17 @@
 
   .submit {
     float: right;
+  }
+}
+
+.registration-form {
+
+  .org-name {
+    @include grid-column($columns:8);
+  }
+
+  .org-country {
+    @include grid-column($columns:4);
   }
 
 }

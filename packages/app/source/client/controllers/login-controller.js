@@ -6,17 +6,28 @@ Space.Object.extend(Donations, 'LoginController', {
   ],
 
   dependencies: {
-    orgsStore: 'Donations.OrgsStore'
+    orgsStore: 'Donations.OrgsStore',
+    tracker: 'Tracker'
   },
 
   eventSubscriptions() {
     return [{
-      'Space.accountsUi.LoginSucceeded'() {
+      'Space.accountsUi.LoginSucceeded': this._redirectToAdminOrg
+    }];
+  },
+
+  _redirectToAdminOrg() {
+    // Setup a computation that runs until the admin org was loaded
+    this.tracker.autorun((computation) => {
+      let adminOrg = this.orgsStore.adminOrg();
+      // Request the redirect when admin org is loaded
+      if (adminOrg !== null && adminOrg !== undefined) {
         this.publish(new Donations.RouteRequested({
           routeName: 'orgAdmin',
-          params: { id: this.orgsStore.adminOrg()._id }
+          params: { id: adminOrg._id }
         }));
+        computation.stop();
       }
-    }];
+    });
   }
 });

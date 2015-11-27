@@ -2,7 +2,7 @@ Space.flux.Store.extend(Donations, 'OrgsStore', {
 
   dependencies: {
     organizations: 'Donations.Organizations',
-    currentUserStore: 'Space.accountsUi.CurrentUserStore'
+    usersStore: 'Space.accountsUi.UsersStore'
   },
 
   reactiveVars() {
@@ -19,7 +19,7 @@ Space.flux.Store.extend(Donations, 'OrgsStore', {
 
   _updateAdminOrg() {
     this._setReactiveVar('adminOrg', this.organizations.findOne({
-      adminId: this.currentUserStore.userId()
+      adminId: this.usersStore.userId()
     }));
   }
 

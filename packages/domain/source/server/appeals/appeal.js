@@ -1,5 +1,7 @@
 Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
+  onExtending() { this.type('Donations.Appeal') },
+
   STATES: {
     open: `open`,
     fulfilled: `fulfilled`,

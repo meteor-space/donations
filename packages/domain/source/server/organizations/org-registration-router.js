@@ -1,6 +1,6 @@
-Space.eventSourcing.ProcessRouter.extend(Donations, `OrgRegistrationRouter`, {
+Space.eventSourcing.Router.extend(Donations, `OrgRegistrationRouter`, {
 
-  process: Donations.OrgRegistration,
+  eventSourceable: Donations.OrgRegistration,
   initializingMessage: Donations.RegisterOrganization,
 
   routeEvents: [

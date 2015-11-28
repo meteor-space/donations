@@ -80,6 +80,7 @@ Package.onUse(function(api) {
     'source/client/pages/index/landing-page.js',
     'source/client/pages/index/_landing-page.scss',
     // --> Org admin page
+    'source/client/pages/org/_org-admin-page.scss',
     'source/client/pages/org/org-admin-page.html',
     'source/client/pages/org/org-admin-page.js',
     // --> Register org page

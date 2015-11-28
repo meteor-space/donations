@@ -8,13 +8,31 @@ body, html {
   > header {
     background-color: $color-contrast;
     line-height: 40px;
-    h1 {
+
+    .top-menu {
       @include grid-row();
+    }
+
+    h1 {
+      @include grid-column($columns:8, $push:2)
+      margin-top: 0;
+      margin-bottom: 0;
       text-align: center;
       color: $color-text-on-contrast;
       text-transform: uppercase;
       font-size: 19px;
       font-weight: 700;
+    }
+
+    .logout-button {
+      @include grid-column($columns:4, $last-column:true)
+      .logout {
+        float:right;
+        color: $color-text-on-contrast;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

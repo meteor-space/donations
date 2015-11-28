@@ -1,0 +1,11 @@
+.form {
+  @include grid-column(
+    $columns: $total-columns / 2,
+    $center: true
+  )
+
+  .error {
+    color: $color-error-on-main;
+    float: left;
+  }
+}

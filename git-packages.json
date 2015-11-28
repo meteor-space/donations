@@ -25,7 +25,7 @@
   },
   "space:accounts-ui": {
     "git":"https://github.com/meteor-space/accounts-ui.git",
-    "branch": "feature/login-store"
+    "branch": "develop"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",

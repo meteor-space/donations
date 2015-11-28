@@ -96,10 +96,13 @@ Package.onUse(function(api) {
     'source/client/components/login-form/login-form.js',
     'source/client/components/logout-button/logout-button.js',
     'source/client/components/logout-button/logout-button.html',
+    'source/client/components/org-locations-editor/org-locations-editor.js',
+    'source/client/components/org-locations-editor/org-locations-editor.html',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',
     'source/client/controllers/org-registrations-controller.js',
+    'source/client/controllers/org-locations-controller.js',
     'source/client/controllers/login-controller.js',
     // STORES
     'source/client/stores/org-registrations-store.js',

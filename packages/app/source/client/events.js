@@ -23,6 +23,14 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     password: String
   },
 
-  OrgRegistrationFormSubmitted: {}
+  OrgRegistrationFormSubmitted: {},
+
+  // ======== MANAGING ORG LOCATIONS ========
+
+  AddOrgLocationFormSubmitted: {
+    locationName: String,
+    address: String,
+    openingHours: String
+  }
 
 });

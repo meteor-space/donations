@@ -12,6 +12,12 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     country: Country,
     contact: Donations.Contact,
     password: Password
+  },
+
+  AddLocationToOrganization: {
+    locationName: String,
+    address: String,
+    openingHours: String
   }
 
 });

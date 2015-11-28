@@ -19,6 +19,7 @@ Space.Application.extend(Donations, 'App', {
     'Donations.RouteController',
     'Donations.LayoutController',
     'Donations.OrgRegistrationsController',
+    'Donations.OrgLocationsController',
     'Donations.LoginController'
   ],
 
@@ -27,7 +28,8 @@ Space.Application.extend(Donations, 'App', {
     'Donations.OrgRegistrationForm',
     'Donations.OrgAdminPage',
     'Donations.OrgLoginForm',
-    'Donations.LogoutButton'
+    'Donations.LogoutButton',
+    'Donations.OrgLocationsEditor'
   ],
 
   singletons: [

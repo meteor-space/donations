@@ -1,39 +1,35 @@
 <template name="registration_form">
 
-<div class="registration-form">
+<div class="registration form">
 
-  <form>
+  <div class="org">
+    <label>Name und Land der Organisation / Initiative</label>
+    <input class="org-name" type="text" value="{{state.orgName}}" />
+    <select class="org-country">
+      <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
+      <option value="DE" selected="{{isCountry 'DE'}}">Deutschland</option>
+    </select>
+  </div>
 
-    <div class="org">
-      <label>Name und Land der Organisation / Initiative</label>
-      <input class="org-name" type="text" value="{{state.orgName}}" />
-      <select class="org-country">
-        <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
-        <option value="DE" selected="{{isCountry 'DE'}}">Deutschland</option>
-      </select>
-    </div>
+  <label>Kontakt Email Addresse (für Benachrichtigungen)</label>
+  <input class="contact-email" type="text" value="{{state.contactEmail}}"/>
 
-    <label>Kontakt Email Addresse (für Benachrichtigungen)</label>
-    <input class="contact-email" type="text" value="{{state.contactEmail}}"/>
+  <label>AnsprechpartnerIn</label>
+  <input class="contact-name" type="text" value="{{state.contactName}}"/>
 
-    <label>AnsprechpartnerIn</label>
-    <input class="contact-name" type="text" value="{{state.contactName}}"/>
+  <label>Telefonnummer der AnsprechpartnerIn</label>
+  <input class="contact-phone" type="text" value="{{state.contactPhone}}"/>
 
-    <label>Telefonnummer der AnsprechpartnerIn</label>
-    <input class="contact-phone" type="text" value="{{state.contactPhone}}"/>
+  <label>Passwort für Login</label>
+  <input class="password" type="password" value="{{state.password}}"/>
 
-    <label>Passwort für Login</label>
-    <input class="password" type="password" value="{{state.password}}"/>
+  {{#if state.error}}
+  <p class="error">
+    Fehler: {{state.error}}
+  </p>
+  {{/if}}
 
-    {{#if state.error}}
-    <p class="error">
-      Fehler: {{state.error}}
-    </p>
-    {{/if}}
-
-    <button class="submit">Registrieren</button>
-
-  </form>
+  <button class="submit">Registrieren</button>
 
 </div>
 

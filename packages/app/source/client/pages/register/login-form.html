@@ -1,0 +1,25 @@
+<template name="login_form">
+
+<div class="login-form">
+
+  <form>
+
+    <label>Administrator Email Adresse</label>
+    <input class="email" type="text"/>
+
+    <label>Passwort</label>
+    <input class="password" type="password"/>
+
+    {{#if state.error}}
+    <p class="error">
+      Fehler: {{state.error.reason}}
+    </p>
+    {{/if}}
+
+    <button class="submit">Einloggen</button>
+
+  </form>
+
+</div>
+
+</template>

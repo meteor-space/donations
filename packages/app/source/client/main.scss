@@ -15,8 +15,14 @@
 // Layouts
 @import "layouts/standard-layout";
 
+// CSS Modules
+@import "styles/modules/form";
+
 // Pages
 @import "pages/page";
 @import "pages/index/landing-page";
 @import "pages/register/register-page";
 @import "pages/org/org-admin-page";
+
+// Components
+@import "components/registration-form/registration-form";

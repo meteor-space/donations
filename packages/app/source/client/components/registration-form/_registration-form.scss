@@ -1,0 +1,11 @@
+.registration.form {
+
+  .org-name {
+    @include grid-column($columns:8);
+  }
+
+  .org-country {
+    @include grid-column($columns:4);
+  }
+
+}

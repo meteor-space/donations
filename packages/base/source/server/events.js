@@ -44,7 +44,7 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
     name: String,
     organizationId: Guid,
     address: Donations.Address,
-    contact: Donations.Contact
+    openingHours: String
   },
 
   // APPEALS

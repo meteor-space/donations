@@ -1,0 +1,33 @@
+.org-locations-editor {
+
+  .add-location {
+
+    .zip {
+      @include grid-column($columns:2);
+    }
+
+    .city {
+      @include grid-column($columns:6);
+    }
+
+    .country {
+      @include grid-column($columns:4);
+    }
+
+  }
+
+  .admin-org-locations-list {
+    @include grid-column(
+      $columns: $total-columns / 2,
+      $center: true
+    )
+    margin-bottom: 20px;
+
+    .location {
+      @include font(semibold);
+      text-align: center;
+      display: block;
+    }
+  }
+
+}

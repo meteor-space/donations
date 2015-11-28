@@ -7,13 +7,6 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     contact: Donations.Contact
   },
 
-  AddLocation: {
-    name: String,
-    organizationId: Guid,
-    address: Donations.Address,
-    contact: Donations.Contact
-  },
-
   MakeAppeal: {
     title: String,
     requiredQuantity: Quantity,
@@ -25,7 +18,7 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
   MakePledge: {
     id: Guid,
     donor: Donations.Contact,
-    quantity: Quantity,
+    quantity: Quantity
   },
 
   AcceptPledge: {

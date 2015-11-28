@@ -4,6 +4,7 @@
 // Settings
 @import "styles/settings/colors";
 @import "styles/settings/foundation";
+// Mixins
 @import "styles/mixins/font";
 @import "styles/mixins/headline";
 
@@ -11,6 +12,9 @@
 @import "{juliancwirko:zf5}/scss/foundation/components/grid";
 @import "{juliancwirko:zf5}/scss/foundation/components/buttons.scss";
 @import "{juliancwirko:zf5}/scss/foundation/components/forms.scss";
+
+// Base Styles
+@import "styles/base/theme";
 
 // Layouts
 @import "layouts/standard-layout";
@@ -26,3 +30,4 @@
 
 // Components
 @import "components/registration-form/registration-form";
+@import "components/org-locations-editor/org-locations-editor";

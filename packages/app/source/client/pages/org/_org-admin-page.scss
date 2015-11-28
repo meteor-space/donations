@@ -5,11 +5,6 @@
     margin-bottom: 0.5em;
   }
 
-  h2 {
-    @include font(regular);
-    text-align: center;
-  }
-
   .admin-details {
     color: lighten($color-contrast, 10%);
     text-align: center;

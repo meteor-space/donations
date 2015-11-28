@@ -12,7 +12,9 @@ Space.Application.extend(Donations, 'App', {
 
   stores: [
     'Donations.OrgRegistrationsStore',
-    'Donations.OrgsStore'
+    'Donations.OrgsStore',
+    'Donations.AddLocationFormStore',
+    'Donations.LocationsStore'
   ],
 
   controllers: [
@@ -29,17 +31,20 @@ Space.Application.extend(Donations, 'App', {
     'Donations.OrgAdminPage',
     'Donations.OrgLoginForm',
     'Donations.LogoutButton',
-    'Donations.OrgLocationsEditor'
+    'Donations.AddLocationForm',
+    'Donations.AdminOrgLocationsList'
   ],
 
   singletons: [
-    'Donations.OrgsTracker'
+    'Donations.OrgsTracker',
+    'Donations.LocationsTracker'
   ],
 
   onInitialize() {
     this.injector.map('Layout').to(BlazeLayout);
     this.injector.map('Router').to(FlowRouter);
     this.injector.map('Donations.Organizations').asStaticValue();
+    this.injector.map('Donations.Locations').asStaticValue();
   }
 
 });

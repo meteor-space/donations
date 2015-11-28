@@ -4,7 +4,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Location`, {
     name: String,
     organizationId: Guid,
     address: Donations.Address,
-    contact: Donations.Contact
+    openingHours: String
   },
 
   commandMap() {

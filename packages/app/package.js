@@ -45,9 +45,12 @@ Package.onUse(function(api) {
     'source/server/application.js',
     'source/server/dev-data-setup.js',
     'source/server/apis/org-registration-api.js',
+    'source/server/apis/org-locations-api.js',
     'source/server/projections/org-registrations-projection.js',
     'source/server/projections/org-projection.js',
-    'source/server/publications/org-publication.js'
+    'source/server/projections/locations-projection.js',
+    'source/server/publications/org-publication.js',
+    'source/server/publications/locations-publication.js'
   ], 'server');
 
   // ASSETS
@@ -69,6 +72,8 @@ Package.onUse(function(api) {
     'source/client/styles/mixins/_font.scss',
     'source/client/styles/mixins/_headline.scss',
     'source/client/main.scss',
+    // --> base styles
+    'source/client/styles/base/_theme.scss',
     // --> Modules
     'source/client/styles/modules/_form.scss',
     // LAYOUTS
@@ -96,19 +101,27 @@ Package.onUse(function(api) {
     'source/client/components/login-form/login-form.js',
     'source/client/components/logout-button/logout-button.js',
     'source/client/components/logout-button/logout-button.html',
-    'source/client/components/org-locations-editor/org-locations-editor.js',
+    // --> Admin org location editor
+    'source/client/components/org-locations-editor/_org-locations-editor.scss',
     'source/client/components/org-locations-editor/org-locations-editor.html',
+    'source/client/components/org-locations-editor/add-location-form.html',
+    'source/client/components/org-locations-editor/add-location-form.js',
+    'source/client/components/org-locations-editor/add-location-form-store.js',
+    'source/client/components/org-locations-editor/admin-org-locations-list.html',
+    'source/client/components/org-locations-editor/admin-org-locations-list.js',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',
     'source/client/controllers/org-registrations-controller.js',
     'source/client/controllers/org-locations-controller.js',
     'source/client/controllers/login-controller.js',
-    // STORES
+    // HIGH-LEVEL STORES
     'source/client/stores/org-registrations-store.js',
     'source/client/stores/orgs-store.js',
+    'source/client/stores/locations-store.js',
     // TRACKERS
     'source/client/trackers/orgs-tracker.js',
+    'source/client/trackers/locations-tracker.js',
     // APP
     'source/client/events.js',
     'source/client/router.js',
@@ -118,7 +131,8 @@ Package.onUse(function(api) {
   // SHARED
   api.addFiles([
     'source/shared/startup.js',
-    'source/shared/collections/organizations.js'
+    'source/shared/collections/organizations.js',
+    'source/shared/collections/locations.js'
   ]);
 
   api.export('Donations');

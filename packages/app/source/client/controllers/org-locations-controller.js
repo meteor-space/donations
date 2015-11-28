@@ -16,10 +16,16 @@ Space.Object.extend(Donations, 'OrgLocationsController', {
   },
 
   _onAddOrgLocationFormSubmitted(event) {
-    this.send(new Donations.AddLocationToOrganization({
-      targetId: new Guid(this.orgsStore.adminOrg()._id),
-      locationName: event.locationName,
-      address: event.address,
+    this.send(new Donations.AddLocation({
+      targetId: new Guid(),
+      name: event.name,
+      organizationId: new Guid(this.orgsStore.adminOrg()._id),
+      address: new Donations.Address({
+        country: new Country(event.country),
+        zip: event.zip,
+        city: event.city,
+        street: event.street
+      }),
       openingHours: event.openingHours
     }));
   }

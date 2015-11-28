@@ -10,4 +10,14 @@
     @include headline();
     margin-bottom: 2em;
   }
+
+  h2 {
+    @include font(regular);
+    text-align: center;
+  }
+
+  h3 {
+    @include font(regular);
+    text-align: center;
+  }
 }

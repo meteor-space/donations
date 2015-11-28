@@ -14,9 +14,10 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     password: Password
   },
 
-  AddLocationToOrganization: {
-    locationName: String,
-    address: String,
+  AddLocation: {
+    name: String,
+    organizationId: Guid,
+    address: Donations.Address,
     openingHours: String
   }
 

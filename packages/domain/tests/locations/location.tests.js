@@ -11,11 +11,7 @@ describe(`Donations.Location`, function() {
         city: `MyCity`,
         street: `My Street 1`
       }),
-      contact: new Donations.Contact({
-        name: `Dominik Guzei`,
-        email: new EmailAddress(`dominik@example.com`),
-        phone: `+43 4493 454`
-      })
+      openingHours: 'Open from 8am to 5pm'
     };
   });
 

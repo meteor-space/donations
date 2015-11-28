@@ -1,0 +1,16 @@
+<template name="add_location_form">
+<div class="add-location form">
+
+  <input class="name" type="text" placeholder="Name" value="{{state.name}}"/>
+  <input class="street" type="text" placeholder="Straße" value="{{state.street}}"/>
+  <input class="zip" type="text" placeholder="PLZ" value="{{state.zip}}"/>
+  <input class="city" type="text" placeholder="Stadt" value="{{state.city}}"/>
+  <select class="country">
+    <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
+    <option value="DE" selected="{{isCountry 'DE'}}">Deutschland</option>
+  </select>
+  <input class="hours" type="text" placeholder="Öffnungszeiten" value="{{state.openingHours}}"/>
+  <button class="submit">hinzufügen</button>
+
+</div>
+</template>

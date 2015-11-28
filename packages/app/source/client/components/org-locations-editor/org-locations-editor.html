@@ -1,12 +1,7 @@
 <template name="org_locations_editor">
 <div class="org-locations-editor">
-
-  <div class="add-location form">
-    <input class="name" type="text" placeholder="Name"/>
-    <input class="address" type="text" placeholder="Addresse"/>
-    <input class="hours" type="text" placeholder="Öffnungszeiten"/>
-    <button class="submit">hinzufügen</button>
-  </div>
-
+  {{> admin_org_locations_list}}
+  <h3>Neue Annahmestelle</h3>
+  {{> add_location_form}}
 </div>
 </template>

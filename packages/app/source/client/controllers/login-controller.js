@@ -12,7 +12,8 @@ Space.Object.extend(Donations, 'LoginController', {
 
   eventSubscriptions() {
     return [{
-      'Space.accountsUi.LoginSucceeded': this._redirectToAdminOrg
+      'Space.accountsUi.LoginSucceeded': this._redirectToAdminOrg,
+      'Space.accountsUi.LoggedOut': this._redirectToLandingPage
     }];
   },
 
@@ -29,5 +30,9 @@ Space.Object.extend(Donations, 'LoginController', {
         computation.stop();
       }
     });
+  },
+
+  _redirectToLandingPage() {
+    this.publish(new Donations.RouteRequested({ routeName: 'landingPage' }));
   }
 });

@@ -1,7 +1,10 @@
 <template name="standard_layout">
 <div class="standard-layout">
   <header>
-    <h1>sachspenden.online</h1>
+    <div class="top-menu">
+      <h1>sachspenden.online</h1>
+      {{> logout_button}}
+    </div>
   </header>
   {{> Template.dynamic template=main}}
 </div>

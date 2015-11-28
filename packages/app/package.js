@@ -86,11 +86,11 @@ Package.onUse(function(api) {
     // --> Register org page
     'source/client/pages/register/_register-page.scss',
     'source/client/pages/register/register-page.html',
-    'source/client/pages/register/registration-form.html',
-    'source/client/pages/register/registration-form.js',
-    'source/client/pages/register/login-form.html',
-    'source/client/pages/register/login-form.js',
     // COMPONENTS
+    'source/client/components/registration-form/registration-form.html',
+    'source/client/components/registration-form/registration-form.js',
+    'source/client/components/login-form/login-form.html',
+    'source/client/components/login-form/login-form.js',
     'source/client/components/logout-button/logout-button.js',
     'source/client/components/logout-button/logout-button.html',
     // CONTROLLERS

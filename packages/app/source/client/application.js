@@ -1,13 +1,5 @@
 Space.Application.extend(Donations, 'App', {
 
-  configuration: {
-    accountsUi: {
-      requestSignupEvent: 'Donations.OrgRegistrationRequested',
-      initiateSignupCommand: 'Donations.RegisterOrganization',
-      retrySignupCommand: 'Donations.RetryOrgRegistration'
-    }
-  },
-
   requiredModules: ['Space.accountsUi'],
 
   stores: [

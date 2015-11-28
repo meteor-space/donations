@@ -90,6 +90,9 @@ Package.onUse(function(api) {
     'source/client/pages/register/registration-form.js',
     'source/client/pages/register/login-form.html',
     'source/client/pages/register/login-form.js',
+    // COMPONENTS
+    'source/client/components/logout-button/logout-button.js',
+    'source/client/components/logout-button/logout-button.html',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',

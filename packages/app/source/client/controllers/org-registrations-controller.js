@@ -2,11 +2,6 @@ SignupController = Space.accountsUi.SignupController;
 
 SignupController.extend(Donations, 'OrgRegistrationsController', {
 
-  mixin: [
-    Space.messaging.EventSubscribing,
-    Space.messaging.EventPublishing
-  ],
-
   dependencies: {
     orgRegStore: 'Donations.OrgRegistrationsStore',
     signupsStore: 'Space.accountsUi.SignupsStore'

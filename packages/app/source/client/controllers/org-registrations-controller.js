@@ -1,4 +1,6 @@
-Space.Object.extend(Donations, 'OrgRegistrationsController', {
+SignupController = Space.accountsUi.SignupController;
+
+SignupController.extend(Donations, 'OrgRegistrationsController', {
 
   mixin: [
     Space.messaging.EventSubscribing,
@@ -10,11 +12,15 @@ Space.Object.extend(Donations, 'OrgRegistrationsController', {
     signupsStore: 'Space.accountsUi.SignupsStore'
   },
 
+  requestSignupEvent: 'Donations.OrgRegistrationRequested',
+  initiateSignupCommand: 'Donations.RegisterOrganization',
+
   eventSubscriptions() {
-    return [{
+    let superSubs = SignupController.prototype.eventSubscriptions.call(this);
+    return superSubs.concat([{
       'Donations.OrgRegistrationFormSubmitted': this._onOrgRegistrationFormSubmit,
       'Space.accountsUi.SignupCompleted': this._onSignupCompleted
-    }];
+    }]);
   },
 
   _onOrgRegistrationFormSubmit() {

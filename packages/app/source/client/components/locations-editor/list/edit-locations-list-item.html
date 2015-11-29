@@ -1,0 +1,21 @@
+<template name="edit_locations_list_item">
+  <div class="edit-locations-list-item">
+  {{#if isEditing}}
+    {{> edit_location_form submitLabel="speichern" location=this}}
+  {{else}}
+    <a href="#" class="name">{{name}}</a>
+    <p class="address">
+      <label>Adresse:</label>
+      <span class="street">{{address.street}}</span>,
+      <span class="zip">{{address.zip}}</span> /
+      <span class="city">{{address.city}}</span>,
+      <span class="country">{{address.country}}</span>
+    </p>
+    <p class="opening-hours">
+      <label>Öffnungszeiten:</label>
+      {{openingHours}}
+    </p>
+    <a href="#" class="edit">bearbeiten</a>
+  {{/if}}
+  </div>
+</template>

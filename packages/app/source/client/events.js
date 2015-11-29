@@ -27,7 +27,7 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
 
   // ======== MANAGING ORG LOCATIONS ========
 
-  AddOrgLocationFormInputsChanged: {
+  AddOrgLocationFormSubmitted: {
     name: String,
     street: String,
     zip: String,
@@ -36,7 +36,8 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     openingHours: String
   },
 
-  AddOrgLocationFormSubmitted: {
+  EditLocationFormSubmitted: {
+    locationId: String,
     name: String,
     street: String,
     zip: String,

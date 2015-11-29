@@ -110,9 +110,13 @@ Package.onUse(function(api) {
     // ---------> add
     'source/client/components/locations-editor/add/add-location-form.html',
     'source/client/components/locations-editor/add/add-location-form.js',
-    'source/client/components/locations-editor/add/add-location-form-store.js',
     // ---------> list
     'source/client/components/locations-editor/list/edit-locations-list.html',
+    'source/client/components/locations-editor/list/edit-locations-list-item.html',
+    'source/client/components/locations-editor/list/edit-locations-list-item.js',
+    // ---------> edit
+    'source/client/components/locations-editor/edit/edit-location-form.html',
+    'source/client/components/locations-editor/edit/edit-location-form.js',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',
@@ -126,6 +130,8 @@ Package.onUse(function(api) {
     // TRACKERS
     'source/client/trackers/orgs-tracker.js',
     'source/client/trackers/locations-tracker.js',
+    // API SIMULATIONS
+    'source/client/simulations/locations-api.js',
     // APP
     'source/client/events.js',
     'source/client/router.js',

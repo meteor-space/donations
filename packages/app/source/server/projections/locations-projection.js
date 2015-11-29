@@ -6,15 +6,28 @@ Space.eventSourcing.Projection.extend(Donations, 'LocationsProjection', {
 
   eventSubscriptions() {
     return [{
-      'Donations.LocationAdded': this._onLocationAdded
+      'Donations.LocationAdded': this._onLocationAdded,
+      'Donations.LocationDetailsChanged': this._onLocationDetailsChanged
     }];
   },
 
   _onLocationAdded(event) {
-    this.locations.insert({
+    let locationDetails = this._getPlainLocationDetails(event);
+    this.locations.insert(_.extend(locationDetails, {
       _id: event.sourceId.toString(),
+      organizationId: event.organizationId.toString()
+    }));
+  },
+
+  _onLocationDetailsChanged(event) {
+    this.locations.update(event.sourceId.toString(), {
+      $set: this._getPlainLocationDetails(event)
+    });
+  },
+
+  _getPlainLocationDetails(event) {
+    return {
       name: event.name,
-      organizationId: event.organizationId.toString(),
       address: {
         street: event.address.street,
         zip: event.address.zip,
@@ -22,7 +35,7 @@ Space.eventSourcing.Projection.extend(Donations, 'LocationsProjection', {
         country: event.address.country.toString()
       },
       openingHours: event.openingHours
-    });
+    };
   }
 
 });

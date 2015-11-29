@@ -1,15 +1,38 @@
 Donations.LocationForm.extend(Donations, 'AddLocationForm', {
 
-  dependencies: {
-    store: 'Donations.AddLocationFormStore'
+  _session: 'Donations.AddLocationForm',
+
+  sessionVars() {
+    return [{
+      name: null,
+      street: null,
+      zip: null,
+      city: null,
+      country: null,
+      openingHours: null
+    }];
   },
 
-  state() {
-    return this.store;
+  location() {
+    return {
+      name: this.name(),
+      address: {
+        street: this.street(),
+        zip: this.zip(),
+        city: this.city(),
+        country: this.country()
+      },
+      openingHours: this.openingHours
+    };
   },
 
   _onInputChange() {
-    this.publish(new Donations.AddOrgLocationFormInputsChanged(this._getValues()));
+    let values = this._getValues();
+    for (key in values) {
+      if (values.hasOwnProperty(key)) {
+        this._setSessionVar(key, values[key]);
+      }
+    }
   },
 
   _onSubmit() {

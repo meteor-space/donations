@@ -5,7 +5,10 @@ Donations.LocationForm.extend(Donations, 'EditLocationForm', {
   },
 
   _onSubmit() {
-    this.publish(new Donations.EditLocationFormSubmitted(this._getValues()));
+    let data = _.extend(this._getValues(), {
+      locationId: this.location()._id
+    });
+    this.publish(new Donations.EditLocationFormSubmitted(data));
   }
 
 });

@@ -49,6 +49,12 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
     openingHours: String
   },
 
+  LocationDetailsChanged: {
+    name: String,
+    address: Donations.Address,
+    openingHours: String
+  },
+
   // APPEALS
 
   AppealMade: {

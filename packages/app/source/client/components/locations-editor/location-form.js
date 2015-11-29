@@ -12,6 +12,9 @@ Space.flux.BlazeComponent.extend(Donations, 'LocationForm', {
     }];
   },
 
+  _onInputChange() {},
+  _onSubmit() {},
+
   _getValues() {
     return {
       name: this.$('.name').val(),

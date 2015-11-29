@@ -130,6 +130,8 @@ Package.onUse(function(api) {
     // TRACKERS
     'source/client/trackers/orgs-tracker.js',
     'source/client/trackers/locations-tracker.js',
+    // API SIMULATIONS
+    'source/client/simulations/locations-api.js',
     // APP
     'source/client/events.js',
     'source/client/router.js',

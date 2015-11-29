@@ -30,7 +30,8 @@ Space.Application.extend(Donations, 'App', {
 
   singletons: [
     'Donations.OrgsTracker',
-    'Donations.LocationsTracker'
+    'Donations.LocationsTracker',
+    'Donations.LocationsApi'
   ],
 
   onInitialize() {

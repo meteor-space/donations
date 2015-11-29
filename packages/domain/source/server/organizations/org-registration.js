@@ -59,7 +59,9 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
     })));
     // All registrations are automatically approved, but
     // later an approval aggregate will be implemented
-    this.record(new Donations.OrgRegistrationApproved());
+    this.record(new Donations.OrgRegistrationApproved({
+      sourceId: this.getId()
+    }));
     this.trigger(new Space.accounts.SignupUser({
       targetId: adminId,
       email: command.contact.email,

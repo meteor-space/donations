@@ -7,6 +7,7 @@ Space.eventSourcing.Projection.extend(Donations, 'OrgRegistrationsProjection', {
   eventSubscriptions() {
     return [{
       'Donations.OrgRegistrationInitiated': this._onOrgRegistrationInitiated,
+      'Donations.OrgRegistrationApproved': this._onOrgRegistrationApproved,
       'Donations.OrgRegistrationFailed': this._onOrgRegistrationFailed,
       'Donations.OrgRegistrationCompleted': this._onOrgRegistrationCompleted
     }];
@@ -19,6 +20,12 @@ Space.eventSourcing.Projection.extend(Donations, 'OrgRegistrationsProjection', {
       organizationId: event.organizationId.toString(),
       state: 'initiated'
     });
+  },
+
+  _onOrgRegistrationApproved(event) {
+    this.signups.update(event.sourceId.toString(), { $set: {
+      state: 'approved'
+    }});
   },
 
   _onOrgRegistrationFailed(event) {

@@ -11,6 +11,8 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
     password: Password
   },
 
+  OrgRegistrationApproved: {},
+
   OrgRegistrationRetried: {
     name: String,
     country: Country,

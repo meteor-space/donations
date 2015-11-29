@@ -7,10 +7,6 @@ Space.eventSourcing.Router.extend(Donations, `OrgRegistrationRouter`, {
     Space.accounts.SignupSuccessful,
     Space.accounts.SignupFailed,
     Donations.OrganizationCreated
-  ],
-
-  routeCommands: [
-    Donations.RetryOrgRegistration
   ]
 
 });

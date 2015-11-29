@@ -27,21 +27,20 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
   commandMap() {
     return {
       'Donations.RegisterOrganization': this._registerOrganization,
-      'Donations.RetryOrgRegistration': this._retry
     };
   },
 
   eventMap() {
     return {
-      // INTERNAL
-      'Donations.OrgRegistrationInitiated': this._onRegistrationInitiated,
-      'Donations.OrganizationCreated': this._onOrganizationCreated,
-      'Donations.OrganizationAdminSignedUp': this._onOrgAdminSignedUp,
-      'Donations.OrgRegistrationFailed': this._onRegistrationFailed,
-      'Donations.OrgRegistrationCompleted': this._onRegistrationCompleted,
       // EXTERNAL
       'Space.accounts.SignupFailed': this._onAccountsSignupFailed,
-      'Space.accounts.SignupSuccessful': this._onAccountsSignupSuccessful
+      'Space.accounts.SignupSuccessful': this._onAccountsSignupSuccessful,
+      'Donations.OrganizationCreated': this._onOrganizationCreated,
+      // INTERNAL
+      'Donations.OrganizationAdminSignedUp': this._onOrgAdminSignedUp,
+      'Donations.OrgRegistrationCompleted': this._onRegistrationCompleted,
+      'Donations.OrgRegistrationFailed': this._onRegistrationFailed,
+      'Donations.OrgRegistrationInitiated': this._onRegistrationInitiated
     };
   },
 
@@ -61,28 +60,6 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
       email: command.contact.email,
       password: command.password
     }));
-  },
-
-  _retry(command) {
-    this.record(new Donations.OrgRegistrationRetried(
-      this._eventPropsFromCommand(command)
-    ));
-    if (this.hasState(this.STATES.adminSignupFailed)) {
-      this.trigger(new Space.accounts.SignupUser({
-        targetId: this.adminId,
-        email: command.contact.email,
-        password: command.password
-      }));
-    }
-    if (this.hasState(this.STATES.orgCreationFailed)) {
-      this.trigger(new Donations.CreateOrganization({
-        targetId: command.organizationId,
-        adminId: this.adminId,
-        name: command.name,
-        country: command.country,
-        contact: command.contact
-      }));
-    }
   },
 
   // ============= EXTERNAL EVENT HANDLERS =============
@@ -122,12 +99,12 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
     this._state = this.STATES.initiated;
   },
 
-  _onOrgAdminSignedUp() {
-    this._state = this.STATES.adminSignupCompleted;
-  },
-
   _onRegistrationFailed(event) {
     this._state = this.STATES[event.stage];
+  },
+
+  _onOrgAdminSignedUp() {
+    this._state = this.STATES.adminSignupCompleted;
   },
 
   _onRegistrationCompleted() {

@@ -106,11 +106,12 @@ Package.onUse(function(api) {
     'source/client/components/org-locations-editor/org-locations-editor.html',
     'source/client/components/org-locations-editor/location-form.html',
     'source/client/components/org-locations-editor/location-form.js',
-    'source/client/components/org-locations-editor/add-location-form.html',
-    'source/client/components/org-locations-editor/add-location-form.js',
-    'source/client/components/org-locations-editor/add-location-form-store.js',
-    'source/client/components/org-locations-editor/admin-org-locations-list.html',
-    'source/client/components/org-locations-editor/admin-org-locations-list.js',
+    // ---------> add
+    'source/client/components/org-locations-editor/add/add-location-form.html',
+    'source/client/components/org-locations-editor/add/add-location-form.js',
+    'source/client/components/org-locations-editor/add/add-location-form-store.js',
+    'source/client/components/org-locations-editor/list/admin-org-locations-list.html',
+    'source/client/components/org-locations-editor/list/admin-org-locations-list.js',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',

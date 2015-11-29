@@ -102,16 +102,16 @@ Package.onUse(function(api) {
     'source/client/components/logout-button/logout-button.js',
     'source/client/components/logout-button/logout-button.html',
     // --> Admin org location editor
-    'source/client/components/locations-editor/_org-locations-editor.scss',
-    'source/client/components/locations-editor/org-locations-editor.html',
+    'source/client/components/locations-editor/_locations-editor.scss',
+    'source/client/components/locations-editor/locations-editor.html',
     'source/client/components/locations-editor/location-form.html',
     'source/client/components/locations-editor/location-form.js',
     // ---------> add
     'source/client/components/locations-editor/add/add-location-form.html',
     'source/client/components/locations-editor/add/add-location-form.js',
     'source/client/components/locations-editor/add/add-location-form-store.js',
-    'source/client/components/locations-editor/list/admin-org-locations-list.html',
-    'source/client/components/locations-editor/list/admin-org-locations-list.js',
+    'source/client/components/locations-editor/list/locations-list.html',
+    'source/client/components/locations-editor/list/locations-list.js',
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',

@@ -1,7 +1,7 @@
 Space.flux.BlazeComponent.extend(Donations, 'LocationForm', {
 
   isCountry(country) {
-    return this.state().country() === country ? true : false;
+    return this.location().address.country === country ? true : false;
   },
 
   events() {

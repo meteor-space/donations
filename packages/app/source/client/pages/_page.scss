@@ -6,6 +6,13 @@
     clear: both;
   }
 
+  section {
+    @include grid-column(
+      $columns: $total-columns / 2,
+      $center: true
+    )
+  }
+
   h1 {
     @include headline();
     margin-bottom: 2em;

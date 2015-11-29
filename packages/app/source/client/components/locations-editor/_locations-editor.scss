@@ -1,33 +1,45 @@
-.locations-editor {
+.location.form {
 
-  .location {
-
-    .zip {
-      @include grid-column($columns:2);
-    }
-
-    .city {
-      @include grid-column($columns:6);
-    }
-
-    .country {
-      @include grid-column($columns:4);
-    }
-
+  .zip {
+    @include grid-column($columns:2);
   }
 
-  .edit-locations-list {
-    @include grid-column(
-      $columns: $total-columns / 2,
-      $center: true
-    )
-    margin-bottom: 20px;
-
-    .location {
-      @include font(semibold);
-      text-align: center;
-      display: block;
-    }
+  .city {
+    @include grid-column($columns:6);
   }
 
+  .country {
+    @include grid-column($columns:4);
+  }
+
+}
+
+.edit-locations-list {
+  margin-bottom: 20px;
+}
+
+.edit-locations-list-item {
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid #FFF;
+  border-radius: 5px;
+  padding: 10px;
+  .name {
+    @include font(semibold);
+    display: block;
+  }
+  .edit {
+    font-size: 12px;
+    color: $color-contrast;
+  }
+  .address, .opening-hours {
+    font-size: 12px;
+    margin: 0;
+  }
+  label {
+    display: inline;
+    font-size: 12px;
+    @include font(semibold);
+  }
 }

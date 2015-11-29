@@ -1,15 +1,15 @@
 <template name="location_form">
 <div class="location form">
 
-  <input class="name" type="text" placeholder="Name" value="{{state.name}}"/>
-  <input class="street" type="text" placeholder="Straße" value="{{state.street}}"/>
-  <input class="zip" type="text" placeholder="PLZ" value="{{state.zip}}"/>
-  <input class="city" type="text" placeholder="Stadt" value="{{state.city}}"/>
+  <input class="name" type="text" placeholder="Name" value="{{location.name}}"/>
+  <input class="street" type="text" placeholder="Straße" value="{{location.address.street}}"/>
+  <input class="zip" type="text" placeholder="PLZ" value="{{location.address.zip}}"/>
+  <input class="city" type="text" placeholder="Stadt" value="{{location.address.city}}"/>
   <select class="country">
     <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
     <option value="DE" selected="{{isCountry 'DE'}}">Deutschland</option>
   </select>
-  <input class="hours" type="text" placeholder="Öffnungszeiten" value="{{state.openingHours}}"/>
+  <input class="hours" type="text" placeholder="Öffnungszeiten" value="{{location.openingHours}}"/>
   <button class="submit">{{submitLabel}}</button>
 
 </div>

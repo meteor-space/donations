@@ -1,5 +1,9 @@
 Space.Object.extend(Donations, 'RouteController', {
 
+  mixin: [
+    Space.messaging.EventSubscribing
+  ],
+
   dependencies: {
     router: 'Router'
   },
@@ -18,7 +22,3 @@ Space.Object.extend(Donations, 'RouteController', {
   }
 
 });
-
-Donations.RouteController.mixin([
-  Space.messaging.EventSubscribing
-]);

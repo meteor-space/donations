@@ -5,7 +5,6 @@ Space.Application.extend(Donations, 'App', {
   stores: [
     'Donations.OrgRegistrationsStore',
     'Donations.OrgsStore',
-    'Donations.AddLocationFormStore',
     'Donations.LocationsStore'
   ],
 
@@ -24,7 +23,9 @@ Space.Application.extend(Donations, 'App', {
     'Donations.OrgLoginForm',
     'Donations.LogoutButton',
     'Donations.LocationsEditor',
-    'Donations.AddLocationForm'
+    'Donations.AddLocationForm',
+    'Donations.EditLocationForm',
+    'Donations.EditLocationsListItem'
   ],
 
   singletons: [

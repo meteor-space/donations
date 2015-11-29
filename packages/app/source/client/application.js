@@ -23,8 +23,8 @@ Space.Application.extend(Donations, 'App', {
     'Donations.OrgAdminPage',
     'Donations.OrgLoginForm',
     'Donations.LogoutButton',
-    'Donations.AddLocationForm',
-    'Donations.EditLocationsList'
+    'Donations.LocationsEditor',
+    'Donations.AddLocationForm'
   ],
 
   singletons: [

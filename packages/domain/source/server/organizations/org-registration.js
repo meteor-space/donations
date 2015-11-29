@@ -6,6 +6,7 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
 
   STATES: {
     initiated: 'initiated',
+    approved: 'approved',
     adminSignupFailed: 'adminSignupFailed',
     adminSignupCompleted: 'adminSignupCompleted',
     orgCreationFailed: 'orgCreationFailed',
@@ -37,10 +38,11 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
       'Space.accounts.SignupSuccessful': this._onAccountsSignupSuccessful,
       'Donations.OrganizationCreated': this._onOrganizationCreated,
       // INTERNAL
+      'Donations.OrgRegistrationInitiated': this._onRegistrationInitiated,
+      'Donations.OrgRegistrationApproved': this._onRegistrationApproved,
+      'Donations.OrgRegistrationFailed': this._onRegistrationFailed,
       'Donations.OrganizationAdminSignedUp': this._onOrgAdminSignedUp,
       'Donations.OrgRegistrationCompleted': this._onRegistrationCompleted,
-      'Donations.OrgRegistrationFailed': this._onRegistrationFailed,
-      'Donations.OrgRegistrationInitiated': this._onRegistrationInitiated
     };
   },
 
@@ -55,6 +57,9 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
       adminId: adminId,
       organizationId: organizationId
     })));
+    // All registrations are automatically approved, but
+    // later an approval aggregate will be implemented
+    this.record(new Donations.OrgRegistrationApproved());
     this.trigger(new Space.accounts.SignupUser({
       targetId: adminId,
       email: command.contact.email,
@@ -97,6 +102,10 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
   _onRegistrationInitiated(event) {
     this._assignFields(event);
     this._state = this.STATES.initiated;
+  },
+
+  _onRegistrationApproved() {
+    this._state = this.STATES.approved;
   },
 
   _onRegistrationFailed(event) {

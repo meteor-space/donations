@@ -104,6 +104,8 @@ Package.onUse(function(api) {
     // --> Admin org location editor
     'source/client/components/org-locations-editor/_org-locations-editor.scss',
     'source/client/components/org-locations-editor/org-locations-editor.html',
+    'source/client/components/org-locations-editor/location-form.html',
+    'source/client/components/org-locations-editor/location-form.js',
     'source/client/components/org-locations-editor/add-location-form.html',
     'source/client/components/org-locations-editor/add-location-form.js',
     'source/client/components/org-locations-editor/add-location-form-store.js',

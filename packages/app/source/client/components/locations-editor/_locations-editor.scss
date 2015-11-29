@@ -16,7 +16,7 @@
 
   }
 
-  .admin-org-locations-list {
+  .edit-locations-list {
     @include grid-column(
       $columns: $total-columns / 2,
       $center: true

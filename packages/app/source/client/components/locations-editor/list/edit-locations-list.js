@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'AdminOrgLocationsList', {
+Space.flux.BlazeComponent.extend(Donations, 'EditLocationsList', {
 
   dependencies: {
     locationsStore: 'Donations.LocationsStore'
@@ -10,4 +10,4 @@ Space.flux.BlazeComponent.extend(Donations, 'AdminOrgLocationsList', {
 
 });
 
-Donations.AdminOrgLocationsList.register('admin_org_locations_list');
+Donations.EditLocationsList.register('edit_locations_list');

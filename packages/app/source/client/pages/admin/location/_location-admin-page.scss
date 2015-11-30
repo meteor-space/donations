@@ -1,0 +1,13 @@
+
+#location-admin-page {
+  h1 {
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    margin-top: 0;
+
+    .name {
+      @include font(semibold);
+    }
+  }
+}

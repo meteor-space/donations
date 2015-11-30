@@ -20,6 +20,7 @@ Space.Object.extend(Donations, 'LayoutController', {
         switch (event.routeName) {
         case 'register': this._renderOrgRegistrationForm(); break;
         case 'orgAdmin': this._renderOrgAdminPage(); break;
+        case 'locationAdmin': this._renderLocationAdminPage(); break;
         default: this._renderLandingPage();
         }
       }
@@ -36,6 +37,10 @@ Space.Object.extend(Donations, 'LayoutController', {
 
   _renderOrgAdminPage() {
     this._render("standard_layout", { main: "org_admin_page" });
+  },
+
+  _renderLocationAdminPage() {
+    this._render("standard_layout", { main: "location_admin_page" });
   },
 
   _render(layout, sections) {

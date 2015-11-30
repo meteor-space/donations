@@ -5,7 +5,8 @@ Space.Application.extend(Donations, 'App', {
   stores: [
     'Donations.OrgRegistrationsStore',
     'Donations.OrgsStore',
-    'Donations.LocationsStore'
+    'Donations.LocationsStore',
+    'Donations.LocationDetailsStore'
   ],
 
   controllers: [
@@ -20,6 +21,7 @@ Space.Application.extend(Donations, 'App', {
     // PAGES
     'Donations.LandingPage',
     'Donations.OrgAdminPage',
+    'Donations.LocationAdminPage',
     // FORMS
     'Donations.OrgRegistrationForm',
     'Donations.OrgLoginForm',

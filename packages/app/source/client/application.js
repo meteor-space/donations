@@ -17,14 +17,17 @@ Space.Application.extend(Donations, 'App', {
   ],
 
   components: [
+    // PAGES
     'Donations.LandingPage',
-    'Donations.OrgRegistrationForm',
     'Donations.OrgAdminPage',
+    // FORMS
+    'Donations.OrgRegistrationForm',
     'Donations.OrgLoginForm',
-    'Donations.LogoutButton',
-    'Donations.LocationsEditor',
     'Donations.AddLocationForm',
     'Donations.EditLocationForm',
+    // OTHERS
+    'Donations.LogoutButton',
+    'Donations.LocationsEditor',
     'Donations.EditLocationsListItem'
   ],
 

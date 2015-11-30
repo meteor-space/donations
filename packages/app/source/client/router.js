@@ -21,3 +21,4 @@ let generateRoute = function(routeName) {
 FlowRouter.route('/', generateRoute('landingPage'));
 FlowRouter.route('/register', generateRoute('register'));
 FlowRouter.route('/org/:id/admin', generateRoute('orgAdmin'));
+FlowRouter.route('/location/:id/admin', generateRoute('locationAdmin'));

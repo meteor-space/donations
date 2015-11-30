@@ -5,7 +5,8 @@ Space.Application.extend(Donations, 'App', {
   stores: [
     'Donations.OrgRegistrationsStore',
     'Donations.OrgsStore',
-    'Donations.LocationsStore'
+    'Donations.LocationsStore',
+    'Donations.LocationDetailsStore'
   ],
 
   controllers: [
@@ -17,14 +18,18 @@ Space.Application.extend(Donations, 'App', {
   ],
 
   components: [
+    // PAGES
     'Donations.LandingPage',
-    'Donations.OrgRegistrationForm',
     'Donations.OrgAdminPage',
+    'Donations.LocationAdminPage',
+    // FORMS
+    'Donations.OrgRegistrationForm',
     'Donations.OrgLoginForm',
-    'Donations.LogoutButton',
-    'Donations.LocationsEditor',
     'Donations.AddLocationForm',
     'Donations.EditLocationForm',
+    // OTHERS
+    'Donations.LogoutButton',
+    'Donations.LocationsEditor',
     'Donations.EditLocationsListItem'
   ],
 

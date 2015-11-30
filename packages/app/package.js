@@ -86,10 +86,15 @@ Package.onUse(function(api) {
     'source/client/pages/index/landing-page.html',
     'source/client/pages/index/landing-page.js',
     'source/client/pages/index/_landing-page.scss',
-    // --> Org admin page
-    'source/client/pages/org/_org-admin-page.scss',
-    'source/client/pages/org/org-admin-page.html',
-    'source/client/pages/org/org-admin-page.js',
+    // ==> Admin pages
+    // ------> Organization admin
+    'source/client/pages/admin/org/_org-admin-page.scss',
+    'source/client/pages/admin/org/org-admin-page.html',
+    'source/client/pages/admin/org/org-admin-page.js',
+    // ------> Location admin
+    'source/client/pages/admin/location/_location-admin-page.scss',
+    'source/client/pages/admin/location/location-admin-page.html',
+    'source/client/pages/admin/location/location-admin-page.js',
     // --> Register org page
     'source/client/pages/register/_register-page.scss',
     'source/client/pages/register/register-page.html',
@@ -127,6 +132,7 @@ Package.onUse(function(api) {
     'source/client/stores/org-registrations-store.js',
     'source/client/stores/orgs-store.js',
     'source/client/stores/locations-store.js',
+    'source/client/stores/location-details-store.js',
     // TRACKERS
     'source/client/trackers/orgs-tracker.js',
     'source/client/trackers/locations-tracker.js',

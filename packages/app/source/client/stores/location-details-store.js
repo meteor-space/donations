@@ -1,13 +1,15 @@
 Space.flux.Store.extend(Donations, 'LocationDetailsStore', {
 
   dependencies: {
-    locations: 'Donations.Locations'
+    locations: 'Donations.Locations',
+    appealsCollection: 'Donations.Appeals'
   },
 
   reactiveVars() {
     return [{
       locationId: null,
-      location: null
+      location: null,
+      appeals: null
     }];
   },
 
@@ -19,7 +21,8 @@ Space.flux.Store.extend(Donations, 'LocationDetailsStore', {
 
   computations() {
     return [
-      this._updateLocation
+      this._updateLocation,
+      this._updateAppeals
     ];
   },
 
@@ -31,6 +34,12 @@ Space.flux.Store.extend(Donations, 'LocationDetailsStore', {
 
   _updateLocation() {
     this._setReactiveVar('location', this.locations.findOne(this.locationId()));
+  },
+
+  _updateAppeals() {
+    this._setReactiveVar('appeals', this.appealsCollection.find({
+      locationId: this.locationId()
+    }).fetch());
   }
 
 });

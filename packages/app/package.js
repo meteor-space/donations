@@ -36,6 +36,7 @@ Package.onUse(function(api) {
     'space:accounts-ui@0.2.0',
     'space:vo-user@0.2.1',
     'space:vo-i18n@0.1.0',
+    'space:vo-numeral@0.1.0',
     'donations:base',
     'donations:domain'
   ]);
@@ -44,13 +45,19 @@ Package.onUse(function(api) {
   api.addFiles([
     'source/server/application.js',
     'source/server/dev-data-setup.js',
+    // APIS
     'source/server/apis/org-registration-api.js',
     'source/server/apis/org-locations-api.js',
+    'source/server/apis/appeals-api.js',
+    // PROJECTIONS
     'source/server/projections/org-registrations-projection.js',
     'source/server/projections/org-projection.js',
     'source/server/projections/locations-projection.js',
+    'source/server/projections/appeals-projection.js',
+    // PUBLICATIONS
     'source/server/publications/org-publication.js',
-    'source/server/publications/locations-publication.js'
+    'source/server/publications/locations-publication.js',
+    'source/server/publications/appeals-publication.js'
   ], 'server');
 
   // ASSETS
@@ -71,6 +78,7 @@ Package.onUse(function(api) {
     // --> mixins
     'source/client/styles/mixins/_font.scss',
     'source/client/styles/mixins/_headline.scss',
+    'source/client/styles/mixins/_boxes.scss',
     'source/client/main.scss',
     // --> base styles
     'source/client/styles/base/_theme.scss',
@@ -106,28 +114,44 @@ Package.onUse(function(api) {
     'source/client/components/login-form/login-form.js',
     'source/client/components/logout-button/logout-button.js',
     'source/client/components/logout-button/logout-button.html',
+
     // ===> Location Editor
     'source/client/components/locations-editor/_locations-editor.scss',
     'source/client/components/locations-editor/locations-editor.html',
     'source/client/components/locations-editor/locations-editor.js',
     'source/client/components/locations-editor/location-form.html',
     'source/client/components/locations-editor/location-form.js',
-    // ---------> add
+    // ---------> add location
     'source/client/components/locations-editor/add/add-location-form.html',
     'source/client/components/locations-editor/add/add-location-form.js',
-    // ---------> list
+    // ---------> list locations
     'source/client/components/locations-editor/list/edit-locations-list.html',
     'source/client/components/locations-editor/list/edit-locations-list-item.html',
     'source/client/components/locations-editor/list/edit-locations-list-item.js',
-    // ---------> edit
+    // ---------> edit locations
     'source/client/components/locations-editor/edit/edit-location-form.html',
     'source/client/components/locations-editor/edit/edit-location-form.js',
+
+    // ===> Appeals Editor
+    'source/client/components/appeals-editor/_appeals-editor.scss',
+    'source/client/components/appeals-editor/appeals-editor.html',
+    'source/client/components/appeals-editor/appeals-editor.js',
+    'source/client/components/appeals-editor/appeal-form.html',
+    'source/client/components/appeals-editor/appeal-form.js',
+    // ---------> add appeal
+    'source/client/components/appeals-editor/add/add-appeal-form.html',
+    'source/client/components/appeals-editor/add/add-appeal-form.js',
+    // ---------> edit appeal
+    'source/client/components/appeals-editor/list/edit-appeals-list-item.html',
+    'source/client/components/appeals-editor/list/edit-appeals-list.html',
+
     // CONTROLLERS
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',
     'source/client/controllers/org-registrations-controller.js',
     'source/client/controllers/org-locations-controller.js',
     'source/client/controllers/login-controller.js',
+    'source/client/controllers/appeals-controller.js',
     // HIGH-LEVEL STORES
     'source/client/stores/org-registrations-store.js',
     'source/client/stores/orgs-store.js',
@@ -136,6 +160,7 @@ Package.onUse(function(api) {
     // TRACKERS
     'source/client/trackers/orgs-tracker.js',
     'source/client/trackers/locations-tracker.js',
+    'source/client/trackers/appeals-tracker.js',
     // API SIMULATIONS
     'source/client/simulations/locations-api.js',
     // APP
@@ -148,7 +173,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'source/shared/startup.js',
     'source/shared/collections/organizations.js',
-    'source/shared/collections/locations.js'
+    'source/shared/collections/locations.js',
+    'source/shared/collections/appeals.js'
   ]);
 
   api.export('Donations');

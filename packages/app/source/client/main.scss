@@ -7,6 +7,7 @@
 // Mixins
 @import "styles/mixins/font";
 @import "styles/mixins/headline";
+@import "styles/mixins/boxes";
 
 // Foundation imports
 @import "{juliancwirko:zf5}/scss/foundation/components/grid";
@@ -32,3 +33,4 @@
 // Components
 @import "components/registration-form/registration-form";
 @import "components/locations-editor/locations-editor";
+@import "components/appeals-editor/appeals-editor";

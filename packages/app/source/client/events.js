@@ -44,6 +44,13 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     city: String,
     country: String,
     openingHours: String
-  }
+  },
 
+  // ======== MANAGING LOCATION APPEALS ========
+
+  AddAppealFormSubmitted: {
+    title: String,
+    quantity: Quantity,
+    description: String
+  }
 });

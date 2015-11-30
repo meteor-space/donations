@@ -1,0 +1,36 @@
+.appeal.form {
+
+  .quantity {
+    @include grid-column($columns:2);
+  }
+
+  .title {
+    @include grid-column($columns:10);
+  }
+
+}
+
+.edit-appeals-list-item {
+
+  @include box-background();
+  margin-bottom: 20px;
+
+  .title, .quantity {
+    font-size: 18px;
+  }
+
+  .quantity {
+    @include font(bold);
+    color: darken($color-main, 50%);
+    margin-right: 0.5em;
+  }
+
+  .title {
+    @include font(semibold);
+  }
+
+  .description {
+    margin-top: 0.5em;
+  }
+
+}

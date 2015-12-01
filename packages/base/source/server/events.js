@@ -57,7 +57,23 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
 
   // APPEALS
 
+  AppealDrafted: {
+    title: String,
+    requiredQuantity: Quantity,
+    organizationId: Guid,
+    locationId: Guid,
+    description: Match.Optional(String)
+  },
+
   AppealMade: {
+    title: String,
+    requiredQuantity: Quantity,
+    organizationId: Guid,
+    locationId: Guid,
+    description: Match.Optional(String)
+  },
+
+  AppealCancelled: {
     title: String,
     requiredQuantity: Quantity,
     organizationId: Guid,

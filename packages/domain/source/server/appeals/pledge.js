@@ -23,25 +23,25 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
 
   throwIfCannotBeAccepted() {
     if (this._state === 'fulfilled') {
-      throw new Donations.FulfilledPledgeCannotBeAccepted();
+      throw new Donations.InvalidPledgeState('AcceptPledge', this._state);
     }
   },
 
   throwIfCannotBeDeclined() {
     if (this._state === 'fulfilled') {
-      throw new Donations.FulfilledPledgeCannotBeDeclined();
+      throw new Donations.InvalidPledgeState('DeclinePledge', this._state);
     }
   },
 
   throwIfCannotBeFulfilled() {
     if (this._state !== 'accepted') {
-      throw new Donations.PledgeHasToBeAcceptedBeforeFulfilled();
+      throw new Donations.InvalidPledgeState('FulfillPledge', this._state);
     }
   },
 
   throwIfCannotBeWrittenOff() {
     if (this._state === 'fulfilled') {
-      throw new Donations.FulfilledPledgeCannotBeWrittenOff();
+      throw new Donations.InvalidPledgeState('WriteOffPledge', this._state);
     }
   },
 

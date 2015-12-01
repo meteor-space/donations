@@ -455,7 +455,7 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Space.domain.Exception({
               thrower: 'Donations.Appeal',
-              error: new Donations.PledgeHasToBeAcceptedBeforeFulfilled()
+              error: new Donations.InvalidPledgeState('FulfillPledge','new')
             })
           ]);
         });
@@ -496,7 +496,7 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Space.domain.Exception({
               thrower: 'Donations.Appeal',
-              error: new Donations.FulfilledPledgeCannotBeDeclined()
+              error: new Donations.InvalidPledgeState('DeclinePledge','fulfilled')
             })
           ]);
 
@@ -538,7 +538,7 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Space.domain.Exception({
               thrower: 'Donations.Appeal',
-              error: new Donations.FulfilledPledgeCannotBeWrittenOff()
+              error: new Donations.InvalidPledgeState('WriteOffPledge','fulfilled')
             })
           ]);
 

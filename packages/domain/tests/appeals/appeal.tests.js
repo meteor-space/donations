@@ -9,7 +9,8 @@ describe(`Donations.Appeal`, function() {
       requiredQuantity: new Quantity(10),
       organizationId: new Guid(),
       locationId: new Guid(),
-      description: `My description for this appeal`
+      description: `My description for this appeal`,
+      timestamp: Date
     };
     this.pledgeData = {
       id: new Guid(),
@@ -18,12 +19,13 @@ describe(`Donations.Appeal`, function() {
         email: new EmailAddress(`dominik@example.com`),
         phone: `+43 4493 454`
       }),
-      quantity: new Quantity(1)
+      quantity: new Quantity(1),
+      timestamp: Date
     };
 
   });
 
-  let draftAppeal = function () {
+  let draftAppeal = function() {
     return [
       new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
@@ -32,7 +34,7 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  let openAppeal = function () {
+  let openAppeal = function() {
     return [
       new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
@@ -45,20 +47,7 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  let cancelledAppeal = function () {
-    return [
-      new Donations.AppealDrafted(_.extend({}, this.appealData, {
-        sourceId: this.appealId,
-        version: 1
-      })),
-      new Donations.AppealCancelled(_.extend({}, this.appealData, {
-        sourceId: this.appealId,
-        version: 2
-      }))
-    ];
-  };
-
-  let fulfilledAppeal = function () {
+  let fulfilledAppeal = function() {
     return [
       new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
@@ -75,7 +64,7 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  let closedAppeal = function () {
+  let closedAppeal = function() {
     return [
       new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
@@ -92,7 +81,7 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  let appealWithPledgeMade = function () {
+  let appealWithPledgeMade = function() {
     return [
       new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
@@ -109,7 +98,7 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  let appealWithAcceptedPledge = function () {
+  let appealWithAcceptedPledge = function() {
     return [
       new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
@@ -130,7 +119,7 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  let appealWithFulfilledPledge = function () {
+  let appealWithFulfilledPledge = function() {
     return [
       new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
@@ -155,9 +144,9 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  describe(`drafting an appeal`, function () {
+  describe(`drafting an appeal`, function() {
 
-    it(`publishes an appeal added event`, function () {
+    it(`publishes an appeal added event`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given()
@@ -177,9 +166,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`making an appeal`, function () {
+  describe(`making an appeal`, function() {
 
-    it(`publishes an appeal made event`, function () {
+    it(`publishes an appeal made event`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(draftAppeal.call(this))
@@ -197,7 +186,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`only allows appeals to be made if currently a draft`, function () {
+    it(`only allows appeals to be made if currently a draft`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
@@ -209,7 +198,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('MakeAppeal','open')
+            error: new Donations.InvalidAppealState('MakeAppeal', 'open'),
+            timestamp: Date
           })
         ]);
 
@@ -223,7 +213,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('MakeAppeal','closed')
+            error: new Donations.InvalidAppealState('MakeAppeal', 'closed'),
+            timestamp: Date
           })
         ]);
 
@@ -231,9 +222,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`cancelling an appeal`, function () {
+  describe(`cancelling an appeal`, function() {
 
-    it(`cancels a draft appeal`, function () {
+    it(`cancels a draft appeal`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(draftAppeal.call(this))
@@ -251,7 +242,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`does not allow cancelling of an open appeal`, function () {
+    it(`does not allow cancelling of an open appeal`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
@@ -263,7 +254,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('CancelAppeal','open')
+            error: new Donations.InvalidAppealState('CancelAppeal', 'open'),
+            timestamp: Date
           })
         ]);
 
@@ -271,27 +263,27 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`making pledges`, function () {
+  describe(`making pledges`, function() {
 
-    it(`publishes a pledge made event`, function () {
+    it(`publishes a pledge made event`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
         .when(
           new Donations.MakePledge(_.extend({}, this.pledgeData, {
-            targetId: this.appealId,
+            targetId: this.appealId
           }))
         )
         .expect([
           new Donations.PledgeMade(_.extend({}, this.pledgeData, {
             sourceId: this.appealId,
-            version: 2,
+            version: 2
           }))
         ]);
 
     });
 
-    it(`publishes appeal fulfilled event in addition when pledged quantity equals the required quantity`, function () {
+    it(`publishes appeal fulfilled event in addition when pledged quantity equals the required quantity`, function() {
 
       let pledgeQuantity = this.appealData.requiredQuantity;
 
@@ -317,7 +309,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`caps new pledge quantity at the appeal's required quantity`, function () {
+    it(`caps new pledge quantity at the appeal's required quantity`, function() {
 
       let pledgeQuantity = this.appealData.requiredQuantity.add(1);
 
@@ -343,19 +335,20 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`only allows new pledges if appeal is open`, function () {
+    it(`only allows new pledges if appeal is open`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(fulfilledAppeal.call(this))
         .when(
           new Donations.MakePledge(_.extend({}, this.pledgeData, {
-            targetId: this.appealId,
+            targetId: this.appealId
           }))
         )
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('MakePledge','fulfilled')
+            error: new Donations.InvalidAppealState('MakePledge', 'fulfilled'),
+            timestamp: Date
           })
         ]);
 
@@ -363,13 +356,14 @@ describe(`Donations.Appeal`, function() {
         .given(closedAppeal.call(this))
         .when(
           new Donations.MakePledge(_.extend({}, this.pledgeData, {
-            targetId: this.appealId,
+            targetId: this.appealId
           }))
         )
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('MakePledge','closed')
+            error: new Donations.InvalidAppealState('MakePledge', 'closed'),
+            timestamp: Date
           })
         ]);
 
@@ -381,7 +375,7 @@ describe(`Donations.Appeal`, function() {
 
     describe(`accepting a pledge`, function() {
 
-      it("publishes pledge accepted event", function () {
+      it("publishes pledge accepted event", function() {
 
         Donations.domain.test(Donations.Appeal)
           .given(appealWithPledgeMade.call(this))
@@ -400,7 +394,7 @@ describe(`Donations.Appeal`, function() {
 
       });
 
-      it(`cannot be accepted if appeal has been fulfilled`, function () {
+      it(`cannot be accepted if appeal has been fulfilled`, function() {
 
         Donations.domain.test(Donations.Appeal)
           .given(fulfilledAppeal.call(this))
@@ -413,7 +407,8 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Space.domain.Exception({
               thrower: 'Donations.Appeal',
-              error: new Donations.InvalidAppealState('AcceptPledge','fulfilled')
+              error: new Donations.InvalidAppealState('AcceptPledge', 'fulfilled'),
+              timestamp: Date
             })
           ]);
 
@@ -455,10 +450,11 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Space.domain.Exception({
               thrower: 'Donations.Appeal',
-              error: new Donations.InvalidPledgeState('FulfillPledge','new')
+              error: new Donations.InvalidPledgeState('FulfillPledge', 'new'),
+              timestamp: Date
             })
           ]);
-        });
+      });
 
     });
 
@@ -496,7 +492,8 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Space.domain.Exception({
               thrower: 'Donations.Appeal',
-              error: new Donations.InvalidPledgeState('DeclinePledge','fulfilled')
+              error: new Donations.InvalidPledgeState('DeclinePledge', 'fulfilled'),
+              timestamp: Date
             })
           ]);
 
@@ -538,7 +535,8 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Space.domain.Exception({
               thrower: 'Donations.Appeal',
-              error: new Donations.InvalidPledgeState('WriteOffPledge','fulfilled')
+              error: new Donations.InvalidPledgeState('WriteOffPledge', 'fulfilled'),
+              timestamp: Date
             })
           ]);
 
@@ -548,9 +546,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`closing an appeal`, function () {
+  describe(`closing an appeal`, function() {
 
-    it(`closes an open appeal when commanded`, function () {
+    it(`closes an open appeal when commanded`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
@@ -562,13 +560,13 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Donations.AppealClosed(_.extend({}, this.appealData, {
             sourceId: this.appealId,
-            version: 2,
+            version: 2
           }))
         ]);
 
     });
 
-    it(`throws an error if commanded to close a fulfilled or presently closed appeal`, function () {
+    it(`throws an error if commanded to close a fulfilled or presently closed appeal`, function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(fulfilledAppeal.call(this))
@@ -580,7 +578,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('CloseAppeal','fulfilled')
+            error: new Donations.InvalidAppealState('CloseAppeal', 'fulfilled'),
+            timestamp: Date
           })
         ]);
 
@@ -594,7 +593,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('CloseAppeal','closed')
+            error: new Donations.InvalidAppealState('CloseAppeal', 'closed'),
+            timestamp: Date
           })
         ]);
 

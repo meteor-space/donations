@@ -9,7 +9,8 @@ describe(`Donations.Organization`, function() {
         name: `Dominik Guzei`,
         email: new EmailAddress(`dominik@example.com`),
         phone: `+43 4493 454`
-      })
+      }),
+      timestamp: Date
     };
   });
 
@@ -26,7 +27,6 @@ describe(`Donations.Organization`, function() {
       .expect([
         new Donations.OrganizationCreated(_.extend({}, this.data, {
           sourceId: guid,
-          timestamp: new Date(),
           version: 1
         }))
       ]);

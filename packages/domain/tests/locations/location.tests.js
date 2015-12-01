@@ -11,7 +11,8 @@ describe(`Donations.Location`, function() {
         city: `MyCity`,
         street: `My Street 1`
       }),
-      openingHours: 'Open from 8am to 5pm'
+      openingHours: 'Open from 8am to 5pm',
+      timestamp: Date
     };
   });
 
@@ -28,7 +29,6 @@ describe(`Donations.Location`, function() {
       .expect([
         new Donations.LocationAdded(_.extend({}, this.data, {
           sourceId: this.locationId,
-          timestamp: new Date(),
           version: 1
         }))
       ]);

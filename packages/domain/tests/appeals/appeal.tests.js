@@ -9,8 +9,7 @@ describe(`Donations.Appeal`, function() {
       requiredQuantity: new Quantity(10),
       organizationId: new Guid(),
       locationId: new Guid(),
-      description: `My description for this appeal`,
-      timestamp: Date
+      description: `My description for this appeal`
     };
     this.pledgeData = {
       id: new Guid(),
@@ -19,8 +18,7 @@ describe(`Donations.Appeal`, function() {
         email: new EmailAddress(`dominik@example.com`),
         phone: `+43 4493 454`
       }),
-      quantity: new Quantity(1),
-      timestamp: Date
+      quantity: new Quantity(1)
     };
 
   });
@@ -158,7 +156,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Donations.AppealDrafted(_.extend({}, this.appealData, {
             sourceId: this.appealId,
-            version: 1
+            version: 1,
+            timestamp: Date
           }))
         ]);
 
@@ -180,7 +179,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Donations.AppealMade(_.extend({}, this.appealData, {
             sourceId: this.appealId,
-            version: 2
+            version: 2,
+            timestamp: Date
           }))
         ]);
 
@@ -236,7 +236,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Donations.AppealCancelled(_.extend({}, this.appealData, {
             sourceId: this.appealId,
-            version: 2
+            version: 2,
+            timestamp: Date
           }))
         ]);
 
@@ -277,7 +278,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Donations.PledgeMade(_.extend({}, this.pledgeData, {
             sourceId: this.appealId,
-            version: 2
+            version: 2,
+            timestamp: Date
           }))
         ]);
 
@@ -299,11 +301,13 @@ describe(`Donations.Appeal`, function() {
           new Donations.PledgeMade(_.extend({}, this.pledgeData, {
             sourceId: this.appealId,
             version: 2,
-            quantity: pledgeQuantity
+            quantity: pledgeQuantity,
+            timestamp: Date
           })),
           new Donations.AppealFulfilled(_.extend({}, this.appealData, {
             sourceId: this.appealId,
-            version: 2
+            version: 2,
+            timestamp: Date
           }))
         ]);
 
@@ -325,11 +329,13 @@ describe(`Donations.Appeal`, function() {
           new Donations.PledgeMade(_.extend({}, this.pledgeData, {
             sourceId: this.appealId,
             version: 2,
-            quantity: this.appealData.requiredQuantity
+            quantity: this.appealData.requiredQuantity,
+            timestamp: Date
           })),
           new Donations.AppealFulfilled(_.extend({}, this.appealData, {
             sourceId: this.appealId,
-            version: 2
+            version: 2,
+            timestamp: Date
           }))
         ]);
 
@@ -388,7 +394,8 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Donations.PledgeAccepted(_.extend({}, this.pledgeData, {
               sourceId: this.appealId,
-              version: 2
+              version: 2,
+              timestamp: Date
             }))
           ]);
 
@@ -431,7 +438,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Donations.PledgeFulfilled(_.extend({}, this.pledgeData, {
             sourceId: this.appealId,
-            version: 2
+            version: 2,
+            timestamp: Date
           }))
         ]);
 
@@ -473,7 +481,8 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Donations.PledgeDeclined(_.extend({}, this.pledgeData, {
               sourceId: this.appealId,
-              version: 2
+              version: 2,
+              timestamp: Date
             }))
           ]);
 
@@ -516,7 +525,8 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Donations.PledgeWrittenOff(_.extend({}, this.pledgeData, {
               sourceId: this.appealId,
-              version: 2
+              version: 2,
+              timestamp: Date
             }))
           ]);
 
@@ -560,7 +570,8 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Donations.AppealClosed(_.extend({}, this.appealData, {
             sourceId: this.appealId,
-            version: 2
+            version: 2,
+            timestamp: Date
           }))
         ]);
 

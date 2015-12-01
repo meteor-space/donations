@@ -3,6 +3,8 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
   onExtending() { this.type('Donations.Appeal') },
 
   STATES: {
+    draft: `draft`,
+    cancelled: `cancelled`,
     open: `open`,
     fulfilled: `fulfilled`,
     closed: `closed`
@@ -20,6 +22,8 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   commandMap() {
     return {
+      'Donations.DraftAppeal': this._draftAppeal,
+      'Donations.CancelAppeal': this._cancelAppeal,
       'Donations.MakeAppeal': this._makeAppeal,
       'Donations.MakePledge': this._makePledge,
       'Donations.AcceptPledge': this._acceptPledge,
@@ -32,6 +36,8 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   eventMap() {
     return {
+      'Donations.AppealDrafted': this._onAppealDrafted,
+      'Donations.AppealCancelled': this._onAppealCancelled,
       'Donations.AppealMade': this._onAppealMade,
       'Donations.PledgeMade': this._onPledgeMade,
       'Donations.PledgeAccepted': this._onPledgeAccepted,
@@ -45,8 +51,36 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   // ============= COMMAND HANDLERS =============
 
+  _draftAppeal(command) {
+    this.record(new Donations.AppealDrafted(this._eventPropsFromCommand(command)));
+  },
+
+  _cancelAppeal(command) {
+    if (!this.hasState(this.STATES.draft)) {
+      throw new Donations.InvalidAppealState(this._state, this.STATES.cancelled);
+    }
+    this.record(new Donations.AppealCancelled({
+      sourceId: this.getId(),
+      title: this.title,
+      requiredQuantity: this.requiredQuantity,
+      organizationId: this.organizationId,
+      locationId: this.locationId,
+      description: this.description
+    }));
+  },
+
   _makeAppeal(command) {
-    this.record(new Donations.AppealMade(this._eventPropsFromCommand(command)));
+    if (!this.hasState(this.STATES.draft)) {
+      throw new Donations.InvalidAppealState(this._state, this.STATES.open);
+    }
+    this.record(new Donations.AppealMade({
+      sourceId: this.getId(),
+      title: this.title,
+      requiredQuantity: this.requiredQuantity,
+      organizationId: this.organizationId,
+      locationId: this.locationId,
+      description: this.description
+    }));
   },
 
   _makePledge(command) {
@@ -135,10 +169,18 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   // ============= EVENT HANDLERS =============
 
-  _onAppealMade(event) {
+  _onAppealDrafted(event) {
     this._assignFields(event);
     this.pledgedQuantity = new Quantity(0);
     this.pledges = [];
+    this._state = this.STATES.draft;
+  },
+
+  _onAppealCancelled(event) {
+    this._state = this.STATES.cancelled;
+  },
+
+  _onAppealMade(event) {
     this._state = this.STATES.open;
   },
 

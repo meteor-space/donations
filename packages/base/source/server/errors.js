@@ -1,3 +1,9 @@
+Space.Error.extend(Donations, `InvalidAppealState`, {
+  Constructor(currentState, commandedState) {
+    Space.Error.constructor.call(this);
+    this.message = `Appeal cannot move to ${commandedState} from the state of ${currentState}`;
+  }
+});
 
 Space.Error.extend(Donations, `AppealNotOpenForNewPledges`, {
   message: `Appeal not open for new pledges.`

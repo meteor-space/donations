@@ -1,9 +1,11 @@
 Space.eventSourcing.Router.extend(Donations, `AppealRouter`, {
 
   eventSourceable: Donations.Appeal,
-  initializingMessage: Donations.MakeAppeal,
+  initializingMessage: Donations.DraftAppeal,
 
   routeCommands: [
+    Donations.CancelAppeal,
+    Donations.MakeAppeal,
     Donations.MakePledge,
     Donations.AcceptPledge,
     Donations.DeclinePledge,

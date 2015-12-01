@@ -23,108 +23,248 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  let openAppeal = function () {
+  let draftAppeal = function () {
     return [
-      new Donations.AppealMade(_.extend({}, this.appealData, {
+      new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
         version: 1
+      }))
+    ];
+  };
+
+  let openAppeal = function () {
+    return [
+      new Donations.AppealDrafted(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 1
+      })),
+      new Donations.AppealMade(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 2
+      }))
+    ];
+  };
+
+  let cancelledAppeal = function () {
+    return [
+      new Donations.AppealDrafted(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 1
+      })),
+      new Donations.AppealCancelled(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 2
       }))
     ];
   };
 
   let fulfilledAppeal = function () {
     return [
-      new Donations.AppealMade(_.extend({}, this.appealData, {
+      new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
         version: 1
       })),
-      new Donations.AppealFulfilled(_.extend({}, this.appealData, {
+      new Donations.AppealMade(_.extend({}, this.appealData, {
         sourceId: this.appealId,
         version: 2
+      })),
+      new Donations.AppealFulfilled(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 3
       }))
     ];
   };
 
   let closedAppeal = function () {
     return [
-      new Donations.AppealMade(_.extend({}, this.appealData, {
+      new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
         version: 1
       })),
-      new Donations.AppealClosed(_.extend({}, this.appealData, {
+      new Donations.AppealMade(_.extend({}, this.appealData, {
         sourceId: this.appealId,
         version: 2
+      })),
+      new Donations.AppealClosed(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 3
       }))
     ];
   };
 
   let appealWithPledgeMade = function () {
     return [
-      new Donations.AppealMade(_.extend({}, this.appealData, {
+      new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
         version: 1
       })),
-      new Donations.PledgeMade(_.extend({}, this.pledgeData, {
+      new Donations.AppealMade(_.extend({}, this.appealData, {
         sourceId: this.appealId,
         version: 2
+      })),
+      new Donations.PledgeMade(_.extend({}, this.pledgeData, {
+        sourceId: this.appealId,
+        version: 3
       }))
     ];
   };
 
   let appealWithAcceptedPledge = function () {
     return [
-      new Donations.AppealMade(_.extend({}, this.appealData, {
+      new Donations.AppealDrafted(_.extend({}, this.appealData, {
         sourceId: this.appealId,
         version: 1
       })),
-      new Donations.PledgeMade(_.extend({}, this.pledgeData, {
-        sourceId: this.appealId,
-        version: 2
-      })),
-      new Donations.PledgeAccepted(_.extend({}, this.pledgeData, {
-        sourceId: this.appealId,
-        version: 3
-      }))
-    ];
-  };
-
-  let appealWithFulfilledPledge = function () {
-    return [
       new Donations.AppealMade(_.extend({}, this.appealData, {
         sourceId: this.appealId,
-        version: 1
+        version: 2
       })),
       new Donations.PledgeMade(_.extend({}, this.pledgeData, {
         sourceId: this.appealId,
-        version: 2
-      })),
-      new Donations.PledgeAccepted(_.extend({}, this.pledgeData, {
-        sourceId: this.appealId,
         version: 3
       })),
-      new Donations.PledgeFulfilled(_.extend({}, this.pledgeData, {
+      new Donations.PledgeAccepted(_.extend({}, this.pledgeData, {
         sourceId: this.appealId,
         version: 4
       }))
     ];
   };
 
-  describe(`making an appeal`, function () {
+  let appealWithFulfilledPledge = function () {
+    return [
+      new Donations.AppealDrafted(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 1
+      })),
+      new Donations.AppealMade(_.extend({}, this.appealData, {
+        sourceId: this.appealId,
+        version: 2
+      })),
+      new Donations.PledgeMade(_.extend({}, this.pledgeData, {
+        sourceId: this.appealId,
+        version: 3
+      })),
+      new Donations.PledgeAccepted(_.extend({}, this.pledgeData, {
+        sourceId: this.appealId,
+        version: 4
+      })),
+      new Donations.PledgeFulfilled(_.extend({}, this.pledgeData, {
+        sourceId: this.appealId,
+        version: 5
+      }))
+    ];
+  };
+
+  describe(`drafting an appeal`, function () {
 
     it(`publishes an appeal added event`, function () {
 
       Donations.domain.test(Donations.Appeal)
         .given()
         .when([
-          new Donations.MakeAppeal(_.extend({}, this.appealData, {
+          new Donations.DraftAppeal(_.extend({}, this.appealData, {
             targetId: this.appealId
           }))
         ])
         .expect([
-          new Donations.AppealMade(_.extend({}, this.appealData, {
+          new Donations.AppealDrafted(_.extend({}, this.appealData, {
             sourceId: this.appealId,
             version: 1
           }))
+        ]);
+
+    });
+
+  });
+
+  describe(`making an appeal`, function () {
+
+    it(`publishes an appeal made event`, function () {
+
+      Donations.domain.test(Donations.Appeal)
+        .given(draftAppeal.call(this))
+        .when([
+          new Donations.MakeAppeal({
+            targetId: this.appealId
+          })
+        ])
+        .expect([
+          new Donations.AppealMade(_.extend({}, this.appealData, {
+            sourceId: this.appealId,
+            version: 2
+          }))
+        ]);
+
+    });
+
+    it(`only allows appeals to be made if currently a draft`, function () {
+
+      Donations.domain.test(Donations.Appeal)
+        .given(openAppeal.call(this))
+        .when(
+          new Donations.MakeAppeal({
+            targetId: this.appealId
+          })
+        )
+        .expect([
+          new Space.domain.Exception({
+            thrower: 'Donations.Appeal',
+            error: new Donations.InvalidAppealState('open','open')
+          })
+        ]);
+
+      Donations.domain.test(Donations.Appeal)
+        .given(closedAppeal.call(this))
+        .when(
+          new Donations.MakeAppeal({
+            targetId: this.appealId
+          })
+        )
+        .expect([
+          new Space.domain.Exception({
+            thrower: 'Donations.Appeal',
+            error: new Donations.InvalidAppealState('closed','open')
+          })
+        ]);
+
+    });
+
+  });
+
+  describe(`cancelling an appeal`, function () {
+
+    it(`cancels a draft appeal`, function () {
+
+      Donations.domain.test(Donations.Appeal)
+        .given(draftAppeal.call(this))
+        .when([
+          new Donations.CancelAppeal({
+            targetId: this.appealId
+          })
+        ])
+        .expect([
+          new Donations.AppealCancelled(_.extend({}, this.appealData, {
+            sourceId: this.appealId,
+            version: 2
+          }))
+        ]);
+
+    });
+
+    it(`does not allow cancelling of an open appeal`, function () {
+
+      Donations.domain.test(Donations.Appeal)
+        .given(openAppeal.call(this))
+        .when([
+          new Donations.CancelAppeal({
+            targetId: this.appealId
+          })
+        ])
+        .expect([
+          new Space.domain.Exception({
+            thrower: 'Donations.Appeal',
+            error: new Donations.InvalidAppealState('open','cancelled')
+          })
         ]);
 
     });

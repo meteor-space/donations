@@ -26,12 +26,16 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
 
   // APPEALS
 
-  MakeAppeal: {
+  DraftAppeal: {
     title: String,
     requiredQuantity: Quantity,
     organizationId: Guid,
     locationId: Guid,
     description: Match.Optional(String)
-  }
+  },
+
+  MakeAppeal: {},
+
+  CancelAppeal: {}
 
 });

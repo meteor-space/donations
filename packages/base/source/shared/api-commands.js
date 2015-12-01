@@ -1,11 +1,15 @@
 Space.messaging.define(Space.messaging.Command, `Donations`, {
 
+  // REGISTRATION
+
   RegisterOrganization: {
     name: String,
     country: Country,
     contact: Donations.Contact,
     password: Password
   },
+
+  // LOCATIONS
 
   AddLocation: {
     name: String,
@@ -18,6 +22,16 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     name: String,
     address: Donations.Address,
     openingHours: String
+  },
+
+  // APPEALS
+
+  MakeAppeal: {
+    title: String,
+    requiredQuantity: Quantity,
+    organizationId: Guid,
+    locationId: Guid,
+    description: Match.Optional(String)
   }
 
 });

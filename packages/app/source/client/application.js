@@ -14,7 +14,8 @@ Space.Application.extend(Donations, 'App', {
     'Donations.LayoutController',
     'Donations.OrgRegistrationsController',
     'Donations.OrgLocationsController',
-    'Donations.LoginController'
+    'Donations.LoginController',
+    'Donations.AppealsController'
   ],
 
   components: [
@@ -27,15 +28,22 @@ Space.Application.extend(Donations, 'App', {
     'Donations.OrgLoginForm',
     'Donations.AddLocationForm',
     'Donations.EditLocationForm',
-    // OTHERS
-    'Donations.LogoutButton',
+    'Donations.AddAppealForm',
+    // EDITORS
     'Donations.LocationsEditor',
-    'Donations.EditLocationsListItem'
+    'Donations.AppealsEditor',
+    // LISTS
+    'Donations.EditLocationsListItem',
+    // BUTTONS
+    'Donations.LogoutButton'
   ],
 
   singletons: [
+    // TRACKERS
     'Donations.OrgsTracker',
     'Donations.LocationsTracker',
+    'Donations.AppealsTracker',
+    // SIMULATIONS
     'Donations.LocationsApi'
   ],
 
@@ -44,6 +52,7 @@ Space.Application.extend(Donations, 'App', {
     this.injector.map('Router').to(FlowRouter);
     this.injector.map('Donations.Organizations').asStaticValue();
     this.injector.map('Donations.Locations').asStaticValue();
+    this.injector.map('Donations.Appeals').asStaticValue();
   }
 
 });

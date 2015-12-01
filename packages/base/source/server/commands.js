@@ -7,14 +7,6 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     contact: Donations.Contact
   },
 
-  MakeAppeal: {
-    title: String,
-    requiredQuantity: Quantity,
-    organizationId: Guid,
-    locationId: Guid,
-    description: Match.Optional(String)
-  },
-
   MakePledge: {
     id: Guid,
     donor: Donations.Contact,

@@ -57,7 +57,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _cancelAppeal(command) {
     if (!this.hasState(this.STATES.draft)) {
-      throw new Donations.InvalidAppealState(this._state, this.STATES.cancelled);
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
     }
     this.record(new Donations.AppealCancelled({
       sourceId: this.getId(),
@@ -71,7 +71,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _makeAppeal(command) {
     if (!this.hasState(this.STATES.draft)) {
-      throw new Donations.InvalidAppealState(this._state, this.STATES.open);
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
     }
     this.record(new Donations.AppealMade({
       sourceId: this.getId(),
@@ -85,7 +85,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _makePledge(command) {
     if (!this.hasState(this.STATES.open)) {
-      throw new Donations.AppealNotOpenForNewPledges();
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
     }
     // Pledged quantity is capped at the appeal’s required quantity
     let quantity = command.quantity;
@@ -111,7 +111,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _acceptPledge(command) {
     if (!this.hasState(this.STATES.open)) {
-      throw new Donations.AppealNotOpenToAcceptPledge();
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
     }
     let pledge = this._getPledgeById(command.id);
     pledge.throwIfCannotBeAccepted();
@@ -122,7 +122,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _declinePledge(command) {
     if (!this.hasState(this.STATES.open)) {
-      throw new Donations.AppealNotOpenToDeclinePledge();
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
     }
     let pledge = this._getPledgeById(command.id);
     pledge.throwIfCannotBeDeclined();
@@ -133,7 +133,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _fulfillPledge(command) {
     if (!this.hasState(this.STATES.open)) {
-      throw new Donations.AppealNotOpenToFulfillPledge();
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
     }
     let pledge = this._getPledgeById(command.id);
     pledge.throwIfCannotBeFulfilled();
@@ -144,7 +144,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _writeOffPledge(command) {
     if (!this.hasState(this.STATES.open)) {
-      throw new Donations.AppealNotOpenToWriteOffPledge();
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
     }
     let pledge = this._getPledgeById(command.id);
     pledge.throwIfCannotBeWrittenOff();
@@ -155,7 +155,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _closeAppeal(command) {
     if (!this.hasState(this.STATES.open)) {
-      throw new Donations.FulfilledAppealCannotBeClosed();
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
     }
     this.record(new Donations.AppealClosed({
       sourceId: this.getId(),

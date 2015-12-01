@@ -1,24 +1,8 @@
 Space.Error.extend(Donations, `InvalidAppealState`, {
-  Constructor(currentState, commandedState) {
+  Constructor(commandName, currentState) {
     Space.Error.constructor.call(this);
-    this.message = `Appeal cannot move to ${commandedState} from the state of ${currentState}`;
+    this.message = `Cannot ${commandName} when in ${currentState} state`;
   }
-});
-
-Space.Error.extend(Donations, `AppealNotOpenForNewPledges`, {
-  message: `Appeal not open for new pledges.`
-});
-
-Space.Error.extend(Donations, `AppealNotOpenToAcceptPledge`, {
-  message: `Appeal not open to accept pledge.`
-});
-
-Space.Error.extend(Donations, `AppealNotOpenToDeclinePledge`, {
-  message: `Appeal not open to decline pledge.`
-});
-
-Space.Error.extend(Donations, `AppealNotOpenToWriteOffPledge`, {
-  message: `Appeal not open to write off pledge.`
 });
 
 Space.Error.extend(Donations, `PledgeHasToBeAcceptedBeforeFulfilled`, {
@@ -42,8 +26,4 @@ Space.Error.extend(Donations, `FulfilledPledgeCannotBeDeclined`, {
 
 Space.Error.extend(Donations, `FulfilledPledgeCannotBeWrittenOff`, {
   message: `Fulfilled pledge cannot be written off`
-});
-
-Space.Error.extend(Donations, `FulfilledAppealCannotBeClosed`, {
-  message: `Fulfilled appeal cannot be closed`
-});
+})

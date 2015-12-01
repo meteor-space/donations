@@ -209,7 +209,7 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('open','open')
+            error: new Donations.InvalidAppealState('MakeAppeal','open')
           })
         ]);
 
@@ -223,7 +223,7 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('closed','open')
+            error: new Donations.InvalidAppealState('MakeAppeal','closed')
           })
         ]);
 
@@ -263,7 +263,7 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.InvalidAppealState('open','cancelled')
+            error: new Donations.InvalidAppealState('CancelAppeal','open')
           })
         ]);
 
@@ -355,7 +355,7 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.AppealNotOpenForNewPledges()
+            error: new Donations.InvalidAppealState('MakePledge','fulfilled')
           })
         ]);
 
@@ -369,7 +369,7 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.AppealNotOpenForNewPledges()
+            error: new Donations.InvalidAppealState('MakePledge','closed')
           })
         ]);
 
@@ -413,7 +413,7 @@ describe(`Donations.Appeal`, function() {
           .expect([
             new Space.domain.Exception({
               thrower: 'Donations.Appeal',
-              error: new Donations.AppealNotOpenToAcceptPledge()
+              error: new Donations.InvalidAppealState('AcceptPledge','fulfilled')
             })
           ]);
 
@@ -580,7 +580,7 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.FulfilledAppealCannotBeClosed()
+            error: new Donations.InvalidAppealState('CloseAppeal','fulfilled')
           })
         ]);
 
@@ -594,7 +594,7 @@ describe(`Donations.Appeal`, function() {
         .expect([
           new Space.domain.Exception({
             thrower: 'Donations.Appeal',
-            error: new Donations.FulfilledAppealCannotBeClosed()
+            error: new Donations.InvalidAppealState('CloseAppeal','closed')
           })
         ]);
 

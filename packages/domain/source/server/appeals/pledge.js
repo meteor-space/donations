@@ -1,7 +1,7 @@
 Space.domain.Entity.extend(Donations, 'Pledge', {
 
   STATES: {
-    new: `new`,
+    'new': `new`,
     accepted: `accepted`,
     declined: `declined`,
     fulfilled: `fulfilled`,

@@ -28,7 +28,7 @@ Space.eventSourcing.Projection.extend(Donations, 'OrgProjection', {
   },
 
   _onLocationAdded(event) {
-    this.organizations.update(event.organizationId.toString(), {
+    this.organizations.update(event.sourceId.toString(), {
       $push: {
         locations: this._getPlainLocationDetails(event)
       }
@@ -37,8 +37,8 @@ Space.eventSourcing.Projection.extend(Donations, 'OrgProjection', {
 
   _onLocationDetailsChanged(event) {
     let location = {
-      _id: event.organizationId.toString(),
-      'locations._id': event.sourceId.toString()
+      _id: event.sourceId.toString(),
+      'locations._id': event.locationId.toString()
     };
     this.organizations.update(location, {
       $set: {
@@ -49,7 +49,7 @@ Space.eventSourcing.Projection.extend(Donations, 'OrgProjection', {
 
   _getPlainLocationDetails(event) {
     return {
-      _id: event.sourceId.toString(),
+      _id: event.locationId.toString(),
       name: event.name,
       address: {
         street: event.address.street,

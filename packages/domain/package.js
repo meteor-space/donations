@@ -31,9 +31,6 @@ Package.onUse(function(api) {
     'source/server/organizations/organization-router.js',
     'source/server/organizations/org-registration.js',
     'source/server/organizations/org-registration-router.js',
-    // LOCATIONS
-    'source/server/locations/location.js',
-    'source/server/locations/location-router.js',
     // APPEALS
     'source/server/appeals/pledge.js',
     'source/server/appeals/appeal.js',
@@ -60,7 +57,6 @@ Package.onTest(function(api) {
 
   api.addFiles([
     'tests/organizations/organization.tests.js',
-    'tests/locations/location.tests.js',
     'tests/appeals/appeal.tests.js'
   ], 'server');
 

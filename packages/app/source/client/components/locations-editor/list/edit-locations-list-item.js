@@ -16,12 +16,14 @@ Space.flux.BlazeComponent.extend(Donations, 'EditLocationsListItem', {
 
   _onNameClicked() {
     event.preventDefault();
-    this.publish(new Donations.RouteRequested({
-      routeName: 'locationAdmin',
-      params: {
-        id: this.data()._id
-      }
-    }));
+    if (!this.isEditing()) {
+      this.publish(new Donations.RouteRequested({
+        routeName: 'locationAdmin',
+        params: {
+          id: this.data()._id
+        }
+      }));
+    }
   },
 
   _onEditClicked(event) {

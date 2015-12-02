@@ -48,16 +48,14 @@ Package.onUse(function(api) {
     'source/server/dev-data-setup.js',
     // APIS
     'source/server/apis/org-registration-api.js',
-    'source/server/apis/org-locations-api.js',
+    'source/server/apis/org-api.js',
     'source/server/apis/appeals-api.js',
     // PROJECTIONS
     'source/server/projections/org-registrations-projection.js',
     'source/server/projections/org-projection.js',
-    'source/server/projections/locations-projection.js',
     'source/server/projections/appeals-projection.js',
     // PUBLICATIONS
     'source/server/publications/org-publication.js',
-    'source/server/publications/locations-publication.js',
     'source/server/publications/appeals-publication.js'
   ], 'server');
 
@@ -153,20 +151,16 @@ Package.onUse(function(api) {
     'source/client/controllers/route-controller.js',
     'source/client/controllers/layout-controller.js',
     'source/client/controllers/org-registrations-controller.js',
-    'source/client/controllers/org-locations-controller.js',
+    'source/client/controllers/orgs-controller.js',
     'source/client/controllers/login-controller.js',
     'source/client/controllers/appeals-controller.js',
     // HIGH-LEVEL STORES
     'source/client/stores/org-registrations-store.js',
     'source/client/stores/orgs-store.js',
-    'source/client/stores/locations-store.js',
     'source/client/stores/location-details-store.js',
     // TRACKERS
     'source/client/trackers/orgs-tracker.js',
-    'source/client/trackers/locations-tracker.js',
     'source/client/trackers/appeals-tracker.js',
-    // API SIMULATIONS
-    'source/client/simulations/locations-api.js',
     // APP
     'source/client/events/app.js',
     'source/client/events/appeals.js',
@@ -186,7 +180,6 @@ Package.onUse(function(api) {
   api.addFiles([
     'source/shared/startup.js',
     'source/shared/collections/organizations.js',
-    'source/shared/collections/locations.js',
     'source/shared/collections/appeals.js'
   ]);
 

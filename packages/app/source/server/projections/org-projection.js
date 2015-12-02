@@ -6,7 +6,9 @@ Space.eventSourcing.Projection.extend(Donations, 'OrgProjection', {
 
   eventSubscriptions() {
     return [{
-      'Donations.OrganizationCreated': this._onOrganizationCreated
+      'Donations.OrganizationCreated': this._onOrganizationCreated,
+      'Donations.LocationAdded': this._onLocationAdded,
+      'Donations.LocationDetailsChanged': this._onLocationDetailsChanged
     }];
   },
 
@@ -20,8 +22,43 @@ Space.eventSourcing.Projection.extend(Donations, 'OrgProjection', {
         name: event.contact.name,
         email: event.contact.email.toString(),
         phone: event.contact.phone
+      },
+      locations: []
+    });
+  },
+
+  _onLocationAdded(event) {
+    this.organizations.update(event.organizationId.toString(), {
+      $push: {
+        locations: this._getPlainLocationDetails(event)
       }
     });
+  },
+
+  _onLocationDetailsChanged(event) {
+    let location = {
+      _id: event.organizationId.toString(),
+      'locations._id': event.sourceId.toString()
+    };
+    this.organizations.update(location, {
+      $set: {
+        'locations.$': this._getPlainLocationDetails(event)
+      }
+    });
+  },
+
+  _getPlainLocationDetails(event) {
+    return {
+      _id: event.sourceId.toString(),
+      name: event.name,
+      address: {
+        street: event.address.street,
+        zip: event.address.zip,
+        city: event.address.city,
+        country: event.address.country.toString()
+      },
+      openingHours: event.openingHours
+    };
   }
 
 });

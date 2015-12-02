@@ -13,22 +13,19 @@ Donations.App = Space.Application.define('Donations.App', {
   singletons: [
     // APIS
     'Donations.OrgRegistrationApi',
-    'Donations.OrgLocationsApi',
+    'Donations.OrgApi',
     'Donations.AppealsApi',
     // PROJECTIONS
     'Donations.OrgRegistrationsProjection',
     'Donations.OrgProjection',
-    'Donations.LocationsProjection',
     'Donations.AppealsProjection',
     // PUBLICATIONS
     'Donations.OrgPublication',
-    'Donations.LocationsPublication',
     'Donations.AppealsPublication'
   ],
 
   onInitialize() {
     this.injector.map('Donations.Organizations').asStaticValue();
-    this.injector.map('Donations.Locations').asStaticValue();
     this.injector.map('Donations.Appeals').asStaticValue();
   }
 

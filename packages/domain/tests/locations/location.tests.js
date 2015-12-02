@@ -28,8 +28,8 @@ describe(`Donations.Location`, function() {
       .expect([
         new Donations.LocationAdded(_.extend({}, this.data, {
           sourceId: this.locationId,
-          timestamp: new Date(),
-          version: 1
+          version: 1,
+          timestamp: Date
         }))
       ]);
     });

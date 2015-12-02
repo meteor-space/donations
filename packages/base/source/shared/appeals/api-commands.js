@@ -10,6 +10,30 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
 
   MakeAppeal: {},
 
-  CancelAppeal: {}
+  CancelAppeal: {},
+
+  CloseAppeal: {},
+
+  MakePledge: {
+    id: Guid,
+    donor: Donations.Contact,
+    quantity: Quantity
+  },
+
+  AcceptPledge: {
+    id: Guid
+  },
+
+  DeclinePledge: {
+    id: Guid
+  },
+
+  FulfillPledge: {
+    id: Guid
+  },
+
+  WriteOffPledge: {
+    id: Guid
+  }
 
 });

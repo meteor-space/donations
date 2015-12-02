@@ -35,7 +35,6 @@ Package.onUse(function(api) {
     'source/server/organizations/commands.js',
     'source/server/organizations/errors.js',
     'source/server/appeals/events.js',
-    'source/server/appeals/commands.js',
     'source/server/appeals/errors.js'
   ], 'server');
 

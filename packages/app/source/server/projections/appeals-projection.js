@@ -6,19 +6,31 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
 
   eventSubscriptions() {
     return [{
-      'Donations.AppealDrafted': this._onAppealDrafted
+      'Donations.AppealDrafted': this._onAppealDrafted,
+      'Donations.AppealDraftUpdated': this._onAppealDraftUpdated
     }];
   },
 
   _onAppealDrafted(event) {
-    this.appeals.insert({
+    this.appeals.insert(_.extend({}, this._extractAppealDetails(event), {
       _id: event.sourceId.toString(),
-      title: event.title,
-      requiredQuantity: event.requiredQuantity.value,
-      description: event.description,
       organizationId: event.organizationId.toString(),
       locationId: event.locationId.toString()
+    }));
+  },
+
+  _onAppealDraftUpdated(event) {
+    this.appeals.update(event.sourceId.toString(), {
+      $set: this._extractAppealDetails(event)
     });
+  },
+
+  _extractAppealDetails(event) {
+    return {
+      title: event.title,
+      requiredQuantity: event.requiredQuantity.value,
+      description: event.description
+    };
   }
 
 });

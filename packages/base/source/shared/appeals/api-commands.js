@@ -8,6 +8,12 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
     description: Match.Optional(String)
   },
 
+  UpdateAppealDraft: {
+    title: String,
+    requiredQuantity: Quantity,
+    description: Match.Optional(String)
+  },
+
   MakeAppeal: {},
 
   CancelAppeal: {},

@@ -1,8 +1,12 @@
 <template name="edit_appeals_list_item">
-  <div class="edit-appeals-list-item">
+  <div class="edit-appeals-list-item {{stateClass}}">
+  {{#if isEditing}}
+    {{> edit_appeal_form submitLabel="speichern" appeal=this}}
+  {{else}}
     <span class="quantity">{{requiredQuantity}}</span>
     <span class="title">{{title}}</span>
     <p class="description">{{description}}</p>
     <a href="#" class="edit">{{i18n "edit"}}</a>
+  {{/if}}
   </div>
 </template>

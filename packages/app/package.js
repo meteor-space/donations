@@ -143,9 +143,13 @@ Package.onUse(function(api) {
     // ---------> add appeal
     'source/client/components/appeals-editor/add/add-appeal-form.html',
     'source/client/components/appeals-editor/add/add-appeal-form.js',
-    // ---------> edit appeal
+    // ---------> list appeals
     'source/client/components/appeals-editor/list/edit-appeals-list-item.html',
     'source/client/components/appeals-editor/list/edit-appeals-list.html',
+    'source/client/components/appeals-editor/list/edit-appeals-list-item.js',
+    // ---------> edit appeal
+    'source/client/components/appeals-editor/edit/edit-appeal-form.html',
+    'source/client/components/appeals-editor/edit/edit-appeal-form.js',
 
     // CONTROLLERS
     'source/client/controllers/route-controller.js',

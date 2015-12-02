@@ -1,9 +1,9 @@
 <template name="appeal_form">
 <div class="appeal form">
 
-  <input class="quantity" type="text" placeholder="Anzahl" value="{{appeal.quantity}}"/>
-  <input class="title" type="text" placeholder="Titel" value="{{appeal.title}}"/>
-  <textarea class="description" placeholder="Beschreibung …">{{appeal.description}}</textarea>
+  <input class="quantity" type="text" placeholder="{{i18n "quantity"}}" value="{{appeal.quantity}}"/>
+  <input class="title" type="text" placeholder="{{i18n "title"}}" value="{{appeal.title}}"/>
+  <textarea class="description" placeholder="{{i18n "description"}} …">{{appeal.description}}</textarea>
   <button class="submit">{{submitLabel}}</button>
 
 </div>

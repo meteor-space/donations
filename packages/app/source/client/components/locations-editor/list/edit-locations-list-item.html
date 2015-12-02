@@ -5,17 +5,17 @@
   {{else}}
     <a href="#" class="name">{{name}}</a>
     <p class="address">
-      <label>Adresse:</label>
+      <label>{{i18n "address"}}:</label>
       <span class="street">{{address.street}}</span>,
       <span class="zip">{{address.zip}}</span> /
       <span class="city">{{address.city}}</span>,
       <span class="country">{{address.country}}</span>
     </p>
     <p class="opening-hours">
-      <label>Öffnungszeiten:</label>
+      <label>{{i18n "open_hours"}}:</label>
       {{openingHours}}
     </p>
-    <a href="#" class="edit">bearbeiten</a>
+    <a href="#" class="edit">{{i18n "edit"}}</a>
   {{/if}}
   </div>
 </template>

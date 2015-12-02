@@ -1,11 +1,6 @@
 Space.messaging.define(Space.messaging.Event, 'Donations', {
 
-  // ======= Routing =======
-
-  RouteRequested: { routeName: String, params: Match.Optional(Object) },
-  RouteTriggered: { routeName: String, params: Match.Optional(Object) },
-
-  // ======= OrgRegistration ========
+  // ======= REGISTRATION ========
 
   OrgRegistrationRequested: {
     name: String,
@@ -25,7 +20,7 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
 
   OrgRegistrationFormSubmitted: {},
 
-  // ======== MANAGING ORG LOCATIONS ========
+  // ======== LOCATIONS ========
 
   AddOrgLocationFormSubmitted: {
     name: String,
@@ -44,13 +39,6 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     city: String,
     country: String,
     openingHours: String
-  },
-
-  // ======== MANAGING LOCATION APPEALS ========
-
-  AddAppealFormSubmitted: {
-    title: String,
-    quantity: Quantity,
-    description: String
   }
+
 });

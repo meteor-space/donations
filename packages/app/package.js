@@ -164,7 +164,9 @@ Package.onUse(function(api) {
     // API SIMULATIONS
     'source/client/simulations/locations-api.js',
     // APP
-    'source/client/events.js',
+    'source/client/events/app.js',
+    'source/client/events/appeals.js',
+    'source/client/events/organisations.js',
     'source/client/router.js',
     'source/client/application.js'
   ], 'client');

@@ -5,16 +5,16 @@
   <label>{{i18n "administrator_email_address"}}</label>
   <input class="email" type="text"/>
 
-  <label>Passwort</label>
+  <label>{{i18n "password"}}</label>
   <input class="password" type="password"/>
 
   {{#if state.error}}
   <p class="error">
-    Fehler: {{state.error.reason}}
+      {{i18n "error"}}: {{state.error.reason}}
   </p>
   {{/if}}
 
-  <button class="submit">Einloggen</button>
+  <button class="submit">{{i18n "log_in"}}</button>
 
 </div>
 

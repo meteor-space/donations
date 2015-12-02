@@ -3,7 +3,7 @@
 <div class="registration form">
 
   <div class="org">
-    <label>Name und Land der Organisation / Initiative</label>
+    <label>{{i18n "organization_initiative"}} {{i18n "name"}}</label>
     <input class="org-name" type="text" value="{{state.orgName}}" />
     <select class="org-country">
       <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
@@ -11,25 +11,25 @@
     </select>
   </div>
 
-  <label>Kontakt Email Addresse (für Benachrichtigungen)</label>
+  <label>{{i18n "contact_email_address_for_alerts"}}</label>
   <input class="contact-email" type="text" value="{{state.contactEmail}}"/>
 
-  <label>AnsprechpartnerIn</label>
+  <label>{{i18n "contact_name"}}</label>
   <input class="contact-name" type="text" value="{{state.contactName}}"/>
 
-  <label>Telefonnummer der AnsprechpartnerIn</label>
+  <label>{{i18n "contact_phone"}}</label>
   <input class="contact-phone" type="text" value="{{state.contactPhone}}"/>
 
-  <label>Passwort für Login</label>
+  <label>{{i18n "password"}}</label>
   <input class="password" type="password" value="{{state.password}}"/>
 
   {{#if state.error}}
   <p class="error">
-    Fehler: {{state.error}}
+    {{i18n "error"}}: {{state.error}}
   </p>
   {{/if}}
 
-  <button class="submit">Registrieren</button>
+  <button class="submit">{{i18n "register"}}</button>
 
 </div>
 

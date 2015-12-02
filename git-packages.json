@@ -1,7 +1,7 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "branch": "feature/overridable-struct-checking"
+    "branch": "develop"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
@@ -29,7 +29,7 @@
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
-    "branch": "feature/flexible-struct-testing"
+    "branch": "develop"
   },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",

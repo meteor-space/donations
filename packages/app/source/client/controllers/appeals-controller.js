@@ -17,7 +17,7 @@ Space.Object.extend(Donations, 'AppealsController', {
   },
 
   _onAddAppealFormSubmitted(event) {
-    this.send(new Donations.MakeAppeal({
+    this.send(new Donations.DraftAppeal({
       targetId: new Guid(),
       title: event.title,
       requiredQuantity: event.quantity,

@@ -9,12 +9,13 @@ Space.messaging.define(Space.messaging.Command, `Donations`, {
 
   AddLocation: {
     name: String,
-    organizationId: Guid,
+    locationId: Guid,
     address: Donations.Address,
     openingHours: String
   },
 
   UpdateLocationDetails: {
+    locationId: Guid,
     name: String,
     address: Donations.Address,
     openingHours: String

@@ -1,4 +1,4 @@
-Space.Object.extend(Donations, 'OrgLocationsController', {
+Space.Object.extend(Donations, 'OrgsController', {
 
   mixin: [
     Space.messaging.EventSubscribing,
@@ -18,9 +18,9 @@ Space.Object.extend(Donations, 'OrgLocationsController', {
 
   _onAddOrgLocationFormSubmitted(event) {
     this.send(new Donations.AddLocation({
-      targetId: new Guid(),
+      targetId: this._getOrgId(),
       name: event.name,
-      organizationId: new Guid(this.orgsStore.adminOrg()._id),
+      locationId: new Guid(),
       address: this._generateAddressFromUiEvent(event),
       openingHours: event.openingHours
     }));
@@ -28,7 +28,8 @@ Space.Object.extend(Donations, 'OrgLocationsController', {
 
   _onEditLocationFormSubmitted(event) {
     this.send(new Donations.UpdateLocationDetails({
-      targetId: new Guid(event.locationId),
+      targetId: this._getOrgId(),
+      locationId: new Guid(event.locationId),
       name: event.name,
       address: this._generateAddressFromUiEvent(event),
       openingHours: event.openingHours
@@ -42,6 +43,10 @@ Space.Object.extend(Donations, 'OrgLocationsController', {
       city: event.city,
       street: event.street
     });
+  },
+
+  _getOrgId() {
+    return new Guid(this.orgsStore.adminOrg()._id);
   }
 
 });

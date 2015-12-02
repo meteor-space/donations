@@ -1,7 +1,7 @@
-Space.messaging.Api.extend(Donations, 'LocationsApi', {
+Space.messaging.Api.extend(Donations, 'OrgsApi', {
 
   dependencies: {
-    locations: 'Donations.Locations'
+    organizations: 'Donations.Organizations'
   },
 
   methods() {
@@ -13,7 +13,7 @@ Space.messaging.Api.extend(Donations, 'LocationsApi', {
 
   _addLocation(context, command) {
     let locationDetails = this._getPlainLocationDetails(command);
-    this.locations.insert(_.extend(locationDetails, {
+    this.organizations.insert(_.extend(locationDetails, {
       _id: command.targetId.toString()
     }));
   },

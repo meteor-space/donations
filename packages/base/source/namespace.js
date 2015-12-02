@@ -1,1 +1,0 @@
-Donations = Space.namespace(`Donations`);

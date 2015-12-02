@@ -21,6 +21,7 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgLoginForm', {
       password: new Password(this.$('.password').val())
     }));
   }
+
 });
 
 Donations.OrgLoginForm.register('login_form');

@@ -23,6 +23,7 @@ Package.onUse(function(api) {
     'ecmascript',
     'sha',
     'accounts-password',
+    'tap:i18n@1.7.0',
     'peerlibrary:blaze-components@0.15.0',
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
@@ -68,6 +69,9 @@ Package.onUse(function(api) {
     'source/client/pages/index/images/receive-icon.svg',
     'source/client/pages/index/images/request-icon.svg'
   ], 'client');
+
+  // i18n - Must load before templates
+  api.addFiles('config/package-tap.i18n', ['client', 'server']);
 
   // CLIENT
   api.addFiles([
@@ -170,6 +174,13 @@ Package.onUse(function(api) {
     'source/client/router.js',
     'source/client/application.js'
   ], 'client');
+
+  // i18n - Must load after templates
+  api.addFiles([
+    'lib/i18n/en.i18n.json',
+    'lib/i18n/en-GB.i18n.json',
+    'lib/i18n/de.i18n.json'
+  ]);
 
   // SHARED
   api.addFiles([

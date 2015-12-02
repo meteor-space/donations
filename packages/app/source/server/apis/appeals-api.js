@@ -2,11 +2,11 @@ Space.messaging.Api.extend(Donations, 'AppealsApi', {
 
   methods() {
     return [{
-      'Donations.MakeAppeal': this._makeAppeal
+      'Donations.DraftAppeal': this._draftAppeal
     }];
   },
 
-  _makeAppeal(context, command) {
+  _draftAppeal(context, command) {
     this.commandBus.send(command);
   }
 

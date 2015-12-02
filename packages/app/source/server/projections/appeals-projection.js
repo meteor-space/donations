@@ -6,11 +6,11 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
 
   eventSubscriptions() {
     return [{
-      'Donations.AppealMade': this._onAppealMade
+      'Donations.AppealDrafted': this._onAppealDrafted
     }];
   },
 
-  _onAppealMade(event) {
+  _onAppealDrafted(event) {
     this.appeals.insert({
       _id: event.sourceId.toString(),
       title: event.title,

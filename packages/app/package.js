@@ -44,6 +44,7 @@ Package.onUse(function(api) {
 
   // SERVER
   api.addFiles([
+    'source/server/settings.js',
     'source/server/application.js',
     'source/server/dev-data-setup.js',
     // APIS

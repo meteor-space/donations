@@ -165,6 +165,40 @@ describe(`Donations.Appeal`, function() {
 
   });
 
+  describe(`updating an appeal draft`, function() {
+
+    it(`publishes an appeal draft updated event`, function() {
+
+      Donations.domain.test(Donations.Appeal)
+        .given([
+          new Donations.AppealDrafted(_.extend({}, this.appealData, {
+            sourceId: this.appealId,
+            version: 1
+          }))
+        ])
+        .when([
+          new Donations.UpdateAppealDraft({
+            targetId: this.appealId,
+            title: this.appealData.title,
+            requiredQuantity: this.appealData.requiredQuantity,
+            description: this.appealData.description
+          })
+        ])
+        .expect([
+          new Donations.AppealDraftUpdated({
+            sourceId: this.appealId,
+            version: 2,
+            timestamp: Date,
+            title: this.appealData.title,
+            requiredQuantity: this.appealData.requiredQuantity,
+            description: this.appealData.description
+          })
+        ]);
+
+    });
+
+  });
+
   describe(`making an appeal`, function() {
 
     it(`publishes an appeal made event`, function() {

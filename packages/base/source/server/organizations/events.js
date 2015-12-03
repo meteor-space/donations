@@ -38,13 +38,14 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
 
   LocationAdded: {
     name: String,
-    organizationId: Guid,
+    locationId: Guid,
     address: Donations.Address,
     openingHours: String
   },
 
   LocationDetailsChanged: {
     name: String,
+    locationId: Guid,
     address: Donations.Address,
     openingHours: String
   }

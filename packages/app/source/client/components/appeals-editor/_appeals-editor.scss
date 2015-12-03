@@ -1,11 +1,11 @@
 .appeal.form {
 
   .quantity {
-    @include grid-column($columns:2);
+    @include grid-column($columns:3);
   }
 
   .title {
-    @include grid-column($columns:10);
+    @include grid-column($columns:9);
   }
 
 }
@@ -15,18 +15,18 @@
   @include box-background();
   margin-bottom: 20px;
 
-  .title, .quantity {
-    font-size: 18px;
-  }
-
-  .quantity {
-    @include font(bold);
-    color: darken($color-main, 50%);
-    margin-right: 0.5em;
-  }
-
-  .title {
-    @include font(semibold);
+  &.is-viewing {
+    .title, .quantity {
+      font-size: 18px;
+    }
+    .quantity {
+      @include font(bold);
+      color: darken($color-main, 50%);
+      margin-right: 0.5em;
+    }
+    .title {
+      @include font(semibold);
+    }
   }
 
   .description {

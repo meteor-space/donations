@@ -1,7 +1,7 @@
 Space.flux.Store.extend(Donations, 'LocationDetailsStore', {
 
   dependencies: {
-    locations: 'Donations.Locations',
+    orgsStore: 'Donations.OrgsStore',
     appealsCollection: 'Donations.Appeals'
   },
 
@@ -33,7 +33,15 @@ Space.flux.Store.extend(Donations, 'LocationDetailsStore', {
   },
 
   _updateLocation() {
-    this._setReactiveVar('location', this.locations.findOne(this.locationId()));
+    let adminOrg = this.orgsStore.adminOrg();
+    let locationId = this.locationId();
+    let adminLocation = null;
+    if (adminOrg !== null && adminOrg !== undefined) {
+      for (let location of adminOrg.locations) {
+        if (location._id === locationId) adminLocation = location;
+      }
+    }
+    this._setReactiveVar('location', adminLocation);
   },
 
   _updateAppeals() {

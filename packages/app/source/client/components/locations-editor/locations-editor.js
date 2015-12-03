@@ -1,11 +1,15 @@
 Space.flux.BlazeComponent.extend(Donations, 'LocationsEditor', {
 
   dependencies: {
-    locationsStore: 'Donations.LocationsStore'
+    orgsStore: 'Donations.OrgsStore'
   },
 
   adminLocations() {
-    return this.locationsStore.adminOrgLocations();
+    if (this.orgsStore.adminOrg()) {
+      return this.orgsStore.adminOrg().locations;
+    } else {
+      return [];
+    }
   }
 
 });

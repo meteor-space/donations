@@ -1,6 +1,6 @@
 Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
-  onExtending() { this.type('Donations.Appeal') },
+  onExtending() { this.type('Donations.Appeal'); },
 
   STATES: {
     draft: `draft`,
@@ -23,6 +23,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
   commandMap() {
     return {
       'Donations.DraftAppeal': this._draftAppeal,
+      'Donations.UpdateAppealDraft': this._updateAppealDraft,
       'Donations.CancelAppeal': this._cancelAppeal,
       'Donations.MakeAppeal': this._makeAppeal,
       'Donations.MakePledge': this._makePledge,
@@ -37,6 +38,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
   eventMap() {
     return {
       'Donations.AppealDrafted': this._onAppealDrafted,
+      'Donations.AppealDraftUpdated': this._onAppealDraftUpdated,
       'Donations.AppealCancelled': this._onAppealCancelled,
       'Donations.AppealMade': this._onAppealMade,
       'Donations.PledgeMade': this._onPledgeMade,
@@ -53,6 +55,15 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _draftAppeal(command) {
     this.record(new Donations.AppealDrafted(this._eventPropsFromCommand(command)));
+  },
+
+  _updateAppealDraft(command) {
+    if (!this.hasState(this.STATES.draft)) {
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
+    }
+    this.record(new Donations.AppealDraftUpdated(
+      this._eventPropsFromCommand(command)
+    ));
   },
 
   _cancelAppeal(command) {
@@ -176,11 +187,15 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     this._state = this.STATES.draft;
   },
 
-  _onAppealCancelled(event) {
+  _onAppealDraftUpdated(event) {
+    this._assignFields(event);
+  },
+
+  _onAppealCancelled() {
     this._state = this.STATES.cancelled;
   },
 
-  _onAppealMade(event) {
+  _onAppealMade() {
     this._state = this.STATES.open;
   },
 
@@ -213,7 +228,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     this._getPledgeById(event.id).writeOff();
   },
 
-  _onAppealClosed(event) {
+  _onAppealClosed() {
     this._state = this.STATES.closed;
   },
 

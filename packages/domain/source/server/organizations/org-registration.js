@@ -52,6 +52,7 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
     let adminId = new Guid();
     let organizationId = new Guid();
     let eventProps = this._eventPropsFromCommand(command);
+    // Todo: Omit password from event
 
     this.record(new Donations.OrgRegistrationInitiated(_.extend(eventProps, {
       adminId: adminId,

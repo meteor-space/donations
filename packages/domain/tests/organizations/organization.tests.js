@@ -28,7 +28,8 @@ describe(`Donations.Organization`, function() {
   describe(`creating a new organization`, function() {
 
     it(`publishes a created event`, function() {
-      Donations.domain.test(Donations.Organization).given()
+      Donations.domain.test(Donations.Organization)
+      .given()
       .when(
         new Donations.CreateOrganization(_.extend({}, this.orgData, {
           targetId: this.orgId
@@ -36,9 +37,7 @@ describe(`Donations.Organization`, function() {
       )
       .expect([
         new Donations.OrganizationCreated(_.extend({}, this.orgData, {
-          sourceId: this.orgId,
-          version: 1,
-          timestamp: Date
+          sourceId: this.orgId
         }))
       ]);
 
@@ -51,9 +50,7 @@ describe(`Donations.Organization`, function() {
       Donations.domain.test(Donations.Organization)
       .given([
         new Donations.OrganizationCreated(_.extend({}, this.orgData, {
-          sourceId: this.orgId,
-          version: 1,
-          timestamp: Date
+          sourceId: this.orgId
         }))
       ])
       .when(
@@ -63,9 +60,7 @@ describe(`Donations.Organization`, function() {
       )
       .expect([
         new Donations.LocationAdded(_.extend({}, this.locationData, {
-          sourceId: this.orgId,
-          version: 2,
-          timestamp: Date
+          sourceId: this.orgId
         }))
       ]);
     });

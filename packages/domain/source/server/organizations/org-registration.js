@@ -27,7 +27,7 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
 
   commandMap() {
     return {
-      'Donations.RegisterOrganization': this._registerOrganization,
+      'Donations.RegisterOrganization': this._registerOrganization
     };
   },
 
@@ -42,7 +42,7 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
       'Donations.OrgRegistrationApproved': this._onRegistrationApproved,
       'Donations.OrgRegistrationFailed': this._onRegistrationFailed,
       'Donations.OrganizationAdminSignedUp': this._onOrgAdminSignedUp,
-      'Donations.OrgRegistrationCompleted': this._onRegistrationCompleted,
+      'Donations.OrgRegistrationCompleted': this._onRegistrationCompleted
     };
   },
 
@@ -53,7 +53,6 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
     let organizationId = new Guid();
     let eventProps = this._eventPropsFromCommand(command);
     // Todo: Omit password from event
-
     this.record(new Donations.OrgRegistrationInitiated(_.extend(eventProps, {
       adminId: adminId,
       organizationId: organizationId

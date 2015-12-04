@@ -35,8 +35,8 @@
   "city": "City",
   "open_hours": "Open hours",
   "appeals": {
-    "draft": "<strong>Draft</strong>: This is not yet published.",
-    "made": "published",
-    "make": "publish"
+    "draft": "<strong>Draft</strong>: This appeal not yet made.",
+    "made": "Appeal made",
+    "make": "Make the appeal"
   }
 }

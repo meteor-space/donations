@@ -26,6 +26,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.UpdateAppealDraft': this._updateAppealDraft,
       'Donations.CancelAppeal': this._cancelAppeal,
       'Donations.MakeAppeal': this._makeAppeal,
+      'Donations.UpdateAppeal': this._updateAppeal,
       'Donations.MakePledge': this._makePledge,
       'Donations.AcceptPledge': this._acceptPledge,
       'Donations.DeclinePledge': this._declinePledge,
@@ -41,6 +42,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       'Donations.AppealDraftUpdated': this._onAppealDraftUpdated,
       'Donations.AppealCancelled': this._onAppealCancelled,
       'Donations.AppealMade': this._onAppealMade,
+      'Donations.AppealUpdated': this._onAppealUpdated,
       'Donations.PledgeMade': this._onPledgeMade,
       'Donations.PledgeAccepted': this._onPledgeAccepted,
       'Donations.PledgeDeclined': this._onPledgeDeclined,
@@ -92,6 +94,15 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
       locationId: this.locationId,
       description: this.description
     }));
+  },
+
+  _updateAppeal(command) {
+    if (!this.hasState(this.STATES.open)) {
+      throw new Donations.InvalidAppealState(command.toString(), this._state);
+    }
+    this.record(new Donations.AppealUpdated(
+      this._eventPropsFromCommand(command)
+    ));
   },
 
   _makePledge(command) {
@@ -197,6 +208,10 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
 
   _onAppealMade() {
     this._state = this.STATES.open;
+  },
+
+  _onAppealDraftUpdated(event) {
+    this._assignFields(event);
   },
 
   _onPledgeMade(event) {

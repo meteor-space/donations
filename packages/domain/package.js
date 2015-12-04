@@ -57,6 +57,7 @@ Package.onTest(function(api) {
 
   api.addFiles([
     'tests/organizations/organization.tests.js',
+    'tests/organizations/org-registration.tests.js',
     'tests/appeals/appeal.tests.js'
   ], 'server');
 

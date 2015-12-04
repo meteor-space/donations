@@ -1,7 +1,7 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "branch": "develop"
+    "branch": "fix/module-config-and-reset"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
@@ -21,7 +21,7 @@
   },
   "space:accounts": {
     "git":"https://github.com/meteor-space/accounts.git",
-    "branch": "develop"
+    "branch": "fix/signup-command-multi-setup"
   },
   "space:accounts-ui": {
     "git":"https://github.com/meteor-space/accounts-ui.git",
@@ -29,7 +29,7 @@
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
-    "branch": "develop"
+    "branch": "feature/ignore-certain-event-properties"
   },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",

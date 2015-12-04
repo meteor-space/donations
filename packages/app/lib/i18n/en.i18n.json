@@ -33,5 +33,10 @@
   "street": "Street",
   "zip": "Zip",
   "city": "City",
-  "open_hours": "Open hours"
+  "open_hours": "Open hours",
+  "appeals": {
+    "draft": "<strong>Draft</strong>: Not yet public.",
+    "made": "Appeal made",
+    "make": "Make appeal to public"
+  }
 }

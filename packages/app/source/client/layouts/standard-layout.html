@@ -2,8 +2,11 @@
 <div class="standard-layout">
   <header>
     <div class="top-menu">
-      <h1>sachspenden.online</h1>
-      {{> logout_button}}
+      <h1><a href="/">sachspenden.online</a></h1>
+      <div class="admin-links">
+        {{> logout_button}}
+        {{> org_admin_page_link}}
+      </div>
     </div>
   </header>
   {{> Template.dynamic template=main}}

@@ -33,5 +33,10 @@
   "street": "Street",
   "zip": "Zip",
   "city": "City",
-  "open_hours": "Open hours"
+  "open_hours": "Open hours",
+  "admin": {
+    "org": {
+      "page_link": "Dashboard"
+    }
+  }
 }

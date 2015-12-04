@@ -13,7 +13,7 @@
   "receive_pledges_from_local_donors": "Empfange Spenden von Leuten aus der Umgebung",
   "register": "Registrieren",
   "log_in": "Einloggen",
-  "log_out": "Abmelden",
+  "log_out": "abmelden",
   "administrator_email_address": "Administrator Email Adresse",
   "password": "Passwort",
   "name": "Name",
@@ -34,5 +34,10 @@
   "street": "Straße",
   "zip": "PLZ",
   "city": "Stadt",
-  "open_hours": "Öffnungszeiten"
+  "open_hours": "Öffnungszeiten",
+  "admin": {
+    "org": {
+      "page_link": "Dashboard"
+    }
+  }
 }

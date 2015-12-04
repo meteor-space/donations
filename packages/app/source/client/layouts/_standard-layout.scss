@@ -13,25 +13,33 @@ body, html {
       @include grid-row();
     }
 
+    a:link, a:visited {
+      color: $color-text-on-contrast;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     h1 {
       @include grid-column($columns:8, $push:2)
       margin-top: 0;
       margin-bottom: 0;
       text-align: center;
-      color: $color-text-on-contrast;
       text-transform: uppercase;
       font-size: 19px;
       font-weight: 700;
+      a:link, a:visited {
+        color: $color-text-on-contrast;
+        text-decoration:none;
+      }
     }
 
-    .logout-button {
+    .admin-links {
       @include grid-column($columns:4, $last-column:true)
-      .logout {
+      .logout, .org-admin-link {
         float:right;
-        color: $color-text-on-contrast;
-        &:hover {
-          text-decoration: underline;
-        }
+        margin-left: 20px;
       }
     }
   }

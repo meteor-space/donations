@@ -108,6 +108,8 @@ Package.onUse(function(api) {
     'source/client/components/login-form/login-form.js',
     'source/client/components/logout-button/logout-button.js',
     'source/client/components/logout-button/logout-button.html',
+    'source/client/components/org-admin-page-link/org-admin-page-link.js',
+    'source/client/components/org-admin-page-link/org-admin-page-link.html',
 
     // ===> Location Editor
     'source/client/components/locations-editor/_locations-editor.scss',

@@ -27,6 +27,11 @@ Donations.App = Space.Application.define('Donations.App', {
   onInitialize() {
     this.injector.map('Donations.Organizations').asStaticValue();
     this.injector.map('Donations.Appeals').asStaticValue();
+  },
+
+  onReset() {
+    this.injector.get('Donations.Organizations').remove({});
+    this.injector.get('Donations.Appeals').remove({});
   }
 
 });

@@ -42,7 +42,7 @@
   },
   "appeals": {
     "draft": "<strong>Entwurf</strong>: Diese Spendenanfrage ist noch nicht öffentlich zu sehen",
-    "made": "Spendenanfrage veröffentlicht",
+    "open": "Spendenanfrage veröffentlicht",
     "make": "Spendenanfrage veröffentlichen"
   }
 }

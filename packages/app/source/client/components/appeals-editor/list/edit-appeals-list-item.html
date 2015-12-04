@@ -7,14 +7,14 @@
     <span class="title">{{title}}</span>
     <p class="description">{{description}}</p>
     <p class="state">
-      {{#if isMade}}
-        {{{i18n "appeals.made"}}}
+      {{#if isOpen}}
+        {{{i18n "appeals.open"}}}
       {{else}}
         {{{i18n "appeals.draft"}}}
       {{/if}}
     </p>
     <a href="#" class="edit">{{i18n "edit"}}</a>
-    {{#unless isMade}}
+    {{#unless isOpen}}
     | <a href="#" class="make">{{i18n "appeals.make"}}</a>
     {{/unless}}
   {{/if}}

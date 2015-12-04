@@ -177,6 +177,31 @@ describe(`Donations.Appeal`, function() {
 
   });
 
+  describe(`updating the title and/or description a public appeal`, function() {
+
+    it(`publishes an appeal updated event`, function() {
+
+      Donations.domain.test(Donations.Appeal)
+        .given(openAppeal.call(this))
+        .when([
+          new Donations.UpdateAppeal({
+            targetId: this.appealId,
+            title: this.appealData.title,
+            description: this.appealData.description
+          })
+        ])
+        .expect([
+          new Donations.AppealUpdated({
+            sourceId: this.appealId,
+            title: this.appealData.title,
+            description: this.appealData.description
+          })
+        ]);
+
+    });
+
+  });
+
   describe(`cancelling an appeal`, function() {
 
     it(`cancels a draft appeal`, function() {

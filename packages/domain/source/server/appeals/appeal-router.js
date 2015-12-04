@@ -7,6 +7,7 @@ Space.eventSourcing.Router.extend(Donations, `AppealRouter`, {
     Donations.UpdateAppealDraft,
     Donations.CancelAppeal,
     Donations.MakeAppeal,
+    Donations.UpdateAppeal,
     Donations.MakePledge,
     Donations.AcceptPledge,
     Donations.DeclinePledge,

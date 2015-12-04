@@ -22,6 +22,11 @@ Space.messaging.define(Space.messaging.Event, `Donations`, {
     description: Match.Optional(String)
   },
 
+  AppealUpdated: {
+    title: String,
+    description: Match.Optional(String)
+  },
+
   AppealCancelled: {
     title: String,
     requiredQuantity: Quantity,

@@ -11,5 +11,9 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     title: String,
     quantity: Quantity,
     description: String
+  },
+
+  AppealMade: {
+    appealId: String
   }
 });

@@ -1,5 +1,9 @@
 Space.flux.BlazeComponent.extend(Donations, 'EditAppealsListItem', {
 
+  isMade() {
+    return this.data().state === 'made';
+  },
+
   reactiveVars() {
     return [{
       isEditing: false
@@ -9,6 +13,7 @@ Space.flux.BlazeComponent.extend(Donations, 'EditAppealsListItem', {
   events() {
     return [{
       'click .edit': this._onEditClicked,
+      'click .make': this._onMakeClicked,
       'click .appeal.form .submit': this._onSaveClicked
     }];
   },
@@ -20,6 +25,11 @@ Space.flux.BlazeComponent.extend(Donations, 'EditAppealsListItem', {
   _onEditClicked(event) {
     event.preventDefault();
     this._setReactiveVar('isEditing', true);
+  },
+
+  _onMakeClicked(event) {
+    event.preventDefault();
+    this.publish(new Donations.AppealMade({ appealId: this.data()._id }));
   },
 
   _onSaveClicked() {

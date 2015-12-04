@@ -13,7 +13,8 @@ Space.Object.extend(Donations, 'AppealsController', {
   eventSubscriptions() {
     return [{
       'Donations.AddAppealFormSubmitted': this._onAddAppealFormSubmitted,
-      'Donations.EditAppealDraftFormSubmitted': this._onEditAppealDraftFormSubmitted
+      'Donations.EditAppealDraftFormSubmitted': this._onEditAppealDraftFormSubmitted,
+      'Donations.AppealMade': this._onAppealMade
     }];
   },
 
@@ -35,6 +36,10 @@ Space.Object.extend(Donations, 'AppealsController', {
       requiredQuantity: event.quantity,
       description: event.description
     }));
+  },
+
+  _onAppealMade(event) {
+    this.send(new Donations.MakeAppeal({ targetId: new Guid(event.appealId) }));
   }
 
 });

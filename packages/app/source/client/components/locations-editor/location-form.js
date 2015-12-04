@@ -1,5 +1,7 @@
 Space.flux.BlazeComponent.extend(Donations, 'LocationForm', {
 
+  ENTER: 13,
+
   isCountry(country) {
     return this.location().address.country === country ? true : false;
   },
@@ -12,7 +14,11 @@ Space.flux.BlazeComponent.extend(Donations, 'LocationForm', {
     }];
   },
 
-  _onInputChange() {},
+  _onInputChange() {
+    if (event.keyCode === this.ENTER) {
+      this._onSubmit()
+    }
+  },
   _onSubmit() {},
 
   _getValues() {

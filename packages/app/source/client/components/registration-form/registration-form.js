@@ -23,7 +23,7 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
   },
 
   _onInputChange(event) {
-    if(event.keyCode === this.ENTER) {
+    if (event.keyCode === this.ENTER) {
       this._onSubmit(event)
     }
     this.publish(new Donations.OrgRegistrationInputsChanged({

@@ -13,7 +13,7 @@
   "receive_pledges_from_local_donors": "Empfange Spenden von Leuten aus der Umgebung",
   "register": "Registrieren",
   "log_in": "Einloggen",
-  "log_out": "Abmelden",
+  "log_out": "abmelden",
   "administrator_email_address": "Administrator Email Adresse",
   "password": "Passwort",
   "name": "Name",
@@ -35,6 +35,11 @@
   "zip": "PLZ",
   "city": "Stadt",
   "open_hours": "Öffnungszeiten",
+  "admin": {
+    "org": {
+      "page_link": "Dashboard"
+    }
+  },
   "appeals": {
     "draft": "<strong>Entwurf</strong>: Diese Spendenanfrage ist noch nicht öffentlich zu sehen",
     "made": "Spendenanfrage veröffentlicht",

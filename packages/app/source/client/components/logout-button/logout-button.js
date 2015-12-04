@@ -10,7 +10,8 @@ Space.flux.BlazeComponent.extend(Donations, 'LogoutButton', {
 
   events() {
     return [{
-      'click .logout-button'() {
+      'click .logout-button'(event) {
+        event.preventDefault();
         this.publish(new Space.accountsUi.LogoutRequested());
       }
     }];

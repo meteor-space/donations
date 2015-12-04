@@ -36,7 +36,8 @@ Space.Application.extend(Donations, 'App', {
     'Donations.EditLocationsListItem',
     'Donations.EditAppealsListItem',
     // BUTTONS
-    'Donations.LogoutButton'
+    'Donations.LogoutButton',
+    'Donations.OrgAdminPageLink'
   ],
 
   singletons: [

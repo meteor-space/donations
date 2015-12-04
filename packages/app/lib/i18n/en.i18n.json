@@ -34,6 +34,11 @@
   "zip": "Zip",
   "city": "City",
   "open_hours": "Open hours",
+  "admin": {
+    "org": {
+      "page_link": "Dashboard"
+    }
+  },
   "appeals": {
     "draft": "<strong>Draft</strong>: Not yet public.",
     "made": "Appeal made",

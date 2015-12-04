@@ -41,7 +41,7 @@
   },
   "appeals": {
     "draft": "<strong>Draft</strong>: Not yet public.",
-    "made": "Appeal made",
+    "open": "open",
     "make": "Make appeal to public"
   }
 }

@@ -44,6 +44,7 @@ Package.onUse(function(api) {
 
   // SERVER
   api.addFiles([
+    'source/server/settings.js',
     'source/server/application.js',
     'source/server/dev-data-setup.js',
     // APIS
@@ -58,15 +59,6 @@ Package.onUse(function(api) {
     'source/server/publications/org-publication.js',
     'source/server/publications/appeals-publication.js'
   ], 'server');
-
-  // ASSETS
-  api.addAssets([
-    'source/client/pages/index/images/donations-icon.svg',
-    'source/client/pages/index/images/find-org-icon.svg',
-    'source/client/pages/index/images/deliver-icon.svg',
-    'source/client/pages/index/images/receive-icon.svg',
-    'source/client/pages/index/images/request-icon.svg'
-  ], 'client');
 
   // i18n - Must load before templates
   api.addFiles('config/package-tap.i18n', ['client', 'server']);

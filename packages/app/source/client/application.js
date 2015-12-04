@@ -50,6 +50,7 @@ Space.Application.extend(Donations, 'App', {
     this.injector.map('Router').to(FlowRouter);
     this.injector.map('Donations.Organizations').asStaticValue();
     this.injector.map('Donations.Appeals').asStaticValue();
+    TAPi18n.setLanguage(Meteor.settings.public.defaultLanguage);
   }
 
 });

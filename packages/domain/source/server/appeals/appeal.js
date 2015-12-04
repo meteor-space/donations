@@ -210,7 +210,7 @@ Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
     this._state = this.STATES.open;
   },
 
-  _onAppealDraftUpdated(event) {
+  _onAppealUpdated(event) {
     this._assignFields(event);
   },
 

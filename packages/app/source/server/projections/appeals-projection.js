@@ -8,7 +8,8 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
     return [{
       'Donations.AppealDrafted': this._onAppealDrafted,
       'Donations.AppealDraftUpdated': this._onAppealDraftUpdated,
-      'Donations.AppealMade': this._onAppealMade
+      'Donations.AppealMade': this._onAppealMade,
+      'Donations.AppealUpdated': this._onAppealUpdated
     }];
   },
 
@@ -28,7 +29,13 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
   },
 
   _onAppealMade(event) {
-    this.appeals.update(event.sourceId.toString(), { $set: { state: 'made' } });
+    this.appeals.update(event.sourceId.toString(), { $set: { state: 'open' } });
+  },
+
+  _onAppealUpdated(event) {
+    this.appeals.update(event.sourceId.toString(), {
+      $set: { title: event.title, description: event.description }
+    });
   },
 
   _extractAppealDetails(event) {

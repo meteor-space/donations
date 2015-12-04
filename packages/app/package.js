@@ -97,6 +97,9 @@ Package.onUse(function(api) {
     'source/client/pages/admin/location/_location-admin-page.scss',
     'source/client/pages/admin/location/location-admin-page.html',
     'source/client/pages/admin/location/location-admin-page.js',
+    // --> Login page
+    'source/client/pages/login/_login-page.scss',
+    'source/client/pages/login/login-page.html',
     // --> Register org page
     'source/client/pages/register/_register-page.scss',
     'source/client/pages/register/register-page.html',

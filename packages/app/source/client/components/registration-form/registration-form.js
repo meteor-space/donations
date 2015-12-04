@@ -1,5 +1,7 @@
 Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
 
+  ENTER: 13,
+
   dependencies: {
     store: 'Donations.OrgRegistrationsStore'
   },
@@ -20,7 +22,10 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
     }];
   },
 
-  _onInputChange() {
+  _onInputChange(event) {
+    if(event.keyCode === this.ENTER) {
+      this._onSubmit(event)
+    }
     this.publish(new Donations.OrgRegistrationInputsChanged({
       orgName: this.$('.org-name').val(),
       orgCountry: this.$('.org-country option:selected').val(),

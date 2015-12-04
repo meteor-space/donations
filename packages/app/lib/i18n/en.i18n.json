@@ -38,5 +38,10 @@
     "org": {
       "page_link": "Dashboard"
     }
+  },
+  "appeals": {
+    "draft": "<strong>Draft</strong>: Not yet public.",
+    "made": "Appeal made",
+    "make": "Make appeal to public"
   }
 }

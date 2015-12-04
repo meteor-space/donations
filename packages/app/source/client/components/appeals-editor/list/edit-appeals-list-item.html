@@ -6,7 +6,17 @@
     <span class="quantity">{{requiredQuantity}}</span>
     <span class="title">{{title}}</span>
     <p class="description">{{description}}</p>
+    <p class="state">
+      {{#if isMade}}
+        {{{i18n "appeals.made"}}}
+      {{else}}
+        {{{i18n "appeals.draft"}}}
+      {{/if}}
+    </p>
     <a href="#" class="edit">{{i18n "edit"}}</a>
+    {{#unless isMade}}
+    | <a href="#" class="make">{{i18n "appeals.make"}}</a>
+    {{/unless}}
   {{/if}}
   </div>
 </template>

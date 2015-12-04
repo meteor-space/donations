@@ -109,8 +109,8 @@ Package.onUse(function(api) {
     'source/client/components/registration-form/registration-form.js',
     'source/client/components/login-form/login-form.html',
     'source/client/components/login-form/login-form.js',
-    'source/client/components/logout-button/logout-button.js',
-    'source/client/components/logout-button/logout-button.html',
+    'source/client/components/login-button/login-button.js',
+    'source/client/components/login-button/login-button.html',
     'source/client/components/org-admin-page-link/org-admin-page-link.js',
     'source/client/components/org-admin-page-link/org-admin-page-link.html',
 

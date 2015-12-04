@@ -37,7 +37,7 @@ body, html {
 
     .admin-links {
       @include grid-column($columns:4, $last-column:true)
-      .logout, .org-admin-link {
+      .login, .logout, .org-admin-link {
         float:right;
         margin-left: 20px;
       }

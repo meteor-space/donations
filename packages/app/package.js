@@ -97,6 +97,9 @@ Package.onUse(function(api) {
     'source/client/pages/admin/location/_location-admin-page.scss',
     'source/client/pages/admin/location/location-admin-page.html',
     'source/client/pages/admin/location/location-admin-page.js',
+    // --> Login page
+    'source/client/pages/login/_login-page.scss',
+    'source/client/pages/login/login-page.html',
     // --> Register org page
     'source/client/pages/register/_register-page.scss',
     'source/client/pages/register/register-page.html',
@@ -106,8 +109,8 @@ Package.onUse(function(api) {
     'source/client/components/registration-form/registration-form.js',
     'source/client/components/login-form/login-form.html',
     'source/client/components/login-form/login-form.js',
-    'source/client/components/logout-button/logout-button.js',
-    'source/client/components/logout-button/logout-button.html',
+    'source/client/components/login-button/login-button.js',
+    'source/client/components/login-button/login-button.html',
     'source/client/components/org-admin-page-link/org-admin-page-link.js',
     'source/client/components/org-admin-page-link/org-admin-page-link.html',
 

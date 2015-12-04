@@ -36,8 +36,8 @@
   "city": "Stadt",
   "open_hours": "Öffnungszeiten",
   "appeals": {
-    "draft": "<strong>Entwurf</strong>: Das ist noch nicht öffentlich zu sehen",
-    "made": "veröffentlicht",
-    "make": "veröffentlichen"
+    "draft": "<strong>Entwurf</strong>: Diese Spendenanfrage ist noch nicht öffentlich zu sehen",
+    "made": "Spendenanfrage veröffentlicht",
+    "make": "Spendenanfrage veröffentlichen"
   }
 }

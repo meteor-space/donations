@@ -58,7 +58,8 @@ Package.onUse(function(api) {
     'source/server/projections/open-appeals-projection.js',
     // PUBLICATIONS
     'source/server/publications/org-publication.js',
-    'source/server/publications/appeals-publication.js'
+    'source/server/publications/appeals-publication.js',
+    'source/server/publications/open-appeals-publication.js'
   ], 'server');
 
   // i18n - Must load before templates
@@ -163,6 +164,7 @@ Package.onUse(function(api) {
     'source/client/stores/org-registrations-store.js',
     'source/client/stores/orgs-store.js',
     'source/client/stores/location-details-store.js',
+    'source/client/stores/open-appeals-store.js',
     // TRACKERS
     'source/client/trackers/orgs-tracker.js',
     'source/client/trackers/appeals-tracker.js',

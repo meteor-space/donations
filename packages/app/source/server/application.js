@@ -22,7 +22,8 @@ Donations.App = Space.Application.define('Donations.App', {
     'Donations.OpenAppealsProjection',
     // PUBLICATIONS
     'Donations.OrgPublication',
-    'Donations.AppealsPublication'
+    'Donations.AppealsPublication',
+    'Donations.OpenAppealsPublication'
   ],
 
   onInitialize() {

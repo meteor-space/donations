@@ -3,6 +3,7 @@ Space.Application.extend(Donations, 'App', {
   requiredModules: ['Space.accountsUi'],
 
   stores: [
+    'Donations.OpenAppealsStore',
     'Donations.OrgRegistrationsStore',
     'Donations.OrgsStore',
     'Donations.LocationDetailsStore'
@@ -52,6 +53,7 @@ Space.Application.extend(Donations, 'App', {
     this.injector.map('Router').to(FlowRouter);
     this.injector.map('Donations.Organizations').asStaticValue();
     this.injector.map('Donations.Appeals').asStaticValue();
+    this.injector.map('Donations.OpenAppeals').asStaticValue();
     TAPi18n.setLanguage(Meteor.settings.public.defaultLanguage);
   }
 

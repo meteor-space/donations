@@ -55,6 +55,7 @@ Package.onUse(function(api) {
     'source/server/projections/org-registrations-projection.js',
     'source/server/projections/org-projection.js',
     'source/server/projections/appeals-projection.js',
+    'source/server/projections/open-appeals-projection.js',
     // PUBLICATIONS
     'source/server/publications/org-publication.js',
     'source/server/publications/appeals-publication.js'
@@ -184,7 +185,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'source/shared/startup.js',
     'source/shared/collections/organizations.js',
-    'source/shared/collections/appeals.js'
+    'source/shared/collections/appeals.js',
+    'source/shared/collections/open-appeals.js'
   ]);
 
   api.export('Donations');

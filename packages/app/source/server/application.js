@@ -19,6 +19,7 @@ Donations.App = Space.Application.define('Donations.App', {
     'Donations.OrgRegistrationsProjection',
     'Donations.OrgProjection',
     'Donations.AppealsProjection',
+    'Donations.OpenAppealsProjection',
     // PUBLICATIONS
     'Donations.OrgPublication',
     'Donations.AppealsPublication'
@@ -27,6 +28,7 @@ Donations.App = Space.Application.define('Donations.App', {
   onInitialize() {
     this.injector.map('Donations.Organizations').asStaticValue();
     this.injector.map('Donations.Appeals').asStaticValue();
+    this.injector.map('Donations.OpenAppeals').asStaticValue();
   },
 
   onReset() {

@@ -1,5 +1,7 @@
 Space.flux.BlazeComponent.extend(Donations, 'OrgLoginForm', {
 
+  ENTER: 13,
+
   dependencies: {
     loginStore: 'Space.accountsUi.LoginStore'
   },
@@ -10,8 +12,15 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgLoginForm', {
 
   events() {
     return [{
+      'keyup input': this._onKeyup,
       'click .submit': this._onSubmit
     }];
+  },
+
+  _onKeyup(event) {
+    if(event.keyCode === this.ENTER) {
+      this._onSubmit(event)
+    }
   },
 
   _onSubmit(event) {

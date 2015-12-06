@@ -187,9 +187,7 @@ Package.onUse(function(api) {
   // SHARED
   api.addFiles([
     'source/shared/startup.js',
-    'source/shared/collections/organizations.js',
-    'source/shared/collections/appeals.js',
-    'source/shared/collections/open-appeals.js'
+    'source/shared/collections.js'
   ]);
 
   api.export('Donations');

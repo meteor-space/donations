@@ -28,7 +28,7 @@ Package.onUse(function(api) {
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
     'meteorhacks:subs-manager@1.6.2',
-    'juliancwirko:zf5@2.0.2',
+    'zurb:foundation-sites@6.0.5',
     'space:base@3.1.0',
     'space:messaging@2.1.0',
     'space:event-sourcing@2.1.0',
@@ -67,11 +67,12 @@ Package.onUse(function(api) {
     // STYLES
     // --> settings
     'source/client/styles/settings/_colors.scss',
-    'source/client/styles/settings/_foundation.scss',
+    'source/client/styles/settings/_settings.scss',
     // --> mixins
     'source/client/styles/mixins/_font.scss',
     'source/client/styles/mixins/_headline.scss',
     'source/client/styles/mixins/_boxes.scss',
+    'source/client/styles/mixins/_buttons.scss',
     'source/client/main.scss',
     // --> base styles
     'source/client/styles/base/_theme.scss',

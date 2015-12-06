@@ -1,15 +1,15 @@
 .location.form {
 
   .zip {
-    @include grid-column($columns:2);
+    @include grid-column(2);
   }
 
   .city {
-    @include grid-column($columns:6);
+    @include grid-column(6);
   }
 
   .country {
-    @include grid-column($columns:4);
+    @include grid-column(4);
   }
 
 }

@@ -1,3 +1,7 @@
 a:link, a:visited {
   color: $color-link-on-main;
 }
+
+button {
+  @include standard-button;
+}

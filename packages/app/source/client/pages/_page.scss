@@ -1,5 +1,4 @@
 .page {
-  @include grid-row();
 
   header {
     text-align: center;
@@ -7,10 +6,9 @@
   }
 
   section {
-    @include grid-column(
-      $columns: $total-columns / 2,
-      $center: true
-    )
+    width: calc(100% - 20px);
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   h1 {

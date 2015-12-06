@@ -56,10 +56,7 @@ Package.onUse(function(api) {
     'source/server/projections/org-projection.js',
     'source/server/projections/appeals-projection.js',
     'source/server/projections/open-appeals-projection.js',
-    // PUBLICATIONS
-    'source/server/publications/org-publication.js',
-    'source/server/publications/appeals-publication.js',
-    'source/server/publications/open-appeals-publication.js'
+    'source/server/publications.js'
   ], 'server');
 
   // i18n - Must load before templates

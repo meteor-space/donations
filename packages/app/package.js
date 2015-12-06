@@ -149,6 +149,10 @@ Package.onUse(function(api) {
     'source/client/components/appeals-editor/list/edit-appeals-list-item.html',
     'source/client/components/appeals-editor/list/edit-appeals-list.html',
     'source/client/components/appeals-editor/list/edit-appeals-list-item.js',
+    // ---------> list open appeals
+    'source/client/components/open-appeals-list/open-appeals-list-item.html',
+    'source/client/components/open-appeals-list/open-appeals-list.html',
+    'source/client/components/open-appeals-list/open-appeals-list-item.js',
     // ---------> edit appeal
     'source/client/components/appeals-editor/edit/edit-appeal-form.html',
     'source/client/components/appeals-editor/edit/edit-appeal-form.js',

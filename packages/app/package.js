@@ -88,6 +88,9 @@ Package.onUse(function(api) {
     'source/client/pages/index/landing-page.html',
     'source/client/pages/index/landing-page.js',
     'source/client/pages/index/_landing-page.scss',
+    // --> open appeals page
+    'source/client/pages/open-appeals/open-appeals-page.html',
+    'source/client/pages/open-appeals/open-appeals-page.js',
     // ==> Admin pages
     // ------> Organization admin
     'source/client/pages/admin/org/_org-admin-page.scss',

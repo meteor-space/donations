@@ -20,6 +20,7 @@ Space.Application.extend(Donations, 'App', {
   components: [
     // PAGES
     'Donations.LandingPage',
+    'Donations.OpenAppealsPage',
     'Donations.OrgAdminPage',
     'Donations.LocationAdminPage',
     // FORMS

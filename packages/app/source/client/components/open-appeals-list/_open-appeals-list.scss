@@ -1,0 +1,61 @@
+.open-appeals-list-item {
+  @include callout-base;
+  background-color: white;
+  -webkit-box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.09);
+  -moz-box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.09);
+  box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.09);
+  .headline {
+    font-size: 20px;
+    .title {
+      padding: 0 3px;
+      @include font(semibold);
+    }
+  }
+  .description {
+    color: lighten($color-contrast, 5%);
+    font-size: 14px;
+    margin: 12px 0;
+    padding-top: 12px;
+    border-top: 1px solid darken(white, 5%);
+  }
+  .meta {
+    font-size: 12px;
+    color: lighten($color-contrast, 30%);
+    border-top: 1px solid darken(white, 5%);
+    margin-top: 6px;
+    padding-top: 12px;
+  }
+}
+
+/*
+.headline {
+  font-size: 20px;
+  float: left;
+  width: 100%;
+  border: 1px solid #333;
+  background-color: #E3F5A7;
+  line-height: 37px;
+
+  .quantity {
+    background-color: #333;
+    display: inline-block;
+    width: 70px;
+    text-align: center;
+    color: #FFF;
+  }
+  .title {
+    padding: 0 3px;
+    @include font(semibold);
+  }
+}
+.description {
+  clear: both;
+  color: lighten($color-contrast, 10%);
+}
+.meta {
+  padding: 9px;
+  background-color: white;
+  font-size: 14px;
+  color: #666;
+}
+*/

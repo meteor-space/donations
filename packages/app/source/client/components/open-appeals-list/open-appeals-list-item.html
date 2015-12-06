@@ -1,7 +1,15 @@
 <template name="open_appeals_list_item">
   <div class="open-appeals-list-item">
-    <span class="quantity">{{requiredQuantity}}</span>
-    <span class="title">{{title}}</span>
-    <p class="description">{{description}}</p>
+    <div class="headline">
+      <span class="quantity">{{requiredQuantity}}</span>
+      <span class="title">{{title}}</span>
+    </div>
+    {{#if description}}
+      <div class="description">{{description}}</div>
+    {{/if}}
+    <div class="meta">
+      <span class="org">{{org.name}}</span> |
+      <span class="location">{{location.name}}</span>
+    </div>
   </div>
 </template>

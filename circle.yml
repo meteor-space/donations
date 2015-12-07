@@ -12,3 +12,8 @@ dependencies:
 test:
   override:
     - spacejam test-packages donations:domain
+deployment:
+  production:
+    branch: develop
+    commands:
+      - ./deploy-prod.sh

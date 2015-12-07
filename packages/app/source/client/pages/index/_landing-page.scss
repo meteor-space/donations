@@ -55,6 +55,9 @@ $landing-page-images: '/images';
   .action {
     text-align: center;
     margin-top: 1em;
+    button {
+      @include page-nav-button;
+    }
   }
 
 }

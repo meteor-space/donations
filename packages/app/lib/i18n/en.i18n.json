@@ -30,6 +30,7 @@
   "new": "New",
   "edit": "Edit",
   "appeal": "Appeal",
+  "pledge_now": "pledge",
   "open_appeals": "Open Appeals",
   "address": "Address",
   "street": "Street",
@@ -44,6 +45,8 @@
   "appeals": {
     "draft": "<strong>Draft</strong>: Not yet public.",
     "open": "open",
-    "make": "Make appeal to public"
+    "make": "Make appeal to public",
+    "still_required": "still required",
+    "already_pledged": "pledged"
   }
 }

@@ -30,6 +30,7 @@
   "new": "Neue",
   "edit": "Bearbeiten",
   "appeal": "Sachen Annehmen",
+  "pledge_now": "spenden",
   "open_appeals": "Offene Spendenanfragen",
   "address": "Adresse",
   "street": "Straße",
@@ -44,6 +45,8 @@
   "appeals": {
     "draft": "<strong>Entwurf</strong>: Diese Spendenanfrage ist noch nicht öffentlich zu sehen",
     "open": "Spendenanfrage veröffentlicht",
-    "make": "Spendenanfrage veröffentlichen"
+    "make": "Spendenanfrage veröffentlichen",
+    "still_required": "noch benötigt",
+    "already_pledged": "zugesagt"
   }
 }

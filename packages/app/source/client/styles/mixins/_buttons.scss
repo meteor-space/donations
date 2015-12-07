@@ -1,7 +1,15 @@
 @mixin page-nav-button() {
   @include button(
-    $background: $color-contrast, // background
+    $background: $color-contrast,
     $background-hover: lighten($color-contrast, 5%),
     $color: $color-text-on-contrast
+  );
+}
+
+@mixin call-to-action-button() {
+  @include button(
+    $background: darken($color-main, 5%),
+    $background-hover: darken($color-main, 10%),
+    $color: $color-contrast
   );
 }

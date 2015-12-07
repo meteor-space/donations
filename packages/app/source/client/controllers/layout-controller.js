@@ -18,6 +18,7 @@ Space.Object.extend(Donations, 'LayoutController', {
     return [{
       'Donations.RouteTriggered': function(event) {
         switch (event.routeName) {
+        case 'openAppeals': this._renderOpenAppealsPage(); break;
         case 'login': this._renderLoginForm(); break;
         case 'register': this._renderOrgRegistrationForm(); break;
         case 'orgAdmin': this._renderOrgAdminPage(); break;
@@ -30,6 +31,10 @@ Space.Object.extend(Donations, 'LayoutController', {
 
   _renderLandingPage() {
     this._render("standard_layout", { main: "landing_page" });
+  },
+
+  _renderOpenAppealsPage() {
+    this._render("standard_layout", { main: "open_appeals_page" });
   },
 
   _renderLoginForm() {

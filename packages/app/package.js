@@ -28,7 +28,7 @@ Package.onUse(function(api) {
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
     'meteorhacks:subs-manager@1.6.2',
-    'juliancwirko:zf5@2.0.2',
+    'zurb:foundation-sites@6.0.5',
     'space:base@3.1.0',
     'space:messaging@2.1.0',
     'space:event-sourcing@2.1.0',
@@ -55,9 +55,8 @@ Package.onUse(function(api) {
     'source/server/projections/org-registrations-projection.js',
     'source/server/projections/org-projection.js',
     'source/server/projections/appeals-projection.js',
-    // PUBLICATIONS
-    'source/server/publications/org-publication.js',
-    'source/server/publications/appeals-publication.js'
+    'source/server/projections/open-appeals-projection.js',
+    'source/server/publications.js'
   ], 'server');
 
   // i18n - Must load before templates
@@ -68,11 +67,12 @@ Package.onUse(function(api) {
     // STYLES
     // --> settings
     'source/client/styles/settings/_colors.scss',
-    'source/client/styles/settings/_foundation.scss',
+    'source/client/styles/settings/_settings.scss',
     // --> mixins
     'source/client/styles/mixins/_font.scss',
     'source/client/styles/mixins/_headline.scss',
     'source/client/styles/mixins/_boxes.scss',
+    'source/client/styles/mixins/_buttons.scss',
     'source/client/main.scss',
     // --> base styles
     'source/client/styles/base/_theme.scss',
@@ -88,6 +88,9 @@ Package.onUse(function(api) {
     'source/client/pages/index/landing-page.html',
     'source/client/pages/index/landing-page.js',
     'source/client/pages/index/_landing-page.scss',
+    // --> open appeals page
+    'source/client/pages/open-appeals/open-appeals-page.html',
+    'source/client/pages/open-appeals/open-appeals-page.js',
     // ==> Admin pages
     // ------> Organization admin
     'source/client/pages/admin/org/_org-admin-page.scss',
@@ -144,6 +147,11 @@ Package.onUse(function(api) {
     'source/client/components/appeals-editor/list/edit-appeals-list-item.html',
     'source/client/components/appeals-editor/list/edit-appeals-list.html',
     'source/client/components/appeals-editor/list/edit-appeals-list-item.js',
+    // ---------> list open appeals
+    'source/client/components/open-appeals-list/_open-appeals-list.scss',
+    'source/client/components/open-appeals-list/open-appeals-list-item.html',
+    'source/client/components/open-appeals-list/open-appeals-list.html',
+    'source/client/components/open-appeals-list/open-appeals-list-item.js',
     // ---------> edit appeal
     'source/client/components/appeals-editor/edit/edit-appeal-form.html',
     'source/client/components/appeals-editor/edit/edit-appeal-form.js',
@@ -159,6 +167,7 @@ Package.onUse(function(api) {
     'source/client/stores/org-registrations-store.js',
     'source/client/stores/orgs-store.js',
     'source/client/stores/location-details-store.js',
+    'source/client/stores/open-appeals-store.js',
     // TRACKERS
     'source/client/trackers/orgs-tracker.js',
     'source/client/trackers/appeals-tracker.js',
@@ -180,8 +189,7 @@ Package.onUse(function(api) {
   // SHARED
   api.addFiles([
     'source/shared/startup.js',
-    'source/shared/collections/organizations.js',
-    'source/shared/collections/appeals.js'
+    'source/shared/collections.js'
   ]);
 
   api.export('Donations');

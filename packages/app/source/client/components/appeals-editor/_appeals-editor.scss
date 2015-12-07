@@ -1,11 +1,11 @@
 .appeal.form {
 
   .quantity {
-    @include grid-column($columns:3);
+    @include grid-column(3);
   }
 
   .title {
-    @include grid-column($columns:9);
+    @include grid-column(9);
   }
 
 }

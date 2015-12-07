@@ -24,7 +24,7 @@ $landing-page-images: '/images';
   .explanation {
     @include grid-row();
     .step {
-      @include grid-column($columns: 4);
+      @include grid-column(1 of 3);
       @include font(semibold);
       font-size: 12px;
       text-align: center;
@@ -55,14 +55,6 @@ $landing-page-images: '/images';
   .action {
     text-align: center;
     margin-top: 1em;
-  }
-
-  .button {
-    background-color: $color-contrast;
-    color: $color-text-on-contrast;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
 }

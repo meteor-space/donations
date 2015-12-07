@@ -22,7 +22,8 @@ body, html {
     }
 
     h1 {
-      @include grid-column($columns:8, $push:2)
+      @include grid-column(4);
+      @include grid-column-offset(4);
       margin-top: 0;
       margin-bottom: 0;
       text-align: center;
@@ -36,7 +37,7 @@ body, html {
     }
 
     .admin-links {
-      @include grid-column($columns:4, $last-column:true)
+      @include grid-column(4)
       .login, .logout, .org-admin-link {
         float:right;
         margin-left: 20px;

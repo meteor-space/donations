@@ -2,9 +2,9 @@ Space.flux.BlazeComponent.extend(Donations, 'LandingPage', {
 
   events() {
     return [{
-      'click .register.button'() {
+      'click .donate-button'() {
         this.publish(new Donations.RouteRequested({
-          routeName: 'register'
+          routeName: 'openAppeals'
         }));
       }
     }];

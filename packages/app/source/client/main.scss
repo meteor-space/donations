@@ -1,18 +1,19 @@
 @charset "UTF-8";
-@import "{juliancwirko:zf5}/scss/normalize";
 
 // Settings
 @import "styles/settings/colors";
-@import "styles/settings/foundation";
+@import "styles/settings/settings";
+
+// Foundation imports
+@import '{zurb:foundation-sites}/scss/foundation';
+@include foundation-global-styles;
+@include foundation-forms;
+
 // Mixins
 @import "styles/mixins/font";
 @import "styles/mixins/headline";
 @import "styles/mixins/boxes";
-
-// Foundation imports
-@import "{juliancwirko:zf5}/scss/foundation/components/grid";
-@import "{juliancwirko:zf5}/scss/foundation/components/buttons.scss";
-@import "{juliancwirko:zf5}/scss/foundation/components/forms.scss";
+@import "styles/mixins/buttons";
 
 // Base Styles
 @import "styles/base/theme";
@@ -34,3 +35,4 @@
 @import "components/registration-form/registration-form";
 @import "components/locations-editor/locations-editor";
 @import "components/appeals-editor/appeals-editor";
+@import "components/open-appeals-list/open-appeals-list";

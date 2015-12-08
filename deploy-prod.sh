@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-git push scalingo develop:master
+git push git@scalingo.com meteor-space-donations.git master

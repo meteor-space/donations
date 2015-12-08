@@ -9,7 +9,9 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
       'Donations.AppealDrafted': this._onAppealDrafted,
       'Donations.AppealDraftUpdated': this._onAppealDraftUpdated,
       'Donations.AppealMade': this._onAppealMade,
-      'Donations.AppealUpdated': this._onAppealUpdated
+      'Donations.AppealUpdated': this._onAppealUpdated,
+      'Donations.PledgeMade': this._onPledgeMade,
+      'Donations.AppealFulfilled': this._onAppealFulfilled
     }];
   },
 
@@ -30,7 +32,9 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
   },
 
   _onAppealMade(event) {
-    this.appeals.update(event.sourceId.toString(), { $set: { state: 'open' } });
+    this.appeals.update(event.sourceId.toString(), {
+      $set: { state: 'open' }
+    });
   },
 
   _onAppealUpdated(event) {
@@ -45,6 +49,22 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
       requiredQuantity: event.requiredQuantity.value,
       description: event.description
     };
+  },
+
+  _onPledgeMade(event) {
+    let quantity = event.quantity.value;
+    this.appeals.update(event.sourceId.toString(), {
+      $inc: {
+        pledgedQuantity: quantity,
+        requiredQuantity: -1 * quantity
+      }
+    });
+  },
+
+  _onAppealFulfilled(event) {
+    this.appeals.update(event.sourceId.toString(), {
+      $set: { state: 'fulfilled' }
+    });
   }
 
 });

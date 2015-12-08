@@ -13,9 +13,10 @@ Space.eventSourcing.Projection.extend(Donations, 'OpenAppealsProjection', {
     return [{
       'Donations.AppealMade': this._onAppealMade,
       'Donations.AppealUpdated': this._onAppealUpdated,
+      'Donations.LocationDetailsChanged': this._onLocationDetailsChanged,
+      'Donations.PledgeMade': this._onPledgeMade,
       'Donations.AppealClosed': this._onAppealNoLongerOpen,
-      'Donations.AppealFulfilled': this._onAppealNoLongerOpen,
-      'Donations.LocationDetailsChanged': this._onLocationDetailsChanged
+      'Donations.AppealFulfilled': this._onAppealNoLongerOpen
     }];
   },
 
@@ -24,10 +25,8 @@ Space.eventSourcing.Projection.extend(Donations, 'OpenAppealsProjection', {
     let locationId = event.locationId.toString();
     this.appeals.insert(_.extend({}, this._extractAppealDetails(event), {
       _id: event.sourceId.toString(),
-      organizationId: orgId,
-      organizationName: this.organizations.findOne(orgId).name,
-      locationId: locationId,
-      locationName: this.locations.findOne(locationId).name,
+      organization: this.organizations.findOne(orgId),
+      location: this.locations.findOne(locationId),
       pledgedQuantity: 0
     }));
   },
@@ -39,7 +38,7 @@ Space.eventSourcing.Projection.extend(Donations, 'OpenAppealsProjection', {
   },
 
   _onAppealNoLongerOpen(event) {
-    this.appeals.remove(event.sourceId.toString);
+    this.appeals.remove(event.sourceId.toString());
   },
 
   _extractAppealDetails(event) {
@@ -54,7 +53,17 @@ Space.eventSourcing.Projection.extend(Donations, 'OpenAppealsProjection', {
     let appeal = { locationId: event.locationId.toString() };
     this.appeals.update(appeal, {
       $set: {
-        locationName: event.name
+        location: this.locations.findOne(appeal.locationId)
+      }
+    });
+  },
+
+  _onPledgeMade(event) {
+    let quantity = event.quantity.value;
+    this.appeals.update(event.sourceId.toString(), {
+      $inc: {
+        pledgedQuantity: quantity,
+        requiredQuantity: -1 * quantity
       }
     });
   }

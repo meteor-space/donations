@@ -1,5 +1,6 @@
 <template name="open_appeals_list_item">
   <div class="open-appeals-list-item card">
+    <!-- APPEAL INFOS -->
     <div class="card-content">
       <div class="header row">
         <div class="infos col s8">
@@ -21,8 +22,8 @@
       </div>
       <div class="footer row">
         <div class="meta col s8">
-          <span class="org">{{organizationName}}</span> |
-          <span class="location">{{locationName}}</span>
+          <span class="org">{{organization.name}}</span> |
+          <span class="location">{{location.name}}</span>
         </div>
         <div class="actions col s4">
           <a class="pledge waves-effect waves-light light-green btn activator">
@@ -31,10 +32,12 @@
         </div>
       </div>
     </div>
+    <!-- MAKING PLEDGE -->
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">
-        Make Pledge<i class="material-icons right">close</i>
+        Sachspende zusagen<i class="material-icons close right">close</i>
       </span>
+      {{> make_pledge_form appeal=this}}
     </div>
   </div>
 </template>

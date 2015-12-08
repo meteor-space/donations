@@ -31,12 +31,14 @@ Space.Application.extend(Donations, 'App', {
     'Donations.EditLocationForm',
     'Donations.AddAppealForm',
     'Donations.EditAppealForm',
+    'Donations.MakePledgeForm',
     // EDITORS
     'Donations.LocationsEditor',
     'Donations.AppealsEditor',
     // LISTS
     'Donations.EditLocationsListItem',
     'Donations.EditAppealsListItem',
+    'Donations.OpenAppealsListItem',
     // BUTTONS
     'Donations.LoginButton',
     'Donations.OrgAdminPageLink'

@@ -1,7 +1,7 @@
 Space.flux.BlazeComponent.extend(Donations, 'EditAppealsListItem', {
 
-  isOpen() {
-    return this.data().state === 'open';
+  is(state) {
+    return this.data().state === state;
   },
 
   reactiveVars() {

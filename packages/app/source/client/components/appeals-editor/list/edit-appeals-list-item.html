@@ -28,12 +28,20 @@
         <i class="material-icons left">edit</i>
         {{i18n "edit"}}
       </button>
-    {{#if isOpen}}
-      <div class="state chip light-green lighten-2 right">{{{i18n "appeals.open"}}}</div>
-    {{else}}
+    {{#if is 'draft'}}
       <button class="make btn light-green darken-2 right">
         {{i18n "appeals.make"}}
       </button>
+    {{/if}}
+    {{#if is 'open'}}
+      <div class="state chip light-green lighten-2 right">
+        {{{i18n "appeals.open"}}}
+      </div>
+    {{/if}}
+    {{#if is 'fulfilled'}}
+      <div class="state chip light-green lighten-2 right">
+        {{{i18n "appeals.fulfilled"}}}
+      </div>
     {{/if}}
     </div>
   {{/if}}

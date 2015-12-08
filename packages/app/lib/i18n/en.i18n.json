@@ -60,11 +60,21 @@
     "draft": "<strong>Draft</strong>: Not yet public.",
     "open": "open",
     "make": "Make appeal to public",
+    "fulfilled": "fulfilled!",
     "still_required": "still required",
     "already_pledged": "pledged"
   },
   "locations": {
     "manage_appeals": "Manage Appeals",
     "appeals": "Spendenanfragen"
+  },
+  "pledge": {
+    "contact_name": "My Name",
+    "contact_phone": "My Phone Number",
+    "contact_email": "My Email Address",
+    "confirm": "Confirm",
+    "quantity_error": "Require quantity between 1 … %s",
+    "donor_details_error": "Name, Phone number and Email are required.",
+    "donor_email_error": "Please provide a correct email address."
   }
 }

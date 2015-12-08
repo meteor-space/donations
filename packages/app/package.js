@@ -28,7 +28,6 @@ Package.onUse(function(api) {
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
     'meteorhacks:subs-manager@1.6.2',
-    'zurb:foundation-sites@6.0.5',
     'space:base@3.1.0',
     'space:messaging@2.1.0',
     'space:event-sourcing@2.1.0',

@@ -1,0 +1,10 @@
+.open-appeals-list-item {
+  @include appeals-list-item;
+  .pledge {
+    line-height: 30px;
+    height: 30px;
+    position: relative;
+    top: -4px;
+    float: right;
+  }
+}

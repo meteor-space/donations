@@ -1,0 +1,19 @@
+.headline {
+  text-align: center;
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    @include font(semibold);
+    font-size: 20px;
+    border-bottom: 1px solid $secondary-color;
+    padding: 0.4em 1em;
+    margin: 2em auto 0.5em auto;
+    display: inline-block;
+  }
+  h2 {
+    @include font(regular);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0;
+  }
+}

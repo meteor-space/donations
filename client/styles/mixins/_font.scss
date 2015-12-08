@@ -1,12 +1,11 @@
 @mixin font($weight) {
-  font-family: 'Open Sans', sans-serif;
   @if $weight == regular {
-    font-weight: 400;
+    font-weight: 300;
   }
   @if $weight == semibold {
-    font-weight: 600;
+    font-weight: 400;
   }
   @if $weight == bold {
-    font-weight: 700;
+    font-weight: 500;
   }
 }

@@ -1,13 +1,11 @@
 <template name="org_admin_page">
 <div id="org-admin-page" class="page">
-  <header>
+  <div class="headline">
     <h1>{{org.name}}</h1>
-  </header>
-  <section class="admin-details">
-    <p>{{org.contact.name}} | {{org.contact.email}} | {{org.contact.phone}}</p>
-  </section>
+    <h2>{{org.contact.name}} | {{org.contact.email}} | {{org.contact.phone}}</h2>
+  </div>
   <section class="edit-org-locations">
-    <h2>{{i18n "donation_locations"}}</h2>
+    <h3>{{i18n "donation_locations"}}</h3>
     {{> locations_editor}}
   </section>
 </div>

@@ -1,22 +1,41 @@
 <template name="edit_appeals_list_item">
-  <div class="edit-appeals-list-item {{stateClass}}">
+  <div class="edit-appeals-list-item card {{stateClass}}">
   {{#if isEditing}}
     {{> edit_appeal_form submitLabel="speichern" appeal=this}}
   {{else}}
-    <span class="quantity">{{requiredQuantity}}</span>
-    <span class="title">{{title}}</span>
-    <p class="description">{{description}}</p>
-    <p class="state">
-      {{#if isOpen}}
-        {{{i18n "appeals.open"}}}
-      {{else}}
-        {{{i18n "appeals.draft"}}}
-      {{/if}}
-    </p>
-    <a href="#" class="edit">{{i18n "edit"}}</a>
-    {{#unless isOpen}}
-    | <a href="#" class="make">{{i18n "appeals.make"}}</a>
-    {{/unless}}
+    <div class="card-content">
+      <div class="header row">
+        <div class="infos col s8">
+          <span class="title">{{title}}</span>
+        {{#if description}}
+          <div class="description">{{description}}</div>
+        {{/if}}
+        </div>
+        <div class="stats col s4">
+          <div class="required-quantity">
+            <span class="label">{{i18n "appeals.still_required"}}:</span>
+            <span class="quantity">{{requiredQuantity}}</span>
+          </div>
+          <div class="pledged-quantity">
+            <span class="label">{{i18n "appeals.already_pledged"}}:</span>
+            <span class="quantity">{{pledgedQuantity}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-action">
+      <button class="edit light-blue darken-2 btn">
+        <i class="material-icons left">edit</i>
+        {{i18n "edit"}}
+      </button>
+    {{#if isOpen}}
+      <div class="state chip light-green lighten-2 right">{{{i18n "appeals.open"}}}</div>
+    {{else}}
+      <button class="make btn light-green darken-2 right">
+        {{i18n "appeals.make"}}
+      </button>
+    {{/if}}
+    </div>
   {{/if}}
   </div>
 </template>

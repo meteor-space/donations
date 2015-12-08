@@ -1,20 +1,16 @@
 body, html {
-  @include font(normal);
-  background-color: $color-main;
+  background-color: $primary-color;
 }
 
 .standard-layout {
 
   > header {
-    background-color: $color-contrast;
+    background-color: $secondary-color;
     line-height: 40px;
 
-    .top-menu {
-      @include grid-row();
-    }
-
     a:link, a:visited {
-      color: $color-text-on-contrast;
+      @include font(regular);
+      color: $text-on-secondary-color;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -22,22 +18,20 @@ body, html {
     }
 
     h1 {
-      @include grid-column(4);
-      @include grid-column-offset(4);
+      @include font(semibold);
+      line-height: 40px;
       margin-top: 0;
       margin-bottom: 0;
       text-align: center;
       text-transform: uppercase;
       font-size: 19px;
-      font-weight: 700;
       a:link, a:visited {
-        color: $color-text-on-contrast;
+        color: $text-on-secondary-color;
         text-decoration:none;
       }
     }
 
     .admin-links {
-      @include grid-column(4)
       .login, .logout, .org-admin-link {
         float:right;
         margin-left: 20px;

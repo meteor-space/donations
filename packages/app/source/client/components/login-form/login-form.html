@@ -1,21 +1,29 @@
 <template name="login_form">
 
-<div class="login form">
+<div class="login card">
 
-  <label>{{i18n "administrator_email_address"}}</label>
-  <input class="email" type="text"/>
+  <div class="card-content">
 
-  <label>{{i18n "password"}}</label>
-  <input class="password" type="password"/>
+    <div class="row">
+      <div class="input-field col s12">
+        <input class="email" id="login-email-address" type="text"/>
+        <label for="login-email-address">{{i18n "administrator_email_address"}}</label>
+      </div>
 
-  {{#if state.error}}
-  <p class="error">
+      <div class="input-field col s12">
+        <input class="password" id="login-password" type="password"/>
+        <label for="login-password">{{i18n "password"}}</label>
+      </div>
+    </div>
+
+    {{#if state.error}}
+    <p class="error">
       {{i18n "error"}}: {{state.error.reason}}
-  </p>
-  {{/if}}
+    </p>
+    {{/if}}
 
-  <button class="submit">{{i18n "log_in"}}</button>
-
+    <a class="submit btn">{{i18n "login.submit"}}</a>
+  </div>
 </div>
 
 </template>

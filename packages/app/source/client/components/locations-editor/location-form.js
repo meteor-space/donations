@@ -2,8 +2,12 @@ Space.flux.BlazeComponent.extend(Donations, 'LocationForm', {
 
   ENTER: 13,
 
+  onRendered() {
+    this.$('.country').material_select();
+  },
+
   isCountry(country) {
-    return this.location().address.country === country ? true : false;
+    return this.location().address.country === country;
   },
 
   events() {
@@ -14,12 +18,13 @@ Space.flux.BlazeComponent.extend(Donations, 'LocationForm', {
     }];
   },
 
+  _onSubmit() {},
+
   _onInputChange() {
     if (event.keyCode === this.ENTER) {
-      this._onSubmit()
+      this._onSubmit();
     }
   },
-  _onSubmit() {},
 
   _getValues() {
     return {
@@ -27,7 +32,7 @@ Space.flux.BlazeComponent.extend(Donations, 'LocationForm', {
       street: this.$('.street').val(),
       zip: this.$('.zip').val(),
       city: this.$('.city').val(),
-      country: this.$('.country').val(),
+      country: this.$('.country.initialized').val(),
       openingHours: this.$('.hours').val()
     };
   }

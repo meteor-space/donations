@@ -1,4 +1,4 @@
-.open-appeals-list-item {
+@mixin appeals-list-item() {
   .row {
     margin-bottom: 0 !important;
   }
@@ -12,25 +12,18 @@
     float: right;
     text-align: right;
     .label {
-      color: lighten($color-contrast, 5%);
+      color: lighten($secondary-color, 5%);
       font-size: 14px;
     }
   }
   .description {
-    color: lighten($color-contrast, 5%);
+    color: lighten($secondary-color, 5%);
     font-size: 14px;
     margin: 12px 0;
   }
   .meta {
     font-size: 12px;
-    color: lighten($color-contrast, 30%);
-  }
-  .pledge {
-    line-height: 30px;
-    height: 30px;
-    position: relative;
-    top: -4px;
-    float: right;
+    color: lighten($secondary-color, 30%);
   }
   .footer {
     border-top: 1px solid darken(white, 5%);

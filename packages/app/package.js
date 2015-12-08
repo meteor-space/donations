@@ -54,6 +54,7 @@ Package.onUse(function(api) {
     // PROJECTIONS
     'source/server/projections/org-registrations-projection.js',
     'source/server/projections/org-projection.js',
+    'source/server/projections/locations-projection.js',
     'source/server/projections/appeals-projection.js',
     'source/server/projections/open-appeals-projection.js',
     'source/server/publications.js'
@@ -64,50 +65,27 @@ Package.onUse(function(api) {
 
   // CLIENT
   api.addFiles([
-    // STYLES
-    // --> settings
-    'source/client/styles/settings/_colors.scss',
-    'source/client/styles/settings/_settings.scss',
-    // --> mixins
-    'source/client/styles/mixins/_font.scss',
-    'source/client/styles/mixins/_headline.scss',
-    'source/client/styles/mixins/_boxes.scss',
-    'source/client/styles/mixins/_buttons.scss',
-    'source/client/main.scss',
-    // --> base styles
-    'source/client/styles/base/_theme.scss',
-    // --> Modules
-    'source/client/styles/modules/_form.scss',
     // LAYOUTS
     'source/client/layouts/head.html',
     'source/client/layouts/standard-layout.html',
-    'source/client/layouts/_standard-layout.scss',
-    // PAGES
-    'source/client/pages/_page.scss',
     // --> landing page
     'source/client/pages/index/landing-page.html',
     'source/client/pages/index/landing-page.js',
-    'source/client/pages/index/_landing-page.scss',
     // --> open appeals page
     'source/client/pages/open-appeals/open-appeals-page.html',
     'source/client/pages/open-appeals/open-appeals-page.js',
     // ==> Admin pages
     // ------> Organization admin
-    'source/client/pages/admin/org/_org-admin-page.scss',
     'source/client/pages/admin/org/org-admin-page.html',
     'source/client/pages/admin/org/org-admin-page.js',
     // ------> Location admin
-    'source/client/pages/admin/location/_location-admin-page.scss',
     'source/client/pages/admin/location/location-admin-page.html',
     'source/client/pages/admin/location/location-admin-page.js',
     // --> Login page
-    'source/client/pages/login/_login-page.scss',
     'source/client/pages/login/login-page.html',
     // --> Register org page
-    'source/client/pages/register/_register-page.scss',
     'source/client/pages/register/register-page.html',
     // COMPONENTS
-    'source/client/components/registration-form/_registration-form.scss',
     'source/client/components/registration-form/registration-form.html',
     'source/client/components/registration-form/registration-form.js',
     'source/client/components/login-form/login-form.html',
@@ -118,7 +96,6 @@ Package.onUse(function(api) {
     'source/client/components/org-admin-page-link/org-admin-page-link.html',
 
     // ===> Location Editor
-    'source/client/components/locations-editor/_locations-editor.scss',
     'source/client/components/locations-editor/locations-editor.html',
     'source/client/components/locations-editor/locations-editor.js',
     'source/client/components/locations-editor/location-form.html',
@@ -135,7 +112,6 @@ Package.onUse(function(api) {
     'source/client/components/locations-editor/edit/edit-location-form.js',
 
     // ===> Appeals Editor
-    'source/client/components/appeals-editor/_appeals-editor.scss',
     'source/client/components/appeals-editor/appeals-editor.html',
     'source/client/components/appeals-editor/appeals-editor.js',
     'source/client/components/appeals-editor/appeal-form.html',
@@ -148,10 +124,8 @@ Package.onUse(function(api) {
     'source/client/components/appeals-editor/list/edit-appeals-list.html',
     'source/client/components/appeals-editor/list/edit-appeals-list-item.js',
     // ---------> list open appeals
-    'source/client/components/open-appeals-list/_open-appeals-list.scss',
     'source/client/components/open-appeals-list/open-appeals-list-item.html',
     'source/client/components/open-appeals-list/open-appeals-list.html',
-    'source/client/components/open-appeals-list/open-appeals-list-item.js',
     // ---------> edit appeal
     'source/client/components/appeals-editor/edit/edit-appeal-form.html',
     'source/client/components/appeals-editor/edit/edit-appeal-form.js',

@@ -1,16 +1,30 @@
 <template name="location_form">
-<div class="location form">
-
-  <input class="name" type="text" placeholder="{{i18n "name"}}" value="{{location.name}}"/>
-  <input class="street" type="text" placeholder="{{i18n "street"}}" value="{{location.address.street}}"/>
-  <input class="zip" type="text" placeholder="{{i18n "zip"}}" value="{{location.address.zip}}"/>
-  <input class="city" type="text" placeholder="{{i18n "city"}}" value="{{location.address.city}}"/>
-  <select class="country">
-    <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
-    <option value="DE" selected="{{isCountry 'DE'}}">Deutschland</option>
-  </select>
-  <input class="hours" type="text" placeholder="{{i18n "open_hours"}}" value="{{location.openingHours}}"/>
-  <button class="submit">{{submitLabel}}</button>
-
+<div class="location form card">
+  <div class="card-content">
+    <div class="row">
+      <div class="input-field col s12">
+        <input class="name" placeholder="{{i18n "name"}}" type="text" value="{{location.name}}"/>
+      </div>
+      <div class="input-field col s12">
+        <input class="street" type="text" placeholder="{{i18n "street"}}" value="{{location.address.street}}"/>
+      </div>
+      <div class="input-field col s2">
+        <input class="zip" type="text" placeholder="{{i18n "zip"}}" value="{{location.address.zip}}"/>
+      </div>
+      <div class="input-field col s6">
+        <input class="city" type="text" placeholder="{{i18n "city"}}" value="{{location.address.city}}"/>
+      </div>
+      <div class="input-field col s4">
+        <select class="country">
+          <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
+          <option value="DE" selected="{{isCountry 'DE'}}">Deutschland</option>
+        </select>
+      </div>
+      <div class="input-field col s12">
+        <input class="hours" type="text" placeholder="{{i18n "open_hours"}}" value="{{location.openingHours}}"/>
+      </div>
+    </div>
+    <button class="submit btn">{{submitLabel}}</button>
+  </div>
 </div>
 </template>

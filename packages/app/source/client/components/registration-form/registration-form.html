@@ -7,8 +7,11 @@
 
       <div class="input-field col s12 m8">
         <input class="org-name" type="text"
-               id="register-form-org-name" value="{{state.orgName}}" />
-        <label for="register-form-org-name">{{i18n "register.org_name"}}</label>
+               id="register-form-org-name" value="{{orgName}}" />
+        <label for="register-form-org-name"
+               class="{{#if orgName}}active{{/if}}">
+          {{i18n "register.org_name"}}
+        </label>
       </div>
 
       <div class="input-field col s12 m4">
@@ -21,8 +24,9 @@
       <div class="input-field col s12 m6">
         <input class="contact-name" type="text"
                id="register-form-contact-name"
-               value="{{state.contactName}}"/>
-        <label for="register-form-contact-name">
+               value="{{contactName}}"/>
+        <label for="register-form-contact-name"
+               class="{{#if contactName}}active{{/if}}">
           {{i18n "register.contact_name"}}
         </label>
       </div>
@@ -30,8 +34,9 @@
       <div class="input-field col s12 m6">
         <input class="contact-phone" type="text"
                id="register-form-contact-phone"
-               value="{{state.contactPhone}}"/>
-        <label for="register-form-contact-phone">
+               value="{{contactPhone}}"/>
+        <label for="register-form-contact-phone"
+               class="{{#if contactPhone}}active{{/if}}">
           {{i18n "register.contact_phone"}}
         </label>
       </div>
@@ -39,30 +44,27 @@
       <div class="input-field col s12 m8">
         <input class="contact-email" type="text"
                id="register-form-contact-email"
-               value="{{state.contactEmail}}"/>
-        <label for="register-form-contact-email">
+               value="{{contactEmail}}"/>
+        <label for="register-form-contact-email"
+               class="{{#if contactEmail}}active{{/if}}">
           {{i18n "register.contact_email"}}
         </label>
       </div>
 
       <div class="input-field col s12 m4">
         <input class="password" type="password"
-               id="register-form-password"
-               value="{{state.password}}"/>
+               id="register-form-password"/>
         <label for="register-form-password">{{i18n "register.password"}}</label>
       </div>
-
-      {{#if state.error}}
-      <p class="error">
-        {{i18n "error"}}: {{state.error}}
-      </p>
-      {{/if}}
 
     </div>
   </div>
 
   <div class="card-action">
     <button class="submit btn">{{i18n "register.submit"}}</button>
+  {{#if error}}
+    <span class="error">{{error}}</span>
+  {{/if}}
   </div>
 
 </div>

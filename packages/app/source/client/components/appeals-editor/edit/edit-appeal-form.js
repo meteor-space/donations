@@ -13,7 +13,7 @@ Donations.AppealForm.extend(Donations, 'EditAppealForm', {
       ));
     } else if (this.appeal().state === 'open') {
       this.publish(new Donations.EditAppealFormSubmitted(
-        _.extend(_.omit(this._getValues(), 'quantity'), {
+        _.extend(_.omit(this._getValues(), 'requiredQuantity'), {
           appealId: this.appeal()._id
         })
       ));

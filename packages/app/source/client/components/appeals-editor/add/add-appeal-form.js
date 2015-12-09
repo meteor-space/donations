@@ -5,7 +5,7 @@ Donations.AppealForm.extend(Donations, 'AddAppealForm', {
   sessionVars() {
     return [{
       title: null,
-      quantity: null,
+      requiredQuantity: null,
       description: null
     }];
   },
@@ -13,7 +13,7 @@ Donations.AppealForm.extend(Donations, 'AddAppealForm', {
   appeal() {
     return {
       title: this.title(),
-      quantity: this.quantity(),
+      requiredQuantity: this.requiredQuantity(),
       description: this.description()
     };
   },
@@ -26,9 +26,17 @@ Donations.AppealForm.extend(Donations, 'AddAppealForm', {
       }
     }
   },
-
   _onSubmit() {
     this.publish(new Donations.AddAppealFormSubmitted(this._getValues()));
+    this._resetForm();
+  },
+
+  _resetForm() {
+    for (let key in this._session.keys) {
+      if (this._session.keys.hasOwnProperty(key)) {
+        this._setSessionVar(key, '');
+      }
+    }
   }
 
 });

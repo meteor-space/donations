@@ -11,6 +11,8 @@
 // Custom Mixins
 @import "mixins/font";
 @import "mixins/appeals-list-item";
+// Theme
+@import "base/theme";
 // Custom CSS Modules
 @import "modules/headline";
 @import "modules/page";
@@ -23,3 +25,4 @@
 @import "components/locations-editor";
 @import "components/appeals-editor";
 @import "components/make-pledge-form";
+@import "components/registration-form";

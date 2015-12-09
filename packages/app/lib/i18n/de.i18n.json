@@ -17,7 +17,6 @@
   "name": "Name",
   "error": "Fehler",
   "contact_name": "AnsprechpartnerIn",
-
   "location": "Annahmestelle",
   "quantity": "Anzahl",
   "title": "Titel",
@@ -48,7 +47,8 @@
     "contact_email": "Kontakt Email Addresse (für Benachrichtigungen)",
     "contact_name": "Name der AnsprechpartnerIn",
     "contact_phone": "Telefonnummer der AnsprechpartnerIn",
-    "password": "Passwort"
+    "password": "Passwort",
+    "error": "Bitte alle Felder ausfüllen."
   },
   "admin": {
     "org": {

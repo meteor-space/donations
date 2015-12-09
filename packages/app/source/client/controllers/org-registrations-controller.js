@@ -3,12 +3,13 @@ SignupController = Space.accountsUi.SignupController;
 SignupController.extend(Donations, 'OrgRegistrationsController', {
 
   dependencies: {
-    orgRegStore: 'Donations.OrgRegistrationsStore',
     signupsStore: 'Space.accountsUi.SignupsStore'
   },
 
   requestSignupEvent: 'Donations.OrgRegistrationRequested',
   initiateSignupCommand: 'Donations.RegisterOrganization',
+
+  _userLoginData: null,
 
   eventSubscriptions() {
     let superSubs = SignupController.prototype.eventSubscriptions.call(this);
@@ -18,24 +19,29 @@ SignupController.extend(Donations, 'OrgRegistrationsController', {
     }]);
   },
 
-  _onOrgRegistrationFormSubmit() {
+  _onOrgRegistrationFormSubmit(event) {
     this.publish(new Donations.OrgRegistrationRequested({
-      name: this.orgRegStore.orgName(),
-      password: new Password(this.orgRegStore.password()),
-      country: new Country(this.orgRegStore.orgCountry()),
+      name: event.orgName,
+      password: new Password(event.password),
+      country: new Country(event.orgCountry),
       contact: new Donations.Contact({
-        email: new EmailAddress(this.orgRegStore.contactEmail()),
-        name: this.orgRegStore.contactName(),
-        phone: this.orgRegStore.contactPhone()
+        email: new EmailAddress(event.contactEmail),
+        name: event.contactName,
+        phone: event.contactPhone
       })
     }));
+    this._userLoginData = {
+      user: event.contactEmail,
+      password: event.password
+    };
   },
 
   _onSignupCompleted() {
     this.publish(new Space.accountsUi.LoginRequested({
-      user: this.orgRegStore.contactEmail(),
-      password: new Password(this.orgRegStore.password())
+      user: this._userLoginData.user,
+      password: new Password(this._userLoginData.password)
     }));
+    this._userLoginData = null;
   }
 
 });

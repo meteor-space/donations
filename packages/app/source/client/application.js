@@ -4,7 +4,6 @@ Space.Application.extend(Donations, 'App', {
 
   stores: [
     'Donations.OpenAppealsStore',
-    'Donations.OrgRegistrationsStore',
     'Donations.OrgsStore',
     'Donations.LocationDetailsStore'
   ],

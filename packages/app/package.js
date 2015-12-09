@@ -140,7 +140,6 @@ Package.onUse(function(api) {
     'source/client/controllers/login-controller.js',
     'source/client/controllers/appeals-controller.js',
     // HIGH-LEVEL STORES
-    'source/client/stores/org-registrations-store.js',
     'source/client/stores/orgs-store.js',
     'source/client/stores/location-details-store.js',
     'source/client/stores/open-appeals-store.js',

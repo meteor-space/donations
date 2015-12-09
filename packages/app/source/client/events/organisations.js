@@ -9,7 +9,7 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     password: Password
   },
 
-  OrgRegistrationInputsChanged: {
+  OrgRegistrationFormSubmitted: {
     orgName: String,
     orgCountry: String,
     contactEmail: String,
@@ -17,8 +17,6 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
     contactPhone: String,
     password: String
   },
-
-  OrgRegistrationFormSubmitted: {},
 
   // ======== LOCATIONS ========
 

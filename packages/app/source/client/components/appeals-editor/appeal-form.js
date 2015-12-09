@@ -14,18 +14,16 @@ Space.flux.BlazeComponent.extend(Donations, 'AppealForm', {
     }];
   },
 
-  _onSubmit() {},
+  _onSubmit() {}, // To override in subclasses
 
   _onInputChange() {
-    if (event.keyCode === this.ENTER) {
-      this._onSubmit();
-    }
+    if (event.keyCode === this.ENTER) this._onSubmit();
   },
 
   _getValues() {
     return {
       title: this.$('.title').val(),
-      quantity: new Quantity(parseInt(this.$('.quantity').val(), 10)),
+      requiredQuantity: this.$('.quantity').val(),
       description: this.$('.description').val()
     };
   }

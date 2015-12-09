@@ -42,7 +42,8 @@
     "contact_email": "Contact Email Address (for alerts)",
     "contact_name": "Contact name",
     "contact_phone": "Contact phone",
-    "password": "Password"
+    "password": "Password",
+    "error": "Please fill out all fields."
   },
   "login": {
     "headline": "Login",

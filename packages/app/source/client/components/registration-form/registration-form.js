@@ -61,7 +61,7 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
       this.$('.submit').attr('disabled', true);
       this._resetForm();
     } else {
-      this._setReactiveVar('error', 'Bitte alle Felder ausfüllen.');
+      this._setReactiveVar('error', __('register.error'));
       this.$('.submit').attr('disabled', false);
     }
   },

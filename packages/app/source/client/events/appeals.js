@@ -2,14 +2,14 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
 
   AddAppealFormSubmitted: {
     title: String,
-    quantity: String,
+    requiredQuantity: String,
     description: String
   },
 
   EditAppealDraftFormSubmitted: {
     appealId: String,
     title: String,
-    quantity: String,
+    requiredQuantity: String,
     description: String
   },
 

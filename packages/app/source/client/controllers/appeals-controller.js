@@ -24,7 +24,7 @@ Space.Object.extend(Donations, 'AppealsController', {
     this.send(new Donations.DraftAppeal({
       targetId: new Guid(),
       title: event.title,
-      requiredQuantity: new Quantity(parseInt(event.quantity, 10)),
+      requiredQuantity: new Quantity(parseInt(event.requiredQuantity, 10)),
       description: event.description,
       organizationId: new Guid(this.orgsStore.adminOrg()._id),
       locationId: new Guid(this.locationDetailsStore.locationId())
@@ -35,7 +35,7 @@ Space.Object.extend(Donations, 'AppealsController', {
     this.send(new Donations.UpdateAppealDraft({
       targetId: new Guid(event.appealId),
       title: event.title,
-      requiredQuantity: new Quantity(parseInt(event.quantity, 10)),
+      requiredQuantity: new Quantity(parseInt(event.requiredQuantity, 10)),
       description: event.description
     }));
   },

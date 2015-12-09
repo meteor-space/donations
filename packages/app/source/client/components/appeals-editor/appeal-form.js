@@ -23,7 +23,7 @@ Space.flux.BlazeComponent.extend(Donations, 'AppealForm', {
   _getValues() {
     return {
       title: this.$('.title').val(),
-      quantity: this.$('.quantity').val(),
+      requiredQuantity: this.$('.quantity').val(),
       description: this.$('.description').val()
     };
   }

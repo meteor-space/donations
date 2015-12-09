@@ -1,21 +1,31 @@
 <template name="edit_locations_list_item">
-  <div class="edit-locations-list-item">
   {{#if isEditing}}
     {{> edit_location_form submitLabel="speichern" location=this}}
   {{else}}
-    <a href="#" class="name">{{name}}</a>
-    <p class="address">
-      <label>{{i18n "address"}}:</label>
-      <span class="street">{{address.street}}</span>,
-      <span class="zip">{{address.zip}}</span> /
-      <span class="city">{{address.city}}</span>,
-      <span class="country">{{address.country}}</span>
-    </p>
-    <p class="opening-hours">
-      <label>{{i18n "open_hours"}}:</label>
-      {{openingHours}}
-    </p>
-    <a href="#" class="edit">{{i18n "edit"}}</a>
-  {{/if}}
+  <div class="edit-locations-list-item card">
+    <div class="card-content">
+      <span class="name">{{name}}</span>
+      <p class="address">
+        <strong>{{i18n "address"}}:</strong>
+        <span class="street">{{address.street}}</span>,
+        <span class="zip">{{address.zip}}</span> /
+        <span class="city">{{address.city}}</span>,
+        <span class="country">{{address.country}}</span>
+      </p>
+      <p class="opening-hours">
+        <strong>{{i18n "open_hours"}}:</strong> {{openingHours}}
+      </p>
+    </div>
+    <div class="card-action">
+      <button class="edit light-blue darken-2 btn">
+        <i class="material-icons left">edit</i>
+        {{i18n "edit"}}
+      </button>
+      <button class="details btn">
+        <i class="material-icons left">list</i>
+        {{i18n "locations.manage_appeals"}}
+      </button>
+    </div>
   </div>
+  {{/if}}
 </template>

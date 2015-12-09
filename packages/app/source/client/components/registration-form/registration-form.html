@@ -1,35 +1,69 @@
 <template name="registration_form">
 
-<div class="registration form">
+<div class="registration form card">
 
-  <div class="org">
-    <label>{{i18n "organization_initiative"}} {{i18n "name"}}</label>
-    <input class="org-name" type="text" value="{{state.orgName}}" />
-    <select class="org-country">
-      <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
-      <option value="DE" selected="{{isCountry 'DE'}}">Deutschland</option>
-    </select>
+  <div class="card-content">
+    <div class="row">
+
+      <div class="input-field col s12 m8">
+        <input class="org-name" type="text"
+               id="register-form-org-name" value="{{state.orgName}}" />
+        <label for="register-form-org-name">{{i18n "register.org_name"}}</label>
+      </div>
+
+      <div class="input-field col s12 m4">
+        <select class="org-country">
+          <option value="AT" selected="{{isCountry 'AT'}}">Österreich</option>
+          <option value="DE" selected="{{isCountry 'DE'}}">Deutschland</option>
+        </select>
+      </div>
+
+      <div class="input-field col s12 m6">
+        <input class="contact-name" type="text"
+               id="register-form-contact-name"
+               value="{{state.contactName}}"/>
+        <label for="register-form-contact-name">
+          {{i18n "register.contact_name"}}
+        </label>
+      </div>
+
+      <div class="input-field col s12 m6">
+        <input class="contact-phone" type="text"
+               id="register-form-contact-phone"
+               value="{{state.contactPhone}}"/>
+        <label for="register-form-contact-phone">
+          {{i18n "register.contact_phone"}}
+        </label>
+      </div>
+
+      <div class="input-field col s12 m8">
+        <input class="contact-email" type="text"
+               id="register-form-contact-email"
+               value="{{state.contactEmail}}"/>
+        <label for="register-form-contact-email">
+          {{i18n "register.contact_email"}}
+        </label>
+      </div>
+
+      <div class="input-field col s12 m4">
+        <input class="password" type="password"
+               id="register-form-password"
+               value="{{state.password}}"/>
+        <label for="register-form-password">{{i18n "register.password"}}</label>
+      </div>
+
+      {{#if state.error}}
+      <p class="error">
+        {{i18n "error"}}: {{state.error}}
+      </p>
+      {{/if}}
+
+    </div>
   </div>
 
-  <label>{{i18n "contact_email_address_for_alerts"}}</label>
-  <input class="contact-email" type="text" value="{{state.contactEmail}}"/>
-
-  <label>{{i18n "contact_name"}}</label>
-  <input class="contact-name" type="text" value="{{state.contactName}}"/>
-
-  <label>{{i18n "contact_phone"}}</label>
-  <input class="contact-phone" type="text" value="{{state.contactPhone}}"/>
-
-  <label>{{i18n "password"}}</label>
-  <input class="password" type="password" value="{{state.password}}"/>
-
-  {{#if state.error}}
-  <p class="error">
-    {{i18n "error"}}: {{state.error}}
-  </p>
-  {{/if}}
-
-  <button class="submit">{{i18n "register"}}</button>
+  <div class="card-action">
+    <button class="submit btn">{{i18n "register.submit"}}</button>
+  </div>
 
 </div>
 

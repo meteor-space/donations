@@ -15,7 +15,8 @@ Space.Object.extend(Donations, 'AppealsController', {
       'Donations.AddAppealFormSubmitted': this._onAddAppealFormSubmitted,
       'Donations.EditAppealDraftFormSubmitted': this._onEditAppealDraftFormSubmitted,
       'Donations.AppealMade': this._onAppealMade,
-      'Donations.EditAppealFormSubmitted': this._onEditAppealFormSubmitted
+      'Donations.EditAppealFormSubmitted': this._onEditAppealFormSubmitted,
+      'Donations.MakePledgeFormSubmitted': this._onMakePledgeFormSubmitted
     }];
   },
 
@@ -50,5 +51,14 @@ Space.Object.extend(Donations, 'AppealsController', {
       description: event.description
     }));
   },
+
+  _onMakePledgeFormSubmitted(event) {
+    this.send(new Donations.MakePledge({
+      targetId: event.appealId,
+      id: new Guid(),
+      donor: event.donor,
+      quantity: event.quantity
+    }));
+  }
 
 });

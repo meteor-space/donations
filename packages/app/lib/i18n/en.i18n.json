@@ -11,15 +11,11 @@
   "need_donations_for_your_organization_initiative": "Need donations for your organization / initiative?",
   "register_and_appeal_for_what_is_needed": "Register and appeal for what is needed",
   "receive_pledges_from_local_donors": "Receive pledges from local donors",
-  "register": "Register",
-  "log_in": "Log In",
   "log_out": "Log Out",
   "administrator_email_address": "Administrator Email Address",
   "password": "Password",
   "name": "Name",
   "error": "Error",
-  "register_your_organization_initiative": "Register your Organization / Initiative",
-  "contact_email_address_for_alerts": "Contact Email Address (for alerts)",
   "contact_name": "Contact name",
   "contact_phone": "Contact phone",
   "location": "Location",
@@ -30,20 +26,61 @@
   "new": "New",
   "edit": "Edit",
   "appeal": "Appeal",
+  "pledge_now": "pledge",
   "open_appeals": "Open Appeals",
   "address": "Address",
   "street": "Street",
   "zip": "Zip",
   "city": "City",
+  "country": "Country",
   "open_hours": "Open hours",
+  "register": {
+    "headline": "Register",
+    "sub": "Organizations / Initiatives",
+    "submit": "Register",
+    "org_name": "Name of the Organization / Initiative",
+    "contact_email": "Contact Email Address (for alerts)",
+    "contact_name": "Contact name",
+    "contact_phone": "Contact phone",
+    "password": "Password"
+  },
+  "login": {
+    "headline": "Login",
+    "sub": "For Registered Organizations / Initiatives",
+    "submit": "Login",
+    "link": "Login"
+  },
   "admin": {
     "org": {
       "page_link": "Dashboard"
     }
   },
   "appeals": {
+    "make_new_headline": "New Appeal",
     "draft": "<strong>Draft</strong>: Not yet public.",
     "open": "open",
-    "make": "Make appeal to public"
+    "make": "Make appeal to public",
+    "fulfilled": "fulfilled!",
+    "still_required": "still required",
+    "already_pledged": "pledged"
+  },
+  "locations": {
+    "manage_appeals": "Manage Appeals",
+    "appeals": "Spendenanfragen"
+  },
+  "pledge": {
+    "title": "Make pledge",
+    "i_can": "I can reliably bring",
+    "bring_to_location": "to the location:",
+    "during_opening_hours": "during the opening hours:",
+    "contact_name": "My Name",
+    "contact_phone": "My Phone Number",
+    "contact_email": "My Email Address",
+    "of": "of",
+    "will_contact_you": "will contact you within the next 24h.",
+    "confirm": "Confirm",
+    "quantity_error": "Require quantity between 1 … %s",
+    "donor_details_error": "Name, Phone number and Email are required.",
+    "donor_email_error": "Please provide a correct email address."
   }
 }

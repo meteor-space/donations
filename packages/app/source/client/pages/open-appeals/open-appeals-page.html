@@ -1,11 +1,12 @@
 <template name="open_appeals_page">
 
   <div id="open-appeals-page" class="page">
-    <header>
-        <h1>{{i18n "open_appeals"}}</h1>
-    </header>
+    <div class="headline">
+      <h1>{{i18n "open_appeals"}}</h1>
+      <h2>{{i18n "voluntary_donors"}}</h2>
+    </div>
     <section class="open-appeals">
-        {{> open_appeals_list appeals=appeals }}
+      {{> open_appeals_list appeals=appeals }}
     </section>
   </div>
 

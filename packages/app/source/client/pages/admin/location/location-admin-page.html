@@ -1,10 +1,11 @@
 <template name="location_admin_page">
 <div id="location-admin-page" class="page">
-  <header>
+  <div class="headline">
     <h1>{{org.name}}</h1>
     <h2>{{i18n "location"}} <span class="name">{{location.name}}</span></h2>
-  </header>
+  </div>
   <section class="edit-location-appeals">
+    <h3>{{i18n "locations.appeals"}}</h3>
     {{> appeals_editor}}
   </section>
 </div>

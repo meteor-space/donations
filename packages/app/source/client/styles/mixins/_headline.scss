@@ -1,9 +1,0 @@
-@mixin headline() {
-  text-transform: uppercase;
-  @include font(semibold);
-  font-size: 20px;
-  border-bottom: 1px solid $color-contrast;
-  padding: 0.4em 1em;
-  margin: 2em auto 0.5em auto;
-  display: inline-block;
-}

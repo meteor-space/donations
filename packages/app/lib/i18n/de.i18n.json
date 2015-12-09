@@ -11,17 +11,13 @@
   "need_donations_for_your_organization_initiative":"Du brauchst Sachspenden für deine Initiative / Organisation?",
   "register_and_appeal_for_what_is_needed": "Regstriere einen Account und sag was gebraucht wird",
   "receive_pledges_from_local_donors": "Empfange Spenden von Leuten aus der Umgebung",
-  "register": "Registrieren",
-  "log_in": "Einloggen",
   "log_out": "abmelden",
-  "administrator_email_address": "Administrator Email Adresse",
+  "administrator_email_address": "AdministratorIn Email Adresse",
   "password": "Passwort",
   "name": "Name",
   "error": "Fehler",
-  "register_your_organization_initiative": "Registriere deine Organisation / Initiative",
-  "contact_email_address_for_alerts": "Kontakt Email Addresse (für Benachrichtigungen)",
   "contact_name": "AnsprechpartnerIn",
-  "contact_phone": "Telefonnummer der AnsprechpartnerIn",
+
   "location": "Annahmestelle",
   "quantity": "Anzahl",
   "title": "Titel",
@@ -30,20 +26,61 @@
   "new": "Neue",
   "edit": "Bearbeiten",
   "appeal": "Sachen Annehmen",
+  "pledge_now": "spenden",
   "open_appeals": "Offene Spendenanfragen",
   "address": "Adresse",
   "street": "Straße",
   "zip": "PLZ",
   "city": "Stadt",
+  "country": "Land",
   "open_hours": "Öffnungszeiten",
+  "login": {
+    "headline": "Login",
+    "sub": "Für registrierte Organisationen / Initiativen",
+    "submit": "Einloggen",
+    "link": "Login"
+  },
+  "register": {
+    "headline": "Registrierung",
+    "sub": "Organisationen / Initiativen",
+    "submit": "Registrieren",
+    "org_name": "Name der Organisation / Initiative",
+    "contact_email": "Kontakt Email Addresse (für Benachrichtigungen)",
+    "contact_name": "Name der AnsprechpartnerIn",
+    "contact_phone": "Telefonnummer der AnsprechpartnerIn",
+    "password": "Passwort"
+  },
   "admin": {
     "org": {
       "page_link": "Dashboard"
     }
   },
   "appeals": {
+    "make_new_headline": "Neue Spendenanfrage",
     "draft": "<strong>Entwurf</strong>: Diese Spendenanfrage ist noch nicht öffentlich zu sehen",
-    "open": "Spendenanfrage veröffentlicht",
-    "make": "Spendenanfrage veröffentlichen"
+    "open": "veröffentlicht",
+    "make": "veröffentlichen",
+    "fulfilled": "erfolgreich!",
+    "still_required": "noch benötigt",
+    "already_pledged": "zugesagt"
+  },
+  "locations": {
+    "manage_appeals": "Spendenanfragen verwalten",
+    "appeals": "Spendenanfragen"
+  },
+  "pledge": {
+    "title": "Sachspende zusagen",
+    "i_can": "Ich kann",
+    "bring_to_location": "zuverlässig zu dieser Annahmestelle bringen:",
+    "during_opening_hours": "während der vorgesehenen Öffnungszeiten:",
+    "contact_name": "Mein Name",
+    "contact_phone": "Meine Telefonnummer",
+    "contact_email": "Meine Email Adresse",
+    "of": "von",
+    "will_contact_you": "wird sich innerhalb der nächsten 24h melden!",
+    "confirm": "Bestätigen",
+    "quantity_error": "Benötige Anzahl zwischen 1 … %s",
+    "donor_details_error": "Name, Telefonnummer und Email müssen ausgefüllt werden.",
+    "donor_email_error": "Eine korrekte Email Addresse wird benötigt."
   }
 }

@@ -5,7 +5,8 @@ Space.messaging.Api.extend(Donations, 'AppealsApi', {
       'Donations.DraftAppeal': this._draftAppeal,
       'Donations.UpdateAppealDraft': this._updateAppealDraft,
       'Donations.MakeAppeal': this._makeAppeal,
-      'Donations.UpdateAppeal': this._makeAppeal
+      'Donations.UpdateAppeal': this._makeAppeal,
+      'Donations.MakePledge': this._makePledge
     }];
   },
 
@@ -22,6 +23,10 @@ Space.messaging.Api.extend(Donations, 'AppealsApi', {
   },
 
   _updateAppeal(context, command) {
+    this.commandBus.send(command);
+  },
+
+  _makePledge(context, command) {
     this.commandBus.send(command);
   }
 

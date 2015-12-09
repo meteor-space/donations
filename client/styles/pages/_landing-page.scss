@@ -1,0 +1,37 @@
+#landing-page {
+
+  .explanation {
+    .step {
+      @include font(semibold);
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  .step {
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding-top: 250px;
+    &.donations {
+      background-image: url("/images/donations-icon.svg");
+    }
+    &.find-orgs {
+      background-image: url('/images/find-org-icon.svg');
+    }
+    &.deliver {
+      background-image: url('/images/deliver-icon.svg');
+    }
+    &.request {
+      background-image: url('/images/request-icon.svg');
+    }
+    &.receive {
+      background-image: url('/images/receive-icon.svg');
+    }
+  }
+
+  .action {
+    text-align: center;
+    margin-top: 1em;
+  }
+
+}

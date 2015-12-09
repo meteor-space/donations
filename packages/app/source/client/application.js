@@ -31,6 +31,7 @@ Space.Application.extend(Donations, 'App', {
     'Donations.EditLocationForm',
     'Donations.AddAppealForm',
     'Donations.EditAppealForm',
+    'Donations.MakePledgeForm',
     // EDITORS
     'Donations.LocationsEditor',
     'Donations.AppealsEditor',

@@ -1,0 +1,22 @@
+.edit-locations-list {
+  margin-bottom: 20px;
+}
+
+.edit-locations-list-item {
+  margin-bottom: 20px;
+  .name {
+    @include font(semibold);
+    font-size: 1.3rem;
+    display: block;
+    margin-top: 0;
+  }
+  .address, .opening-hours {
+    font-size: 14px;
+    margin: 0;
+  }
+  label {
+    display: inline;
+    font-size: 14px;
+    @include font(semibold);
+  }
+}

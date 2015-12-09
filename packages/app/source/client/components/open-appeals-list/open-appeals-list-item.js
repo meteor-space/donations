@@ -1,17 +1,34 @@
 Space.flux.BlazeComponent.extend(Donations, 'OpenAppealsListItem', {
 
-  dependencies: {
-    orgsStore: 'Donations.OrgsStore'
+  onRendered() {
+    this._root = this.$(this.firstNode());
+    this._cardReveal = this.$('.card-reveal');
+    this._rootHeight = this._root.outerHeight();
+    this._cardRevealHeight = this._cardReveal.outerHeight();
+    // Set calculated heights
+    this._setCssHeight(this._root, this._rootHeight);
+    this._setCssHeight(this._cardReveal, this._cardRevealHeight);
   },
 
-  org() {
-    return this.orgsStore.findOrg(this.data().organizationId);
+  events() {
+    return [{
+      'click .activator'() {
+        // Set height of item to the computed height of pledge form.
+        this._setCssHeight(this._root, this._cardRevealHeight);
+      },
+      'click .card-title .close'() {
+        // Reset root to original height
+        this._setCssHeight(this._root, this._rootHeight);
+      },
+      'pledgeMade .make-pledge-form'() {
+        // Close the pledge form
+        this.$('.card-title .close').click();
+      }
+    }];
   },
 
-  location() {
-    let orgId = this.data().organizationId;
-    let locationId = this.data().locationId;
-    return this.orgsStore.findLocation(orgId, locationId);
+  _setCssHeight(element, height) {
+    element.css('height', `${height}px`);
   }
 
 });

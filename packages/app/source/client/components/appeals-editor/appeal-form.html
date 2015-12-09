@@ -1,10 +1,28 @@
 <template name="appeal_form">
-<div class="appeal form">
+<div class="appeal form card">
+  <div class="card-content">
+    <div class="row">
 
-  <input class="quantity" type="text" placeholder="{{i18n "quantity"}}" value="{{appeal.requiredQuantity}}"/>
-  <input class="title" type="text" placeholder="{{i18n "title"}}" value="{{appeal.title}}"/>
-  <textarea class="description" placeholder="{{i18n "description"}} …">{{appeal.description}}</textarea>
-  <button class="submit">{{submitLabel}}</button>
+      <div class="input-field col s3">
+        <input class="quantity"
+               type="text"
+               placeholder="{{i18n "quantity"}}"
+               value="{{appeal.requiredQuantity}}"/>
+      </div>
 
+      <div class="input-field col s9">
+        <input class="title" type="text" placeholder="{{i18n "title"}}" value="{{appeal.title}}"/>
+      </div>
+
+      <div class="input-field col s12">
+        <textarea class="description materialize-textarea"
+                  id="appeal-form-description">{{appeal.description}}</textarea>
+        <label class="active" for="appeal-form-description">{{i18n "description"}}</label>
+      </div>
+    </div>
+    <div class="card-actions">
+      <button class="submit btn">{{submitLabel}}</button>
+    </div>
+  </div>
 </div>
 </template>

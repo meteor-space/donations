@@ -2,6 +2,10 @@ Space.flux.BlazeComponent.extend(Donations, 'AppealForm', {
 
   ENTER: 13,
 
+  onRendered() {
+    this.$('.description').trigger('autoresize');
+  },
+
   events() {
     return [{
       'keyup .appeal.form input': this._onInputChange,
@@ -10,12 +14,13 @@ Space.flux.BlazeComponent.extend(Donations, 'AppealForm', {
     }];
   },
 
+  _onSubmit() {},
+
   _onInputChange() {
     if (event.keyCode === this.ENTER) {
-      this._onSubmit()
+      this._onSubmit();
     }
   },
-  _onSubmit() {},
 
   _getValues() {
     return {

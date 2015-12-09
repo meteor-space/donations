@@ -21,5 +21,11 @@ Space.messaging.define(Space.messaging.Event, 'Donations', {
 
   AppealMade: {
     appealId: String
+  },
+
+  MakePledgeFormSubmitted: {
+    appealId: String,
+    quantity: Quantity,
+    donor: Donations.Contact
   }
 });

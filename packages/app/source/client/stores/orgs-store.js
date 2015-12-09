@@ -17,23 +17,6 @@ Space.flux.Store.extend(Donations, 'OrgsStore', {
     ];
   },
 
-  findOrg(orgId) {
-    return this.organizations.findOne(orgId);
-  },
-
-  findLocation(orgId, locationId) {
-    let org = this.organizations.findOne(orgId);
-    let foundLocation = null;
-    if (org) {
-      for (let location of org.locations) {
-        if (location._id === locationId) {
-          foundLocation = location;
-        }
-      }
-    }
-    return foundLocation;
-  },
-
   _updateAdminOrg() {
     this._setReactiveVar('adminOrg', this.organizations.findOne({
       adminId: this.usersStore.userId()

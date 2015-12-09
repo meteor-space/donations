@@ -10,6 +10,10 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
     return this.store;
   },
 
+  onRendered() {
+    this.$('.org-country').material_select();
+  },
+
   isCountry(country) {
     return this.store.orgCountry() === country ? true : false;
   },
@@ -28,7 +32,7 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
     }
     this.publish(new Donations.OrgRegistrationInputsChanged({
       orgName: this.$('.org-name').val(),
-      orgCountry: this.$('.org-country option:selected').val(),
+      orgCountry: this.$('.org-country.initialized').val(),
       contactEmail: this.$('.contact-email').val(),
       contactName: this.$('.contact-name').val(),
       contactPhone: this.$('.contact-phone').val(),

@@ -1,15 +1,43 @@
 <template name="open_appeals_list_item">
-  <div class="open-appeals-list-item">
-    <div class="headline">
-      <span class="quantity">{{requiredQuantity}}</span>
-      <span class="title">{{title}}</span>
+  <div class="open-appeals-list-item card">
+    <!-- APPEAL INFOS -->
+    <div class="card-content">
+      <div class="header row">
+        <div class="infos col s8">
+          <span class="title">{{title}}</span>
+        {{#if description}}
+          <div class="description">{{description}}</div>
+        {{/if}}
+        </div>
+        <div class="stats col s4">
+          <div class="required-quantity">
+            <span class="label">{{i18n "appeals.still_required"}}:</span>
+            <span class="quantity">{{requiredQuantity}}</span>
+          </div>
+          <div class="pledged-quantity">
+            <span class="label">{{i18n "appeals.already_pledged"}}:</span>
+            <span class="quantity">{{pledgedQuantity}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer row">
+        <div class="meta col s8">
+          <span class="org">{{organization.name}}</span> |
+          <span class="location">{{location.name}}</span>
+        </div>
+        <div class="actions col s4">
+          <a class="pledge waves-effect waves-light light-green btn activator">
+            {{i18n "pledge_now"}}
+          </a>
+        </div>
+      </div>
     </div>
-    {{#if description}}
-      <div class="description">{{description}}</div>
-    {{/if}}
-    <div class="meta">
-      <span class="org">{{org.name}}</span> |
-      <span class="location">{{location.name}}</span>
+    <!-- MAKING PLEDGE -->
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">
+        {{i18n "pledge.title"}}<i class="material-icons close right">close</i>
+      </span>
+      {{> make_pledge_form appeal=this}}
     </div>
   </div>
 </template>

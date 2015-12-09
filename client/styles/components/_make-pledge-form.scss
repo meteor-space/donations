@@ -1,0 +1,34 @@
+.make-pledge-form {
+
+  .card-title {
+    margin-bottom: 1rem;
+  }
+
+  .quantity {
+    height: 1.2rem;
+    width: 2.5rem;
+    margin: 0;
+    text-align: center;
+    @include font(bold);
+  }
+
+  .appeal-title {
+    @include font(bold);
+  }
+
+  .details {
+    line-height: 1.6em;
+    margin-bottom: 0;
+  }
+
+  .location, .opening-hours, .org-contact, .org-name {
+    @include font(bold);
+  }
+
+  .error {
+    color: $error-color;
+    height: 1em;
+    margin-left: 1em;
+  }
+
+}

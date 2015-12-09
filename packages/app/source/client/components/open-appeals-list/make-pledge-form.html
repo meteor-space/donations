@@ -1,0 +1,57 @@
+<template name="make_pledge_form">
+  <div class="make-pledge-form">
+    <p class="details">
+      {{i18n "pledge.i_can"}}
+      <input class="quantity" type="text" value="{{appeal.requiredQuantity}}" />
+      <span class="appeal-title">{{appeal.title}}</span><br>
+      {{i18n "pledge.bring_to_location"}}
+      {{#with appeal.location}}
+      <div class="location">
+        <span class="street">{{address.street}}</span>,
+        <span class="zip">{{address.zip}}</span> /
+        <span class="city">{{address.city}}</span>,
+        <span class="country">{{address.country}}</span>
+      </div>
+      {{i18n "pledge.during_opening_hours"}}
+      <div class="opening-hours">{{openingHours}}</div>
+      {{/with}}
+    </p>
+    <div class="contact row">
+      <div class="input-field col s12 m6">
+        <input class="donor-name" type="text"
+               id="pledge-form-donor-name"/>
+        <label for="pledge-form-donor-name">
+          {{i18n "pledge.contact_name"}}
+        </label>
+      </div>
+
+      <div class="input-field col s12 m6">
+        <input class="donor-phone" type="text"
+               id="pledge-form-donor-phone"/>
+        <label for="pledge-form-donor-phone">
+          {{i18n "pledge.contact_phone"}}
+        </label>
+      </div>
+
+      <div class="input-field col s12">
+        <input class="donor-email" type="text"
+               id="pledge-form-donor-email"/>
+        <label for="pledge-form-donor-email">
+          {{i18n "pledge.contact_email"}}
+        </label>
+      </div>
+    </div>
+    {{#with appeal.organization}}
+    <p class="org">
+      <span class="org-contact">{{contact.name}}</span> {{i18n "pledge.of"}}
+      <span class="org-name">{{name}}</span> {{i18n "pledge.will_contact_you"}}
+    </p>
+    {{/with}}
+    <button class="confirm waves-effect waves-light light-green btn">
+      {{i18n "pledge.confirm"}}
+    </button>
+    {{#if error}}
+    <span class="error">{{error}}</span>
+    {{/if}}
+  </div>
+</template>

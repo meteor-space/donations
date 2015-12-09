@@ -1,0 +1,10 @@
+.edit-appeals-list-item {
+  @include appeals-list-item;
+  .stats {
+    .state {
+      font-size: 12px;
+      color: color("grey", "darken-1");
+      margin-top: 1em;
+    }
+  }
+}

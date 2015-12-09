@@ -8,13 +8,13 @@ Space.flux.BlazeComponent.extend(Donations, 'EditLocationsListItem', {
 
   events() {
     return [{
-      'click .name': this._onNameClicked,
+      'click .details': this._onAppealsListRequested,
       'click .edit': this._onEditClicked,
       'click .location.form .submit': this._onSaveClicked
     }];
   },
 
-  _onNameClicked() {
+  _onAppealsListRequested() {
     event.preventDefault();
     if (!this.isEditing()) {
       this.publish(new Donations.RouteRequested({

@@ -34,6 +34,7 @@ Donations.App = Space.Application.define('Donations.App', {
   onReset() {
     this.injector.get('Donations.Organizations').remove({});
     this.injector.get('Donations.Appeals').remove({});
+    this.injector.get('Donations.OpenAppeals').remove({});
     this.injector.get('Donations.Locations').remove({});
   }
 

@@ -69,9 +69,15 @@
     "appeals": "Spendenanfragen"
   },
   "pledge": {
+    "title": "Make pledge",
+    "i_can": "I can reliably bring",
+    "bring_to_location": "to the location:",
+    "during_opening_hours": "during the opening hours:",
     "contact_name": "My Name",
     "contact_phone": "My Phone Number",
     "contact_email": "My Email Address",
+    "of": "of",
+    "will_contact_you": "will contact you within the next 24h.",
     "confirm": "Confirm",
     "quantity_error": "Require quantity between 1 … %s",
     "donor_details_error": "Name, Phone number and Email are required.",

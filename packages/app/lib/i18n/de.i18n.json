@@ -69,9 +69,15 @@
     "appeals": "Spendenanfragen"
   },
   "pledge": {
+    "title": "Sachspende zusagen",
+    "i_can": "Ich kann",
+    "bring_to_location": "zuverlässig zu dieser Annahmestelle bringen:",
+    "during_opening_hours": "während der vorgesehenen Öffnungszeiten:",
     "contact_name": "Mein Name",
     "contact_phone": "Meine Telefonnummer",
     "contact_email": "Meine Email Adresse",
+    "of": "von",
+    "will_contact_you": "wird sich innerhalb der nächsten 24h melden!",
     "confirm": "Bestätigen",
     "quantity_error": "Benötige Anzahl zwischen 1 … %s",
     "donor_details_error": "Name, Telefonnummer und Email müssen ausgefüllt werden.",

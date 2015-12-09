@@ -1,10 +1,10 @@
 <template name="make_pledge_form">
   <div class="make-pledge-form">
     <p class="details">
-      Ich kann
+      {{i18n "pledge.i_can"}}
       <input class="quantity" type="text" value="{{appeal.requiredQuantity}}" />
       <span class="appeal-title">{{appeal.title}}</span><br>
-      zuverlässig zu dieser Annahmestelle bringen:
+      {{i18n "pledge.bring_to_location"}}
       {{#with appeal.location}}
       <div class="location">
         <span class="street">{{address.street}}</span>,
@@ -12,7 +12,7 @@
         <span class="city">{{address.city}}</span>,
         <span class="country">{{address.country}}</span>
       </div>
-      während der vorgesehenen Öffnungszeiten:
+      {{i18n "pledge.during_opening_hours"}}
       <div class="opening-hours">{{openingHours}}</div>
       {{/with}}
     </p>
@@ -43,9 +43,8 @@
     </div>
     {{#with appeal.organization}}
     <p class="org">
-      <span class="org-contact">{{contact.name}}</span> von
-      <span class="org-name">{{name}}</span> wird sich innerhalb
-      der nächsten 24h melden!
+      <span class="org-contact">{{contact.name}}</span> {{i18n "pledge.of"}}
+      <span class="org-name">{{name}}</span> {{i18n "pledge.will_contact_you"}}
     </p>
     {{/with}}
     <button class="confirm waves-effect waves-light light-green btn">

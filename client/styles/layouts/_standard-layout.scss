@@ -1,41 +1,80 @@
-body, html {
+body {
   background-color: $primary-color;
 }
 
-.standard-layout {
+.standard-header {
 
-  > header {
-    background-color: $secondary-color;
-    line-height: 40px;
+  background-color: $secondary-color;
+  line-height: 40px;
 
-    a:link, a:visited {
-      @include font(regular);
-      color: $text-on-secondary-color;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  .top-menu {
+    margin-bottom: 0;
+  }
 
-    h1 {
-      @include font(semibold);
-      line-height: 40px;
-      margin-top: 0;
-      margin-bottom: 0;
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 19px;
-      a:link, a:visited {
-        color: $text-on-secondary-color;
-        text-decoration:none;
-      }
-    }
-
-    .admin-links {
-      .login, .logout, .org-admin-link {
-        float:right;
-        margin-left: 20px;
-      }
+  a:link, a:visited {
+    @include font(regular);
+    color: $text-on-secondary-color;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
     }
   }
+
+  h1 {
+    @include font(semibold);
+    line-height: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 19px;
+    a:link, a:visited {
+      color: $text-on-secondary-color;
+      text-decoration:none;
+    }
+  }
+
+  .admin-links {
+    .login, .logout, .org-admin-link {
+      float:right;
+      margin-left: 20px;
+    }
+  }
+}
+
+.standard-content {
+  padding-bottom: 40px;
+}
+
+.standard-footer {
+  padding-top: 1em;
+  background-color: $secondary-color;
+  line-height: 1.6em;
+  color: $text-on-secondary-color;
+  text-align: center;
+  @include font(regular);
+  a:link, a:visited {
+    color: white;
+    @include font(bold);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Sticky footer - http://mystrd.at/modern-clean-css-sticky-footer/
+$footer-height: 80px;
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin: 0 0 $footer-height; /* bottom = footer height */
+}
+.standard-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: $footer-height;
+  width: 100%;
 }

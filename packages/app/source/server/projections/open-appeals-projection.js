@@ -25,7 +25,9 @@ Space.eventSourcing.Projection.extend(Donations, 'OpenAppealsProjection', {
     let locationId = event.locationId.toString();
     this.appeals.insert(_.extend({}, this._extractAppealDetails(event), {
       _id: event.sourceId.toString(),
-      organization: this.organizations.findOne(orgId),
+      organization: this.organizations.findOne(orgId, {
+        fields: this._projectedOrgFields()
+      }),
       location: this.locations.findOne(locationId),
       pledgedQuantity: 0
     }));
@@ -66,6 +68,10 @@ Space.eventSourcing.Projection.extend(Donations, 'OpenAppealsProjection', {
         requiredQuantity: -1 * quantity
       }
     });
+  },
+
+  _projectedOrgFields() {
+    return { _id: 1, name: 1, country: 1, contact: 1 };
   }
 
 });

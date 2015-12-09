@@ -59,6 +59,7 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
     if (this._noValueIsEmpty(values)) {
       this.publish(new Donations.OrgRegistrationFormSubmitted(values));
       this.$('.submit').attr('disabled', true);
+      this._resetForm();
     } else {
       this._setReactiveVar('error', 'Bitte alle Felder ausfüllen.');
       this.$('.submit').attr('disabled', false);
@@ -81,6 +82,16 @@ Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
       if (values[key] === '') return false;
     }
     return true;
+  },
+
+  _resetForm() {
+    for (key in this._getValues()) {
+      if (key === 'password') {
+        this._setReactiveVar(key, '');
+      } else {
+        this._setSessionVar(key, '');
+      }
+    }
   }
 
 });

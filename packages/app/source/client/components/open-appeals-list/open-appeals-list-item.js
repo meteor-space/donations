@@ -19,6 +19,10 @@ Space.flux.BlazeComponent.extend(Donations, 'OpenAppealsListItem', {
       'click .card-title .close'() {
         // Reset root to original height
         this._setCssHeight(this._root, this._rootHeight);
+      },
+      'pledgeMade .make-pledge-form'() {
+        // Close the pledge form
+        this.$('.card-title .close').click();
       }
     }];
   },

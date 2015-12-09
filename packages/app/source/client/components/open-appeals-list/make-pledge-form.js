@@ -19,6 +19,7 @@ Space.flux.BlazeComponent.extend(Donations, 'MakePledgeForm', {
       this.publish(new Donations.MakePledgeFormSubmitted(_.extend(values, {
         appealId: this.data().appeal._id
       })));
+      this.$(this.firstNode()).trigger('pledgeMade');
     }
   },
 

@@ -15,7 +15,6 @@ Space.flux.BlazeComponent.extend(Donations, 'EditLocationsListItem', {
   },
 
   _onAppealsListRequested() {
-    event.preventDefault();
     if (!this.isEditing()) {
       this.publish(new Donations.RouteRequested({
         routeName: 'locationAdmin',
@@ -26,8 +25,7 @@ Space.flux.BlazeComponent.extend(Donations, 'EditLocationsListItem', {
     }
   },
 
-  _onEditClicked(event) {
-    event.preventDefault();
+  _onEditClicked() {
     this._setReactiveVar('isEditing', true);
   },
 

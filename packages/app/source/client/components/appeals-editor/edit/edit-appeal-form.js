@@ -5,13 +5,13 @@ Donations.AppealForm.extend(Donations, 'EditAppealForm', {
   },
 
   _onSubmit() {
-    if(this.appeal().state === 'draft') {
+    if (this.appeal().state === 'draft') {
       this.publish(new Donations.EditAppealDraftFormSubmitted(
         _.extend(this._getValues(), {
           appealId: this.appeal()._id
         })
       ));
-    } else if(this.appeal().state === 'open') {
+    } else if (this.appeal().state === 'open') {
       this.publish(new Donations.EditAppealFormSubmitted(
         _.extend(_.omit(this._getValues(), 'quantity'), {
           appealId: this.appeal()._id

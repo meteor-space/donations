@@ -7,7 +7,7 @@
         <input class="quantity"
                type="text"
                placeholder="{{i18n "quantity"}}"
-               value="{{appeal.requiredQuantity}}"/>
+               value="{{appeal.quantity}}"/>
       </div>
 
       <div class="input-field col s9">
@@ -17,7 +17,10 @@
       <div class="input-field col s12">
         <textarea class="description materialize-textarea"
                   id="appeal-form-description">{{appeal.description}}</textarea>
-        <label class="active" for="appeal-form-description">{{i18n "description"}}</label>
+        <label for="appeal-form-description"
+               class="{{#if appeal.description}}active{{/if}}">
+               {{i18n "description"}}
+        </label>
       </div>
     </div>
     <div class="card-actions">

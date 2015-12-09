@@ -37,6 +37,15 @@ Donations.LocationForm.extend(Donations, 'AddLocationForm', {
 
   _onSubmit() {
     this.publish(new Donations.AddOrgLocationFormSubmitted(this._getValues()));
+    this._resetForm();
+  },
+
+  _resetForm() {
+    for (let key in this._session.keys) {
+      if (this._session.keys.hasOwnProperty(key)) {
+        this._setSessionVar(key, '');
+      }
+    }
   }
 
 });

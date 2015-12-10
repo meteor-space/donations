@@ -1,6 +1,10 @@
 Space.Application.extend(Donations, 'App', {
 
-  requiredModules: ['Space.accountsUi'],
+  requiredModules: [
+    'Space.messaging',
+    'Space.flux',
+    'Space.accountsUi'
+  ],
 
   stores: [
     'Donations.OpenAppealsStore',

@@ -33,6 +33,10 @@ Donations.App = Space.Application.define('Donations.App', {
     this.injector.map('Donations.Locations').asStaticValue();
   },
 
+  onStart() {
+    Migrations.migrateTo('latest');
+  },
+
   onReset() {
     this.injector.get('Donations.Organizations').remove({});
     this.injector.get('Donations.Appeals').remove({});

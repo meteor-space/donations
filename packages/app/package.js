@@ -28,6 +28,7 @@ Package.onUse(function(api) {
     'meteorhacks:flow-router@1.19.0',
     'kadira:blaze-layout@2.1.0',
     'meteorhacks:subs-manager@1.6.2',
+    'percolate:migrations@0.9.7',
     'space:base@3.1.0',
     'space:messaging@2.1.0',
     'space:event-sourcing@2.1.0',
@@ -56,7 +57,9 @@ Package.onUse(function(api) {
     'source/server/projections/locations-projection.js',
     'source/server/projections/appeals-projection.js',
     'source/server/projections/open-appeals-projection.js',
-    'source/server/publications.js'
+    'source/server/publications.js',
+    // MIGRATIONS
+    'source/server/migrations/1449766484513_rebuild_appeals_projection.js'
   ], 'server');
 
   // i18n - Must load before templates

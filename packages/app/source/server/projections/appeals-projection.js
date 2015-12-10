@@ -21,7 +21,8 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
       organizationId: event.organizationId.toString(),
       locationId: event.locationId.toString(),
       state: 'draft',
-      pledgedQuantity: 0
+      pledgedQuantity: 0,
+      pledges: []
     }));
   },
 
@@ -57,6 +58,17 @@ Space.eventSourcing.Projection.extend(Donations, 'AppealsProjection', {
       $inc: {
         pledgedQuantity: quantity,
         requiredQuantity: -1 * quantity
+      },
+      $push: {
+        pledges: {
+          id: event.id,
+          donor: {
+            name: event.donor.name,
+            email: event.donor.email.toString(),
+            phone: event.donor.phone
+          },
+          quantity: event.quantity.toString()
+        }
       }
     });
   },

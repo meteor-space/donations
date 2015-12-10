@@ -7,4 +7,22 @@
       margin-top: 1em;
     }
   }
+  .pledge-list-toggle {
+    cursor: pointer;
+    span {
+      position: relative;
+      top: -6px;
+    }
+  }
+  .appeal-pledges-list-item {
+    a {
+      color: $link-color;
+      text-transform: none;
+      margin: 0;
+      &:hover {
+        color: $link-color;
+        text-decoration: underline;
+      }
+    }
+  }
 }

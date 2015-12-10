@@ -5,8 +5,10 @@ Donations.App = Space.Application.define('Donations.App', {
   },
 
   requiredModules: [
+    'Space.messaging',
     'Space.accounts',
     'Space.accountsUi',
+    'Space.eventSourcing',
     'Donations.domain'
   ],
 

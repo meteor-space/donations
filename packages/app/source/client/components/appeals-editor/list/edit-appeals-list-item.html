@@ -5,12 +5,16 @@
   {{else}}
     <div class="card-content">
       <div class="header row">
+
+        <!-- APPEAL INFOS -->
         <div class="infos col s8">
           <span class="title">{{title}}</span>
         {{#if description}}
           <div class="description">{{description}}</div>
         {{/if}}
         </div>
+
+        <!-- APPEAL STATS -->
         <div class="stats col s4">
           <div class="required-quantity">
             <span class="label">{{i18n "appeals.still_required"}}:</span>
@@ -24,26 +28,51 @@
       </div>
     </div>
     <div class="card-action">
+
+      <!-- EDIT APPEAL -->
       <button class="edit light-blue darken-2 btn">
         <i class="material-icons left">edit</i>
-        {{i18n "edit"}}
+        {{i18n "appeals.edit"}}
       </button>
-    {{#if is 'draft'}}
+
+      <!-- APPEAL STATE -->
+      {{#if is 'draft'}}
       <button class="make btn light-green darken-2 right">
         {{i18n "appeals.make"}}
       </button>
-    {{/if}}
-    {{#if is 'open'}}
+      {{/if}}
+      {{#if is 'open'}}
       <div class="state chip amber right">
         {{{i18n "appeals.open"}}}
       </div>
-    {{/if}}
-    {{#if is 'fulfilled'}}
+      {{/if}}
+      {{#if is 'fulfilled'}}
       <div class="state chip light-green lighten-2 right">
         {{{i18n "appeals.fulfilled"}}}
       </div>
-    {{/if}}
+      {{/if}}
+
     </div>
+
+    <!-- PLEDGE LIST TOGGLE -->
+    {{#if pledges}}
+    <div class="card-action">
+      <a class="pledge-list-toggle">
+        {{#if isShowingPledges}}
+        <i class="material-icons">keyboard_arrow_down</i>
+        <span>{{i18n "appeals.hide_pledges"}} ({{pledges.length}})</span>
+        {{else}}
+        <i class="material-icons">chevron_right</i>
+        <span>{{i18n "appeals.show_pledges"}} ({{pledges.length}})</span>
+        {{/if}}
+      </a>
+      {{#if isShowingPledges}}
+        {{#each pledges}}
+          {{> appeal_pledges_list_item pledge=this appeal=..}}
+        {{/each}}
+      {{/if}}
+    </div>
+    {{/if}}
   {{/if}}
   </div>
 </template>

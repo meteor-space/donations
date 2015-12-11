@@ -1,0 +1,11 @@
+<template name="appeal_pledges_list_item">
+<div class="appeal-pledges-list-item card-panel">
+  <strong>{{pledge.donor.name}}</strong>
+  {{{i18n "appeals.pledged_amount_and_title" pledge.quantity appeal.title}}}
+  <div class="contact">
+    <strong>{{i18n "appeals.contact"}}</strong>
+    <a href="mailto:{{pledge.donor.email}}">{{pledge.donor.email}}</a> |
+    {{pledge.donor.phone}}
+  </div>
+</div>
+</template>

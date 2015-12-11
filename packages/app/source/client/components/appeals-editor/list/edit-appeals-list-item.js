@@ -6,7 +6,8 @@ Space.flux.BlazeComponent.extend(Donations, 'EditAppealsListItem', {
 
   reactiveVars() {
     return [{
-      isEditing: false
+      isEditing: false,
+      isShowingPledges: false
     }];
   },
 
@@ -14,7 +15,8 @@ Space.flux.BlazeComponent.extend(Donations, 'EditAppealsListItem', {
     return [{
       'click .edit': this._onEditClicked,
       'click .make': this._onMakeClicked,
-      'click .appeal.form .submit': this._onSaveClicked
+      'click .appeal.form .submit': this._onSaveClicked,
+      'click .pledge-list-toggle': this._onPledgeListToggleClicked
     }];
   },
 
@@ -34,6 +36,10 @@ Space.flux.BlazeComponent.extend(Donations, 'EditAppealsListItem', {
 
   _onSaveClicked() {
     this._setReactiveVar('isEditing', false);
+  },
+
+  _onPledgeListToggleClicked() {
+    this._setReactiveVar('isShowingPledges', !this.isShowingPledges());
   }
 
 });

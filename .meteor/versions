@@ -92,6 +92,7 @@ peerlibrary:base-component@0.14.0
 peerlibrary:blaze-components@0.15.1
 peerlibrary:computed-field@0.3.1
 peerlibrary:reactive-field@0.1.0
+percolate:migrations@0.9.7
 poetic:materialize-scss@1.97.3_2
 promise@0.5.1
 raix:eventemitter@0.1.3

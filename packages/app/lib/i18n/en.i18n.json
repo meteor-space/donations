@@ -58,12 +58,17 @@
   },
   "appeals": {
     "make_new_headline": "New Appeal",
+    "edit": "Edit Appeal",
     "draft": "<strong>Draft</strong>: Not yet public.",
     "open": "open",
     "make": "Make appeal to public",
     "fulfilled": "fulfilled!",
     "still_required": "still required",
-    "already_pledged": "pledged"
+    "already_pledged": "pledged",
+    "show_pledges": "Show pledges",
+    "hide_pledges": "Hide pledges",
+    "pledged_amount_and_title": "has pledged <strong>%s %s</strong>.",
+    "contact": "Contact:"
   },
   "locations": {
     "manage_appeals": "Manage Appeals",

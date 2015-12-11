@@ -57,12 +57,17 @@
   },
   "appeals": {
     "make_new_headline": "Neue Spendenanfrage",
+    "edit": "Anfrage bearbeiten",
     "draft": "<strong>Entwurf</strong>: Diese Spendenanfrage ist noch nicht öffentlich zu sehen",
     "open": "veröffentlicht",
     "make": "veröffentlichen",
     "fulfilled": "erfolgreich!",
     "still_required": "noch benötigt",
-    "already_pledged": "zugesagt"
+    "already_pledged": "zugesagt",
+    "show_pledges": "Spendenzusagen anzeigen",
+    "hide_pledges": "Spendenzusagen verstecken",
+    "pledged_amount_and_title": "hat <strong>%s %s</strong> zugesagt.",
+    "contact": "Kontakt:"
   },
   "locations": {
     "manage_appeals": "Spendenanfragen verwalten",

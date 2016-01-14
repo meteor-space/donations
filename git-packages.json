@@ -1,46 +1,46 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "branch": "develop"
+    "commit": "8b51727cced10d6da5d85c92d0052a768e21cf0e"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
-    "branch": "develop"
+    "commit": "f6c2a9c6a451830f2a7e9335bcea147a81f64eff"
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
-    "branch": "develop"
+    "commit": "8781ccaebb3f705ed646873edfe66dd62805b4c2"
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",
-    "branch": "develop"
+    "commit": "9b2ac9cdad419e3867a79ef1275d9e10b73a1b5d"
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
-    "branch": "develop"
+    "commit": "efd1caa5d9c85efa929be5ae6f3d46e12eedabec"
   },
   "space:accounts": {
     "git":"https://github.com/meteor-space/accounts.git",
-    "branch": "develop"
+    "commit": "8c13a5326d74046a0b591b1b381185b459a64a38"
   },
   "space:accounts-ui": {
     "git":"https://github.com/meteor-space/accounts-ui.git",
-    "branch": "develop"
+    "commit": "86663c2ddad388daf353f566e1d60dcd80cd5712"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
-    "branch": "develop"
+    "commit": "1978ad9b6c40c1cda6030cafb7cc2496b27187e2"
   },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",
-    "branch": "develop"
+    "commit": "2e053a8b23dac3ca7759b4024f1876d338ffaeea"
   },
   "space:vo-user": {
     "git":"https://github.com/meteor-space/vo-user.git",
-    "branch": "develop"
+    "commit": "30ffac53342427481a4d9d0b264b65775bae2eee"
   },
   "space:vo-numeral": {
     "git":"https://github.com/meteor-space/vo-numeral.git",
-    "branch": "develop"
+    "commit": "98e96156aea81e4ad33cc7024171fc3a17250517"
   }
 }

@@ -2,7 +2,7 @@
 FlowRouter.wait();
 
 // Generates flow-router routes + generalized action that publishes events
-let generateRoute = function(routeName) {
+const generateRoute = function(routeName) {
   return {
     name: routeName,
     action(params) {
@@ -18,9 +18,27 @@ let generateRoute = function(routeName) {
   };
 };
 
-FlowRouter.route('/', generateRoute('landingPage'));
-FlowRouter.route('/open-appeals', generateRoute('openAppeals'));
-FlowRouter.route('/login', generateRoute('login'));
-FlowRouter.route('/register', generateRoute('register'));
-FlowRouter.route('/org/:id/admin', generateRoute('orgAdmin'));
-FlowRouter.route('/location/:id/admin', generateRoute('locationAdmin'));
+const authenticatedRedirect = () => {
+  if ( !Meteor.loggingIn() && !Meteor.userId() ) {
+    FlowRouter.go( 'login' );
+  }
+};
+
+const publicRoutes = FlowRouter.group({
+  name: 'public'
+});
+
+const authenticatedRoutes = FlowRouter.group({
+  name: 'authenticated',
+  triggersEnter: [ authenticatedRedirect ]
+});
+
+// Public routes
+publicRoutes.route('/', generateRoute('landingPage'));
+publicRoutes.route('/open-appeals', generateRoute('openAppeals'));
+publicRoutes.route('/login', generateRoute('login'));
+publicRoutes.route('/register', generateRoute('register'));
+
+// Protected routes
+authenticatedRoutes.route('/org/:id/admin', generateRoute('orgAdmin'));
+authenticatedRoutes.route('/location/:id/admin', generateRoute('locationAdmin'));

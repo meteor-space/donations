@@ -1,11 +1,11 @@
 Space.eventSourcing.Aggregate.extend('Donations.Appeal', {
 
   STATES: {
-    draft: `draft`,
-    cancelled: `cancelled`,
-    open: `open`,
-    fulfilled: `fulfilled`,
-    closed: `closed`
+    draft: 'draft',
+    cancelled: 'cancelled',
+    open: 'open',
+    fulfilled: 'fulfilled',
+    closed: 'closed'
   },
 
   fields: {

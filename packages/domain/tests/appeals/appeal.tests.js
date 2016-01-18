@@ -1,15 +1,15 @@
-describe(`Donations.Appeal`, function() {
+describe('Donations.Appeal', function() {
 
   beforeEach(function() {
 
     // ========== TEST DATA ============
     this.appealId = new Guid();
     this.appealData = {
-      title: `My Appeal for item X`,
+      title: 'My Appeal for item X',
       requiredQuantity: new Quantity(10),
       organizationId: new Guid(),
       locationId: new Guid(),
-      description: `My description for this appeal`
+      description: 'My description for this appeal'
     };
     this.appealEventData = _.extend({}, this.appealData, {
       sourceId: this.appealId
@@ -17,8 +17,8 @@ describe(`Donations.Appeal`, function() {
     this.pledgeData = {
       id: new Guid(),
       donor: new Donations.Contact({
-        name: `Dominik Guzei`,
-        email: new EmailAddress(`dominik@example.com`),
+        name: 'Dominik Guzei',
+        email: new EmailAddress('dominik@example.com'),
         phone: `+43 4493 454`
       }),
       quantity: new Quantity(1)
@@ -84,9 +84,9 @@ describe(`Donations.Appeal`, function() {
     ];
   };
 
-  describe(`drafting an appeal`, function() {
+  describe('drafting an appeal', function() {
 
-    it(`publishes an appeal added event`, function() {
+    it('publishes an appeal added event', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given()
@@ -103,9 +103,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`updating an appeal draft`, function() {
+  describe('updating an appeal draft', function() {
 
-    it(`publishes an appeal draft updated event`, function() {
+    it('publishes an appeal draft updated event', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given([
@@ -132,9 +132,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`making an appeal`, function() {
+  describe('making an appeal', function() {
 
-    it(`publishes an appeal made event`, function() {
+    it('publishes an appeal made event', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(draftAppeal.call(this))
@@ -147,7 +147,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`only allows appeals to be made if currently a draft`, function() {
+    it('only allows appeals to be made if currently a draft', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
@@ -179,7 +179,7 @@ describe(`Donations.Appeal`, function() {
 
   describe(`updating the title and/or description a public appeal`, function() {
 
-    it(`publishes an appeal updated event`, function() {
+    it('publishes an appeal updated event', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
@@ -202,9 +202,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`cancelling an appeal`, function() {
+  describe('cancelling an appeal', function() {
 
-    it(`cancels a draft appeal`, function() {
+    it('cancels a draft appeal', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(draftAppeal.call(this))
@@ -217,7 +217,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`does not allow cancelling of an open appeal`, function() {
+    it('does not allow cancelling of an open appeal', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
@@ -235,9 +235,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`making pledges`, function() {
+  describe('making pledges', function() {
 
-    it(`publishes a pledge made event`, function() {
+    it('publishes a pledge made event', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
@@ -254,7 +254,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`publishes appeal fulfilled event in addition when pledged quantity equals the required quantity`, function() {
+    it('publishes appeal fulfilled event in addition when pledged quantity equals the required quantity', function() {
 
       let pledgeQuantity = this.appealData.requiredQuantity;
 
@@ -310,7 +310,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`only allows new pledges if appeal is open`, function() {
+    it('only allows new pledges if appeal is open', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(fulfilledAppeal.call(this))
@@ -346,9 +346,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`managing pledges`, function() {
+  describe('managing pledges', function() {
 
-    describe(`accepting a pledge`, function() {
+    describe('accepting a pledge', function() {
 
       it("publishes pledge accepted event", function() {
 
@@ -366,7 +366,7 @@ describe(`Donations.Appeal`, function() {
 
       });
 
-      it(`cannot be accepted if appeal has been fulfilled`, function() {
+      it('cannot be accepted if appeal has been fulfilled', function() {
 
         Donations.domain.test(Donations.Appeal)
           .given(fulfilledAppeal.call(this))
@@ -387,7 +387,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    describe(`fulfilling a pledge`, function() {
+    describe('fulfilling a pledge', function() {
 
       it("publishes a pledge fulfilled event", function() {
 
@@ -405,7 +405,7 @@ describe(`Donations.Appeal`, function() {
 
       });
 
-      it(`cannot be fulfilled if not accepted`, function() {
+      it('cannot be fulfilled if not accepted', function() {
 
         Donations.domain.test(Donations.Appeal)
           .given(appealWithPledgeMade.call(this))
@@ -425,7 +425,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    describe(`declining a pledge`, function() {
+    describe('declining a pledge', function() {
 
       it("publishes pledge declined event", function() {
 
@@ -443,7 +443,7 @@ describe(`Donations.Appeal`, function() {
 
       });
 
-      it(`cannot decline if already fulfilled`, function() {
+      it('cannot decline if already fulfilled', function() {
 
         Donations.domain.test(Donations.Appeal)
           .given(appealWithFulfilledPledge.call(this))
@@ -464,7 +464,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    describe(`writing off pledges`, function() {
+    describe('writing off pledges', function() {
 
       it("publishes pledge written off event", function() {
 
@@ -482,7 +482,7 @@ describe(`Donations.Appeal`, function() {
 
       });
 
-      it(`cannot write off if already fulfilled`, function() {
+      it('cannot write off if already fulfilled', function() {
 
         Donations.domain.test(Donations.Appeal)
           .given(appealWithFulfilledPledge.call(this))
@@ -505,9 +505,9 @@ describe(`Donations.Appeal`, function() {
 
   });
 
-  describe(`closing an appeal`, function() {
+  describe('closing an appeal', function() {
 
-    it(`closes an open appeal when commanded`, function() {
+    it('closes an open appeal when commanded', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(openAppeal.call(this))
@@ -522,7 +522,7 @@ describe(`Donations.Appeal`, function() {
 
     });
 
-    it(`throws an error if commanded to close a fulfilled or presently closed appeal`, function() {
+    it('throws an error if commanded to close a fulfilled or presently closed appeal', function() {
 
       Donations.domain.test(Donations.Appeal)
         .given(fulfilledAppeal.call(this))

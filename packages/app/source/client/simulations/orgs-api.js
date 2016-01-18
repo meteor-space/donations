@@ -1,4 +1,4 @@
-Space.messaging.Api.extend(Donations, 'OrgsApi', {
+Space.messaging.Api.extend('Donations.OrgsApi', {
 
   dependencies: {
     organizations: 'Donations.Organizations'

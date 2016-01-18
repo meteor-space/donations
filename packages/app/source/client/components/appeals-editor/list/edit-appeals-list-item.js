@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'EditAppealsListItem', {
+Space.flux.BlazeComponent.extend('Donations.EditAppealsListItem', {
 
   is(state) {
     return this.data().state === state;

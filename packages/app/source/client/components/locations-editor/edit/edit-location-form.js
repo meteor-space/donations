@@ -1,4 +1,4 @@
-Donations.LocationForm.extend(Donations, 'EditLocationForm', {
+Donations.LocationForm.extend('Donations.EditLocationForm', {
 
   location() {
     return this.data().location;

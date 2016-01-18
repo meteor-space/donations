@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'LoginButton', {
+Space.flux.BlazeComponent.extend('Donations.LoginButton', {
 
   dependencies: {
     usersStore: 'Space.accountsUi.UsersStore'

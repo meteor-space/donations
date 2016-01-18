@@ -1,4 +1,4 @@
-Donations.AppealForm.extend(Donations, 'AddAppealForm', {
+Donations.AppealForm.extend('Donations.AddAppealForm', {
 
   _session: 'Donations.AddAppealForm',
 

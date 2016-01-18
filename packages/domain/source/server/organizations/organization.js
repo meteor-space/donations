@@ -1,4 +1,4 @@
-Space.eventSourcing.Aggregate.extend(Donations, `Organization`, {
+Space.eventSourcing.Aggregate.extend('Donations.Organization', {
 
   onExtending() {
     this.type('Donations.Organization');

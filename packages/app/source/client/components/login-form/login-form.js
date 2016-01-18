@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'OrgLoginForm', {
+Space.flux.BlazeComponent.extend('Donations.OrgLoginForm', {
 
   ENTER: 13,
 

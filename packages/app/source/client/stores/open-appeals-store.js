@@ -1,4 +1,4 @@
-Space.flux.Store.extend(Donations, 'OpenAppealsStore', {
+Space.flux.Store.extend('Donations.OpenAppealsStore', {
 
   dependencies: {
     appeals: 'Donations.OpenAppeals'

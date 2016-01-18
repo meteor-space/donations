@@ -1,6 +1,4 @@
-Space.eventSourcing.Aggregate.extend(Donations, `Appeal`, {
-
-  onExtending() { this.type('Donations.Appeal'); },
+Space.eventSourcing.Aggregate.extend('Donations.Appeal', {
 
   STATES: {
     draft: `draft`,

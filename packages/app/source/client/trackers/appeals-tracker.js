@@ -1,4 +1,4 @@
-Space.messaging.Tracker.extend(Donations, 'AppealsTracker', {
+Space.messaging.Tracker.extend('Donations.AppealsTracker', {
 
   dependencies: {
     store: 'Donations.LocationDetailsStore'

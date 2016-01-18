@@ -1,4 +1,4 @@
-Space.domain.Entity.extend(Donations, 'Pledge', {
+Space.domain.Entity.extend('Donations.Pledge', {
 
   STATES: {
     'new': `new`,
@@ -66,5 +66,3 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
   }
 
 });
-
-Donations.Pledge.type('Donations.Pledge');

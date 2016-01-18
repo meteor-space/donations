@@ -1,4 +1,4 @@
-Space.eventSourcing.Router.extend(Donations, `AppealRouter`, {
+Space.eventSourcing.Router.extend('Donations.AppealRouter', {
 
   eventSourceable: Donations.Appeal,
   initializingMessage: Donations.DraftAppeal,

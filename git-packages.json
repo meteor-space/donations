@@ -17,7 +17,7 @@
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
-    "version": "a86b5661e4245ad7e378b4c565bb9a7ebfa7ba5d"
+    "version": "83fea2cc9646f06c4794a736c746e684f0cb83c7"
   },
   "space:accounts": {
     "git":"https://github.com/meteor-space/accounts.git",
@@ -25,7 +25,7 @@
   },
   "space:accounts-ui": {
     "git":"https://github.com/meteor-space/accounts-ui.git",
-    "version": "d1d2c22ee757b3c0cba459e3d4fb62d683ea8b84"
+    "version": "b4d7baf95df94f93f835875057ab642846606fa1"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",

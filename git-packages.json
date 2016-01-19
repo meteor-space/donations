@@ -1,7 +1,7 @@
 {
   "space:base": {
     "git":"https://github.com/meteor-space/base.git",
-    "version": "80400f278c0ad911b8dee888eca4c54d979f1a1c"
+    "version": "ea63a29ad0e5bb604c8622c9c96132558dd8cd3e"
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
@@ -9,23 +9,23 @@
   },
   "space:event-sourcing": {
     "git":"https://github.com/meteor-space/event-sourcing.git",
-    "version": "12321cb99f8683fef44deea81290a8c38df43547"
+    "version": "9941fdd800543c1897eb0d8baaf30514e53f301a"
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",
-    "version": "86355d17dcb211e1a5bffb439fea92d99b15f00b"
+    "version": "7ad670416b7b62e97d3313b2562bd9e8c449df1e"
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
-    "version": "132a5f5a46263eb14e42d07ef1bafe6e0a949c65"
+    "version": "a86b5661e4245ad7e378b4c565bb9a7ebfa7ba5d"
   },
   "space:accounts": {
     "git":"https://github.com/meteor-space/accounts.git",
-    "version": "04fb2ce2bcfda4cd6fd5e63bc5da92e913fb1254"
+    "version": "87bcaf2258c38ce2d4058d8b77a828f608b8ee93"
   },
   "space:accounts-ui": {
     "git":"https://github.com/meteor-space/accounts-ui.git",
-    "version": "e22a6204124e7b2cd5bb253f2c99dbd94aaa35b8"
+    "version": "d1d2c22ee757b3c0cba459e3d4fb62d683ea8b84"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
@@ -33,14 +33,14 @@
   },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",
-    "verison": "c9ccd65a96c7eb3063e78c8105abe65364ac19b2"
+    "verison": "25f30fa8d3c32701ccbff58be3b2bf87c918e26a"
   },
   "space:vo-user": {
     "git":"https://github.com/meteor-space/vo-user.git",
-    "version": "30ffac53342427481a4d9d0b264b65775bae2eee"
+    "version": "447349eaf3f928051a5cea5e17d994a69981eabc"
   },
   "space:vo-numeral": {
     "git":"https://github.com/meteor-space/vo-numeral.git",
-    "version": "2e3effd2698057877062a24b5f091d6ab3b36520"
+    "version": "e790088e3317d2662bcac8aaf1936b16edd7b1f7"
   }
 }

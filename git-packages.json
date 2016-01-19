@@ -33,7 +33,7 @@
   },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",
-    "verison": "25f30fa8d3c32701ccbff58be3b2bf87c918e26a"
+    "version": "25f30fa8d3c32701ccbff58be3b2bf87c918e26a"
   },
   "space:vo-user": {
     "git":"https://github.com/meteor-space/vo-user.git",

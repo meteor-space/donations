@@ -17,15 +17,15 @@
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
-    "version": "efd1caa5d9c85efa929be5ae6f3d46e12eedabec"
+    "version": "132a5f5a46263eb14e42d07ef1bafe6e0a949c65"
   },
   "space:accounts": {
     "git":"https://github.com/meteor-space/accounts.git",
-    "version": "b40ffaf7d9cedaf121147c72c76b8a6fd6675b6e"
+    "version": "04fb2ce2bcfda4cd6fd5e63bc5da92e913fb1254"
   },
   "space:accounts-ui": {
     "git":"https://github.com/meteor-space/accounts-ui.git",
-    "version": "86663c2ddad388daf353f566e1d60dcd80cd5712"
+    "version": "5bbb7c2b4f66bfb87e838e30f5e5eb2b3bdcd5b1"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",

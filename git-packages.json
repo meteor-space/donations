@@ -25,7 +25,7 @@
   },
   "space:accounts-ui": {
     "git":"https://github.com/meteor-space/accounts-ui.git",
-    "version": "5bbb7c2b4f66bfb87e838e30f5e5eb2b3bdcd5b1"
+    "version": "63cd5d5c6f35d12c8b30212dd4ff1344f82db4c8"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",

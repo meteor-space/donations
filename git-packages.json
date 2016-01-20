@@ -27,10 +27,6 @@
     "git":"https://github.com/meteor-space/accounts-ui.git",
     "version": "b4d7baf95df94f93f835875057ab642846606fa1"
   },
-  "space:testing": {
-    "git":"https://github.com/meteor-space/testing.git",
-    "version": "1978ad9b6c40c1cda6030cafb7cc2496b27187e2"
-  },
   "space:vo-i18n": {
     "git":"https://github.com/meteor-space/vo-i18n.git",
     "version": "25f30fa8d3c32701ccbff58be3b2bf87c918e26a"
@@ -42,5 +38,13 @@
   "space:vo-numeral": {
     "git":"https://github.com/meteor-space/vo-numeral.git",
     "version": "e790088e3317d2662bcac8aaf1936b16edd7b1f7"
+  },
+  "space:testing": {
+    "git":"https://github.com/meteor-space/testing.git",
+    "version": "3974bd7f7e3cd467a3c29136afcd773c9ba6913a"
+  },
+  "space:testing-event-sourcing": {
+    "git":"https://github.com/meteor-space/testing-event-sourcing.git",
+    "version": "564629e234df55ba27617d1cfe69830725a1d74f"
   }
 }

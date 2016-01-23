@@ -1,4 +1,4 @@
-Donations.AppealForm.extend(Donations, 'EditAppealForm', {
+Donations.AppealForm.extend('Donations.EditAppealForm', {
 
   appeal() {
     return this.data().appeal;

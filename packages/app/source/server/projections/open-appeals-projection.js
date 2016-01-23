@@ -1,4 +1,4 @@
-Space.eventSourcing.Projection.extend(Donations, 'OpenAppealsProjection', {
+Space.eventSourcing.Projection.extend('Donations.OpenAppealsProjection', {
 
   dependencies: {
     organizations: 'Donations.Organizations',

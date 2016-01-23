@@ -1,4 +1,4 @@
-Space.messaging.Publication.extend(Donations, 'Publications', {
+Space.messaging.Publication.extend('Donations.Publications', {
 
   dependencies: {
     organizations: 'Donations.Organizations',

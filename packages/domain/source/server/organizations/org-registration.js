@@ -1,8 +1,4 @@
-Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
-
-  onExtending() {
-    this.type('Donations.Registration');
-  },
+Space.eventSourcing.Process.extend('Donations.OrgRegistration', {
 
   STATES: {
     initiated: 'initiated',
@@ -23,7 +19,7 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
     error: Match.Optional(Object)
   },
 
-  eventCorrelationProperty: 'Donations.OrgRegistrationId',
+  eventCorrelationProperty: 'orgRegistrationId',
 
   commandMap() {
     return {

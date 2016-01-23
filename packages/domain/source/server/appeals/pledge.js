@@ -1,10 +1,10 @@
-Space.domain.Entity.extend(Donations, 'Pledge', {
+Space.domain.Entity.extend('Donations.Pledge', {
 
   STATES: {
-    'new': `new`,
-    accepted: `accepted`,
-    declined: `declined`,
-    fulfilled: `fulfilled`,
+    'new': 'new',
+    accepted: 'accepted',
+    declined: 'declined',
+    fulfilled: 'fulfilled',
     writtenOff: 'writtenOff'
   },
 
@@ -66,5 +66,3 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
   }
 
 });
-
-Donations.Pledge.type('Donations.Pledge');

@@ -1,4 +1,4 @@
-Space.Object.extend(Donations, 'LayoutController', {
+Space.Object.extend('Donations.LayoutController', {
 
   mixin: [
     Space.messaging.EventSubscribing

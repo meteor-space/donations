@@ -1,4 +1,4 @@
-Space.Object.extend(Donations, 'AppealsController', {
+Space.Object.extend('Donations.AppealsController', {
 
   mixin: [
     Space.messaging.EventSubscribing,

@@ -1,4 +1,4 @@
-Space.Application.extend(Donations, 'App', {
+Space.Application.extend('Donations.App', {
 
   requiredModules: [
     'Space.messaging',

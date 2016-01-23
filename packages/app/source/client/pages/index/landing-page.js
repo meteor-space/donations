@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'LandingPage', {
+Space.flux.BlazeComponent.extend('Donations.LandingPage', {
 
   events() {
     return [{

@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'OrgRegistrationForm', {
+Space.flux.BlazeComponent.extend('Donations.OrgRegistrationForm', {
 
   ENTER: 13,
   _session: 'Donations.OrgRegistrationForm',

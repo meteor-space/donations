@@ -1,23 +1,23 @@
-describe(`Donations.OrgRegistration`, function() {
+describe('Donations.OrgRegistration', function() {
 
   beforeEach(function() {
     Meteor.users.remove({});
     this.processId = new Guid();
     this.data = {
-      name: `MyOrg`,
-      country: new Country(`AT`),
+      name: 'MyOrg',
+      country: new Country('AT'),
       contact: new Donations.Contact({
-        name: `Dominik Guzei`,
-        email: new EmailAddress(`dominik@example.com`),
+        name: 'Dominik Guzei',
+        email: new EmailAddress('dominik@example.com'),
         phone: `+43 4493 454`
       }),
       password: new Password('1234')
     };
   });
 
-  describe(`registering an organization`, function() {
+  describe('registering an organization', function() {
 
-    it(`signs up an admin and creates the organization`, function() {
+    it('signs up an admin and creates the organization', function() {
       Donations.domain.test(Donations.OrgRegistration).given()
         .when(
           new Donations.RegisterOrganization(_.extend({}, this.data, {

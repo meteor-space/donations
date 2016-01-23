@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'EditLocationsListItem', {
+Space.flux.BlazeComponent.extend('Donations.EditLocationsListItem', {
 
   reactiveVars() {
     return [{

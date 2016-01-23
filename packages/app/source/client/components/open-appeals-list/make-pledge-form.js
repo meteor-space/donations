@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'MakePledgeForm', {
+Space.flux.BlazeComponent.extend('Donations.MakePledgeForm', {
 
   reactiveVars() {
     return [{

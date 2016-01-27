@@ -15,10 +15,10 @@ Package.onUse(function(api) {
     'check',
     'ecmascript',
     'underscore',
-    'space:vo-user@0.1.0',
+    'space:vo-user@0.2.1',
     'space:vo-i18n@0.1.0',
     'space:vo-numeral@0.1.0',
-    'space:domain@0.1.0',
+    'space:domain@0.2.1',
     'space:event-sourcing@2.1.0',
     'space:accounts@0.1.3',
     'donations:base'

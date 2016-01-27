@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend('Donations.AppealForm', {
+Space.ui.BlazeComponent.extend('Donations.AppealForm', {
 
   ENTER: 13,
 

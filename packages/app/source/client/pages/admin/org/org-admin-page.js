@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend('Donations.OrgAdminPage', {
+Space.ui.BlazeComponent.extend('Donations.OrgAdminPage', {
 
   dependencies: {
     store: 'Donations.OrgsStore'

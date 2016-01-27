@@ -47,7 +47,7 @@ Package.onTest(function(api) {
     'underscore',
     'ecmascript',
     'space:testing@2.0.0',
-    'space:testing-event-sourcing@0.1.0',
+    'space:testing-event-sourcing@3.0.0',
     'space:vo-user',
     'space:vo-i18n',
     'space:vo-numeral',

@@ -1,4 +1,4 @@
-Space.messaging.define(Space.messaging.Command, `Donations`, {
+Space.messaging.define(Space.domain.Command, `Donations`, {
 
   DraftAppeal: {
     title: String,

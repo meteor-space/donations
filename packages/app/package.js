@@ -28,7 +28,7 @@ Package.onUse(function(api) {
     'kadira:blaze-layout@2.1.0',
     'meteorhacks:subs-manager@1.6.2',
     'percolate:migrations@0.9.7',
-    'space:base@4.1.0',
+    'space:base@4.1.1',
     'space:messaging@3.0.0',
     'space:event-sourcing@2.1.0',
     'space:flux@0.7.0',

@@ -13,8 +13,7 @@ Package.onUse(function(api) {
   api.use([
     'meteor-base',
     'standard-minifiers',
-    'templating',
-    'blaze-html-templates',
+    'blaze',
     'spacebars',
     'mongo',
     'session',
@@ -29,10 +28,10 @@ Package.onUse(function(api) {
     'kadira:blaze-layout@2.1.0',
     'meteorhacks:subs-manager@1.6.2',
     'percolate:migrations@0.9.7',
-    'space:base@3.1.0',
-    'space:messaging@2.1.0',
+    'space:base@4.1.1',
+    'space:messaging@3.0.0',
     'space:event-sourcing@2.1.0',
-    'space:flux@0.6.0',
+    'space:flux@0.7.0',
     'space:accounts@0.1.3',
     'space:accounts-ui@0.2.0',
     'space:vo-user@0.2.1',
@@ -181,7 +180,7 @@ Package.onTest(function(api) {
     'mongo',
     'donations:app',
     'practicalmeteor:munit@2.1.5',
-    'space:testing@2.0.0'
+    'space:testing@3.0.0'
   ]);
 
 });

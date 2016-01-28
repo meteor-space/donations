@@ -1,4 +1,4 @@
-Space.messaging.define(Space.messaging.Event, `Donations`, {
+Space.messaging.define(Space.domain.Event, `Donations`, {
 
   OrgRegistrationInitiated: {
     adminId: Guid,

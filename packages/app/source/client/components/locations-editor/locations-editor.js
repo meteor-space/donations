@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend('Donations.LocationsEditor', {
+Space.ui.BlazeComponent.extend('Donations.LocationsEditor', {
 
   dependencies: {
     orgsStore: 'Donations.OrgsStore'

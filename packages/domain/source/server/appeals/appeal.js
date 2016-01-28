@@ -262,4 +262,4 @@ Space.eventSourcing.Aggregate.extend('Donations.Appeal', {
 
 });
 
-Donations.Appeal.registerSnapshotType('Donations.AppealSnapshot');
+Donations.Appeal.registerSnapshotType('Donations.Appeal');

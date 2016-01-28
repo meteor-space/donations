@@ -1,4 +1,8 @@
+.idea
 environment.sh
 local-packages.json
 packages/.gitignore
-.idea
+import-cached-db.sh
+import-prod-db.sh
+import-prod-db-tunnel.sh
+.production-db-dump/

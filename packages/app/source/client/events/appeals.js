@@ -1,4 +1,4 @@
-Space.messaging.define(Space.messaging.Event, 'Donations', {
+Space.ui.defineEvents('Donations', {
 
   AddAppealFormSubmitted: {
     title: String,

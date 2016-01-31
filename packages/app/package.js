@@ -58,7 +58,8 @@ Package.onUse(function(api) {
     'source/server/projections/open-appeals-projection.js',
     'source/server/publications.js',
     // MIGRATIONS
-    'source/server/migrations/1449766484513_rebuild_appeals_projection.js'
+    // sample migration:
+    // 'source/server/migrations/example_1449766484513_rebuild_appeals_projection.js'
   ], 'server');
 
   // i18n - Must load before templates

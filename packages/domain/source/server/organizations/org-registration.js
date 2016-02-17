@@ -19,7 +19,7 @@ Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
     error: Match.Optional(Object)
   },
 
-  eventCorrelationProperty: 'Donations.OrgRegistrationId',
+  eventCorrelationProperty: 'orgRegistrationId',
 
   commandMap() {
     return {

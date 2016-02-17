@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'OpenAppealsListItem', {
+Space.ui.BlazeComponent.extend('Donations.OpenAppealsListItem', {
 
   onRendered() {
     this._root = this.$(this.firstNode());

@@ -1,4 +1,4 @@
-Space.Object.extend(Donations, 'RouteController', {
+Space.Object.extend('Donations.RouteController', {
 
   mixin: [
     Space.messaging.EventSubscribing

@@ -1,4 +1,4 @@
-Space.eventSourcing.Projection.extend(Donations, 'OrgRegistrationsProjection', {
+Space.eventSourcing.Projection.extend('Donations.OrgRegistrationsProjection', {
 
   collections: {
     signups: 'Space.accountsUi.Signups'

@@ -1,6 +1,6 @@
 SignupController = Space.accountsUi.SignupController;
 
-SignupController.extend(Donations, 'OrgRegistrationsController', {
+SignupController.extend('Donations.OrgRegistrationsController', {
 
   dependencies: {
     signupsStore: 'Space.accountsUi.SignupsStore'

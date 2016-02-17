@@ -1,4 +1,4 @@
-Donations.LocationForm.extend(Donations, 'AddLocationForm', {
+Donations.LocationForm.extend('Donations.AddLocationForm', {
 
   _session: 'Donations.AddLocationForm',
 

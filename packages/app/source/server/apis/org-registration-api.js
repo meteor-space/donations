@@ -1,4 +1,4 @@
-Space.messaging.Api.extend(Donations, 'OrgRegistrationApi', {
+Space.messaging.Api.extend('Donations.OrgRegistrationApi', {
 
   methods() {
     return [{

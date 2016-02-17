@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'LocationForm', {
+Space.ui.BlazeComponent.extend('Donations.LocationForm', {
 
   ENTER: 13,
 

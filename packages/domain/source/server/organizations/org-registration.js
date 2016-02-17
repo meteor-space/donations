@@ -1,4 +1,4 @@
-Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
+Space.eventSourcing.Process.extend('Donations.OrgRegistration', {
 
   STATES: {
     initiated: 'initiated',

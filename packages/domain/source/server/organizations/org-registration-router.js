@@ -1,4 +1,4 @@
-Space.eventSourcing.Router.extend(Donations, `OrgRegistrationRouter`, {
+Space.eventSourcing.Router.extend('Donations.OrgRegistrationRouter', {
 
   eventSourceable: Donations.OrgRegistration,
   initializingMessage: Donations.RegisterOrganization,

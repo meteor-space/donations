@@ -1,4 +1,4 @@
-Space.flux.BlazeComponent.extend(Donations, 'AppealsEditor', {
+Space.ui.BlazeComponent.extend('Donations.AppealsEditor', {
 
   dependencies: {
     locationDetailsStore: 'Donations.LocationDetailsStore'

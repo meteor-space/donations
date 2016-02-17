@@ -1,4 +1,4 @@
-Space.flux.Store.extend(Donations, 'LocationDetailsStore', {
+Space.flux.Store.extend('Donations.LocationDetailsStore', {
 
   dependencies: {
     orgsStore: 'Donations.OrgsStore',

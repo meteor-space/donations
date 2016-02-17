@@ -13,11 +13,11 @@ Package.onUse(function(api) {
   api.use([
     'check',
     'ecmascript',
-    'space:messaging@2.1.0',
-    'space:domain@0.1.0',
-    'space:vo-user@0.1.0',
-    'space:vo-i18n@0.1.0',
-    'space:vo-numeral@0.1.0'
+    'space:messaging@3.1.1',
+    'space:domain@0.2.1',
+    'space:vo-user@0.3.0',
+    'space:vo-i18n@0.2.0',
+    'space:vo-numeral@0.2.0'
   ]);
 
   // SHARED

@@ -15,12 +15,12 @@ Package.onUse(function(api) {
     'check',
     'ecmascript',
     'underscore',
-    'space:vo-user@0.1.0',
-    'space:vo-i18n@0.1.0',
-    'space:vo-numeral@0.1.0',
-    'space:domain@0.1.0',
-    'space:event-sourcing@2.1.0',
-    'space:accounts@0.1.3',
+    'space:vo-user@0.3.0',
+    'space:vo-i18n@0.2.0',
+    'space:vo-numeral@0.2.0',
+    'space:domain@0.2.1',
+    'space:event-sourcing@3.0.0',
+    'space:accounts@0.2.0',
     'donations:base'
   ]);
 
@@ -46,7 +46,7 @@ Package.onTest(function(api) {
     'mongo',
     'underscore',
     'ecmascript',
-    'space:testing@2.0.0',
+    'space:testing@3.0.1',
     'space:vo-user',
     'space:vo-i18n',
     'space:vo-numeral',

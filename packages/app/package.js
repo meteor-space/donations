@@ -13,8 +13,7 @@ Package.onUse(function(api) {
   api.use([
     'meteor-base',
     'standard-minifiers',
-    'templating',
-    'blaze-html-templates',
+    'blaze',
     'spacebars',
     'mongo',
     'session',
@@ -24,20 +23,20 @@ Package.onUse(function(api) {
     'sha',
     'accounts-password',
     'tap:i18n@1.7.0',
-    'peerlibrary:blaze-components@0.15.0',
-    'meteorhacks:flow-router@1.19.0',
+    'peerlibrary:blaze-components@0.16.2',
+    'kadira:flow-router@2.10.1',
     'kadira:blaze-layout@2.1.0',
-    'meteorhacks:subs-manager@1.6.2',
-    'percolate:migrations@0.9.7',
-    'space:base@3.1.0',
-    'space:messaging@2.1.0',
-    'space:event-sourcing@2.1.0',
-    'space:flux@0.6.0',
-    'space:accounts@0.1.3',
-    'space:accounts-ui@0.2.0',
-    'space:vo-user@0.2.1',
-    'space:vo-i18n@0.1.0',
-    'space:vo-numeral@0.1.0',
+    'meteorhacks:subs-manager@1.6.3',
+    'percolate:migrations@0.9.8',
+    'space:base@4.1.2',
+    'space:messaging@3.1.1',
+    'space:event-sourcing@3.0.0',
+    'space:flux@0.7.0',
+    'space:accounts@0.2.0',
+    'space:accounts-ui@0.3.0',
+    'space:vo-user@0.3.0',
+    'space:vo-i18n@0.2.0',
+    'space:vo-numeral@0.2.0',
     'donations:base',
     'donations:domain'
   ]);
@@ -181,7 +180,7 @@ Package.onTest(function(api) {
     'mongo',
     'donations:app',
     'practicalmeteor:munit@2.1.5',
-    'space:testing@2.0.0'
+    'space:testing@3.0.1'
   ]);
 
 });

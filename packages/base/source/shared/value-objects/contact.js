@@ -8,6 +8,3 @@ Space.domain.ValueObject.extend(Donations, `Contact`, {
     };
   }
 });
-
-// Register as EJSON type
-Donations.Contact.type(`Donations.Contact`);

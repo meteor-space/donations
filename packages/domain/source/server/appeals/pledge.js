@@ -66,5 +66,3 @@ Space.domain.Entity.extend(Donations, 'Pledge', {
   }
 
 });
-
-Donations.Pledge.type('Donations.Pledge');

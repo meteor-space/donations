@@ -1,9 +1,5 @@
 Space.eventSourcing.Process.extend(Donations, 'OrgRegistration', {
 
-  onExtending() {
-    this.type('Donations.Registration');
-  },
-
   STATES: {
     initiated: 'initiated',
     approved: 'approved',

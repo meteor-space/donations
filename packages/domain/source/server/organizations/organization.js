@@ -57,4 +57,4 @@ Space.eventSourcing.Aggregate.extend('Donations.Organization', {
 
 });
 
-Donations.Organization.registerSnapshotType('Donations.OrganizationSnapshot');
+Donations.Organization.registerSnapshotType('Donations.Organization');

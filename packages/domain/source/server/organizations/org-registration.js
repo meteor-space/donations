@@ -122,6 +122,4 @@ Space.eventSourcing.Process.extend('Donations.OrgRegistration', {
 
 });
 
-Donations.OrgRegistration.registerSnapshotType(
-  'Donations.OrgRegistrationSnapshot'
-);
+Donations.OrgRegistration.registerSnapshotType('Donations.OrgRegistration');
